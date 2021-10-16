@@ -1,0 +1,44 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz, tkz-euclide, pgfplots}
+\usetkzobj{all}
+\pgfplotsset{compat=1.15}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{scope}[line width = 10]
+\clip (-5.000000,-5.000000) rectangle (5.000000,5.000000);
+\tkzDefPoint(-5.000000, -5.000000){corner_A}
+\tkzDefPoint(-5.000000, 5.000000){corner_B}
+\tkzDefPoint(5.000000, 5.000000){corner_C}
+\tkzDefPoint(5.000000, -5.000000){corner_D}
+\tkzDrawPolygon[fill=white, color=white](corner_A,corner_B,corner_C,corner_D)
+
+\tkzDefPoint(2.057143, 2.942857){A}
+\tkzDefPoint(-2.471429, 2.528571){B}
+\tkzDefPoint(-0.442857, -0.328571){C}
+\tkzDefPoint(-2.714286, -2.400000){D}
+\tkzDefPoint(0.257143, -2.114286){E}
+\tkzDefPoint(2.314286, -0.742857){F}
+
+\tkzSetUpLine[line width=10]
+\tkzSetUpPoint[size=3]
+\tkzDrawSegment(A,B)
+\tkzDrawSegment(B,C)
+\tkzDrawSegment(C,D)
+\tkzDrawSegment(D,E)
+\tkzDrawSegment(E,F)
+
+\tkzDrawCircle[circum](B,C,A)
+
+\tkzDrawPoint(A)
+
+\tkzDrawPoint(B)
+\tkzDrawPoint(C)
+\tkzDrawPoint(D)
+\tkzDrawPoint(E)
+\tkzDrawPoint[size=5](F)
+
+\end{scope}
+\end{tikzpicture}
+\end{document}
