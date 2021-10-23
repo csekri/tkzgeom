@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.8.27)  16 OCT 2021 03:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.8.27)  23 OCT 2021 06:43
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
-**tmp/temp.tex
-(./tmp/temp.tex
+**temp.tex
+(./temp.tex
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-08-07>
 (/usr/local/texlive/2020/texmf-dist/tex/latex/standalone/standalone.cls
@@ -846,7 +846,7 @@ s/tikzlibrarybackgrounds.code.tex
 File: tikzlibrarybackgrounds.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@layerbox@background=\box65
 \pgf@layerboxsaved@background=\box66
-) (tmp/temp.aux)
+) (./temp.aux)
 \openout1 = `temp.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
@@ -887,32 +887,32 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 20.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 26.
 
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 20.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 26.
 
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (tmp/te
-mp.aux) ) 
+{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./temp
+.aux) ) 
 Here is how much of TeX's memory you used:
- 21698 strings out of 480893
- 469929 string characters out of 5908067
- 746627 words of memory out of 5000000
- 36763 multiletter control sequences out of 15000+600000
+ 21737 strings out of 480893
+ 470694 string characters out of 5908067
+ 748627 words of memory out of 5000000
+ 36803 multiletter control sequences out of 15000+600000
  537550 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,7n,107p,7175b,773s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
-i10.pfb>
-Output written on tmp/temp.pdf (1 page, 10632 bytes).
+ 68i,7n,107p,7171b,777s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi1
+0.pfb>
+Output written on temp.pdf (1 page, 11370 bytes).
 PDF statistics:
  39 PDF objects out of 1000 (max. 8388607)
  18 compressed objects within 1 object stream

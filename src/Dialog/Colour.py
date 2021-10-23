@@ -2,11 +2,9 @@
 contains functions for the color picker dialog
 """
 
-from PyQt5 import QtCore, QtWidgets, QtGui, uic
-import sys, os, time
-from copy import deepcopy
-import son_of_j as soj
-from constants import *
+from PyQt5 import QtWidgets, QtGui, uic
+
+from Constants import *
 
 
 # converts a setup in the dialog to tikz colour code

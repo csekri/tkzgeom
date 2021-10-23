@@ -1,36 +1,39 @@
+
 ![icon](icon/ico_big.png)
 # TkzGeom
 
 **TkzGeom** is a GUI tool to create publication quality figures in *.tex* or *.pdf* format. It aids and speeds up the production of a wide range of tikz images.
 
-## Requirements
+# Requirements
 
-Installation of TexLive 2019 or newer is required as well as a command line tool for PDF to JPG converter. The default converter is "pdftocairo", which is the part of TexLive. This can be configured in the settings menu. 
-The program can be used without TexLive as long as auto-compile is turned off, and the project is never compiled, but it results in user experience without visual feedback.
-For functions to compile Gnuplot is needed.
+- TexLive 2019 or newer or MiKTeX 2019 or newer (have not tested MiKTeX but should work in principle), the program runs without it as long as auto-compile is turned off, and the project is never compiled but it results in user experience without visual feedback.
+- A PDF to JPG converter, the default converter is `pdftocairo`, which is part of TexLive. This can be configured in the settings menu.
+- `Gnuplot`, this is needed only when functions are in the figure.
+- Libraries for Python can be installed using `pip install -r requirements.txt`. Note that here `Pygments` is not needed, only if the user wants to try other syntax highlighting than the built in.
 
-## Usage
+# Usage
 
-1. From the radio button at the top of the screen choose the object type you would like to draw. 
-2. In the corresponding droplist select the item to be added. Functions can be added on the separate click button.
-3. Click on the canvas or on existing objects.
-4. Once the object exists, "Right Click" the canvas and fine tune the appearance of the objects.
-5. Move the free points on the canvas or the canvas itself by choosing the "interactions" radio button. Zoom the canvas in/out using the slider on the right hand side.
+1. Run the `Makefile` by running make in the root folder of the program.
+2. From the radio button at the top of the screen choose the object type you would like to draw.
+3. In the corresponding droplist select the item to be added. Functions can be added on the separate click button.
+4. Click on the canvas or on existing objects.
+5. Once the object exists, "Right Click" the canvas and fine tune the appearance of the objects.
+6. Move the free points on the canvas or the canvas itself by choosing the "interactions" radio button. Zoom the canvas in/out using the slider on the right hand side.
 
-## Features
+# Features
 
-Basic knowledge of tikz helps making the most out of this software.
-
-1. instantly generated tikz code,
+1. instantly generated TikZ code,
 2. move free points on the canvas,
 3. auto compilation into PDF for visual feedback,
 4. additional packages and libraries can be added,
 5. additional tikz code can be added after the generated code, so unimplemented features can be used on the user defined points, e.g. this can be used to define electric circuits with ease,
-6. additional code can be added before the image, this is useful e.g. for \newcommands,
+6. additional code can be added before the image, this is useful e.g. for `\newcommand`s,
 7. perfect tool for visualising figures in Euclidean geometry,
-8. projects can be saved, and loaded in the popular JSON extension, loading such file in a programming language with opencv can create animated videos.
+8. projects can be saved, and loaded in the popular JSON extension, loading such file in a programming language with `openCV` can create animated videos.
 
-## Shortcuts
+> Basic knowledge of tikz helps making the most out of this software.
+
+# Shortcuts
 
 |Key             |Shortcut of                         |
 |----------------|------------------------------------|
@@ -40,9 +43,17 @@ Basic knowledge of tikz helps making the most out of this software.
 |F5              |compile the current version of edit |
 |CTRL+O          |open existing project               |
 |CTRL+S          |save current project                |
+|CTRL+SHIFT+S    |save as                             |
+|CTRL+N          |create new project                  |
 
-## Object explanation
-### Point:
+# Demos
+
+## Animated video using a saved session from TkzGeom
+
+![anim](demos/anim.gif)
+
+# Object explanation
+## Point:
 **point**: click <ins>anywhere</ins> on the canvas;
 defines a point at any coordinate,
 
@@ -70,7 +81,7 @@ defines a point on the bisector of an angle
 **translate with vector**: click <ins>three points</ins>:
 defines a new point from old after translation by vector
 
-**perpendicular**: click <ins>two points</ins> or <ins>a segment</ins>;
+**perpendicular**: click <ins>two points</ins>;
 defines a point on the perpendicular to the segment at the first point
 
 **rotation**: click <ins>two points and angle in degrees</ins> in a popup window;
@@ -78,7 +89,8 @@ defines a point on rotated by a given angle around another point
 
 **make grid**: click <ins>three points and rows and columns</ins> in a popup window (these points will span the grid);
 defines the lattice of points generated by the three selected points (movement of the three points results in the entire lattice move)
-### Segment:
+
+## Segment:
 
 **segment**: click <ins>two points</ins>;
 defines a segment connecting the two points
@@ -88,7 +100,8 @@ defines a polygon object
 
 **linestring**: click <ins>the vertices of the linestring and the last vertex again</ins> to conclude;
 defines a linestring object
-### Circle:
+
+## Circle:
 
 **circumscribed circle**: click <ins>three points</ins>;
 defines the circumscribed circle around three points
@@ -104,16 +117,18 @@ defines a sector with first point as center, the other two defining the radius a
 
 **inscribed circle**: click <ins>three points</ins>;
 defines the inscribed circle around three points
-### Interactions:
+## Interactions:
 **move point**: drag free points the change their positions
 
 **move canvas**: drag canvas to a new position
-### Decorators:
+## Decorators:
 **mark angle**: click <ins>three points</ins>;
 defines an arc to show the presence of an angle
 
 **mark right angle**: click <ins>three points</ins>;
 defines an arc to show the presence of a right angle
-## Limitations
-A select of features are included as part of the GUI, enough to cover most situations, but does not aim to be comprehensive. As to mitigate this issue, there is an option to add any code after the automatically generated code, and also to add other LaTeX packages/libraries.
-The draw order of objects is predetermined there is no built in way to change this. 
+
+# Limitations
+
+A select of features are included as part of the GUI, enough to cover most everyday situations, but does not aim to be comprehensive. As to mitigate this issue, there is an option to add any code after the automatically generated code, and also to add other LaTeX packages/libraries.
+The draw order of objects is predetermined there is no built in way to change this.

@@ -4,12 +4,10 @@ settings for ducks
 """
 
 from PyQt5 import QtCore, QtWidgets, QtGui, uic
-import sys, os, time
-from copy import deepcopy
-import son_of_j as soj
-import colour
-from constants import *
 
+from Utils import save_eucl_file
+from Dialog.Colour import ColourDialog
+from Constants import *
 
 #fill QT interface with the correct values
 def fill_fields(dialog):
@@ -279,8 +277,9 @@ class DuckPropertiesDialog(QtWidgets.QDialog):
             self.scene.compile_tkz_and_render()
             self.scene.autocompile = previous_autocompile
         elif event.matches(QtGui.QKeySequence.Save):
-            soj.save_eucl_file('data.json', self.scene.eucl)
-
+            Utils.save(self) #.save_eucl_file('data.json', self.scene.eucl)
+        elif event.matches(QtGui.QKeySequence.SaveAs):
+            Utils.save_as(self) #.save_eucl_file('data.json', self.scene.eucl)
 
 
     def checkb_state_changed(self, state, my_object, property):
@@ -448,7 +447,7 @@ class DuckPropertiesDialog(QtWidgets.QDialog):
             self.ui.duck_show.setFocus()
 
     def colour_open(self, my_object, property):
-        dialog_colour = colour.ColourDialog(self.scene, self.pt_idx, my_object, property)
+        dialog_colour = ColourDialog(self.scene, self.pt_idx, my_object, property)
         dialog_colour.setWindowIcon(QtGui.QIcon("icon/ico.png"))
         dialog_colour.exec_()
 

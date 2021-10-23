@@ -2,9 +2,9 @@
 contains functions that converts the eucl dictionary data structure into tikz
 """
 
-from constants import *
-import preset_models
-import numpy as np
+from Constants import *
+import PresetModels
+import numpy as np # needed because of eval(), in order to use numpy inside
 
 
 def get_item_from_id(eucl, id, type):
@@ -59,35 +59,35 @@ def tikzify_duck_new_commands(eucl):
             if point["duck"]["special"] == model and\
                point["duck"]["type"] == 'special' and point["duck"]["show"] == True:
                 if model == 'horse':
-                    add_model = preset_models.horse()
+                    add_model = PresetModels.horse()
                 elif model == 'unicorn':
-                    add_model = preset_models.unicorn()
+                    add_model = PresetModels.unicorn()
                 elif model == 'bunny':
-                    add_model = preset_models.bunny()
+                    add_model = PresetModels.bunny()
                 elif model == 'sheep':
-                    add_model = preset_models.sheep()
+                    add_model = PresetModels.sheep()
                 elif model == 'girlwithpearlearring':
-                    return_string += preset_models.girl_with_pearl_earring_colours()
-                    add_model = preset_models.girl_with_pearl_earring()
+                    return_string += PresetModels.girl_with_pearl_earring_colours()
+                    add_model = PresetModels.girl_with_pearl_earring()
                 elif model == 'queenuk':
-                    return_string += preset_models.queen_uk_colours()
-                    add_model = preset_models.queen_uk()
+                    return_string += PresetModels.queen_uk_colours()
+                    add_model = PresetModels.queen_uk()
                 elif model == 'snowman':
-                    add_model = preset_models.snowman()
+                    add_model = PresetModels.snowman()
                 elif model == 'overleaf':
-                    add_model = preset_models.overleaf()
+                    add_model = PresetModels.overleaf()
                 elif model == 'ceasar':
-                    add_model = preset_models.ceasar()
+                    add_model = PresetModels.ceasar()
                 elif model == 'ghost':
-                    return_string += preset_models.ghost_colours()
-                    add_model = preset_models.ghost()
+                    return_string += PresetModels.ghost_colours()
+                    add_model = PresetModels.ghost()
                 elif model == 'yoda':
-                    return_string += preset_models.yoda_colours()
-                    add_model = preset_models.yoda()
+                    return_string += PresetModels.yoda_colours()
+                    add_model = PresetModels.yoda()
                 elif model == 'vader':
-                    add_model = preset_models.vader()
+                    add_model = PresetModels.vader()
                 elif model == 'leila':
-                    add_model = preset_models.leila()
+                    add_model = PresetModels.leila()
 
                 return_string += add_model
                 break
@@ -97,19 +97,19 @@ def tikzify_duck_new_commands(eucl):
                point["duck"]["type"] == 'chess' and point["duck"]["show"] == True:
                 add_model = ''
                 if model == 'wbauer' or model == 'bbauer':
-                    add_model = preset_models.bauer()
+                    add_model = PresetModels.bauer()
                 elif model == 'wturm' or model == 'bturm':
-                    add_model = preset_models.turm()
+                    add_model = PresetModels.turm()
                 elif model == 'wspringer' or model == 'bspringer':
-                    add_model = preset_models.springer()
+                    add_model = PresetModels.springer()
                 elif model == 'wlaeufer' or model == 'blaeufer':
-                    add_model = preset_models.laeufer()
+                    add_model = PresetModels.laeufer()
                 elif model == 'wdame' or model == 'bdame':
-                    add_model = preset_models.dame()
+                    add_model = PresetModels.dame()
                 elif model == 'wkoenig' or model == 'bkoenig':
-                    add_model = preset_models.koenig()
+                    add_model = PresetModels.koenig()
                 if add_model != '':
-                    return_string += preset_models.chess_colours()
+                    return_string += PresetModels.chess_colours()
                 return_string += add_model
                 break
     return return_string
@@ -1788,6 +1788,52 @@ def tikzify_duck_commands(point):
         return "\\begin{tikzpicture}[scale=%s]\\duck[%s]\\end{tikzpicture}" % (duck["size"],options)
 
 
+#lbs stands for left/bottom/scale while tblr is for top/bottom/left/right
+def eucl2tkz(eucl, lbs, tblr=None):
+    left, bottom, scale = lbs
+    right, top, margin = (left + 10 * scale, bottom + 10 * scale, scale * 1.3)
+    if tblr is not None:
+        top, bottom, left, right = tblr
+
+    return_string = tikzify_duck_new_commands(eucl)
+    if return_string != '':
+        return_string = '%TIKZDUCKS NEWCOMMANDS\n' + return_string + '\n'
+
+    if eucl["code_before"] != '':
+        return_string += '%CUSTOM PRECEEDING CODE\n' + eucl["code_before"] + '\n'
+    return_string += tikzify_init(eucl, margin, top, bottom, left, right)
+    grid = tikzify_grid(eucl)
+    if eucl["axis_x"]["show"] or eucl["axis_y"]["show"]:
+        return_string += tikzify_grid_with_any_axis(eucl, grid)
+        return_string += tikzify_x_axis(eucl)
+        return_string += tikzify_y_axis(eucl)
+        return_string += tikzify_axis_clip(eucl)
+    else:
+        return_string += tikzify_grid_without_axis(eucl, grid)
+    return_string += tikzify_all_point_declarations(eucl)
+    return_string += tikzify_polygons_and_linestrings(eucl)
+    return_string += tikzify_functions(eucl)
+    return_string += tikzify_segments(eucl)
+    return_string += tikzify_segment_marks(eucl)
+    return_string += tikzify_filled_angles(eucl)
+    return_string += tikzify_angles(eucl)
+    return_string += tikzify_circles(eucl)
+    return_string += tikzify_angle_labels(eucl)
+    return_string += tikzify_segment_labels(eucl)
+    return_string += tikzify_circle_labels(eucl)
+    return_string += tikzify_points(eucl)
+    return_string += tikzify_point_labels(eucl)
+    if eucl["code_after"] != '':
+        return_string += '%CUSTOM FOLLOWING CODE\n' + eucl["code_after"] + '\n'
+    return_string += tikzify_finalise(eucl)
+    return return_string
 
 
-#
+def tkz2tex(eucl, tkz_string):
+    return_string  = "\\documentclass[tikz]{standalone}\n"
+    return_string += '\n'.join(eucl["packages"]) + '\n'
+    # return_string += "\\usetkzobj{all}\n"
+    return_string += "\\begin{document}\n"
+    return_string += tkz_string
+    return_string += "\\end{document}\n"
+    return return_string

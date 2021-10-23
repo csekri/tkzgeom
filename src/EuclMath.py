@@ -4,12 +4,22 @@ This script contains routines for computation in Eulidean geometry.
 
 import numpy as np
 
-
-# estimates a circle with evenly space points sampled on it
-# num number of samples
-# with from_to we can set at what angle it starts and what angle it ends
-# 0, 360 for full circle
 def circle_approx_pts(centre, radius, num, from_to=[0,360]):
+    """
+    SUMMARY
+        estimates a circle with evenly spaced points sampled on it
+        sets current mode
+
+    PARAMETERS
+        centre: list of x coordinate and y coordinate
+        radius: radius of circle
+        num: number of samples
+        from_to: with from_to we can set at what angle it starts and what angle it ends
+            [0, 360] for full circle
+
+    RETURNS
+        [(float, float)]
+    """
     centre = np.array(centre)
     if from_to[1] < from_to[0]:
         myrange = range(from_to[1], from_to[0]+360, (from_to[0]+360-from_to[1])//num)
@@ -22,10 +32,19 @@ def circle_approx_pts(centre, radius, num, from_to=[0,360]):
 
     return return_pts
 
-
-# A, B, C are pairs of coordinates
-# the function computes the centre of the circumscribed circle
 def circumcentre(A,B,C):
+    """
+    SUMMARY
+        computes the centre of the circumscribed circle
+
+    PARAMETERS
+        A: coordinates of vertex A
+        B: coordinates of vertex B
+        C: coordinates of vertex C
+
+    RETURNS
+        (float, float)
+    """
     D = 2 * (A[0]*(B[1]-C[1]) + B[0]*(C[1]-A[1]) + C[0]*(A[1]-B[1]))
     K_x_A = (A[0]*A[0] + A[1]*A[1]) * (B[1]-C[1])
     K_x_B = (B[0]*B[0] + B[1]*B[1]) * (C[1]-A[1])
@@ -39,26 +58,50 @@ def circumcentre(A,B,C):
 
     return K_x, K_y
 
-
-# A and centre are pairs of coordiantes
-# the function computes the radius of the circumscribed circle given a vertex
-# of the triangle and the computed centre of the circle
 def circumradius(A, centre):
+    """
+    SUMMARY
+        computes the radius of the circumscribed circle given a vertex
+
+    PARAMETERS
+        A: coordinates of vertex A
+        centre: coordinates of the centre of the circle
+
+    RETURNS
+        float
+    """
     return np.linalg.norm(np.array(A)-np.array(centre))
 
-
-# A, B, C are pairs of coordinates
-# combines circumcentre(A,B,C) and circumradius(A, centre) to compute both
-# the centre and the radius
 def circum_centre_and_radius(A,B,C):
+    """
+    SUMMARY
+        combines circumcentre(A,B,C) and circumradius(A, centre) to compute both
+
+    PARAMETERS
+        A: coordinates of vertex A
+        B: coordinates of vertex B
+        C: coordinates of vertex C
+
+    RETURNS
+        ([float, float], float)
+    """
     centre = circumcentre(A,B,C)
     radius = circumradius(A,centre)
     return centre, radius
 
-
-# A, B, C are pairs of coordinates
-# the function computes the centre of the inscribed circle
 def incentre(A,B,C):
+    """
+    SUMMARY
+        computes the centre of the inscribed circle of a triangle
+
+    PARAMETERS
+        A: coordinates of vertex A
+        B: coordinates of vertex B
+        C: coordinates of vertex C
+
+    RETURNS
+        [float, float]
+    """
     A = np.array(A)
     B = np.array(B)
     C = np.array(C)
@@ -70,11 +113,19 @@ def incentre(A,B,C):
     I_y = (a*A[1]+b*B[1]+c*C[1]) / (a+b+c)
     return I_x, I_y
 
-
-# A, B, C are pairs of coordinates
-# the function computes the radius of the circumscribed circle given the
-# three vertices of the triangle
 def inradius(A,B,C):
+    """
+    SUMMARY
+        computes the radius of the circumscribed circle (uses Heron's formula)
+
+    PARAMETERS
+        A: coordinates of vertex A
+        B: coordinates of vertex B
+        C: coordinates of vertex C
+
+    RETURNS
+        float
+    """
     a = np.linalg.norm(np.array(B)-np.array(C))
     b = np.linalg.norm(np.array(C)-np.array(A))
     c = np.linalg.norm(np.array(A)-np.array(B))
@@ -82,20 +133,38 @@ def inradius(A,B,C):
     return np.sqrt(s*(s-a)*(s-b)*(s-c)) / s
 
 
-# A, B, C are pairs of coordinates
-# combines circumcentre(A,B,C) and circumradius(A, centre) to compute both
-# the centre and the radius
 def in_centre_and_radius(A,B,C):
+    """
+    SUMMARY
+        combines circumcentre(A,B,C) and circumradius(A, centre) to compute both
+
+    PARAMETERS
+        A: coordinates of vertex A
+        B: coordinates of vertex B
+        C: coordinates of vertex C
+
+    RETURNS
+        ([float, float], float)
+    """
     centre = incentre(A,B,C)
     radius = inradius(A,B,C)
     return centre, radius
 
-
-# A, B are pairs of coordinates of the endpoints of a segment
-# P, Q are pairs of coordinates of the endpoints of a segment
-# computes the coordinates of the intersection of segment AB and segment PQ,
-# beware: when the segments are parallel the denominators are 0
 def ll_intersection(A,B,P,Q):
+    """
+    SUMMARY
+        computes the coordinates of the intersection of segment AB and segment PQ,
+        (beware: when the segments are parallel the denominators are 0)
+
+    PARAMETERS
+        A: coordinates of vertex A
+        B: coordinates of vertex B
+        P: coordinates of vertex P
+        Q: coordinates of vertex Q
+
+    RETURNS
+        ([float, float], float)
+    """
     denominator = (A[0]-B[0]) * (P[1]-Q[1]) - (A[1]-B[1]) * (P[0]-Q[0])
     if denominator == 0:
         return (DEFAULT,DEFAULT)
@@ -106,14 +175,23 @@ def ll_intersection(A,B,P,Q):
 
 
 # credit: https://stackoverflow.com/questions/55816902/finding-the-intersection-of-two-circles
-# O0, r0 are to centre and radius of circle 1
-# O1, r1 are to centre and radius of circle 2
-# computes the intersection points of two circles
-# note that there can be two intersection points, or one, or none.
 def cc_intersection(O0, r0, O1, r1):
+    """
+    SUMMARY
+        computes the intersection points of two circles
+        (note that there can be two intersection points, or one, or none)
+
+    PARAMETERS
+        O0: centre of circle 0
+        r0: radius of circle 0
+        O1: centre of circle 1
+        r1: radius of circle 1
+
+    RETURNS
+        [float, float]
+    """
     # circle 1: (x0, y0), radius r0
     # circle 2: (x1, y1), radius r1
-
     x0, y0 = O0
     x1, y1 = O1
 
@@ -122,7 +200,7 @@ def cc_intersection(O0, r0, O1, r1):
     # non intersecting
     if d > r0 + r1 :
         return None
-    # One circle within other
+    # one circle within other
     if d < abs(r0-r1):
         return None
     # coincident circles
@@ -141,12 +219,20 @@ def cc_intersection(O0, r0, O1, r1):
 
         return (x3, y3, x4, y4)
 
-
-# O, r are the centre and radius of a circle
-# A, B are pair of coordinates representing the endpoints of a segment
-# computes the intersection points of the circle (O,r) and segment AB
-# warning: the number of intersection points may be 0, 1, or 2.
 def lc_intersection(O, r, A, B):
+    """
+    SUMMARY
+        computes the intersection points of the circle (O,r) and segment AB
+        (warning: the number of intersection points may be 0, 1, or 2)
+    PARAMETERS
+        O: centre of circle
+        r: radius of circle
+        A: endpoint of segment AB
+        B: other endpoint of segment AB
+
+    RETURNS
+        [float, float]
+    """
     sign = lambda x : 1 if x >= 0 else -1
     O_ = np.array(O)
     A_ = np.array(A)
@@ -179,12 +265,19 @@ def lc_intersection(O, r, A, B):
         return [[0,0],[0,0]], False
 
 
-# credit
 # https://stackoverflow.com/questions/849211/shortest-distance-between-a-point-and-a-line-segment
-# A, B a pair of coordinates representing the endpoints of a segment
-# P is a point
-# computes the distance of point P from segment AB
 def pt_segment_dist(A, B, P):
+    """
+    SUMMARY
+        computes the distance of point P from segment AB
+    PARAMETERS
+        A: endpoint of segment AB
+        B: other endpoint of segment AB
+        P: point at some distance from AB
+
+    RETURNS
+        float
+    """
     x1, y1 = A
     x2, y2 = B
     x3, y3 = P
@@ -206,33 +299,59 @@ def pt_segment_dist(A, B, P):
     dist = (dx*dx + dy*dy)**.5
     return dist
 
-
-# O, r are the centre and radius of a circle
-# P is a point
-# computes the distance between the circle (O,r) and the point P
 def pt_circle_dist(O, r, P):
+    """
+    SUMMARY
+        computes the distance of point circle (O, r) from P
+
+    PARAMETERS
+        O: coordinates of the circle centre O
+        r: radius of the circle
+        P: point at some distance from the circle
+
+    RETURNS
+        float
+    """
     return abs(np.linalg.norm(np.array(O)-np.array(P))-r)
 
 
-# A, B are the endpoints of a segment
-# P is a point
-# computes the orthogonal projection of P on AB
 def orthogonal_projection(A, B, P):
+    """
+    SUMMARY
+        computes the orthogonal projection of P on AB
+
+    PARAMETERS
+        A: endpoint of segment AB
+        B: other endpoint of segment AB
+        P: point at some distance from AB
+
+    RETURNS
+        [float, float]
+    """
     A_ = np.array(A)
     B_ = np.array(B)
     P_ = np.array(P)
     x = np.linalg.norm(P_ - A_) * (P_ - A_).dot(B_ - A_) / (np.linalg.norm(P_ - A_) * np.linalg.norm(B_ - A_))
     return A_ + (B_- A_) / np.linalg.norm(A_ - B_) * x
 
-
-# In order to get the exact distance from the angle point we follow the
-# construction method of tkz-euclide.
-# 1. copy the first segment (A,B) on the second segment (B,C) to get (P)
-# the result is the third coordinate of the equilateral triangle formed by AP.
-
-# A, B, C are point forming an angle, B being in the middle
-# computes a point which lies on the bisector of the angle
 def bisector_point(A,B,C):
+    """
+    SUMMARY
+        computes a point which lies on the bisector of the angle
+
+        In order to get the exact distance from the angle point we follow the
+        construction method of tkz-euclide.
+        1. copy the first segment (A,B) on the second segment (B,C) to get (P)
+        the result is the third coordinate of the equilateral triangle formed by AP.
+
+    PARAMETERS
+        A: point
+        B: point where the angle is
+        P: third point
+
+    RETURNS
+        [float, float]
+    """
     A = np.array(A)
     B = np.array(B)
     C = np.array(C)

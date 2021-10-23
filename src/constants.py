@@ -2,6 +2,14 @@
 Contains all a large stack of constants required in different files.
 """
 
+import json
+
+with open('settings.json') as f:
+    settings = json.load(f)
+# the canvas is PIXELS by PIXELS read from the settings file
+PIXELS = settings['pixels']
+WIDTH, HEIGHT = PIXELS, PIXELS
+
 #TOOLS
 NEW_POINT, POINT_ON_LINE, POINT_ON_CIRCLE, INTERSECT_POINT, MIDPOINT_SEGMENT = (0,1,2,3,4)
 MIDPOINT_CIRCLE, ORTHOGONAL_PROJECTION, BISECTOR, TRANSLATION, ORTHOGONAL, ROTATION, MAKEGRID = (5,6,7,8,9,10,11)
@@ -15,8 +23,9 @@ YFX_FUNCTION, POLAR_FUNCTION, PARAMETRIC_FUNCTION = (500, 501, 502)
 POINT, SEGMENT, CIRCLE, MOVE, DECORATOR = (0,1,2,3,4)
 
 # DEFAULT CANVAS VALUES
-CANVAS_LINE_THICKNESS = 3
 CANVAS_POINT_RADIUS = 7
+CANVAS_LINE_THICKNESS = 3
+CANVAS_CIRCLE_THICKNESS = 3
 MAX_DISTANCE_TO_HIGHLIGHT = 8
 
 # DEFAULT TIKZ VALUES
@@ -123,6 +132,13 @@ POINT_TEXT_DICT = {
 "rotation" : "The point defined as the rotation of #1, by angle #2 around centre #3."
 }
 
+CIRCLE_TEXT_DICT = {
+"circum_circle" : "circumscribed circle of #1",
+"two_point_circle" : "circle centred at #1 with radius #2",
+"inscribed_circle" : "inscribed circle of #1",
+"arc" : "arc with centre #1 between #2 and #3",
+"sector" : "sector with centre #1 between #2 and #3"
+}
 
 
 # SELECTION VALUES

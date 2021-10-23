@@ -592,7 +592,7 @@ function</string>
     <string>New</string>
    </property>
    <property name="shortcut">
-    <string/>
+    <string>Ctrl+N</string>
    </property>
   </action>
   <action name="actionOpen">
