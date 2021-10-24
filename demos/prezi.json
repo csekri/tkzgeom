@@ -1,0 +1,2780 @@
+{
+    "window": {
+        "left": -5.107668291034453,
+        "bottom": -4.573440859615377,
+        "scale": 0.9601221084594727
+    },
+    "packages": [
+        "\\usepackage{amsmath,amssymb}",
+        "\\usepackage[utf8]{inputenc}",
+        "\\usepackage[T1]{fontenc}",
+        "\\usepackage{tkz-euclide,tkz-fct}",
+        "\\usetikzlibrary{arrows.meta, patterns.meta, hobby, ducks}",
+        "\\usetikzlibrary{backgrounds, decorations.pathmorphing, calc}"
+    ],
+    "code_before": "",
+    "code_after": "",
+    "bg_colour_name": "none",
+    "bg_colour_strength": 100,
+    "axis_x": {
+        "show": false,
+        "labels": {
+            "show": true
+        },
+        "label": {
+            "text": "$x$",
+            "anchor": "below",
+            "distance": 0.1
+        },
+        "o_arrow": {
+            "tip": "Latex",
+            "length": 1.0,
+            "width": 1.0,
+            "side": "both",
+            "reversed": false,
+            "direction": true
+        },
+        "is_tick": true,
+        "is_numprint": true,
+        "is_orig": false,
+        "trig": 0,
+        "frac": 0,
+        "tick_up": 1.0,
+        "tick_down": 1.0,
+        "tick_width": 0.8
+    },
+    "axis_y": {
+        "show": false,
+        "labels": {
+            "show": true
+        },
+        "label": {
+            "text": "$y$",
+            "anchor": "left",
+            "distance": 0.1
+        },
+        "o_arrow": {
+            "tip": "Latex",
+            "length": 1.0,
+            "width": 1.0,
+            "side": "both",
+            "reversed": false,
+            "direction": true
+        },
+        "is_tick": true,
+        "is_numprint": true,
+        "is_orig": false,
+        "trig": 0,
+        "frac": 0,
+        "tick_up": 1.0,
+        "tick_down": 1.0,
+        "tick_width": 0.8
+    },
+    "axis": {
+        "line_width": 0.4,
+        "line_colour_name": "black",
+        "line_strength": 100,
+        "labels": {
+            "show": "",
+            "size": "",
+            "colour": "black",
+            "x_rotate": 0,
+            "x_below": 0
+        }
+    },
+    "grid": {
+        "show": false,
+        "sub_x": 1,
+        "sub_y": 1,
+        "line_width": 0.4,
+        "line_colour_name": "teal",
+        "line_opacity": 1.0,
+        "colour": "teal",
+        "line_stroke": "solid",
+        "line_stroke_custom": [
+            5,
+            2
+        ],
+        "sub_line_stroke": "solid",
+        "sub_line_stroke_custom": [
+            5,
+            2
+        ]
+    },
+    "points": [
+        {
+            "x": 0,
+            "y": 0,
+            "id": "pt_default",
+            "label": {
+                "show": true,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right"
+            },
+            "size": 3.0,
+            "line_width": 0.4,
+            "fill_colour_name": "black",
+            "fill_strength": 100,
+            "fill_opacity": 1.0,
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "show": true,
+            "duck": {
+                "show": false,
+                "type": "custom",
+                "size": 0.5,
+                "body_colour": "default",
+                "special": "horse",
+                "chess": "wbauer",
+                "bill": "sweet",
+                "bill_colour": "default",
+                "clothing": {
+                    "show": false,
+                    "tshirt": "F-default",
+                    "jacket": "F-default",
+                    "tie": "F-default",
+                    "bowtie": "F-default",
+                    "aodai": "F-default",
+                    "cape": "F-default"
+                },
+                "water": "F-default",
+                "eyebrows": "F-default",
+                "beard": "F-default",
+                "buttons": "F-default",
+                "lapel": "F-default",
+                "horsetail": "F-default",
+                "hair": "none",
+                "hair_colour": "default",
+                "hat": "none",
+                "hat_colour": "default",
+                "hat_extra": false,
+                "hat_extra_colour": "default",
+                "accessories": "none",
+                "accessories_colour": "default",
+                "accessories_extra_colour": "default",
+                "accessories_text": "",
+                "necklace": "none",
+                "necklace_colour": "default",
+                "glasses": "none",
+                "glasses_colour": "default",
+                "thought": "none",
+                "thought_colour": "default",
+                "thought_text": ""
+            },
+            "from": {
+                "type": "free"
+            }
+        },
+        {
+            "x": "-1.4275466284074607",
+            "y": "-2.159253945480631",
+            "id": "A",
+            "label": {
+                "show": true,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "$A$",
+                "anchor": "below"
+            },
+            "size": 3.0,
+            "line_width": 0.4,
+            "fill_colour_name": "black",
+            "fill_strength": 100,
+            "fill_opacity": 1.0,
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "show": true,
+            "duck": {
+                "show": false,
+                "type": "custom",
+                "size": 0.5,
+                "body_colour": "default",
+                "special": "horse",
+                "chess": "wbauer",
+                "bill": "sweet",
+                "bill_colour": "default",
+                "clothing": {
+                    "show": false,
+                    "tshirt": "F-default",
+                    "jacket": "F-default",
+                    "tie": "F-default",
+                    "bowtie": "F-default",
+                    "aodai": "F-default",
+                    "cape": "F-default"
+                },
+                "water": "F-default",
+                "eyebrows": "F-default",
+                "beard": "F-default",
+                "buttons": "F-default",
+                "lapel": "F-default",
+                "horsetail": "F-default",
+                "hair": "none",
+                "hair_colour": "default",
+                "hat": "none",
+                "hat_colour": "default",
+                "hat_extra": false,
+                "hat_extra_colour": "default",
+                "accessories": "none",
+                "accessories_colour": "default",
+                "accessories_extra_colour": "default",
+                "accessories_text": "",
+                "necklace": "none",
+                "necklace_colour": "default",
+                "glasses": "none",
+                "glasses_colour": "default",
+                "thought": "none",
+                "thought_colour": "default",
+                "thought_text": ""
+            },
+            "from": {
+                "type": "free"
+            }
+        },
+        {
+            "x": "0.8967001434720236",
+            "y": "-1.9440459110473456",
+            "id": "B",
+            "label": {
+                "show": true,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "$B$",
+                "anchor": "below right"
+            },
+            "size": 3.0,
+            "line_width": 0.4,
+            "fill_colour_name": "black",
+            "fill_strength": 100,
+            "fill_opacity": 1.0,
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "show": true,
+            "duck": {
+                "show": false,
+                "type": "custom",
+                "size": 0.5,
+                "body_colour": "default",
+                "special": "horse",
+                "chess": "wbauer",
+                "bill": "sweet",
+                "bill_colour": "default",
+                "clothing": {
+                    "show": false,
+                    "tshirt": "F-default",
+                    "jacket": "F-default",
+                    "tie": "F-default",
+                    "bowtie": "F-default",
+                    "aodai": "F-default",
+                    "cape": "F-default"
+                },
+                "water": "F-default",
+                "eyebrows": "F-default",
+                "beard": "F-default",
+                "buttons": "F-default",
+                "lapel": "F-default",
+                "horsetail": "F-default",
+                "hair": "none",
+                "hair_colour": "default",
+                "hat": "none",
+                "hat_colour": "default",
+                "hat_extra": false,
+                "hat_extra_colour": "default",
+                "accessories": "none",
+                "accessories_colour": "default",
+                "accessories_extra_colour": "default",
+                "accessories_text": "",
+                "necklace": "none",
+                "necklace_colour": "default",
+                "glasses": "none",
+                "glasses_colour": "default",
+                "thought": "none",
+                "thought_colour": "default",
+                "thought_text": ""
+            },
+            "from": {
+                "type": "free"
+            }
+        },
+        {
+            "x": "0",
+            "y": "0",
+            "id": "C",
+            "label": {
+                "show": true,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "$C$",
+                "anchor": "below right"
+            },
+            "size": 3.0,
+            "line_width": 0.4,
+            "fill_colour_name": "black",
+            "fill_strength": 100,
+            "fill_opacity": 1.0,
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "show": true,
+            "duck": {
+                "show": false,
+                "type": "custom",
+                "size": 0.5,
+                "body_colour": "default",
+                "special": "horse",
+                "chess": "wbauer",
+                "bill": "sweet",
+                "bill_colour": "default",
+                "clothing": {
+                    "show": false,
+                    "tshirt": "F-default",
+                    "jacket": "F-default",
+                    "tie": "F-default",
+                    "bowtie": "F-default",
+                    "aodai": "F-default",
+                    "cape": "F-default"
+                },
+                "water": "F-default",
+                "eyebrows": "F-default",
+                "beard": "F-default",
+                "buttons": "F-default",
+                "lapel": "F-default",
+                "horsetail": "F-default",
+                "hair": "none",
+                "hair_colour": "default",
+                "hat": "none",
+                "hat_colour": "default",
+                "hat_extra": false,
+                "hat_extra_colour": "default",
+                "accessories": "none",
+                "accessories_colour": "default",
+                "accessories_extra_colour": "default",
+                "accessories_text": "",
+                "necklace": "none",
+                "necklace_colour": "default",
+                "glasses": "none",
+                "glasses_colour": "default",
+                "thought": "none",
+                "thought_colour": "default",
+                "thought_text": ""
+            },
+            "from": {
+                "type": "rotation",
+                "A": "B",
+                "B": "A",
+                "angle": "-135"
+            }
+        },
+        {
+            "x": "0",
+            "y": "0",
+            "id": "D",
+            "label": {
+                "show": true,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "$D$",
+                "anchor": "above right"
+            },
+            "size": 3.0,
+            "line_width": 0.4,
+            "fill_colour_name": "black",
+            "fill_strength": 100,
+            "fill_opacity": 1.0,
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "show": true,
+            "duck": {
+                "show": false,
+                "type": "custom",
+                "size": 0.5,
+                "body_colour": "default",
+                "special": "horse",
+                "chess": "wbauer",
+                "bill": "sweet",
+                "bill_colour": "default",
+                "clothing": {
+                    "show": false,
+                    "tshirt": "F-default",
+                    "jacket": "F-default",
+                    "tie": "F-default",
+                    "bowtie": "F-default",
+                    "aodai": "F-default",
+                    "cape": "F-default"
+                },
+                "water": "F-default",
+                "eyebrows": "F-default",
+                "beard": "F-default",
+                "buttons": "F-default",
+                "lapel": "F-default",
+                "horsetail": "F-default",
+                "hair": "none",
+                "hair_colour": "default",
+                "hat": "none",
+                "hat_colour": "default",
+                "hat_extra": false,
+                "hat_extra_colour": "default",
+                "accessories": "none",
+                "accessories_colour": "default",
+                "accessories_extra_colour": "default",
+                "accessories_text": "",
+                "necklace": "none",
+                "necklace_colour": "default",
+                "glasses": "none",
+                "glasses_colour": "default",
+                "thought": "none",
+                "thought_colour": "default",
+                "thought_text": ""
+            },
+            "from": {
+                "type": "rotation",
+                "A": "C",
+                "B": "B",
+                "angle": "-135"
+            }
+        },
+        {
+            "x": "0",
+            "y": "0",
+            "id": "E",
+            "label": {
+                "show": true,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "$E$",
+                "anchor": "above"
+            },
+            "size": 3.0,
+            "line_width": 0.4,
+            "fill_colour_name": "black",
+            "fill_strength": 100,
+            "fill_opacity": 1.0,
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "show": true,
+            "duck": {
+                "show": false,
+                "type": "custom",
+                "size": 0.5,
+                "body_colour": "default",
+                "special": "horse",
+                "chess": "wbauer",
+                "bill": "sweet",
+                "bill_colour": "default",
+                "clothing": {
+                    "show": false,
+                    "tshirt": "F-default",
+                    "jacket": "F-default",
+                    "tie": "F-default",
+                    "bowtie": "F-default",
+                    "aodai": "F-default",
+                    "cape": "F-default"
+                },
+                "water": "F-default",
+                "eyebrows": "F-default",
+                "beard": "F-default",
+                "buttons": "F-default",
+                "lapel": "F-default",
+                "horsetail": "F-default",
+                "hair": "none",
+                "hair_colour": "default",
+                "hat": "none",
+                "hat_colour": "default",
+                "hat_extra": false,
+                "hat_extra_colour": "default",
+                "accessories": "none",
+                "accessories_colour": "default",
+                "accessories_extra_colour": "default",
+                "accessories_text": "",
+                "necklace": "none",
+                "necklace_colour": "default",
+                "glasses": "none",
+                "glasses_colour": "default",
+                "thought": "none",
+                "thought_colour": "default",
+                "thought_text": ""
+            },
+            "from": {
+                "type": "rotation",
+                "A": "D",
+                "B": "C",
+                "angle": "-135"
+            }
+        },
+        {
+            "x": "0",
+            "y": "0",
+            "id": "F",
+            "label": {
+                "show": true,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "$F$",
+                "anchor": "above"
+            },
+            "size": 3.0,
+            "line_width": 0.4,
+            "fill_colour_name": "black",
+            "fill_strength": 100,
+            "fill_opacity": 1.0,
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "show": true,
+            "duck": {
+                "show": false,
+                "type": "custom",
+                "size": 0.5,
+                "body_colour": "default",
+                "special": "horse",
+                "chess": "wbauer",
+                "bill": "sweet",
+                "bill_colour": "default",
+                "clothing": {
+                    "show": false,
+                    "tshirt": "F-default",
+                    "jacket": "F-default",
+                    "tie": "F-default",
+                    "bowtie": "F-default",
+                    "aodai": "F-default",
+                    "cape": "F-default"
+                },
+                "water": "F-default",
+                "eyebrows": "F-default",
+                "beard": "F-default",
+                "buttons": "F-default",
+                "lapel": "F-default",
+                "horsetail": "F-default",
+                "hair": "none",
+                "hair_colour": "default",
+                "hat": "none",
+                "hat_colour": "default",
+                "hat_extra": false,
+                "hat_extra_colour": "default",
+                "accessories": "none",
+                "accessories_colour": "default",
+                "accessories_extra_colour": "default",
+                "accessories_text": "",
+                "necklace": "none",
+                "necklace_colour": "default",
+                "glasses": "none",
+                "glasses_colour": "default",
+                "thought": "none",
+                "thought_colour": "default",
+                "thought_text": ""
+            },
+            "from": {
+                "type": "rotation",
+                "A": "E",
+                "B": "D",
+                "angle": "-135"
+            }
+        },
+        {
+            "x": "0",
+            "y": "0",
+            "id": "G",
+            "label": {
+                "show": true,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "$G$",
+                "anchor": "below right"
+            },
+            "size": 3.0,
+            "line_width": 0.4,
+            "fill_colour_name": "black",
+            "fill_strength": 100,
+            "fill_opacity": 1.0,
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "show": true,
+            "duck": {
+                "show": false,
+                "type": "custom",
+                "size": 0.5,
+                "body_colour": "default",
+                "special": "horse",
+                "chess": "wbauer",
+                "bill": "sweet",
+                "bill_colour": "default",
+                "clothing": {
+                    "show": false,
+                    "tshirt": "F-default",
+                    "jacket": "F-default",
+                    "tie": "F-default",
+                    "bowtie": "F-default",
+                    "aodai": "F-default",
+                    "cape": "F-default"
+                },
+                "water": "F-default",
+                "eyebrows": "F-default",
+                "beard": "F-default",
+                "buttons": "F-default",
+                "lapel": "F-default",
+                "horsetail": "F-default",
+                "hair": "none",
+                "hair_colour": "default",
+                "hat": "none",
+                "hat_colour": "default",
+                "hat_extra": false,
+                "hat_extra_colour": "default",
+                "accessories": "none",
+                "accessories_colour": "default",
+                "accessories_extra_colour": "default",
+                "accessories_text": "",
+                "necklace": "none",
+                "necklace_colour": "default",
+                "glasses": "none",
+                "glasses_colour": "default",
+                "thought": "none",
+                "thought_colour": "default",
+                "thought_text": ""
+            },
+            "from": {
+                "type": "rotation",
+                "A": "F",
+                "B": "E",
+                "angle": "-135"
+            }
+        },
+        {
+            "x": "0",
+            "y": "0",
+            "id": "H",
+            "label": {
+                "show": true,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "$H$",
+                "anchor": "below right"
+            },
+            "size": 3.0,
+            "line_width": 0.4,
+            "fill_colour_name": "black",
+            "fill_strength": 100,
+            "fill_opacity": 1.0,
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "show": true,
+            "duck": {
+                "show": false,
+                "type": "custom",
+                "size": 0.5,
+                "body_colour": "default",
+                "special": "horse",
+                "chess": "wbauer",
+                "bill": "sweet",
+                "bill_colour": "default",
+                "clothing": {
+                    "show": false,
+                    "tshirt": "F-default",
+                    "jacket": "F-default",
+                    "tie": "F-default",
+                    "bowtie": "F-default",
+                    "aodai": "F-default",
+                    "cape": "F-default"
+                },
+                "water": "F-default",
+                "eyebrows": "F-default",
+                "beard": "F-default",
+                "buttons": "F-default",
+                "lapel": "F-default",
+                "horsetail": "F-default",
+                "hair": "none",
+                "hair_colour": "default",
+                "hat": "none",
+                "hat_colour": "default",
+                "hat_extra": false,
+                "hat_extra_colour": "default",
+                "accessories": "none",
+                "accessories_colour": "default",
+                "accessories_extra_colour": "default",
+                "accessories_text": "",
+                "necklace": "none",
+                "necklace_colour": "default",
+                "glasses": "none",
+                "glasses_colour": "default",
+                "thought": "none",
+                "thought_colour": "default",
+                "thought_text": ""
+            },
+            "from": {
+                "type": "rotation",
+                "A": "G",
+                "B": "F",
+                "angle": "-135"
+            }
+        },
+        {
+            "x": "1.0958586464311324",
+            "y": "-6.060004651631996",
+            "id": "I",
+            "label": {
+                "show": true,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "$I$",
+                "anchor": "below right"
+            },
+            "size": 3.0,
+            "line_width": 0.4,
+            "fill_colour_name": "black",
+            "fill_strength": 100,
+            "fill_opacity": 1.0,
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "show": true,
+            "duck": {
+                "show": false,
+                "type": "custom",
+                "size": 0.5,
+                "body_colour": "default",
+                "special": "horse",
+                "chess": "wbauer",
+                "bill": "sweet",
+                "bill_colour": "default",
+                "clothing": {
+                    "show": false,
+                    "tshirt": "F-default",
+                    "jacket": "F-default",
+                    "tie": "F-default",
+                    "bowtie": "F-default",
+                    "aodai": "F-default",
+                    "cape": "F-default"
+                },
+                "water": "F-default",
+                "eyebrows": "F-default",
+                "beard": "F-default",
+                "buttons": "F-default",
+                "lapel": "F-default",
+                "horsetail": "F-default",
+                "hair": "none",
+                "hair_colour": "default",
+                "hat": "none",
+                "hat_colour": "default",
+                "hat_extra": false,
+                "hat_extra_colour": "default",
+                "accessories": "none",
+                "accessories_colour": "default",
+                "accessories_extra_colour": "default",
+                "accessories_text": "",
+                "necklace": "none",
+                "necklace_colour": "default",
+                "glasses": "none",
+                "glasses_colour": "default",
+                "thought": "none",
+                "thought_colour": "default",
+                "thought_text": ""
+            },
+            "from": {
+                "type": "free"
+            }
+        },
+        {
+            "x": "5.535491111459828",
+            "y": "-6.678181323977763",
+            "id": "J",
+            "label": {
+                "show": true,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "\\boxed{\\text{Full graph of 8 nodes}}",
+                "anchor": "above right"
+            },
+            "size": 3.0,
+            "line_width": 0.4,
+            "fill_colour_name": "black",
+            "fill_strength": 100,
+            "fill_opacity": 1.0,
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "show": true,
+            "duck": {
+                "show": false,
+                "type": "custom",
+                "size": 0.5,
+                "body_colour": "default",
+                "special": "horse",
+                "chess": "wbauer",
+                "bill": "sweet",
+                "bill_colour": "default",
+                "clothing": {
+                    "show": false,
+                    "tshirt": "F-default",
+                    "jacket": "F-default",
+                    "tie": "F-default",
+                    "bowtie": "F-default",
+                    "aodai": "F-default",
+                    "cape": "F-default"
+                },
+                "water": "F-default",
+                "eyebrows": "F-default",
+                "beard": "F-default",
+                "buttons": "F-default",
+                "lapel": "F-default",
+                "horsetail": "F-default",
+                "hair": "none",
+                "hair_colour": "default",
+                "hat": "none",
+                "hat_colour": "default",
+                "hat_extra": false,
+                "hat_extra_colour": "default",
+                "accessories": "none",
+                "accessories_colour": "default",
+                "accessories_extra_colour": "default",
+                "accessories_text": "",
+                "necklace": "none",
+                "necklace_colour": "default",
+                "glasses": "none",
+                "glasses_colour": "default",
+                "thought": "none",
+                "thought_colour": "default",
+                "thought_text": ""
+            },
+            "from": {
+                "type": "free"
+            }
+        }
+    ],
+    "segments": [
+        {
+            "id": "sg_default",
+            "points": {
+                "from": "",
+                "to": ""
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 6558,
+            "points": {
+                "from": "A",
+                "to": "B"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 9344,
+            "points": {
+                "from": "B",
+                "to": "C"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 2903,
+            "points": {
+                "from": "C",
+                "to": "D"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 3772,
+            "points": {
+                "from": "D",
+                "to": "E"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 5170,
+            "points": {
+                "from": "E",
+                "to": "F"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 3571,
+            "points": {
+                "from": "F",
+                "to": "G"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 3872,
+            "points": {
+                "from": "G",
+                "to": "H"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 2245,
+            "points": {
+                "from": "H",
+                "to": "A"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 7696,
+            "points": {
+                "from": "A",
+                "to": "C"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 4602,
+            "points": {
+                "from": "A",
+                "to": "D"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 4082,
+            "points": {
+                "from": "A",
+                "to": "E"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 4074,
+            "points": {
+                "from": "A",
+                "to": "F"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 5420,
+            "points": {
+                "from": "A",
+                "to": "G"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 9294,
+            "points": {
+                "from": "B",
+                "to": "D"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 4228,
+            "points": {
+                "from": "B",
+                "to": "E"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 8154,
+            "points": {
+                "from": "B",
+                "to": "F"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 5878,
+            "points": {
+                "from": "B",
+                "to": "G"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 6731,
+            "points": {
+                "from": "B",
+                "to": "H"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 3070,
+            "points": {
+                "from": "C",
+                "to": "E"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 2968,
+            "points": {
+                "from": "C",
+                "to": "F"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 2811,
+            "points": {
+                "from": "C",
+                "to": "G"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 1394,
+            "points": {
+                "from": "C",
+                "to": "H"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 8344,
+            "points": {
+                "from": "D",
+                "to": "F"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 1517,
+            "points": {
+                "from": "D",
+                "to": "G"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 3840,
+            "points": {
+                "from": "D",
+                "to": "H"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 6395,
+            "points": {
+                "from": "E",
+                "to": "G"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 7187,
+            "points": {
+                "from": "E",
+                "to": "H"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        },
+        {
+            "id": 7154,
+            "points": {
+                "from": "F",
+                "to": "H"
+            },
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 0.0,
+                "text": "",
+                "anchor": "below right",
+                "position": 0.5
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "mark": {
+                "width": 0.4,
+                "colour": "same",
+                "position": 0.5,
+                "size": 4.0,
+                "symbol": "none"
+            },
+            "extension": {
+                "origin": 0.0,
+                "destination": 0.0
+            },
+            "show": true
+        }
+    ],
+    "circles": [
+        {
+            "id": "crc_default",
+            "show": true,
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "fill_colour_name": "black",
+            "fill_strength": 100,
+            "fill_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 1.0,
+                "text": "",
+                "anchor": "centered",
+                "position": 0.5
+            },
+            "pattern": {
+                "type": "none",
+                "distance": 3,
+                "size": 0,
+                "rotation": 0,
+                "xshift": 0.0,
+                "yshift": 0.0
+            },
+            "type": "default",
+            "points": {
+                "A": "",
+                "B": "",
+                "C": ""
+            }
+        },
+        {
+            "id": 6127,
+            "show": true,
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "fill_colour_name": "black",
+            "fill_strength": 100,
+            "fill_opacity": 1.0,
+            "label": {
+                "show": false,
+                "angle": 315,
+                "distance": 1.0,
+                "text": "",
+                "anchor": "centered",
+                "position": 0.5
+            },
+            "pattern": {
+                "type": "none",
+                "distance": 3,
+                "size": 0,
+                "rotation": 0,
+                "xshift": 0.0,
+                "yshift": 0.0
+            },
+            "type": "circum_circle",
+            "points": {
+                "A": "A",
+                "B": "B",
+                "C": "C"
+            }
+        }
+    ],
+    "angles": [
+        {
+            "id": "ang_default",
+            "show": true,
+            "points": {
+                "A": "",
+                "B": "",
+                "C": ""
+            },
+            "type": "Anglo-French",
+            "right_angle": false,
+            "arc": 1,
+            "size": 0.5,
+            "mksize": 4,
+            "mkcolour": "same",
+            "mkpos": 0.5,
+            "mksymbol": "none",
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "fill_colour_name": "same",
+            "fill_strength": 100,
+            "fill_opacity": 1.0,
+            "label": {
+                "show": false,
+                "distance": 1.0,
+                "text": "",
+                "anchor": "centered"
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            }
+        }
+    ],
+    "polygons": [
+        {
+            "type": "polygon",
+            "id": "pol_default",
+            "points": [
+                "",
+                ""
+            ],
+            "show": true,
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "fill_colour_name": "black",
+            "fill_strength": 100,
+            "fill_opacity": 1.0,
+            "curve": {
+                "strategy": "nothing",
+                "in_angle": 0,
+                "out_angle": 180,
+                "bend_angle": 0,
+                "loop": false,
+                "loop_size": 40,
+                "corner_radius": 0.0
+            },
+            "pattern": {
+                "type": "none",
+                "distance": 3,
+                "size": 0,
+                "rotation": 0,
+                "xshift": 0.0,
+                "yshift": 0.0
+            },
+            "decoration": {
+                "type": "none",
+                "amplitude": 2.5,
+                "wave_length": 10.0,
+                "text": ""
+            },
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            }
+        },
+        {
+            "type": "linestring",
+            "id": 8662,
+            "points": [
+                "I",
+                "J"
+            ],
+            "show": true,
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "fill_colour_name": "black",
+            "fill_strength": 100,
+            "fill_opacity": 1.0,
+            "curve": {
+                "strategy": "segment_in_out",
+                "in_angle": 197.0,
+                "out_angle": 223.0,
+                "bend_angle": 0,
+                "loop": false,
+                "loop_size": 40,
+                "corner_radius": 0.0
+            },
+            "pattern": {
+                "type": "none",
+                "distance": 3,
+                "size": 0,
+                "rotation": 0,
+                "xshift": 0.0,
+                "yshift": 0.0
+            },
+            "decoration": {
+                "type": "none",
+                "amplitude": 2.5,
+                "wave_length": 10.0,
+                "text": ""
+            },
+            "o_arrow": {
+                "tip": "<",
+                "length": 2.5,
+                "width": 2.25,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            }
+        }
+    ],
+    "functions": [
+        {
+            "type": "yfx",
+            "domain_start": "0",
+            "domain_end": "1",
+            "id": "fct_default",
+            "show": false,
+            "def": "",
+            "samples": 50,
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "fill_colour_name": "black",
+            "fill_strength": 100,
+            "fill_opacity": 0.5,
+            "between": -1,
+            "sum": {
+                "type": "none",
+                "number": 10,
+                "start": "0.1",
+                "end": "0.9",
+                "fill_colour_name": "same",
+                "fill_strength": 100,
+                "fill_opacity": 0.5,
+                "line_colour_name": "black",
+                "line_strength": 100,
+                "line_opacity": 1.0
+            },
+            "area_start": "0",
+            "area_end": "1",
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "pattern": {
+                "type": "none",
+                "distance": 3,
+                "size": 0,
+                "rotation": 0,
+                "xshift": 0.0,
+                "yshift": 0.0
+            }
+        },
+        {
+            "type": "yfx",
+            "domain_start": "3",
+            "domain_end": "11.754723087786944",
+            "id": 9476,
+            "show": false,
+            "def": "3*sin(4*x)",
+            "samples": 201.0,
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "fill_colour_name": "black",
+            "fill_strength": 100,
+            "fill_opacity": 0.5,
+            "between": 6815,
+            "sum": {
+                "type": "none",
+                "number": 10.0,
+                "start": "0.003746525286943969",
+                "end": "10.449059025286944",
+                "fill_colour_name": "same",
+                "fill_strength": 100,
+                "fill_opacity": 0.5,
+                "line_colour_name": "black",
+                "line_strength": 100,
+                "line_opacity": 1.0
+            },
+            "area_start": "-1.301917537213056",
+            "area_end": "11.754723087786944",
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "pattern": {
+                "type": "solid",
+                "distance": 3,
+                "size": 0,
+                "rotation": 0,
+                "xshift": 0.0,
+                "yshift": 0.0
+            }
+        },
+        {
+            "type": "yfx",
+            "domain_start": "3",
+            "domain_end": "11.754723087786944",
+            "id": 6815,
+            "show": false,
+            "def": "(x-6)**2/5+1",
+            "samples": 182.0,
+            "line_width": 0.4,
+            "line_stroke": "solid",
+            "line_stroke_custom": [
+                5,
+                2
+            ],
+            "line_colour_name": "black",
+            "line_strength": 100,
+            "line_opacity": 1.0,
+            "fill_colour_name": "black",
+            "fill_strength": 100,
+            "fill_opacity": 0.5,
+            "between": -1,
+            "sum": {
+                "type": "mid",
+                "number": 26.0,
+                "start": "4",
+                "end": "8",
+                "fill_colour_name": "blue",
+                "fill_strength": 100,
+                "fill_opacity": 0.5,
+                "line_colour_name": "black",
+                "line_strength": 100,
+                "line_opacity": 1.0
+            },
+            "area_start": "-1.301917537213056",
+            "area_end": "11.754723087786944",
+            "o_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "d_arrow": {
+                "tip": "None",
+                "length": 1.0,
+                "width": 1.0,
+                "side": "both",
+                "reversed": false
+            },
+            "pattern": {
+                "type": "none",
+                "distance": 3,
+                "size": 0,
+                "rotation": 0,
+                "xshift": 0.0,
+                "yshift": 0.0
+            }
+        }
+    ]
+}

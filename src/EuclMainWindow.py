@@ -38,6 +38,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
 
         #1 BEGIN: GUI widget passes in order to be able to modify them when later
         self.scene.get_textBrowser(self.ui.textBrowser)
+        self.scene.get_textBrowser_pdflatex(self.ui.textBrowser_pdflatex)
         self.scene.get_actionRedo(self.ui.actionRedo)
         self.scene.get_actionUndo(self.ui.actionUndo)
         self.scene.get_actionSave(self.ui.actionSave)
@@ -98,6 +99,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         browser_text = syntax_highlight(browser_text)
         self.scene.textBrowser.setText(browser_text)
         #3 END
+        self.scene.textBrowser_pdflatex.setText('')
         cd.always_on_drawing_plan(self.scene)
         cd.always_off_drawing_plan(self.scene)
         self.show()
@@ -162,6 +164,9 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         if self.current_tool == POINT:
             self.current_mode = 100*self.current_tool+i
         self.scene.set_current_mode(self.current_mode)
+        self.scene.selected_objects.clear()
+        cd.always_on_drawing_plan(self.scene)
+        cd.always_off_drawing_plan(self.scene)
 
     def combobox_line_change(self, i):
         """
@@ -179,6 +184,9 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         if self.current_tool == SEGMENT:
             self.current_mode = 100*self.current_tool+i
         self.scene.set_current_mode(self.current_mode)
+        self.scene.selected_objects.clear()
+        cd.always_on_drawing_plan(self.scene)
+        cd.always_off_drawing_plan(self.scene)
 
     def combobox_circle_change(self, i):
         """
@@ -196,6 +204,9 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         if self.current_tool == CIRCLE:
             self.current_mode = 100*self.current_tool+i
         self.scene.set_current_mode(self.current_mode)
+        self.scene.selected_objects.clear()
+        cd.always_on_drawing_plan(self.scene)
+        cd.always_off_drawing_plan(self.scene)
 
     def combobox_move_change(self, i):
         """
@@ -213,6 +224,9 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         if self.current_tool == MOVE:
             self.current_mode = 100*self.current_tool+i
         self.scene.set_current_mode(self.current_mode)
+        self.scene.selected_objects.clear()
+        cd.always_on_drawing_plan(self.scene)
+        cd.always_off_drawing_plan(self.scene)
 
     def combobox_decorator_change(self, i):
         """
@@ -230,6 +244,9 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         if self.current_tool == DECORATOR:
             self.current_mode = 100*self.current_tool+i
         self.scene.set_current_mode(self.current_mode)
+        self.scene.selected_objects.clear()
+        cd.always_on_drawing_plan(self.scene)
+        cd.always_off_drawing_plan(self.scene)
 
     def radiobutton_triggered(self):
         """
@@ -246,6 +263,9 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.current_tool = POINT
         self.current_mode = 100*self.current_tool+self.point_index
         self.scene.set_current_mode(self.current_mode)
+        self.scene.selected_objects.clear()
+        cd.always_on_drawing_plan(self.scene)
+        cd.always_off_drawing_plan(self.scene)
 
     def radiobutton_triggered_2(self):
         """
@@ -262,6 +282,9 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.current_tool = SEGMENT
         self.current_mode = 100*self.current_tool+self.line_index
         self.scene.set_current_mode(self.current_mode)
+        self.scene.selected_objects.clear()
+        cd.always_on_drawing_plan(self.scene)
+        cd.always_off_drawing_plan(self.scene)
 
     def radiobutton_triggered_3(self):
         """
@@ -278,6 +301,9 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.current_tool = CIRCLE
         self.current_mode = 100*self.current_tool+self.circle_index
         self.scene.set_current_mode(self.current_mode)
+        self.scene.selected_objects.clear()
+        cd.always_on_drawing_plan(self.scene)
+        cd.always_off_drawing_plan(self.scene)
 
     def radiobutton_triggered_4(self):
         """
@@ -294,6 +320,9 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.current_tool = MOVE
         self.current_mode = 100*self.current_tool+self.move_index
         self.scene.set_current_mode(self.current_mode)
+        self.scene.selected_objects.clear()
+        cd.always_on_drawing_plan(self.scene)
+        cd.always_off_drawing_plan(self.scene)
 
     def radiobutton_triggered_5(self):
         """
@@ -310,6 +339,9 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.current_tool = DECORATOR
         self.current_mode = 100*self.current_tool+self.decorator_index
         self.scene.set_current_mode(self.current_mode)
+        self.scene.selected_objects.clear()
+        cd.always_on_drawing_plan(self.scene)
+        cd.always_off_drawing_plan(self.scene)
 
 
     def open_file(self):

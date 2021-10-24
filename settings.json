@@ -1,5 +1,5 @@
 {
-    "latex": "pdflatex -synctex=1 -interaction=nonstopmode --shell-escape temp.tex",
+    "latex": "pdflatex -synctex=1 -interaction=batchmode --shell-escape temp.tex",
     "pixels": 697,
     "pdf to jpg": "pdftocairo -jpeg -scale-to-x $PIXELS -scale-to-y $PIXELS temp.pdf temp"
 }

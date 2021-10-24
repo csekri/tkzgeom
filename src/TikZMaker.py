@@ -529,7 +529,7 @@ def tikzify_all_point_declarations(eucl):
                     A = point["from"]["A"]
                     B = point["from"]["B"]
                     angle = eval(point["from"]["angle"])
-                    return_string += "\\tkzDefPointBy[rotation=center %s angle %s](%s)\\tkzGetPoint{%s}" % (A, angle, B, point["id"])
+                    return_string += "\\tkzDefPointBy[rotation=center %s angle %s](%s)\\tkzGetPoint{%s}\n" % (A, angle, B, point["id"])
     if return_string != '':
         return_string = '%POINT/COORDINATE DEFINITIONS\n' + return_string
     return return_string

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1116</width>
-    <height>827</height>
+    <height>818</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -151,9 +151,9 @@
     <property name="geometry">
      <rect>
       <x>720</x>
-      <y>200</y>
+      <y>190</y>
       <width>391</width>
-      <height>571</height>
+      <height>481</height>
      </rect>
     </property>
    </widget>
@@ -297,7 +297,7 @@
     <property name="geometry">
      <rect>
       <x>720</x>
-      <y>180</y>
+      <y>170</y>
       <width>381</width>
       <height>29</height>
      </rect>
@@ -316,7 +316,7 @@
     <property name="geometry">
      <rect>
       <x>720</x>
-      <y>170</y>
+      <y>160</y>
       <width>66</width>
       <height>17</height>
      </rect>
@@ -329,7 +329,7 @@
     <property name="geometry">
      <rect>
       <x>890</x>
-      <y>170</y>
+      <y>160</y>
       <width>41</width>
       <height>17</height>
      </rect>
@@ -508,8 +508,8 @@ function</string>
    <widget class="QPushButton" name="pb_copy_tikzpicture">
     <property name="geometry">
      <rect>
-      <x>720</x>
-      <y>140</y>
+      <x>920</x>
+      <y>110</y>
       <width>191</width>
       <height>21</height>
      </rect>
@@ -522,7 +522,7 @@ function</string>
     <property name="geometry">
      <rect>
       <x>920</x>
-      <y>140</y>
+      <y>130</y>
       <width>191</width>
       <height>21</height>
      </rect>
@@ -542,6 +542,29 @@ function</string>
     </property>
     <property name="text">
      <string>show pdf</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser_pdflatex">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>690</y>
+      <width>391</width>
+      <height>71</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>670</y>
+      <width>101</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Messages</string>
     </property>
    </widget>
   </widget>

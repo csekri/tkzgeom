@@ -16,7 +16,7 @@ import EuclMath
 import Properties
 from Constants import *
 import CanvasDrawing as cd
-from CoordinateTransform import *
+from Utils import canvascoord2tkzcoord, tkzcoord2canvascoord
 from SyntaxHighlight import syntax_highlight
 
 save_state = namedtuple('save_state', 'opened_file unsaved_progress')
@@ -62,21 +62,43 @@ def compile_tkz_and_render(scene):
 
     # run compile with pdflatex, convert into jpg, move back to original directory
     if scene.autocompile:
+        scene.textBrowser_pdflatex.setText('Process started: ' + LATEX_COMMAND)
+        scene.textBrowser_pdflatex.repaint()
         os.system(LATEX_COMMAND)
         os.system(PDF_TO_JPG)
+
+    #4 BEGIN: adds log text in the main window text browser
+    with open('temp.log', 'r') as f:
+        lines = f.readlines()
+        lines = [line.rstrip() for line in lines]
+    escape = False
+    for i, line in enumerate(lines):
+        try:
+            if line[0] == '!':
+                escape = True
+                scene.textBrowser_pdflatex.setText(
+                    'Process started: ' + LATEX_COMMAND + '\Process exited with error(s)\n' + '\n'.join([line, lines[i+1], lines[i+2]]))
+        except: pass
+        if escape: break
+    else:
+        scene.textBrowser_pdflatex.setText(
+            'Process started: ' + LATEX_COMMAND + '\nProcess exited normally.')
+    #4 END
+
+
     os.chdir(current_dir)
 
-    #3 BEGIN: remove redundant leftover files from Gnuplot
+    #5 BEGIN: remove redundant leftover files from Gnuplot
     # directory = os.path.realpath(__file__)[:-len(__file__)]
     # for item in os.listdir(directory):
     #     if item.endswith(".gnuplot") or item.endswith(".table"):
     #         os.remove(os.path.join(directory, item))
-    #3 END
+    #5 END
 
-    #4 BEGIN: draw canvas objects if "always on" or "always off" accordingly
+    #6 BEGIN: draw canvas objects if "always on" or "always off" accordingly
     cd.always_on_drawing_plan(scene)
     cd.always_off_drawing_plan(scene)
-    #4 END
+    #6 END
 
 
 # finds all points by coordinate on the canvas
@@ -460,6 +482,20 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
             None
         """
         self.textBrowser = textBrowser
+
+    def get_textBrowser_pdflatex(self, textBrowser_pdflatex):
+        """
+        SUMMARY
+            get references for textBrowser
+            need this to be able to mutate its attributes in scene
+
+        PARAMETERS
+            textBrowser: the box with the latex source code in it
+
+        RETURNS
+            None
+        """
+        self.textBrowser_pdflatex = textBrowser_pdflatex
 
     def get_actionRedo(self, actionRedo):
         """
