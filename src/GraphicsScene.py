@@ -35,9 +35,9 @@ def compile_tkz_and_render(scene):
     """
     with open('settings.json') as f:
         settings = json.load(f)
-    PIXELS = settings['pixels']
     LATEX_COMMAND = settings["latex"]
-    PDF_TO_JPG = settings["pdf to jpg"].replace('$PIXELS', str(PIXELS))
+    PDF_TO_JPG = settings["pdf to jpg"].replace('$PIXELSX', str(int(scene.width())))
+    PDF_TO_JPG = PDF_TO_JPG.replace('$PIXELSY', str(int(scene.height())))
 
     #0 BEGIN save current work directory and change to tmp folder,
     # also make tmp folder if does not exist
@@ -49,7 +49,7 @@ def compile_tkz_and_render(scene):
 
     #1 BEGIN: generate latex code, write into file
     write_file = open('temp.tex', "w")
-    tikz_text = AddNewItem.eucl2tkz(scene.eucl, scene.left_bottom_scale())
+    tikz_text = AddNewItem.eucl2tkz(scene.eucl, scene.left_bottom_scale(), width_height=(scene.width(), scene.height()))
     text_to_write = AddNewItem.tkz2tex(scene.eucl, tikz_text)
     write_file.write(text_to_write)
     write_file.close()
@@ -68,6 +68,12 @@ def compile_tkz_and_render(scene):
         os.system(PDF_TO_JPG)
 
     #4 BEGIN: adds log text in the main window text browser
+    try:
+        f = open('temp.log', 'r')
+    except:
+        f = open('temp.log', 'w')
+        f.close()
+
     with open('temp.log', 'r') as f:
         lines = f.readlines()
         lines = [line.rstrip() for line in lines]
@@ -131,7 +137,7 @@ def compute_mapped_points(scene, focus_pt_coords=None):
             # if there is a focused point, we replace its coordinate with focus_pt_coords
             if focus_pt_coords is not None and point["id"] == scene.focused_point_id:
                 x,y = focus_pt_coords
-                coords = canvascoord2tkzcoord(x, y, scene.left_bottom_scale())
+                coords = canvascoord2tkzcoord(x, y, scene.left_bottom_scale(), scene.width(), scene.height())
                 mapped_points[scene.focused_point_id] = [float(coords[0]), float(coords[1])]
             elif point["from"]["type"] == "free":
                 # x and y coordinates can be python/numpy expressions hence the eval
@@ -273,7 +279,7 @@ def compute_mapped_points(scene, focus_pt_coords=None):
 
     # converts all TikZ coordinates to canvas coordinates
     for key, value in mapped_points.items():
-        mapped_points[key] = tkzcoord2canvascoord(str(value[0]), str(value[1]), scene.left_bottom_scale())
+        mapped_points[key] = tkzcoord2canvascoord(str(value[0]), str(value[1]), scene.left_bottom_scale(), scene.width(), scene.height())
     scene.mapped_points = mapped_points
 
 
@@ -381,17 +387,12 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
             None
         """
         super(GraphicsScene, self).__init__ ()
-        with open('settings.json') as f:
-            settings = json.load(f)
-        # the canvas is PIXELS by PIXELS read from the settings file
-        PIXELS = settings['pixels']
-        WIDTH, HEIGHT = PIXELS, PIXELS
 
         self.mouse_x = 0 # x mouse position on the canvas
         self.mouse_y = 0 # y mouse position on the canvas
         self.current_mode = NEW_POINT # the type of object to be added
         self.eucl = AddNewItem.new_eucl_file() # the object-oriented data-structure to hold all info about the project
-        self.setSceneRect(0, 0, PIXELS-1, PIXELS-1); # holds the scene rectangle; the bounding rectangle of the scene
+        # self.setSceneRect(0,0,rect.width(), rect.height()); # holds the scene rectangle; the bounding rectangle of the scene
         self.focused_point_id = None # id of the point with the mouse pointer over it
         self.selected_objects = [] # the objects making the current selection
         self.movePoint = False ######
@@ -540,6 +541,49 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.actionSave = actionSave
         self.actionSave.setEnabled(False)
 
+    def get_actionCoordinate(self, x, y, grid):
+        """
+        SUMMARY
+            get references for coordinate checkbuttons in menubar
+            need this to be able to mutate its attributes in scene
+
+        PARAMETERS
+            x: reference to x axis checkbox
+            y: reference to y axis checkbox
+            z: reference to grid checkbox
+
+        RETURNS
+            None
+        """
+        self.actionX = x
+        self.actionY = y
+        self.actionGrid = grid
+
+    def axis_grid_checkbox_shifter(self):
+        """
+        SUMMARY
+            when called checks the project whether it has x/y axes and grid, and
+            sets the corresponding checkboxes accordingly
+
+        PARAMETERS
+            nothing
+
+        RETURNS
+            None
+        """
+        if self.eucl["axis_x"]["show"]:
+            self.actionX.setChecked(True)
+        else:
+            self.actionX.setChecked(False)
+        if self.eucl["axis_y"]["show"]:
+            self.actionY.setChecked(True)
+        else:
+            self.actionY.setChecked(False)
+        if self.eucl["grid"]["show"]:
+            self.actionGrid.setChecked(True)
+        else:
+            self.actionGrid.setChecked(False)
+
     def left_bottom_scale(self):
         """
         SUMMARY
@@ -655,7 +699,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
             #3 BEGIN: big switch case through all possile modes, sets up the circumstances
             # a new object is added to the project, if everything is ok it adds it
             if self.current_mode == NEW_POINT:
-                x_tkz, y_tkz = canvascoord2tkzcoord(self.mouse_x, self.mouse_y, self.left_bottom_scale())
+                x_tkz, y_tkz = canvascoord2tkzcoord(self.mouse_x, self.mouse_y, self.left_bottom_scale(), self.width(), self.height())
                 AddNewItem.register_new_point(self.eucl, [x_tkz, y_tkz], setup=NEW_POINT)
                 self.change_made = True
             elif self.current_mode == SEGMENT_THROUGH:
@@ -928,7 +972,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         if self.current_mode == MOVE_POINT and self.focused_point_id is not None:
             for i,point in enumerate(self.eucl["points"]):
                 if point["id"] == self.focused_point_id:
-                    x_point, y_point = canvascoord2tkzcoord(self.mouse_x, self.mouse_y, self.left_bottom_scale())
+                    x_point, y_point = canvascoord2tkzcoord(self.mouse_x, self.mouse_y, self.left_bottom_scale(), self.width(), self.height())
                     self.eucl["points"][i]["x"] = x_point
                     point["y"] = y_point
                 if point["from"]["type"] == "intersection_ll":
@@ -949,8 +993,8 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
             from_x, from_y = (self.move_canvas[1], self.move_canvas[2])
             self.move_canvas = [False, 0, 0]
             scale = self.eucl["window"]["scale"]
-            dx = (from_x-self.mouse_x)/WIDTH *scale*10
-            dy = (from_y-self.mouse_y)/HEIGHT *scale*10
+            dx = (from_x-self.mouse_x) * 10 * (scale / INITIAL_GRAPHICSVIEW_SIZE[0])
+            dy = (from_y-self.mouse_y) * 10 * (scale / INITIAL_GRAPHICSVIEW_SIZE[1])
             self.eucl["window"]["left"] += dx
             self.eucl["window"]["bottom"] -= dy
             compile_tkz_and_render(self)

@@ -6,1618 +6,1313 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>575</width>
-    <height>593</height>
+    <width>779</width>
+    <height>620</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QCheckBox" name="duck_show">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>111</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>draw a duck</string>
-   </property>
-  </widget>
-  <widget class="QGroupBox" name="bill_group">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>10</y>
-     <width>201</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Bill</string>
-   </property>
-   <widget class="QComboBox" name="bill_combo">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>30</y>
-      <width>91</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>sweet</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>grumpy</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>laughing</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>parrot</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>vampire</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QPushButton" name="pb_bill">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>30</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>41</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>type</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="hair_group">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>90</y>
-     <width>201</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Hair</string>
-   </property>
-   <widget class="QComboBox" name="hair_combo">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>30</y>
-      <width>91</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>none</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>longhair</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>shorthair</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>parting</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>crazyhair</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>recedinghair</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>mohican</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>mullet</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>41</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>type</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pb_hair">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>30</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="eyebrows_group">
-   <property name="geometry">
-    <rect>
-     <x>500</x>
-     <y>90</y>
-     <width>71</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Eyebrows</string>
-   </property>
-   <widget class="QPushButton" name="pb_eyebrows">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="beard_group">
-   <property name="geometry">
-    <rect>
-     <x>500</x>
-     <y>160</y>
-     <width>71</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Beard</string>
-   </property>
-   <widget class="QPushButton" name="pb_beard">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="clothing_group">
-   <property name="geometry">
-    <rect>
-     <x>350</x>
-     <y>10</y>
-     <width>141</width>
-     <height>221</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Clothing</string>
-   </property>
-   <widget class="QCheckBox" name="duck_tshirt">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>71</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>t shirt</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="duck_jacket">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>60</y>
-      <width>71</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>jacket</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="duck_tie">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>90</y>
-      <width>51</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>tie</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="duck_bowtie">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>120</y>
-      <width>81</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>bowtie</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="duck_aodai">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>150</y>
-      <width>71</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>aodai</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="duck_cape">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>180</y>
-      <width>71</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>cape</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pb_tshirt">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>30</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pb_jacket">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>60</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pb_tie">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>90</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pb_bowtie">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>120</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pb_aodai">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>150</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pb_cape">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>180</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QCheckBox" name="duck_water">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>140</y>
-     <width>96</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>water</string>
-   </property>
-  </widget>
-  <widget class="QGroupBox" name="water_group">
-   <property name="geometry">
-    <rect>
-     <x>500</x>
-     <y>20</y>
-     <width>71</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Water</string>
-   </property>
-   <widget class="QPushButton" name="pb_water">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QCheckBox" name="duck_eyebrows">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>160</y>
-     <width>96</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>eyebrows</string>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="duck_beard">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>180</y>
-     <width>96</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>beard</string>
-   </property>
-  </widget>
-  <widget class="QGroupBox" name="hat_group">
-   <property name="geometry">
-    <rect>
-     <x>350</x>
-     <y>390</y>
-     <width>221</width>
-     <height>91</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Hat / head formation</string>
-   </property>
-   <widget class="QComboBox" name="hat_combo">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>30</y>
-      <width>111</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>none</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>alien</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>hat</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>tophat</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>strawhat</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>cap</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>conicalhat</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>santa</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>graduate</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>beret</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>peakedcap</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>harlequin</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>sailor</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>crown</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>queencrown</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>kingcrown</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>helmet</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>viking</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>devil</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>unicorn</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>bunny</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>witch</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>magichat</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>darthvader</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>chef</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>41</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>type</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pb_hat">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>30</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_hat_extra">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>60</y>
-      <width>151</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>extra</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pb_hat_extra">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>60</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="glasses_group">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>170</y>
-     <width>201</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Glasses</string>
-   </property>
-   <widget class="QComboBox" name="glasses_combo">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>30</y>
-      <width>91</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>none</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>glasses</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>squareglasses</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>sunglasses</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>mask</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>41</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>type</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pb_glasses">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>30</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="buttons_group">
-   <property name="geometry">
-    <rect>
-     <x>350</x>
-     <y>230</y>
-     <width>71</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Buttons</string>
-   </property>
-   <widget class="QPushButton" name="pb_buttons">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QCheckBox" name="duck_buttons">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>200</y>
-     <width>96</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>buttons</string>
-   </property>
-  </widget>
-  <widget class="QGroupBox" name="necklace_group">
-   <property name="geometry">
-    <rect>
-     <x>330</x>
-     <y>490</y>
-     <width>241</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Necklace</string>
-   </property>
-   <widget class="QComboBox" name="necklace_combo">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>30</y>
-      <width>121</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>none</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>necklace</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>stethoscope</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>neckerchief</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QLabel" name="label_6">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>41</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>type</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pb_necklace">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>30</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="accessories_group">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>340</y>
-     <width>331</width>
-     <height>141</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Accessories</string>
-   </property>
-   <widget class="QComboBox" name="accessories_combo">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>30</y>
-      <width>181</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>none</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>magicwand</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>signpost</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>book</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>cricket</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>hockey</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>football</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>lightsaber</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>torch</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>prison</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>crozier</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>icecream</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>rollingpin</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>cake</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>pizza</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>baguette</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>cheese</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>milkshake</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>wine</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>cocktail</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>wing</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>basket</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>easter</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>crystalball</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>umbrella</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>umbrellaclosed</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>handbag</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>30</y>
-      <width>41</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>type</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pb_accessories">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>30</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_accessories_extra">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>60</y>
-      <width>231</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>extra</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pb_accessories_extra">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>60</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="le_signpost_text">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>110</y>
-      <width>311</width>
-      <height>27</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_signpost">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>90</y>
-      <width>141</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>signpost/book text</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="lapel_group">
-   <property name="geometry">
-    <rect>
-     <x>430</x>
-     <y>230</y>
-     <width>61</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Lapel</string>
-   </property>
-   <widget class="QPushButton" name="pb_lapel">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QCheckBox" name="duck_lapel">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>220</y>
-     <width>96</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>lapel</string>
-   </property>
-  </widget>
-  <widget class="QGroupBox" name="special_group">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>270</y>
-     <width>161</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Special ducks</string>
-   </property>
-   <widget class="QComboBox" name="special_combo">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>141</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>horse</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>unicorn</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>bunny</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>sheep</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>girl with pearl earring</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>queen</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>snowman</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Overleaf</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Ceasar</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>ghost</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Yoda</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Vader</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Leila</string>
-     </property>
-    </item>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="chess_group">
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>270</y>
-     <width>161</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Chess ducks</string>
-   </property>
-   <widget class="QComboBox" name="chess_combo">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>141</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>white pawn</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>white rook</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>white knight</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>white bishop</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>white queen</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>white king</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>black pawn</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>black rook</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>black knight</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>black bishop</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>black queen</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>black king</string>
-     </property>
-    </item>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="thought_group">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>490</y>
-     <width>311</width>
-     <height>91</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Thought bubble</string>
-   </property>
-   <widget class="QPushButton" name="pb_bubble">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>60</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="le_bubble_text">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>30</y>
-      <width>251</width>
-      <height>27</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_11">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>41</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>text</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="bubble_combo">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>60</y>
-      <width>111</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>None</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Speech</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Thought</string>
-     </property>
-    </item>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="body_group">
-   <property name="geometry">
-    <rect>
-     <x>350</x>
-     <y>290</y>
-     <width>211</width>
-     <height>91</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Duck body</string>
-   </property>
-   <widget class="QSlider" name="size_hslider">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>60</y>
-      <width>191</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="maximum">
-     <number>30</number>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_9">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>50</y>
-      <width>66</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>size</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pb_body">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>30</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="size_label">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>50</y>
-      <width>31</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>size</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QCheckBox" name="duck_clothing">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>120</y>
-     <width>141</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>clothing</string>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="rad_random">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>90</y>
-     <width>115</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>random duck</string>
-   </property>
-   <property name="checked">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="rad_special">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>50</y>
-     <width>115</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>special duck</string>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="rad_chess">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>70</y>
-     <width>115</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>chess duck</string>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="rad_custom">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>30</y>
-     <width>115</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>custom duck</string>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="duck_horse_tail">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>240</y>
-     <width>96</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>horse tail</string>
-   </property>
-  </widget>
-  <widget class="QGroupBox" name="horse_tail_group">
-   <property name="geometry">
-    <rect>
-     <x>500</x>
-     <y>230</y>
-     <width>71</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Horse tail</string>
-   </property>
-   <widget class="QPushButton" name="pb_horse_tail">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>41</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-  </widget>
+  <layout class="QHBoxLayout" name="horizontalLayout_35">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_32">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_11" stretch="3,7">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_23">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QRadioButton" name="rad_custom">
+             <property name="text">
+              <string>custom duck</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="duck_show">
+             <property name="text">
+              <string>draw a duck</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rad_chess">
+             <property name="text">
+              <string>chess duck</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rad_special">
+             <property name="text">
+              <string>special duck</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rad_random">
+             <property name="text">
+              <string>random duck</string>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_13">
+           <item>
+            <widget class="QGroupBox" name="body_group">
+             <property name="title">
+              <string>Duck body</string>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <item>
+                 <widget class="QLabel" name="label_9">
+                  <property name="text">
+                   <string>size</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSlider" name="size_hslider">
+                  <property name="maximum">
+                   <number>30</number>
+                  </property>
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="size_label">
+                  <property name="text">
+                   <string>size</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pb_body">
+                  <property name="focusPolicy">
+                   <enum>Qt::NoFocus</enum>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_22">
+             <item>
+              <widget class="QGroupBox" name="special_group">
+               <property name="title">
+                <string>Special ducks</string>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_31">
+                <item>
+                 <widget class="QComboBox" name="special_combo">
+                  <item>
+                   <property name="text">
+                    <string>horse</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>unicorn</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>bunny</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>sheep</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>girl with pearl earring</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>queen</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>snowman</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Overleaf</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Ceasar</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>ghost</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Yoda</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Vader</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Leila</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="chess_group">
+               <property name="title">
+                <string>Chess ducks</string>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_30">
+                <item>
+                 <widget class="QComboBox" name="chess_combo">
+                  <item>
+                   <property name="text">
+                    <string>white pawn</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>white rook</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>white knight</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>white bishop</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>white queen</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>white king</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>black pawn</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>black rook</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>black knight</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>black bishop</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>black queen</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>black king</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_26">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_14">
+           <item>
+            <widget class="QGroupBox" name="bill_group">
+             <property name="title">
+              <string>Bill</string>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_17">
+              <item>
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>type</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="bill_combo">
+                <item>
+                 <property name="text">
+                  <string>sweet</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>grumpy</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>laughing</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>parrot</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>vampire</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pb_bill">
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="hair_group">
+             <property name="title">
+              <string>Hair</string>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_18">
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>type</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="hair_combo">
+                <item>
+                 <property name="text">
+                  <string>none</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>longhair</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>shorthair</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>parting</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>crazyhair</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>recedinghair</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>mohican</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>mullet</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pb_hair">
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="necklace_group">
+             <property name="title">
+              <string>Necklace</string>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_36">
+              <item>
+               <widget class="QLabel" name="label_6">
+                <property name="text">
+                 <string>type</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="necklace_combo">
+                <item>
+                 <property name="text">
+                  <string>none</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>necklace</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>stethoscope</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>neckerchief</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pb_necklace">
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="accessories_group">
+             <property name="title">
+              <string>Accessories</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_4">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_7">
+                <property name="text">
+                 <string>type</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QComboBox" name="accessories_combo">
+                <item>
+                 <property name="text">
+                  <string>none</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>magicwand</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>signpost</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>book</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>cricket</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>hockey</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>football</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>lightsaber</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>torch</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>prison</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>crozier</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>icecream</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>rollingpin</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>cake</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>pizza</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>baguette</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>cheese</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>milkshake</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>wine</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>cocktail</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>wing</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>basket</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>easter</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>crystalball</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>umbrella</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>umbrellaclosed</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>handbag</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QPushButton" name="pb_accessories">
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="QLabel" name="label_accessories_extra">
+                <property name="text">
+                 <string>extra</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QPushButton" name="pb_accessories_extra">
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QLabel" name="label_signpost">
+                <property name="text">
+                 <string>signpost/book text</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0" colspan="3">
+               <widget class="QLineEdit" name="le_signpost_text"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_12">
+           <item>
+            <widget class="QGroupBox" name="hat_group">
+             <property name="title">
+              <string>Hat / head formation</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_2">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_3">
+                <property name="text">
+                 <string>type</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QComboBox" name="hat_combo">
+                <item>
+                 <property name="text">
+                  <string>none</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>alien</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>hat</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>tophat</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>strawhat</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>cap</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>conicalhat</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>santa</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>graduate</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>beret</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>peakedcap</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>harlequin</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>sailor</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>crown</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>queencrown</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>kingcrown</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>helmet</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>viking</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>devil</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>unicorn</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>bunny</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>witch</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>magichat</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>darthvader</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>chef</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QPushButton" name="pb_hat">
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="QLabel" name="label_hat_extra">
+                <property name="text">
+                 <string>extra</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QPushButton" name="pb_hat_extra">
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="glasses_group">
+             <property name="title">
+              <string>Glasses</string>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_19">
+              <item>
+               <widget class="QLabel" name="label_5">
+                <property name="text">
+                 <string>type</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="glasses_combo">
+                <item>
+                 <property name="text">
+                  <string>none</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>glasses</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>squareglasses</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>sunglasses</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>mask</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pb_glasses">
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="thought_group">
+             <property name="title">
+              <string>Thought bubble</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_15">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_28">
+                <item>
+                 <widget class="QLabel" name="label_11">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="text">
+                   <string>text</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="le_bubble_text">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_29">
+                <item>
+                 <widget class="QComboBox" name="bubble_combo">
+                  <item>
+                   <property name="text">
+                    <string>None</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Speech</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Thought</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pb_bubble">
+                  <property name="focusPolicy">
+                   <enum>Qt::NoFocus</enum>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_16">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_34" stretch="1,5">
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="clothing_group">
+           <property name="title">
+            <string>Clothing</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_10">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <item>
+               <widget class="QCheckBox" name="duck_tshirt">
+                <property name="text">
+                 <string>t shirt</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pb_tshirt">
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_11">
+              <item>
+               <widget class="QCheckBox" name="duck_jacket">
+                <property name="text">
+                 <string>jacket</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pb_jacket">
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_12">
+              <item>
+               <widget class="QCheckBox" name="duck_tie">
+                <property name="text">
+                 <string>tie</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pb_tie">
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_13">
+              <item>
+               <widget class="QCheckBox" name="duck_bowtie">
+                <property name="text">
+                 <string>bowtie</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pb_bowtie">
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_14">
+              <item>
+               <widget class="QCheckBox" name="duck_aodai">
+                <property name="text">
+                 <string>aodai</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pb_aodai">
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_15">
+              <item>
+               <widget class="QCheckBox" name="duck_cape">
+                <property name="text">
+                 <string>cape</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pb_cape">
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_25">
+         <item>
+          <widget class="QGroupBox" name="groupBox">
+           <property name="title">
+            <string>Duck extras</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_20">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <item>
+               <widget class="QCheckBox" name="duck_horse_tail">
+                <property name="text">
+                 <string>horse tail</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="duck_buttons">
+                <property name="text">
+                 <string>buttons</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="duck_eyebrows">
+                <property name="text">
+                 <string>eyebrows</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="duck_water">
+                <property name="text">
+                 <string>water</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="duck_clothing">
+                <property name="text">
+                 <string>clothing</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="duck_lapel">
+                <property name="text">
+                 <string>lapel</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="duck_beard">
+                <property name="text">
+                 <string>beard</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_2">
+           <property name="title">
+            <string>Duck extras colour</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_21">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_9">
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_3">
+                <item>
+                 <widget class="QGroupBox" name="horse_tail_group">
+                  <property name="title">
+                   <string>Horse tail</string>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_3">
+                   <item>
+                    <widget class="QPushButton" name="pb_horse_tail">
+                     <property name="focusPolicy">
+                      <enum>Qt::NoFocus</enum>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QGroupBox" name="eyebrows_group">
+                  <property name="title">
+                   <string>Eyebrows</string>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_4">
+                   <item>
+                    <widget class="QPushButton" name="pb_eyebrows">
+                     <property name="focusPolicy">
+                      <enum>Qt::NoFocus</enum>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QGroupBox" name="beard_group">
+                  <property name="title">
+                   <string>Beard</string>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_5">
+                   <item>
+                    <widget class="QPushButton" name="pb_beard">
+                     <property name="focusPolicy">
+                      <enum>Qt::NoFocus</enum>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_4">
+                <item>
+                 <widget class="QGroupBox" name="buttons_group">
+                  <property name="title">
+                   <string>Buttons</string>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_6">
+                   <item>
+                    <widget class="QPushButton" name="pb_buttons">
+                     <property name="focusPolicy">
+                      <enum>Qt::NoFocus</enum>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QGroupBox" name="water_group">
+                  <property name="title">
+                   <string>Water</string>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_7">
+                   <item>
+                    <widget class="QPushButton" name="pb_water">
+                     <property name="focusPolicy">
+                      <enum>Qt::NoFocus</enum>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QGroupBox" name="lapel_group">
+                  <property name="title">
+                   <string>Lapel</string>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_8">
+                   <item>
+                    <widget class="QPushButton" name="pb_lapel">
+                     <property name="focusPolicy">
+                      <enum>Qt::NoFocus</enum>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

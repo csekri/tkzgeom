@@ -1789,9 +1789,13 @@ def tikzify_duck_commands(point):
 
 
 #lbs stands for left/bottom/scale while tblr is for top/bottom/left/right
-def eucl2tkz(eucl, lbs, tblr=None):
+def eucl2tkz(eucl, lbs, width_height, tblr=None):
     left, bottom, scale = lbs
     right, top, margin = (left + 10 * scale, bottom + 10 * scale, scale * 1.3)
+    if width_height is not None:
+        right = left + 10 * (scale * width_height[0] / INITIAL_GRAPHICSVIEW_SIZE[0])
+        top = bottom + 10 * (scale * width_height[1] / INITIAL_GRAPHICSVIEW_SIZE[1])
+
     if tblr is not None:
         top, bottom, left, right = tblr
 

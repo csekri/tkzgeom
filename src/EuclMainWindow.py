@@ -42,6 +42,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.scene.get_actionRedo(self.ui.actionRedo)
         self.scene.get_actionUndo(self.ui.actionUndo)
         self.scene.get_actionSave(self.ui.actionSave)
+        self.scene.get_actionCoordinate(self.ui.x_axis_show, self.ui.y_axis_show, self.ui.grid_show)
         self.mouse_x = 0 # mouse x coordinate
         self.mouse_y = 0 # mouse y coordinate
         #1 END
@@ -77,15 +78,15 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.ui.horizontalSlider.sliderReleased.connect(self.scale_slider_release)
         self.ui.actionUndo.triggered.connect(self.undo)
         self.ui.actionRedo.triggered.connect(self.redo)
-        self.ui.x_axis_show.stateChanged.connect(
-        lambda state: self.checkb_state_changed(state, "axis_x", "show"))
-        self.ui.y_axis_show.stateChanged.connect(
-        lambda state: self.checkb_state_changed(state, "axis_y", "show"))
-        self.ui.grid_show.stateChanged.connect(
-        lambda state: self.checkb_state_changed(state, "grid", "show"))
+        self.ui.x_axis_show.toggled.connect(
+        lambda state: self.checkb_action_changed(state, "axis_x", "show"))
+        self.ui.y_axis_show.toggled.connect(
+        lambda state: self.checkb_action_changed(state, "axis_y", "show"))
+        self.ui.grid_show.toggled.connect(
+        lambda state: self.checkb_action_changed(state, "grid", "show"))
         self.ui.pb_add_function.clicked.connect(self.pb_add_function_clicked)
-        self.ui.pb_copy_tikzpicture.clicked.connect(self.pb_copy_tikzpicture_clicked)
-        self.ui.pb_copy_document.clicked.connect(self.pb_copy_document_clicked)
+        self.ui.pb_copy_tikzpicture.triggered.connect(self.pb_copy_tikzpicture_clicked)
+        self.ui.pb_copy_document.triggered.connect(self.pb_copy_document_clicked)
         self.ui.checkb_autocompile.stateChanged.connect(self.checkb_autocompile_stateChanged)
         self.ui.checkb_autocompile.setChecked(True)
         self.ui.checkb_canvas_always_on.stateChanged.connect(self.checkb_canvas_always_on_stateChanged)
@@ -93,41 +94,26 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.ui.checkb_show_pdf.stateChanged.connect(self.checkb_show_pdf_state_changed)
         self.ui.checkb_show_pdf.setChecked(True)
         #2 END
-        cd.empty_jpg(PIXELS, PIXELS) # write new blank image into jpg
         #3 BEGIN: set the TikZ source code and put on the window box
-        browser_text = AddNewItem.eucl2tkz(self.scene.eucl, self.scene.left_bottom_scale())
+        width_height = (self.scene.width(), self.scene.height())
+        browser_text = AddNewItem.eucl2tkz(self.scene.eucl, self.scene.left_bottom_scale(), width_height)
         browser_text = syntax_highlight(browser_text)
         self.scene.textBrowser.setText(browser_text)
         #3 END
         self.scene.textBrowser_pdflatex.setText('')
+
+    def showEvent(self, event):
+        self.scene.setSceneRect(0, 0, self.ui.graphicsView.width(), self.ui.graphicsView.height())
+        cd.empty_jpg(int(self.scene.width()), int(self.scene.height())) # write new blank image into jpg
         cd.always_on_drawing_plan(self.scene)
         cd.always_off_drawing_plan(self.scene)
-        self.show()
 
-    def axis_grid_checkbox_shifter(self):
-        """
-        SUMMARY
-            when called checks the project whether it has x/y axes and grid, and
-            sets the corresponding checkboxes accordingly
 
-        PARAMETERS
-            nothing
-
-        RETURNS
-            None
-        """
-        if self.scene.eucl["axis_x"]["show"]:
-            self.ui.x_axis_show.setChecked(True)
-        else:
-            self.ui.x_axis_show.setChecked(False)
-        if self.scene.eucl["axis_y"]["show"]:
-            self.ui.y_axis_show.setChecked(True)
-        else:
-            self.ui.y_axis_show.setChecked(False)
-        if self.scene.eucl["grid"]["show"]:
-            self.ui.grid_show.setChecked(True)
-        else:
-            self.ui.grid_show.setChecked(False)
+    def resizeEvent(self, event):
+        self.scene.setSceneRect(0, 0, self.ui.graphicsView.width(), self.ui.graphicsView.height())
+        self.scene.compute_mapped_points()
+        cd.always_on_drawing_plan(self.scene)
+        cd.always_off_drawing_plan(self.scene)
 
 
     def keyPressEvent(self,event):
@@ -364,7 +350,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
             self.scene.add_new_undo_item()
             cd.always_on_drawing_plan(self.scene)
             cd.always_off_drawing_plan(self.scene)
-            self.axis_grid_checkbox_shifter()
+            self.scene.axis_grid_checkbox_shifter()
 
     def new_file(self):
         """
@@ -377,7 +363,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         RETURNS
             None
         """
-        cd.empty_jpg(PIXELS, PIXELS)
+        cd.empty_jpg(int(self.scene.width()), self.scene.height())
         self.scene.eucl = AddNewItem.new_eucl_file()
         self.scene.selected_objects.clear()
         cd.always_on_drawing_plan(self.scene)
@@ -387,7 +373,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.scene.compile_tkz_and_render()
         self.scene.autocompile = previous_autocompile
         self.scene.add_new_undo_item()
-        self.axis_grid_checkbox_shifter()
+        self.scene.axis_grid_checkbox_shifter()
 
 
     def scale_slider_move(self, value):
@@ -466,7 +452,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
             if len(self.scene.undo_history) == 1:
                 self.ui.actionUndo.setEnabled(False)
             self.ui.actionRedo.setEnabled(True)
-            self.axis_grid_checkbox_shifter()
+            self.scene.axis_grid_checkbox_shifter()
             self.scene.save_state = save_state(self.scene.save_state.opened_file, self.scene.save_state.unsaved_progress - 1)
             if self.scene.save_state.unsaved_progress == 0:
                 self.ui.actionSave.setEnabled(False)
@@ -494,7 +480,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
             if self.scene.redo_history == []:
                 self.ui.actionRedo.setEnabled(False)
             self.ui.actionUndo.setEnabled(True)
-            self.axis_grid_checkbox_shifter()
+            self.scene.axis_grid_checkbox_shifter()
             self.scene.save_state = save_state(self.scene.save_state.opened_file, self.scene.save_state.unsaved_progress + 1)
             if self.scene.save_state.unsaved_progress == 0:
                 self.scene.actionSave.setEnabled(False)
@@ -533,6 +519,39 @@ class EuclMainWindow(QtWidgets.QMainWindow):
             self.scene.compile_tkz_and_render()
             self.scene.add_new_undo_item()
 
+    def checkb_action_changed(self, state, property, secondary_property=None):
+        """
+        SUMMARY
+            called when CTRL+SHIFT+Z is pressed, deals with undo & redo history,
+            compiles and displays change
+
+        PARAMETERS
+            state: mandatory parameter, passes checkbox state
+            property: eucl dictionary key ("points", "segments", ...)
+            secondary_property: property of the (point, segment, ...)
+
+        RETURNS
+            None
+        """
+        if secondary_property is None:
+            item = self.scene.eucl
+            my_property = property
+        else:
+            item = self.scene.eucl[property]
+            my_property = secondary_property
+
+        if state == False and item[my_property] == True:
+            item[my_property] = False
+            self.scene.selected_objects.clear()
+            self.scene.compile_tkz_and_render()
+            self.scene.add_new_undo_item()
+        elif state == True and item[my_property] == False:
+            item[my_property] = True
+            self.scene.selected_objects.clear()
+            self.scene.compile_tkz_and_render()
+            self.scene.add_new_undo_item()
+
+
     def pb_add_function_clicked(self):
         """
         SUMMARY
@@ -562,7 +581,8 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         RETURNS
             None
         """
-        copy_to_clipboard(AddNewItem.eucl2tkz(self.scene.eucl, self.scene.left_bottom_scale()))
+        copy_to_clipboard(AddNewItem.eucl2tkz(self.scene.eucl, self.scene.left_bottom_scale(),\
+                                              width_height = [self.scene.width(), self.scene.height()]))
 
     def pb_copy_document_clicked(self):
         """
@@ -575,7 +595,8 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         RETURNS
             None
         """
-        tikzpicture_string = AddNewItem.eucl2tkz(self.scene.eucl, self.scene.left_bottom_scale())
+        tikzpicture_string = AddNewItem.eucl2tkz(self.scene.eucl, self.scene.left_bottom_scale(),\
+                                              width_height = [self.scene.width(), self.scene.height()])
         copy_to_clipboard(AddNewItem.tkz2tex(self.scene.eucl, tikzpicture_string))
 
     def checkb_autocompile_stateChanged(self, state):

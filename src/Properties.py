@@ -745,6 +745,7 @@ QTabBar::tab:selected {\
             fill_fields(self)
             self.scene.compile_tkz_and_render()
             self.scene.add_new_undo_item()
+        self.scene.axis_grid_checkbox_shifter()
 
     def axe_hslider_moved(self, value, type, property, label_to_set, factor=1, secondary_property=None):
         """
@@ -1202,6 +1203,8 @@ QTabBar::tab:selected {\
             item = QtWidgets.QListWidgetItem('')
             item.setFlags(item.flags() | QtCore.Qt.ItemIsEditable)
             selector.addItem(item)
+            selector.editItem(item)
+            selector.verticalScrollBar().setValue(selector.verticalScrollBar().maximum())
             if selector.count() > len(self.scene.eucl["packages"]):
                 self.scene.eucl["packages"].append('')
 
@@ -1234,5 +1237,6 @@ QTabBar::tab:selected {\
             None
         """
         dialog = DuckPropertiesDialog(self.scene, self.current_id)
+        dialog.setFixedSize(779, 620)
         dialog.setWindowIcon(QtGui.QIcon("icon/ico.png"))
         dialog.exec_()

@@ -1,11 +1,11 @@
 from PyQt5 import QtCore, QtWidgets, QtGui, uic
 import json
 from collections import namedtuple
-from Constants import WIDTH, HEIGHT
+from Constants import *
 
 save_state = namedtuple('save_state', 'opened_file unsaved_progress')
 
-def canvascoord2tkzcoord(x_canvas, y_canvas, lbs):
+def canvascoord2tkzcoord(x_canvas, y_canvas, lbs, width, height):
     """
     SUMMARY
         converts canvas pixel coordinates into TikZ coordinates
@@ -23,12 +23,12 @@ def canvascoord2tkzcoord(x_canvas, y_canvas, lbs):
     left, bottom, scale = lbs
     # 10 had to be assigned here to have 10 by 10 unit wide and high TikZ canvas
     # in the beginning
-    x_tkz = left + x_canvas/WIDTH * scale*10
-    y_tkz = bottom + (HEIGHT-y_canvas) / HEIGHT * scale*10
+    x_tkz = left + x_canvas/INITIAL_GRAPHICSVIEW_SIZE[1] * scale*10
+    y_tkz = bottom + (height-y_canvas) / INITIAL_GRAPHICSVIEW_SIZE[1] * scale*10
     return str(x_tkz), str(y_tkz)
 
 
-def tkzcoord2canvascoord(x_tkz, y_tkz, lbs):
+def tkzcoord2canvascoord(x_tkz, y_tkz, lbs, width, height):
     """
     SUMMARY
         converts TikZ coordinates into canvas pixel coordinates
@@ -43,8 +43,8 @@ def tkzcoord2canvascoord(x_tkz, y_tkz, lbs):
         (str, str): x and y coordinate on the canvas plane
     """
     left, bottom, scale = lbs
-    x_canvas = (eval(x_tkz) - left) * WIDTH / (scale * 10)
-    y_canvas = -(eval(y_tkz) - bottom) * HEIGHT / (scale * 10) + HEIGHT
+    x_canvas = (eval(x_tkz) - left) * INITIAL_GRAPHICSVIEW_SIZE[1] / (scale * 10)
+    y_canvas = -(eval(y_tkz) - bottom) * INITIAL_GRAPHICSVIEW_SIZE[1] / (scale * 10) + height
     return [x_canvas, y_canvas]
 
 
@@ -291,6 +291,8 @@ def delete_point(eucl, index, mapped_points):
 
     del_circles = []
     for circle in eucl["circles"]:
+        if circle["id"] == "crc_default":
+            continue
         if circle["type"] == "two_point_circle":
             if (circle["points"]["O"] not in point_ids) or (circle["points"]["A"] not in point_ids):
                 del_circles.append(circle)

@@ -22,7 +22,7 @@ def clear_canvas(scene):
         None
     """
     scene.clear()
-    pixmap = QtGui.QPixmap("tmp/temp-1.jpg")
+    pixmap = QtGui.QPixmap("tmp/temp-1.png")
     if not scene.show_pdf:
         pixmap.fill()
     tkz_jpg = QtWidgets.QGraphicsPixmapItem(pixmap)
@@ -44,21 +44,22 @@ def draw_aspect_ratio(scene, colour):
         None
     """
     aspect_ratio = eval(scene.aspect_ratio)
-    pixels = scene.settings["pixels"]
+    width, height = scene.width(), scene.height()
+    window_aspect = width / height
     # aspect_ratio < 1 means we draw vertical lines
-    if aspect_ratio < 1:
-        x_from, y_from, x_to, y_to = (pixels*(1-aspect_ratio)/2,0,pixels*(1-aspect_ratio)/2,pixels)
+    if aspect_ratio < width/height:
+        x_from, y_from, x_to, y_to = ((width-height*aspect_ratio)/2, 0, (width-height*aspect_ratio)/2, height)
         graphics_line_1 = QtWidgets.QGraphicsLineItem(x_from, y_from, x_to, y_to)
-        x_from, y_from, x_to, y_to = (pixels - pixels*(1-aspect_ratio)/2,0,pixels - pixels*(1-aspect_ratio)/2,pixels)
+        x_from, y_from, x_to, y_to = (width-(width-height*aspect_ratio)/2, 0, width-(width-height*aspect_ratio)/2, height)
         graphics_line_2 = QtWidgets.QGraphicsLineItem(x_from, y_from, x_to, y_to)
     # aspect_ratio > 1 means we draw horizontal lines
     else:
-        x_from, y_from, x_to, y_to = (0,pixels*(1-1/aspect_ratio)/2,pixels,pixels*(1-1/aspect_ratio)/2)
+        x_from, y_from, x_to, y_to = (0, (height-width/aspect_ratio)/2, width, (height-width/aspect_ratio)/2)
         graphics_line_1 = QtWidgets.QGraphicsLineItem(x_from, y_from, x_to, y_to)
-        x_from, y_from, x_to, y_to = (0,pixels - pixels*(1-1/aspect_ratio)/2,pixels,pixels - pixels*(1-1/aspect_ratio)/2)
+        x_from, y_from, x_to, y_to = (0, height-(height-width/aspect_ratio)/2, width, height-(height-width/aspect_ratio)/2)
         graphics_line_2 = QtWidgets.QGraphicsLineItem(x_from, y_from, x_to, y_to)
     # if aspect ratio is 1 we don't draw at all
-    if aspect_ratio != 1:
+    if aspect_ratio != width/height:
         graphics_line_1.setPen(QtGui.QPen(QtGui.QBrush(colour), CANVAS_LINE_THICKNESS))
         graphics_line_2.setPen(QtGui.QPen(QtGui.QBrush(colour), CANVAS_LINE_THICKNESS))
         scene.addItem(graphics_line_1)
@@ -76,8 +77,8 @@ def empty_jpg(width, height):
     RETURNS
         None
     """
-    empty_image = 255 * np.ones((width, height)) # blank white bw-matrix
-    imwrite('tmp/temp-1.jpg', empty_image)
+    empty_image = 255 * np.ones((int(width), int(height))) # blank white bw-matrix
+    imwrite('tmp/temp-1.png', empty_image)
 
 def always_on_drawing_plan(scene):
     """

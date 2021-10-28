@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1116</width>
-    <height>818</height>
+    <width>1077</width>
+    <height>841</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -23,557 +23,442 @@
    <string>Eucl</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="Line" name="line">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>0</y>
-      <width>3</width>
-      <height>50</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
-   <widget class="QGraphicsView" name="graphicsView">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>60</y>
-      <width>700</width>
-      <height>700</height>
-     </rect>
-    </property>
-    <property name="mouseTracking">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="comboBox">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>161</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="maxVisibleItems">
-     <number>15</number>
-    </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_10">
     <item>
-     <property name="text">
-      <string>Point</string>
-     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="1,0">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_9">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_13" stretch="0">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout">
+              <item>
+               <widget class="QComboBox" name="comboBox">
+                <property name="maxVisibleItems">
+                 <number>15</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Point</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Point on line</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Point on circle</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Intersection point</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Midpoint of segment</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Midpoint of circle</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Orthogonal projection</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Bisector</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Translate with vector</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Perpendicular</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Rotation</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Make grid</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="radioButton">
+                <property name="text">
+                 <string>point</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="Line" name="line">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <item>
+               <widget class="QComboBox" name="comboBox_2">
+                <item>
+                 <property name="text">
+                  <string>Segment</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Polygon</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Linestring</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="radioButton_2">
+                <property name="text">
+                 <string>segment</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="Line" name="line_2">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <item>
+               <widget class="QComboBox" name="comboBox_5">
+                <item>
+                 <property name="text">
+                  <string>Mark angle</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Mark right angle</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="radioButton_5">
+                <property name="text">
+                 <string>decorators</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="Line" name="line_3">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <item>
+               <widget class="QComboBox" name="comboBox_3">
+                <item>
+                 <property name="text">
+                  <string>Circumscribed circle</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Circle by its radius</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Arc</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Sector</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Inscribed circle</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="radioButton_3">
+                <property name="text">
+                 <string>circle</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="Line" name="line_4">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGraphicsView" name="graphicsView">
+          <property name="mouseTracking">
+           <bool>true</bool>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_12" stretch="0,0,0,20,0">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_8">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <widget class="QComboBox" name="comboBox_4">
+              <item>
+               <property name="text">
+                <string>Move point</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Move canvas</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="radioButton_4">
+              <property name="text">
+               <string>interactions</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Ignored</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <widget class="QPushButton" name="pushButton">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Clip fill</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pb_add_function">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Add function</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QCheckBox" name="checkb_autocompile">
+            <property name="text">
+             <string>auto-compile</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="checkb_canvas_always_on">
+            <property name="text">
+             <string>objects always on</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="checkb_show_pdf">
+            <property name="text">
+             <string>show pdf</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_7"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>Zoom</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="horizontalSlider">
+            <property name="minimum">
+             <number>-512</number>
+            </property>
+            <property name="maximum">
+             <number>512</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_8">
+            <property name="text">
+             <string> + /  -  </string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QTextBrowser" name="textBrowser"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_10">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Messages</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <item>
+             <widget class="QTextBrowser" name="textBrowser_pdflatex">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>100</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
     </item>
-    <item>
-     <property name="text">
-      <string>Point on line</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Point on circle</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Intersection point</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Midpoint of segment</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Midpoint of circle</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Orthogonal projection</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Bisector</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Translate with vector</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Perpendicular</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Rotation</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Make grid</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QComboBox" name="comboBox_2">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>0</y>
-      <width>161</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>Segment</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Polygon</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Linestring</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QTextBrowser" name="textBrowser">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
-      <y>190</y>
-      <width>391</width>
-      <height>481</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="radioButton">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>115</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>point</string>
-    </property>
-    <property name="checked">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="radioButton_2">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>30</y>
-      <width>115</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>segment</string>
-    </property>
-   </widget>
-   <widget class="Line" name="line_2">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>0</y>
-      <width>3</width>
-      <height>50</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="comboBox_3">
-    <property name="geometry">
-     <rect>
-      <x>370</x>
-      <y>0</y>
-      <width>161</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>Circumscribed circle</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Circle by its radius</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Arc</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Sector</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Inscribed circle</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QRadioButton" name="radioButton_3">
-    <property name="geometry">
-     <rect>
-      <x>370</x>
-      <y>30</y>
-      <width>115</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>circle</string>
-    </property>
-   </widget>
-   <widget class="Line" name="line_3">
-    <property name="geometry">
-     <rect>
-      <x>540</x>
-      <y>0</y>
-      <width>3</width>
-      <height>50</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="radioButton_4">
-    <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>30</y>
-      <width>115</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>interactions</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="comboBox_4">
-    <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>0</y>
-      <width>161</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>Move point</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Move canvas</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QSlider" name="horizontalSlider">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
-      <y>170</y>
-      <width>381</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="minimum">
-     <number>-512</number>
-    </property>
-    <property name="maximum">
-     <number>512</number>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
-      <y>160</y>
-      <width>66</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Zoom</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_8">
-    <property name="geometry">
-     <rect>
-      <x>890</x>
-      <y>160</y>
-      <width>41</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string> + /  -</string>
-    </property>
-   </widget>
-   <widget class="QGroupBox" name="coord_system">
-    <property name="geometry">
-     <rect>
-      <x>990</x>
-      <y>0</y>
-      <width>120</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>coord system</string>
-    </property>
-    <widget class="QCheckBox" name="grid_show">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>70</y>
-       <width>101</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>show grid</string>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="x_axis_show">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>101</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>show x axis</string>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="y_axis_show">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>50</y>
-       <width>101</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>show y axis</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="Line" name="line_4">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
-      <y>0</y>
-      <width>3</width>
-      <height>50</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="radioButton_5">
-    <property name="geometry">
-     <rect>
-      <x>730</x>
-      <y>30</y>
-      <width>115</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>decorators</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="comboBox_5">
-    <property name="geometry">
-     <rect>
-      <x>730</x>
-      <y>0</y>
-      <width>161</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>Mark angle</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Mark right angle</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>910</x>
-      <y>0</y>
-      <width>71</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Clip fill</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pb_add_function">
-    <property name="geometry">
-     <rect>
-      <x>910</x>
-      <y>30</y>
-      <width>71</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Add
-function</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkb_autocompile">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
-      <y>70</y>
-      <width>111</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>auto-compile</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkb_canvas_always_on">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
-      <y>90</y>
-      <width>181</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>canvas objects always on</string>
-    </property>
-   </widget>
-   <widget class="Line" name="line_5">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
-      <y>50</y>
-      <width>171</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pb_copy_tikzpicture">
-    <property name="geometry">
-     <rect>
-      <x>920</x>
-      <y>110</y>
-      <width>191</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>copy tikzpicture to clipboard</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pb_copy_document">
-    <property name="geometry">
-     <rect>
-      <x>920</x>
-      <y>130</y>
-      <width>191</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>copy document to clipboard</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkb_show_pdf">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
-      <y>110</y>
-      <width>121</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>show pdf</string>
-    </property>
-   </widget>
-   <widget class="QTextBrowser" name="textBrowser_pdflatex">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
-      <y>690</y>
-      <width>391</width>
-      <height>71</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
-      <y>670</y>
-      <width>101</width>
-      <height>18</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Messages</string>
-    </property>
-   </widget>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1116</width>
+     <width>1077</width>
      <height>30</height>
     </rect>
    </property>
@@ -592,6 +477,12 @@ function</string>
     </property>
     <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
+    <addaction name="separator"/>
+    <addaction name="pb_copy_tikzpicture"/>
+    <addaction name="pb_copy_document"/>
+    <addaction name="x_axis_show"/>
+    <addaction name="y_axis_show"/>
+    <addaction name="grid_show"/>
    </widget>
    <widget class="QMenu" name="menuSettings">
     <property name="title">
@@ -661,6 +552,40 @@ function</string>
   <action name="actionopen_settings">
    <property name="text">
     <string>open settings</string>
+   </property>
+  </action>
+  <action name="pb_copy_tikzpicture">
+   <property name="text">
+    <string>Copy tikzpicture environment to clipboard</string>
+   </property>
+  </action>
+  <action name="pb_copy_document">
+   <property name="text">
+    <string>Copy tex document to clipboard</string>
+   </property>
+  </action>
+  <action name="x_axis_show">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show x axis</string>
+   </property>
+  </action>
+  <action name="y_axis_show">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show y axis</string>
+   </property>
+  </action>
+  <action name="grid_show">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show grid</string>
    </property>
   </action>
  </widget>

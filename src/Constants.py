@@ -4,11 +4,7 @@ Contains all a large stack of constants required in different files.
 
 import json
 
-with open('settings.json') as f:
-    settings = json.load(f)
-# the canvas is PIXELS by PIXELS read from the settings file
-PIXELS = settings['pixels']
-WIDTH, HEIGHT = PIXELS, PIXELS
+INITIAL_GRAPHICSVIEW_SIZE = (700, 700)
 
 #TOOLS
 NEW_POINT, POINT_ON_LINE, POINT_ON_CIRCLE, INTERSECT_POINT, MIDPOINT_SEGMENT = (0,1,2,3,4)
