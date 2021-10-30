@@ -975,11 +975,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
                     x_point, y_point = canvascoord2tkzcoord(self.mouse_x, self.mouse_y, self.left_bottom_scale(), self.width(), self.height())
                     self.eucl["points"][i]["x"] = x_point
                     point["y"] = y_point
-                if point["from"]["type"] == "intersection_ll":
-                    pt = self.mapped_points[point["id"]]
-                    x_point, y_point = canvascoord2tkzcoord(pt[0], pt[1], self.left_bottom_scale())
-                    self.eucl["points"][i]["x"] = x_point
-                    point["y"] = y_point
+                    break
 
             compile_tkz_and_render(self)
             add_new_undo_item(self)
