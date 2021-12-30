@@ -21,6 +21,7 @@ from SyntaxHighlight import syntax_highlight
 
 save_state = namedtuple('save_state', 'opened_file unsaved_progress')
 
+
 def compile_tkz_and_render(scene):
     """
     SUMMARY
