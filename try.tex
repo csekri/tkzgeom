@@ -1,0 +1,42 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath,amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{tkz-euclide,tkz-fct}
+\usetikzlibrary{arrows.meta, patterns.meta, hobby, ducks}
+\usetikzlibrary{backgrounds, decorations.pathmorphing, calc}
+\begin{document}
+\begin{tikzpicture}
+% POINT DEFINTIONS
+\tkzDefPoint(-2.0202808112324493, 2.581903276131045){A}
+\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0, , text width=0.0] (A) at (A) {};
+\tkzDefPoint(-3.1123244929797194, 0.4290171606864277){B}
+\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0, , text width=0.0] (B) at (B) {};
+\tkzDefPoint(-1.458658346333853, -1.2714508580343207){C}
+\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0, , text width=0.0] (C) at (C) {};
+\tkzDefPoint(1.287051482059283, -0.7410296411856478){D}
+\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0, , text width=0.0] (D) at (D) {};
+\tkzDefPoint(1.1778471138845559, 2.3946957878315134){E}
+\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0, , text width=0.0] (E) at (E) {};
+
+% POINT LABELS
+\tkzLabelPoint(A){$A$}
+\tkzLabelPoint(B){$B$}
+\tkzLabelPoint(C){$C$}
+\tkzLabelPoint(D){$D$}
+\tkzLabelPoint(E){$E$}
+
+% DRAW SEGMENTS
+\draw[draw=black](A) -- (B);
+\draw[draw=black](A) -- (C);
+\draw[draw=black](B) -- (C);
+\draw[draw=black](B) -- (D);
+\draw[draw=black](C) -- (D);
+\draw[draw=black](C) -- (E);
+\draw[draw=black](D) -- (A);
+\draw[draw=black](D) -- (E);
+\draw[draw=black](E) -- (A);
+\draw[draw=black](E) -- (B);
+\end{tikzpicture}
+\end{document}

@@ -1,4 +1,0 @@
-{
-    "latex": "pdflatex -synctex=1 -interaction=batchmode --shell-escape temp.tex",
-    "pdf to jpg": "pdftocairo -png -scale-to-x $PIXELSX -scale-to-y $PIXELSY temp.pdf temp"
-}

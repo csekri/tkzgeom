@@ -1,0 +1,305 @@
+{
+    "window": {
+        "left": -5.0,
+        "top": 5.0,
+        "scale": 1.0
+    },
+    "packages": [
+        "\\usepackage{amsmath,amssymb}",
+        "\\usepackage[utf8]{inputenc}",
+        "\\usepackage[T1]{fontenc}",
+        "\\usepackage{tkz-euclide,tkz-fct}",
+        "\\usetikzlibrary{arrows.meta, patterns.meta, hobby, ducks}",
+        "\\usetikzlibrary{backgrounds, decorations.pathmorphing, calc}"
+    ],
+    "code_before": "",
+    "code_after": "",
+    "bg_colour": {
+        "name": "black",
+        "mix_with": "black",
+        "mix_percent": 0,
+        "strength": 0
+    },
+    "colours" : [
+        {
+            "id": "horseWhite",
+            "definition" : "#ededf0"
+        },
+        {
+            "id": "loveRed",
+            "definition" : "#d50402"
+        }
+    ],
+    "items": [
+        {
+            "id": "A",
+            "type": "point",
+            "sub_type": "free",
+            "show": true,
+            "definition": {
+                "x": -4.5,
+                "y": -4.5
+            },
+            "marker": {
+                "size": 4.0,
+                "shape": "star",
+                "shape_number": 4,
+                "ratio": 2.25,
+                "inner_sep": 0.0,
+                "rounded_corners": 0.0,
+                "text": "",
+                "text_width": 0.1
+            },
+            "label": {
+                "show": true,
+                "text": "$A$",
+                "anchor": "below right",
+                "offset": 0.4
+            },
+            "line": {
+                "line_width": 1.2,
+                "colour": {
+                    "name": "cyan",
+                    "mix_with": "yellow",
+                    "mix_percent": 90,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "cyan",
+                    "mix_with": "cyan",
+                    "mix_percent": 90,
+                    "strength": 100
+                }
+            }
+
+        },
+        {
+            "id": "B",
+            "type": "point",
+            "sub_type": "free",
+            "show": true,
+            "definition": {
+                "x": 4.5,
+                "y": 4.5
+            },
+            "marker": {
+                "size": 4.0,
+                "shape": "rectangle",
+                "shape_number": 4,
+                "ratio": 2.25,
+                "inner_sep": 0.2,
+                "rounded_corners": 0.0,
+                "text": "Open",
+                "text_width": 2
+            },
+            "label": {
+                "show": true,
+                "text": "$B$",
+                "anchor": "below right",
+                "offset": 0.4
+            },
+            "line": {
+                "line_width": 1.2,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "yellow",
+                    "mix_percent": 90,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "cyan",
+                    "mix_percent": 90,
+                    "strength": 0
+                }
+            }
+        },
+        {
+            "id": "C",
+            "type": "point",
+            "sub_type": "midpoint",
+            "show": true,
+            "definition": {
+                "A": "A",
+                "B": "B"
+            },
+            "marker": {
+                "size": 4.0,
+                "shape": "circle",
+                "shape_number": 4,
+                "ratio": 2.25,
+                "inner_sep": 0,
+                "rounded_corners": 0.0,
+                "text": "",
+                "text_width": 0.0
+            },
+            "label": {
+                "show": true,
+                "text": "$C$",
+                "anchor": "below right",
+                "offset": 0.4
+            },
+            "line": {
+                "line_width": 1.2,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "yellow",
+                    "mix_percent": 90,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "dashed",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "cyan",
+                    "mix_percent": 90,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "1234",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "A",
+                "B": "B"
+            },
+            "label": {
+                "show": true,
+                "text": "$A$",
+                "anchor": "below right",
+                "offset": 4
+            },
+            "line": {
+                "line_width": 1.2,
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "black",
+                        "mix_with": "yellow",
+                        "mix_percent": 90,
+                        "strength": 100
+                    }
+                },
+                "colour": {
+                    "name": "black",
+                    "mix_with": "yellow",
+                    "mix_percent": 90,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.25,
+                "tip": "Latex"
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.25,
+                "tip": "Latex"
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "cyan",
+                    "mix_percent": 90,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "Polygon_A",
+            "type": "polygon",
+            "show": true,
+            "definition": [
+                "A",
+                "B",
+                "C"
+            ],
+            "line": {
+                "line_width": 1.2,
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "black",
+                        "mix_with": "yellow",
+                        "mix_percent": 90,
+                        "strength": 100
+                    }
+                },
+                "colour": {
+                    "name": "black",
+                    "mix_with": "yellow",
+                    "mix_percent": 90,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.25,
+                "tip": "Latex"
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.25,
+                "tip": "Latex"
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "cyan",
+                    "mix_percent": 90,
+                    "strength": 100
+                },
+                "pattern": {
+                    "type": "none",
+                    "distance": 3,
+                    "size": 0,
+                    "rotation": 0,
+                    "xshift": 0.0,
+                    "yshift": 0.0
+                }
+            }
+        }
+    ]
+}
