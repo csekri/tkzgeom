@@ -2,20 +2,25 @@
 ![icon](icon/ico_big.png)
 # TkzGeom
 
-<span style="color:red">This branch is a rewrite of the original software from the ground up. It is in early stages of development, hence expect missing features and bugs. You find the working original version in the real branch.</span>
+*This branch is a rewrite of the original software from the ground up. It is in early stages of development, hence expect missing features and bugs. You find the working original version in the main branch.*
 
-<span style="color:red">The reason of the rewriting is to redesign the program in OOP style, reducing the repetitive codebase and allowing for easier future scalability. Having developed the original program gives the best insight for engineering/design improvement possibilities in this new version.</span>
+*The reason of the rewriting is to redesign the program in OOP style, reducing the repetitive codebase and allowing for easier future scalability. Having developed the original program gives the best insight for engineering/design improvement possibilities in this new version.*
 
-<span style="color:cyan">Planned additional features:</span>
-- <span style="color:cyan"> native support for a wide range of commutative diagrams</span>
-- <span style="color:cyan"> tikz double line </span>
-- <span style="color:cyan"> adding custom RGB based colour </span>
-- <span style="color:cyan"> continuous keypress to enable move point feature and move canvas feature </span>
-- <span style="color:cyan"> the properties dialog embedded in the main window </span>
-- <span style="color:cyan"> all items have unique (changeable) ID/name, that can be modified for easier navigation </span>
-- <span style="color:cyan"> in QlistWidget, multiple items can be selected an applied one common change simultaniously </span>
-- <span style="color:cyan"> ToolTip to be added to most widgets </span>
-- <span style="color:cyan"> other optimisations/beautifications </span>
+
+*Planned additional features:*
+- *native support for a wide range of commutative diagrams*
+- *tikz double line*
+- *adding custom RGB based colour*
+- *continuous keypress to enable move point feature and move canvas feature*
+- *the properties dialog embedded in the main window*
+- *all items have unique (changeable) ID/name, that can be modified for easier navigation*
+- *in QlistWidget, multiple items can be selected an applied one common change simultaniously*
+- *toolTip to be added to most widgets*
+- *other optimisations/beautifications*
+
+>*AltGr press moves points*, *CTRL press moves the canvas*
+
+
 
 
 
