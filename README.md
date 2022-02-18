@@ -9,6 +9,7 @@
 
 *Planned additional features:*
 - *native support for a wide range of commutative diagrams*
+- *anti-aliased canvas items*
 - *tikz double line*
 - *adding custom RGB based colour*
 - *continuous keypress to enable move point feature and move canvas feature*
