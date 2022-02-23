@@ -24,7 +24,7 @@ class ItemAccumulator:
     def __init__(self):
         self.id_history = []
         self.type_history = ''
-        self.type_map = { 'point': 'p', 'segment': 's', 'circle': 'c' }
+        self.type_map = { 'point': 'p', 'segment': 's', 'circle': 'c', 'polygon': 'o' }
 
     @staticmethod
     def is_prefix(pref: str, word: str):

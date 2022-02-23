@@ -18,7 +18,7 @@ class Segment(Item, Arrowable, DashPatternable, LineColourable):
 
     def tikzify(self):
         options = [
-            self.tikzify_arrow(),
+            self.tikzify_arrows(),
             self.tikzify_dash(),
             'draw=' + self.tikzify_line_colour()
         ]
@@ -34,6 +34,13 @@ class Segment(Item, Arrowable, DashPatternable, LineColourable):
             *items[self.item["definition"]["A"]].get_canvas_coordinates(),
             *items[self.item["definition"]["B"]].get_canvas_coordinates()
         )
+        graphics_line.setPen(QtGui.QPen(QtGui.QBrush(colour), thickness))
+        scene.addItem(graphics_line)
+
+    @staticmethod
+    def draw_on_canvas_static(x1, y1, x2, y2, scene, colour=QtCore.Qt.darkMagenta):
+        thickness = 4
+        graphics_line = QtWidgets.QGraphicsLineItem(x1, y1, x2, y2)
         graphics_line.setPen(QtGui.QPen(QtGui.QBrush(colour), thickness))
         scene.addItem(graphics_line)
 

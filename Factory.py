@@ -1,7 +1,10 @@
 from PointClasses.FreePoint import FreePoint
 from PointClasses.Midpoint import Midpoint
+from PointClasses.OnLine import OnLine
+from PointClasses.Intersection import Intersection
 from Point import Point
 from Segment import Segment
+from Polygon import Polygon
 import Constant as c
 
 class Factory:
@@ -10,10 +13,16 @@ class Factory:
         if item['type'] == 'segment':
             return Segment(item)
         if item['type'] == 'point':
-            if item["sub_type"] == 'free':
+            if item["sub_type"] == c.Point.Definition.FREE:
                 return FreePoint(item)
-            if item["sub_type"] == 'midpoint':
+            if item["sub_type"] == c.Point.Definition.SEGMENT_MIDPOINT:
                 return Midpoint(item)
+            if item["sub_type"] == c.Point.Definition.ON_LINE:
+                return OnLine(item)
+            if item["sub_type"] == c.Point.Definition.INTERSECTION:
+                return Intersection(item)
+        if item['type'] == 'polygon':
+            return Polygon(item)
 
     @staticmethod
     def create_empty_item(type, sub_type):
@@ -24,6 +33,12 @@ class Factory:
                 return FreePoint(None)
             if sub_type == c.Point.Definition.SEGMENT_MIDPOINT:
                 return Midpoint(None)
+            if sub_type == c.Point.Definition.ON_LINE:
+                return OnLine(None)
+            if sub_type == c.Point.Definition.INTERSECTION:
+                return Intersection(None)
+        if type == 'polygon':
+            return Polygon(None)
 
 
     # The following method, strickly speaking, are not part of the factory
@@ -58,7 +73,6 @@ class Factory:
                 if self.start >= self.stop:
                     raise StopIteration
                 current = item.next_id_func(definition, self.start)
-                print(current)
                 self.start += 1
                 return current
 

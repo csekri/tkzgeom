@@ -22,27 +22,39 @@ class Polygon(Item, DashPatternable, LineColourable):
             'draw=' + self.tikzify_line_colour()
         ]
         options = filter(bool, options)
-        return "\\draw[%s](%s) -- (%s);" % ( ', '.join(options) , self.item["definition"]["A"], self.item["definition"]["B"])
+        return "\\draw[%s](%s.center)--cycle;" % ( ', '.join(options) , '.center)--('.join(self.item["definition"]))
 
     def __str__(self):
         return "Segment from (%s) to (%s)" % (self.item["definition"]["A"], self.item["definition"]["B"])
 
     def draw_on_canvas(self, items, scene, colour=QtCore.Qt.darkMagenta):
-        thickness = 4
-        graphics_line = QtWidgets.QGraphicsLineItem(
-            *items[self.item["definition"]["A"]].get_canvas_coordinates(),
-            *items[self.item["definition"]["B"]].get_canvas_coordinates()
-        )
-        graphics_line.setPen(QtGui.QPen(QtGui.QBrush(colour), thickness))
-        scene.addItem(graphics_line)
+        qpolygon = QtGui.QPolygonF([QtCore.QPointF(*items[i].get_canvas_coordinates()) for i in self.item["definition"]])
+        polygon_item = QtWidgets.QGraphicsPolygonItem(qpolygon)
+        polygon_item.setBrush(QtGui.QBrush(colour))
+        pen = QtGui.QPen()
+        pen.setStyle(QtCore.Qt.NoPen)
+        polygon_item.setPen(pen)
+        scene.addItem(polygon_item)
+
+    @staticmethod
+    def draw_on_canvas_static(x, y, id_history, scene, colour=QtCore.Qt.darkMagenta):
+        coordinates = [QtCore.QPointF(*scene.project_data.items[x].get_canvas_coordinates()) for x in id_history]
+        qpolygon = QtGui.QPolygonF(coordinates + [QtCore.QPointF(x, y)])
+        polygon_item = QtWidgets.QGraphicsPolygonItem(qpolygon)
+        polygon_item.setBrush(QtGui.QBrush(colour))
+        pen = QtGui.QPen()
+        pen.setStyle(QtCore.Qt.NoPen)
+        polygon_item.setPen(pen)
+        scene.addItem(polygon_item)
+
+
 
     def is_inside(self, x, y, items):
         polygon_coordinates = []
-        for item in items.values():
-            if item.get_id() in self.depends_on():
-                polygon_coordinates.append(item.get_canvas_coordinates())
+        for item_id in self.depends_on():
+            polygon_coordinates.append(items[item_id].get_canvas_coordinates())
         shapely_polygon = ShapelyPolygon(polygon_coordinates)
-        return polygon.contains(ShapelyPoint(x, y))
+        return shapely_polygon.contains(ShapelyPoint(x, y))
 
     def depends_on(self):
         return self.item["definition"]
@@ -53,21 +65,21 @@ class Polygon(Item, DashPatternable, LineColourable):
 
     @staticmethod
     def static_patterns():
-        return [i*p for i in range(1,40)]
+        return [i*'p' for i in range(3,40)]
 
     def patterns(self):
-        return [i*p for i in range(1,40)]
+        return [i*'p' for i in range(3,40)]
 
     def next_id_func(self, definition, iter_counter):
         return 'Polygon_' + chr(ord('A') + iter_counter % 26) + (iter_counter // 26) * '\''
 
     def definition_builder(self, data, items):
-        return dict(zip(["A", "B"], data))
+        return data[:-1]
 
     def dictionary_builder(self, definition, id):
         dictionary = {}
         dictionary["id"] = id
-        dictionary["type"] = 'segment'
+        dictionary["type"] = 'polygon'
         dictionary["show"] = True
         dictionary["definition"] = definition
         dictionary["label"] = {}

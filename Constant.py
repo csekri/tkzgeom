@@ -91,10 +91,13 @@ class DoubleDefault:
         self.Colour = colour
 
 class ArrowDefault:
-    def __init__(self, tip=ArrowTips.NONE, width=1.0, length=1.0):
+    def __init__(self, tip=ArrowTips.NONE, width=1.0, length=1.0, bending=False):
         self.TIP = tip
         self.WIDTH = width
         self.LENGTH = length
+        self.BENDING = bending
+        # self.REVERSE
+        # self.SIDE
 
 class FillPatternDefault:
     def __init__(self, type='none', distance=3.0, size=0.0, rotatio=0.0, xshift=0.0, yshift=0.0):
@@ -162,41 +165,6 @@ class Line_Stroke:
     CUSTOM = 'custom'
 
 
-class Tool:
-    FREE = 0
-    MIDPOINT_SEGMENT = 1
-    INTERSECT_POINT = 2
-    CIRCLE_CENTRE = 3
-    TRANSLATION = 4
-    POINT_ON_LINE = 5
-    POINT_ON_CIRCLE = 6
-    ORTHOGONAL_PROJECTION = 7
-    ORTHOGONAL = 8
-    BISECTOR = 7
-    ROTATION = 10
-    MAKEGRID = 11
-
-    SEGMENT_THROUGH = 100
-    POLYGON = 101
-    LINESTRING = 102
-
-    CIRCUM_CIRCLE = 200
-    TWO_POINT_CIRCLE = 201
-    ARC = 202
-    SECTOR = 203
-    INSCRIBED_CIRCLE = 204
-
-    MOVE_POINT = 300
-    MOVE_AND_SCALE_CANVAS = 301
-
-    MARK_ANGLE = 400
-    MARK_RIGHT_ANGLE = 401
-    # COMPASS = 402
-
-    YFX_FUNCTION = 500
-    POLAR_FUNCTION = 501
-    PARAMETRIC_FUNCTION = 502
-
 class Mode():
     POINT = 0
     SEGMENT = 1
@@ -223,10 +191,9 @@ class Point:
         LINE_DASH_STROKE = Line_Stroke.SOLID
         LINE_DASH_CUSTOM = [5, 2]
 
-    class Definition():
+    class Definition:
         FREE = 'free'
-        INTERSECTION_LL = 'intersection_ll'
-        INTERSECTION_LC = 'intersection_lc'
+        INTERSECTION = 'intersection'
         CIRCLE_CENTRE = 'circle_centre'
         SEGMENT_MIDPOINT = 'segment_midpoint'
         ON_LINE = 'on_line'
@@ -237,10 +204,10 @@ class Point:
         PERPENDICULAR = 'perpendicular'
         ROTATION = 'rotation'
 
+
     TEXT_DICT = {
         Definition.FREE : "Free point.",
-        Definition.INTERSECTION_LL : "Intersection point of line #1 and line #2.",
-        Definition.INTERSECTION_LC : "Intersection point of line #1 and the #2.",
+        Definition.INTERSECTION : "Intersection of #1 and #2.",
         Definition.CIRCLE_CENTRE : "The middle point of the #1.",
         Definition.SEGMENT_MIDPOINT : "The midpoint of segment #1.",
         Definition.ON_LINE : "The point defined as dilation of #1, by factor #2 across centre #3.",
@@ -257,7 +224,7 @@ class Point:
 
 class Segment:
     class Default:
-        LINE_WIDTH = 0.4
+        LINE_WIDTH = 3.0
         Fill_Colour = ColourDefault()
         Line_Colour = ColourDefault()
         Marker = MarkerDefault()
@@ -283,7 +250,7 @@ PackagesDefault = [
     "\\usepackage[T1]{fontenc}",
     "\\usepackage{xcolor}",
     "\\usepackage{tkz-euclide,tkz-fct}",
-    "\\usetikzlibrary{arrows.meta, patterns.meta, hobby, ducks}",
+    "\\usetikzlibrary{arrows.meta, bending, patterns.meta, hobby, ducks}",
     "\\usetikzlibrary{backgrounds, decorations.pathmorphing, calc}"
 ]
 
@@ -299,3 +266,56 @@ WindowDefault = {
     "top": 5.0,
     "scale": 1.0,
 }
+
+class Tool:
+    FREE = 0
+    MIDPOINT_SEGMENT = 1
+    INTERSECT_POINT = 2
+    CIRCLE_CENTRE = 3
+    TRANSLATION = 4
+    POINT_ON_LINE = 5
+    POINT_ON_CIRCLE = 6
+    ORTHOGONAL_PROJECTION = 7
+    PERPENDICULAR = 8
+    BISECTOR = 7
+    ROTATION = 10
+    MAKEGRID = 11
+
+    SEGMENT_THROUGH = 100
+    POLYGON = 101
+    LINESTRING = 102
+
+    CIRCUM_CIRCLE = 200
+    TWO_POINT_CIRCLE = 201
+    ARC = 202
+    SECTOR = 203
+    INSCRIBED_CIRCLE = 204
+
+    MOVE_POINT = 300
+    MOVE_AND_SCALE_CANVAS = 301
+
+    MARK_ANGLE = 400
+    MARK_RIGHT_ANGLE = 401
+    # COMPASS = 402
+
+    YFX_FUNCTION = 500
+    POLAR_FUNCTION = 501
+    PARAMETRIC_FUNCTION = 502
+
+    TYPE_MAP = {
+        FREE: ('point', Point.Definition.FREE),
+        MIDPOINT_SEGMENT: ('point', Point.Definition.SEGMENT_MIDPOINT),
+        INTERSECT_POINT: ('point', Point.Definition.INTERSECTION),
+        CIRCLE_CENTRE: ('point', Point.Definition.CIRCLE_CENTRE),
+        TRANSLATION: ('point', Point.Definition.TRANSLATION),
+        POINT_ON_LINE: ('point', Point.Definition.ON_LINE),
+        POINT_ON_CIRCLE: ('point', Point.Definition.ON_CIRCLE),
+        ORTHOGONAL_PROJECTION: ('point', Point.Definition.PROJECTION),
+        PERPENDICULAR: ('point', Point.Definition.PERPENDICULAR),
+        BISECTOR: ('point', Point.Definition.BISECTOR),
+        ROTATION: ('point', Point.Definition.ROTATION),
+        MAKEGRID: ('point', Point.Definition.ON_LINE),
+
+        SEGMENT_THROUGH : ('segment', None),
+        POLYGON : ('polygon', None)
+    }

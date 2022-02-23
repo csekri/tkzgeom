@@ -4,39 +4,33 @@
 \usepackage[T1]{fontenc}
 \usepackage{xcolor}
 \usepackage{tkz-euclide,tkz-fct}
-\usetikzlibrary{arrows.meta, patterns.meta, hobby, ducks}
+\usetikzlibrary{arrows.meta, bending, patterns.meta, hobby, ducks}
 \usetikzlibrary{backgrounds, decorations.pathmorphing, calc}
 \begin{document}
 \begin{tikzpicture}
+\edef\xmin{-5.000000}\edef\xmax{5.000000}
+\edef\ymin{-5.000000}\edef\ymax{5.000000}
+\edef\xstep{1.000000}\edef\ystep{1.000000}
+\tkzInit[xmin=\xmin, ymin=\ymin, xmax=\xmax, ymax=\ymax, xstep=\xstep, ystep=\ystep]
+\tkzClip
+
+
 % POINT DEFINTIONS
-\tkzDefPoint(-2.0202808112324493, 2.581903276131045){A}
+\tkzDefPoint(1.4274570982839316, 2.9563182527301093){A}
 \node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0, , text width=0.0] (A) at (A) {};
-\tkzDefPoint(-3.1123244929797194, 0.4290171606864277){B}
+\tkzDefPoint(-1.7238689547581902, -0.1014040561622469){B}
 \node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0, , text width=0.0] (B) at (B) {};
-\tkzDefPoint(-1.458658346333853, -1.2714508580343207){C}
+\tkzDefPoint(1.5054602184087358, -0.27301092043681674){C}
 \node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0, , text width=0.0] (C) at (C) {};
-\tkzDefPoint(1.287051482059283, -0.7410296411856478){D}
-\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0, , text width=0.0] (D) at (D) {};
-\tkzDefPoint(1.1778471138845559, 2.3946957878315134){E}
-\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0, , text width=0.0] (E) at (E) {};
 
 % POINT LABELS
 \tkzLabelPoint(A){$A$}
 \tkzLabelPoint(B){$B$}
 \tkzLabelPoint(C){$C$}
-\tkzLabelPoint(D){$D$}
-\tkzLabelPoint(E){$E$}
 
 % DRAW SEGMENTS
-\draw[draw=black](A) -- (B);
-\draw[draw=black](A) -- (C);
-\draw[draw=black](B) -- (C);
-\draw[draw=black](B) -- (D);
-\draw[draw=black](C) -- (D);
-\draw[draw=black](C) -- (E);
-\draw[draw=black](D) -- (A);
-\draw[draw=black](D) -- (E);
-\draw[draw=black](E) -- (A);
-\draw[draw=black](E) -- (B);
+\draw[Stealth-, draw=black](A) -- (B);
+\draw[Stealth-, draw=black](B) -- (C);
+\draw[Stealth-, draw=black](C) -- (A);
 \end{tikzpicture}
 \end{document}

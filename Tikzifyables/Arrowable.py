@@ -1,24 +1,25 @@
 class Arrowable:
     def __init__(self, item):
-        self.o_arrow = Arrow(item["o_arrow"])
-        self.d_arrow = Arrow(item["d_arrow"])
-        
-    def tikzify_arrow(self):
-        o_str = self.o_arrow.tikzify()
-        d_str = self.d_arrow.tikzify()
-        if not (o_str and d_str):
+        self.item = item
+
+    def tikzify_arrows(self):
+        o_str = Arrowable.tikzify_arrow(self.item["o_arrow"])
+        d_str = Arrowable.tikzify_arrow(self.item["d_arrow"])
+        if not (o_str or d_str):
             return ''
         return o_str + '-' + d_str
 
-
-
-class Arrow:
-    def __init__(self, arrow):
-        self.length = arrow["length"]
-        self.width = arrow["width"]
-        self.tip = arrow["tip"]
-        
-    def tikzify(self):
-        if self.tip == 'None':
+    @staticmethod
+    def tikzify_arrow(arrow):
+        if arrow["tip"] == 'None':
             return ''
-        return '{%s[length=%s, width=%s]}' % (self.tip, self.length, self.width)
+        options = ''
+        if arrow["length"] == arrow["width"] == 1.0:
+            options = ''
+        elif arrow["length"] == arrow["width"]:
+            options = f'scale={arrow["length"]}'
+        else:
+            options = 'scale length=%s, width=%s' % (arrow["length"], arrow["width"])
+        if options == '':
+            return arrow["tip"]
+        return '{%s[%s]}' % (arrow["tip"], options)

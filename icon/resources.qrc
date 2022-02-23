@@ -1,0 +1,26 @@
+<RCC>
+  <qresource prefix="images">
+    <file>tabwidget/angle.png</file>
+    <file>tabwidget/circle.png</file>
+    <file>tabwidget/clip.png</file>
+    <file>tabwidget/colour.png</file>
+    <file>tabwidget/coordgrid.png</file>
+    <file>tabwidget/function.png</file>
+    <file>tabwidget/length.png</file>
+    <file>tabwidget/linestring.png</file>
+    <file>tabwidget/point.png</file>
+    <file>tabwidget/polygon_linestring.png</file>
+    <file>tabwidget/polygon.png</file>
+    <file>tabwidget/segment.png</file>
+    <file>tabwidget/settings.png</file>
+    <file>tabwidget/angle.png</file>
+    <file>tabwidget/circle.png</file>
+    <file>tabwidget/clip.png</file>
+    <file>tabwidget/coordgrid.png</file>
+    <file>tabwidget/function.png</file>
+    <file>tabwidget/point.png</file>
+    <file>tabwidget/polygon_linestring.png</file>
+    <file>tabwidget/segment.png</file>
+    <file>tabwidget/settings.png</file>
+  </qresource>
+</RCC>

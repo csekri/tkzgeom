@@ -16,6 +16,10 @@
   <property name="windowTitle">
    <string>TkzGeom</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>icon/ico.png</normaloff>icon/ico.png</iconset>
+  </property>
   <property name="tabShape">
    <enum>QTabWidget::Rounded</enum>
   </property>
@@ -116,6 +120,9 @@
     </item>
    </widget>
    <widget class="QRadioButton" name="linestring_radio">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>300</x>
@@ -132,6 +139,9 @@
     </property>
    </widget>
    <widget class="QRadioButton" name="circle_radio">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>170</x>
@@ -191,6 +201,9 @@
     </item>
    </widget>
    <widget class="QRadioButton" name="angle_radio">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>410</x>
@@ -297,7 +310,7 @@ QTabBar::tab:selected {
        <string notr="true"/>
       </property>
       <attribute name="icon">
-       <iconset resource="../../icon/resource.qrc">
+       <iconset resource="icon/resources.qrc">
         <normaloff>:/images/tabwidget/point.png</normaloff>:/images/tabwidget/point.png</iconset>
       </attribute>
       <attribute name="title">
@@ -310,7 +323,7 @@ QTabBar::tab:selected {
           <enum>Qt::NoFocus</enum>
          </property>
          <property name="currentIndex">
-          <number>3</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="page">
           <property name="geometry">
@@ -400,7 +413,7 @@ QTabBar::tab:selected {
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>0</y>
+            <y>-91</y>
             <width>330</width>
             <height>449</height>
            </rect>
@@ -900,7 +913,7 @@ QDoubleSpinBox::down-button {
                   <item>
                    <widget class="QDoubleSpinBox" name="doubleSpinBox_6">
                     <property name="focusPolicy">
-                     <enum>Qt::NoFocus</enum>
+                     <enum>Qt::ClickFocus</enum>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">QDoubleSpinBox {
@@ -1175,7 +1188,7 @@ QDoubleSpinBox::down-button {
      </widget>
      <widget class="QWidget" name="segment_tab">
       <attribute name="icon">
-       <iconset resource="../../icon/resource.qrc">
+       <iconset resource="icon/resources.qrc">
         <normaloff>:/images/tabwidget/segment.png</normaloff>:/images/tabwidget/segment.png</iconset>
       </attribute>
       <attribute name="title">
@@ -1278,7 +1291,7 @@ QDoubleSpinBox::down-button {
      </widget>
      <widget class="QWidget" name="circle_tab">
       <attribute name="icon">
-       <iconset resource="../../icon/resource.qrc">
+       <iconset resource="icon/resources.qrc">
         <normaloff>:/images/tabwidget/circle.png</normaloff>:/images/tabwidget/circle.png</iconset>
       </attribute>
       <attribute name="title">
@@ -1365,7 +1378,7 @@ QDoubleSpinBox::down-button {
      </widget>
      <widget class="QWidget" name="polygon_tab">
       <attribute name="icon">
-       <iconset resource="../../icon/resource.qrc">
+       <iconset resource="icon/resources.qrc">
         <normaloff>:/images/tabwidget/polygon.png</normaloff>:/images/tabwidget/polygon.png</iconset>
       </attribute>
       <attribute name="title">
@@ -1439,7 +1452,7 @@ QDoubleSpinBox::down-button {
      </widget>
      <widget class="QWidget" name="linestring_tab">
       <attribute name="icon">
-       <iconset resource="../../icon/resource.qrc">
+       <iconset resource="icon/resources.qrc">
         <normaloff>:/images/tabwidget/linestring.png</normaloff>:/images/tabwidget/linestring.png</iconset>
       </attribute>
       <attribute name="title">
@@ -1448,7 +1461,7 @@ QDoubleSpinBox::down-button {
      </widget>
      <widget class="QWidget" name="function_tab">
       <attribute name="icon">
-       <iconset resource="../../icon/resource.qrc">
+       <iconset resource="icon/resources.qrc">
         <normaloff>:/images/tabwidget/function.png</normaloff>:/images/tabwidget/function.png</iconset>
       </attribute>
       <attribute name="title">
@@ -1457,7 +1470,7 @@ QDoubleSpinBox::down-button {
      </widget>
      <widget class="QWidget" name="tab_6">
       <attribute name="icon">
-       <iconset resource="../../icon/resource.qrc">
+       <iconset resource="icon/resources.qrc">
         <normaloff>:/images/tabwidget/colour.png</normaloff>:/images/tabwidget/colour.png</iconset>
       </attribute>
       <attribute name="title">
@@ -1612,7 +1625,7 @@ QDoubleSpinBox::down-button {
      </widget>
      <widget class="QWidget" name="tab_7">
       <attribute name="icon">
-       <iconset resource="../../icon/resource.qrc">
+       <iconset resource="icon/resources.qrc">
         <normaloff>:/images/tabwidget/length.png</normaloff>:/images/tabwidget/length.png</iconset>
       </attribute>
       <attribute name="title">
@@ -1695,6 +1708,9 @@ p, li { white-space: pre-wrap; }
     </widget>
    </widget>
    <widget class="QRadioButton" name="right_angle_radio">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>410</x>
@@ -1791,10 +1807,13 @@ p, li { white-space: pre-wrap; }
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>20</y>
+      <x>510</x>
+      <y>10</y>
       <width>88</width>
       <height>34</height>
      </rect>
@@ -1852,6 +1871,7 @@ p, li { white-space: pre-wrap; }
     <property name="title">
      <string>Settings</string>
     </property>
+    <addaction name="actionPreferences"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -1859,8 +1879,18 @@ p, li { white-space: pre-wrap; }
     </property>
     <addaction name="actionShow_Help"/>
    </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionShow_PDF"/>
+    <addaction name="actionShow_Canvas_Labels"/>
+    <addaction name="actionShow_Canvas_Items"/>
+    <addaction name="actionShow_Aspect_Ratio"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
+   <addaction name="menuView"/>
    <addaction name="menuSettings"/>
    <addaction name="menuHelp"/>
   </widget>
@@ -1928,6 +1958,57 @@ p, li { white-space: pre-wrap; }
     <string>Show Help</string>
    </property>
   </action>
+  <action name="actionShow_PDF">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show PDF</string>
+   </property>
+  </action>
+  <action name="actionShow_Canvas_Labels">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Canvas Labels</string>
+   </property>
+  </action>
+  <action name="actionShow_Canvas_Items">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Canvas Items</string>
+   </property>
+  </action>
+  <action name="actionPrefenrences">
+   <property name="text">
+    <string>Prefenrences</string>
+   </property>
+  </action>
+  <action name="actionPreferences">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Preferences</string>
+   </property>
+  </action>
+  <action name="actionShow_Aspect_Ratio">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Aspect Ratio</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -1937,7 +2018,7 @@ p, li { white-space: pre-wrap; }
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../../icon/resource.qrc"/>
+  <include location="icon/resources.qrc"/>
  </resources>
  <connections/>
 </ui>

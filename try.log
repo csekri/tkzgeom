@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.8.27)  17 FEB 2022 08:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.8.27)  23 FEB 2022 02:08
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -775,6 +775,30 @@ Package: tkz-fct 2020/05/01 1.4c function
 ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-SUB ) ) ) ( FP-EVAL ( FP-UPN ) )
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarybending.code.tex
+File: tikzlibrarybending.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
+(/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmodulebending.co
+de.tex
+File: pgfmodulebending.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
+(/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmodulenonlineart
+ransformations.code.tex
+File: pgfmodulenonlineartransformations.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgftransformnonlinearflatness=\dimen287
+)
+(/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibrarycurvili
+near.code.tex
+File: pgflibrarycurvilinear.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@curvilinear@time@a=\dimen288
+\pgf@curvilinear@length@a=\dimen289
+\pgf@curvilinear@length@b=\dimen290
+\pgf@curvilinear@length@c=\dimen291
+\pgf@curvilinear@length@d=\dimen292
+)
+\pgf@arrows@the@rigidity=\dimen293
+))
+(/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarypatterns.meta.code.tex
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibrarypattern
 s.meta.code.tex)) (/usr/local/texlive/2020/texmf-dist/tex/latex/hobby/tikzlibra
@@ -821,13 +845,13 @@ ABD: EveryShipout initializing macros (/usr/local/texlive/2020/texmf-dist/tex/c
 ontext/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count314
-\scratchdimen=\dimen287
+\scratchdimen=\dimen294
 \scratchbox=\box67
 \nofMPsegments=\count315
 \nofMParguments=\count316
 \everyMPshowfont=\toks40
 \MPscratchCnt=\count317
-\MPscratchDim=\dimen288
+\MPscratchDim=\dimen295
 \MPnumerator=\count318
 \makeMPintoPDFobject=\count319
 \everyMPtoPDFconversion=\toks41
@@ -839,12 +863,12 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 24.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 27.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 24.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 27.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -853,16 +877,16 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./try.
 aux) ) 
 Here is how much of TeX's memory you used:
- 21726 strings out of 480893
- 470395 string characters out of 5908067
- 752630 words of memory out of 5000000
- 36792 multiletter control sequences out of 15000+600000
+ 21848 strings out of 480893
+ 474130 string characters out of 5908067
+ 752633 words of memory out of 5000000
+ 36902 multiletter control sequences out of 15000+600000
  537550 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,7n,107p,7170b,727s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,7n,107p,7179b,764s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10
 .pfb>
-Output written on try.pdf (1 page, 12284 bytes).
+Output written on try.pdf (1 page, 11531 bytes).
 PDF statistics:
  39 PDF objects out of 1000 (max. 8388607)
  18 compressed objects within 1 object stream

@@ -1,7 +1,9 @@
 from PointClasses.FreePoint import FreePoint
-from Point import Point
 from PointClasses.Midpoint import Midpoint
+from PointClasses.OnLine import OnLine
+from Point import Point
 from Segment import Segment
+from Polygon import Polygon
 from HighlightItem import item_in_focus
 from PyQt5 import QtCore
 import Constant as c
@@ -71,13 +73,25 @@ class Items:
 
 
     def tikzify(self):
+        init_crop = '\\edef\\xmin{%f}\\edef\\xmax{%f}\n'  % (self.window.left, self.window.left + 10 * self.window.scale)
+        init_crop += '\\edef\\ymin{%f}\\edef\\ymax{%f}\n'  % (self.window.top - 10 * self.window.scale, self.window.top)
+        init_crop += "\\edef\\xstep{%f}"  % self.window.scale
+        init_crop += "\\edef\\ystep{%f}\n"  % self.window.scale
+        init_crop += "\\tkzInit[xmin=\\xmin, ymin=\\ymin, xmax=\\xmax, ymax=\\ymax, xstep=\\xstep, ystep=\\ystep]\n"
+        init_crop += "\\tkzClip\n"
 
         tikzified_points_def = '\n'.join(filter(bool, [
             '\n'.join(Items.filter_sort_map(FreePoint, lambda x: x.tikzify()+'\n'+x.tikzify_node(), lambda y: y.get_id())(self.items.values())),
             '\n'.join(Items.filter_sort_map(Midpoint, lambda x: x.tikzify()+'\n'+x.tikzify_node(), lambda y: y.get_id())(self.items.values())),
+            '\n'.join(Items.filter_sort_map(OnLine, lambda x: x.tikzify()+'\n'+x.tikzify_node(), lambda y: y.get_id())(self.items.values())),
         ]))
         if tikzified_points_def:
             tikzified_points_def = '% POINT DEFINTIONS\n' + tikzified_points_def
+
+
+        tikzified_polygons = '\n'.join(Items.filter_sort_map(Polygon, lambda x: x.tikzify(), lambda y: y.get_id())(self.items.values()))
+        if tikzified_polygons:
+            tikzified_polygons = '% POLYGONS\n' + tikzified_polygons
 
         tikzified_points_label = '\n'.join(Items.filter_sort_map(Point, lambda x: x.tikzify_label(), lambda y: y.get_id())(self.items.values()))
         if tikzified_points_label:
@@ -89,7 +103,9 @@ class Items:
             tikzified_segments_draw = '% DRAW SEGMENTS\n' + tikzified_segments_draw
 
         object_blocks = [
+            init_crop,
             tikzified_points_def,
+            tikzified_polygons,
             tikzified_points_label,
             tikzified_segments_draw,
         ]
@@ -110,7 +126,14 @@ class Items:
             item.change_id(from_id, to_id)
 
 
-    def save_into_file(self):
-        dictionary = { 'items': 0}
+    def state_dict(self):
+        dictionary = { 'items' : []}
         for item in self.items.values():
-            dictionary
+            dictionary["items"].append(item.item)
+        dictionary["window"] = { 'left': self.window.left, 'top': self.window.top, 'scale': self.window.scale}
+        dictionary["bg_colour"] = self.bg_colour
+        dictionary["colours"] = self.colours
+        dictionary["code_before"] = self.code_before
+        dictionary["code_after"] = self.code_after
+        dictionary["packages"] = self.packages
+        return dictionary
