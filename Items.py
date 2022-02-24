@@ -8,7 +8,7 @@ from HighlightItem import item_in_focus
 from PyQt5 import QtCore
 import Constant as c
 
-from collections import namedtuple
+from collections import namedtuple, OrderedDict
 
 Window = namedtuple('Window', ['left', 'top', 'scale'])
 
@@ -21,7 +21,7 @@ class Items:
             colours=[],
             code_before='',
             code_after=''):
-        self.items = {}
+        self.items = OrderedDict()
         self.window = Window(left=window["left"], top=window["top"], scale=window["scale"])
         self.packages = packages
         self.bg_colour = bg_colour
@@ -69,6 +69,8 @@ class Items:
 
     @staticmethod
     def filter_sort_map(class_of, tikzify_function, sort_key):
+        if sort_key is None:
+            return lambda items: map(tikzify_function, filter(lambda x: isinstance(x, class_of), items))
         return lambda items: map(tikzify_function, sorted(filter(lambda x: isinstance(x, class_of), items), key=sort_key))
 
 
@@ -80,11 +82,7 @@ class Items:
         init_crop += "\\tkzInit[xmin=\\xmin, ymin=\\ymin, xmax=\\xmax, ymax=\\ymax, xstep=\\xstep, ystep=\\ystep]\n"
         init_crop += "\\tkzClip\n"
 
-        tikzified_points_def = '\n'.join(filter(bool, [
-            '\n'.join(Items.filter_sort_map(FreePoint, lambda x: x.tikzify()+'\n'+x.tikzify_node(), lambda y: y.get_id())(self.items.values())),
-            '\n'.join(Items.filter_sort_map(Midpoint, lambda x: x.tikzify()+'\n'+x.tikzify_node(), lambda y: y.get_id())(self.items.values())),
-            '\n'.join(Items.filter_sort_map(OnLine, lambda x: x.tikzify()+'\n'+x.tikzify_node(), lambda y: y.get_id())(self.items.values())),
-        ]))
+        tikzified_points_def = '\n'.join(Items.filter_sort_map(Point, lambda x: x.tikzify()+'\n'+x.tikzify_node(), None)(self.items.values()))
         if tikzified_points_def:
             tikzified_points_def = '% POINT DEFINTIONS\n' + tikzified_points_def
 
@@ -92,6 +90,11 @@ class Items:
         tikzified_polygons = '\n'.join(Items.filter_sort_map(Polygon, lambda x: x.tikzify(), lambda y: y.get_id())(self.items.values()))
         if tikzified_polygons:
             tikzified_polygons = '% POLYGONS\n' + tikzified_polygons
+
+        tikzified_nodes_repeat = \
+        '\n'.join(Items.filter_sort_map(Point, lambda x: x.tikzify_node(), lambda y: y.get_id())(self.items.values()))\
+        if tikzified_polygons else ''
+
 
         tikzified_points_label = '\n'.join(Items.filter_sort_map(Point, lambda x: x.tikzify_label(), lambda y: y.get_id())(self.items.values()))
         if tikzified_points_label:
@@ -106,6 +109,7 @@ class Items:
             init_crop,
             tikzified_points_def,
             tikzified_polygons,
+            tikzified_nodes_repeat,
             tikzified_points_label,
             tikzified_segments_draw,
         ]

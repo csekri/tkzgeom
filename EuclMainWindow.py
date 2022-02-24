@@ -13,9 +13,16 @@ import ConnectSignal.SelectModeRadioAndCombo as connect_mode
 from KeyBank import KeyState
 from HighlightItem import item_in_focus
 import Constant as c
-from ConnectSignal.Lambda import tabWidget_func
+from ConnectSignal.Lambda import (
+    tabWidget_func,
+    listWidget_text_changed_func,
+    listWidget_double_func,
+    listWidget_current_row_changed_func
+)
 from SyntaxHighlight import syntax_highlight
 import CanvasRendering as cr
+from Compile import compile_latex
+from ConnectSignal.ConnectPoint import connect_point
 
 
 class EuclMainWindow(QtWidgets.QMainWindow):
@@ -39,6 +46,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.scene = GraphicsScene(self.references_to_scene(), self.setWindowTitle)
         self.graphicsView.setScene(self.scene)
         self.show()
+        self.listWidget_edit_row = None
 
         self.actionOpen.triggered.connect(lambda x: self.scene.edit.open_file(self.scene, x))
         self.actionUndo.triggered.connect(lambda x: self.scene.edit.perform_undo(self.scene, x))
@@ -56,14 +64,22 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.angle_radio.clicked.connect(lambda x: connect_mode.angle_radio_func(self))
         self.right_angle_radio.clicked.connect(lambda x: connect_mode.right_angle_radio_func(self))
 
+        self.auto_compile_checkbox.stateChanged.connect(self.auto_compile_func)
+
         self.point_combo.currentIndexChanged.connect(lambda x: connect_mode.point_combo_func(x, self))
         self.circle_combo.currentIndexChanged.connect(lambda x: connect_mode.circle_combo_func(x, self))
 
         self.tabWidget.currentChanged.connect(lambda x: tabWidget_func(x, self))
+        self.listWidget.itemDoubleClicked.connect(lambda x: listWidget_double_func(x, self))
+        self.listWidget.itemChanged.connect(lambda x: listWidget_text_changed_func(x, self))
+        self.listWidget.itemSelectionChanged.connect(lambda : listWidget_current_row_changed_func(self))
 
         self.actionShow_PDF.toggled.connect(self.show_pdf_checked_func)
         self.actionShow_Canvas_Labels.toggled.connect(self.show_canvas_labels_func)
         self.actionShow_Canvas_Items.toggled.connect(self.show_canvas_items_func)
+
+        connect_point(self)
+
     def resizeEvent(self, event):
         self.scene.setSceneRect(0, 0, self.graphicsView.width(), self.graphicsView.height())
 
@@ -87,11 +103,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
             self.scene.select_history.reset_history()
 
         if event.matches(QtGui.QKeySequence.Refresh):
-            print(self.scene.project_data.doc_surround_tikzify())
-            with open('try.tex', 'w') as f:
-                f.write(self.scene.project_data.doc_surround_tikzify())
-            os.system(f'pdflatex -synctex=1 -interaction=batchmode --shell-escape -halt-on-error try.tex')
-            os.system(f'pdftocairo -png -scale-to-x 641 -scale-to-y 641 try.pdf')
+            compile_latex(self.scene, False)
             cr.clear(self.scene)
             cr.add_all_items(self.scene)
 
@@ -114,11 +126,17 @@ class EuclMainWindow(QtWidgets.QMainWindow):
     def references_to_scene(self):
         dictionary = {}
         dictionary["list_widget"] = self.listWidget
+        dictionary["tab_widget"] = self.tabWidget
         dictionary["text_browser"] = self.textBrowser
         dictionary["action_undo"] = self.actionUndo
         dictionary["action_redo"] = self.actionRedo
         dictionary["action_save"] = self.actionSave
         return dictionary
+
+    def point_widgets():
+        dictionary = {}
+        dictionary["plain_text_edit"] = self.plainTextEdit
+        # dictionary["plain_text_edit"] = self.plainTextEdit
 
     def show_pdf_checked_func(self, state):
         self.scene.show_pdf = state
@@ -134,5 +152,8 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.scene.show_canvas_items = state
         cr.clear(self.scene)
         cr.add_all_items(self.scene)
+
+    def auto_compile_func(self, state):
+        self.scene.auto_compile = bool(state)
 
 #

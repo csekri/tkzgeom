@@ -6,9 +6,10 @@ from Item import Item
 from Tikzifyables.Arrowable import Arrowable
 from Tikzifyables.DashPatternable import DashPatternable
 from Tikzifyables.Colourable.LineColourable import LineColourable
+from Tikzifyables.Colourable.FillColourable import FillColourable
 import Constant as c
 
-class Polygon(Item, DashPatternable, LineColourable):
+class Polygon(Item, DashPatternable, LineColourable, FillColourable):
     def __init__(self, item):
         Item.__init__(self, item)
         if item is None:
@@ -19,10 +20,11 @@ class Polygon(Item, DashPatternable, LineColourable):
     def tikzify(self):
         options = [
             self.tikzify_dash(),
-            'draw=' + self.tikzify_line_colour()
+            'draw=' + self.tikzify_line_colour(),
+            'fill=' + self.tikzify_fill_colour()
         ]
         options = filter(bool, options)
-        return "\\draw[%s](%s.center)--cycle;" % ( ', '.join(options) , '.center)--('.join(self.item["definition"]))
+        return "\\fill[%s](%s.center)--cycle;" % ( ', '.join(options) , '.center)--('.join(self.item["definition"]))
 
     def __str__(self):
         return "Segment from (%s) to (%s)" % (self.item["definition"]["A"], self.item["definition"]["B"])
@@ -82,34 +84,21 @@ class Polygon(Item, DashPatternable, LineColourable):
         dictionary["type"] = 'polygon'
         dictionary["show"] = True
         dictionary["definition"] = definition
-        dictionary["label"] = {}
-        dictionary["label"]["show"] = c.Segment.Default.Label.SHOW
-        dictionary["label"]["text"] = c.Segment.Default.Label.TEXT
-        dictionary["label"]["anchor"] = c.Segment.Default.Label.ANCHOR
-        dictionary["label"]["offset"] = c.Segment.Default.Label.OFFSET
         dictionary["line"] = {}
-        dictionary["line"]["line_width"] = c.Segment.Default.LINE_WIDTH
+        dictionary["line"]["line_width"] = c.Polygon.Default.LINE_WIDTH
         dictionary["line"]["colour"] = {}
-        dictionary["line"]["colour"]["name"] = c.Segment.Default.Line_Colour.NAME
-        dictionary["line"]["colour"]["mix_with"] = c.Segment.Default.Line_Colour.MIX_WITH
-        dictionary["line"]["colour"]["mix_percent"] = c.Segment.Default.Line_Colour.MIX_RATIO
-        dictionary["line"]["colour"]["strength"] = c.Segment.Default.Line_Colour.STRENGTH
+        dictionary["line"]["colour"]["name"] = c.Polygon.Default.Line_Colour.NAME
+        dictionary["line"]["colour"]["mix_with"] = c.Polygon.Default.Line_Colour.MIX_WITH
+        dictionary["line"]["colour"]["mix_percent"] = c.Polygon.Default.Line_Colour.MIX_RATIO
+        dictionary["line"]["colour"]["strength"] = c.Polygon.Default.Line_Colour.STRENGTH
         dictionary["line"]["dash"] = {}
-        dictionary["line"]["dash"]["stroke"] = c.Segment.Default.LINE_DASH_STROKE
-        dictionary["line"]["dash"]["custom_pattern"] = c.Segment.Default.LINE_DASH_CUSTOM
-        dictionary["o_arrow"] = {}
-        dictionary["o_arrow"]["width"] = c.Segment.Default.O_Arrow.WIDTH
-        dictionary["o_arrow"]["length"] = c.Segment.Default.O_Arrow.LENGTH
-        dictionary["o_arrow"]["tip"] = c.Segment.Default.O_Arrow.TIP
-        dictionary["d_arrow"] = {}
-        dictionary["d_arrow"]["width"] = c.Segment.Default.D_Arrow.WIDTH
-        dictionary["d_arrow"]["length"] = c.Segment.Default.D_Arrow.LENGTH
-        dictionary["d_arrow"]["tip"] = c.Segment.Default.D_Arrow.TIP
+        dictionary["line"]["dash"]["stroke"] = c.Polygon.Default.LINE_DASH_STROKE
+        dictionary["line"]["dash"]["custom_pattern"] = c.Polygon.Default.LINE_DASH_CUSTOM
         dictionary["fill"] = {}
         dictionary["fill"]["colour"] = {}
-        dictionary["fill"]["colour"]["name"] = c.Point.Default.Fill_Colour.NAME
-        dictionary["fill"]["colour"]["mix_with"] = c.Point.Default.Fill_Colour.MIX_WITH
-        dictionary["fill"]["colour"]["mix_percent"] = c.Point.Default.Fill_Colour.MIX_RATIO
-        dictionary["fill"]["colour"]["strength"] = c.Point.Default.Fill_Colour.STRENGTH
-
+        dictionary["fill"]["colour"]["name"] = c.Polygon.Default.Fill_Colour.NAME
+        dictionary["fill"]["colour"]["mix_with"] = c.Polygon.Default.Fill_Colour.MIX_WITH
+        dictionary["fill"]["colour"]["mix_percent"] = c.Polygon.Default.Fill_Colour.MIX_RATIO
+        dictionary["fill"]["colour"]["strength"] = c.Polygon.Default.Fill_Colour.STRENGTH
+        print(c.Polygon.Default.Fill_Colour.STRENGTH)
         self.item = dictionary

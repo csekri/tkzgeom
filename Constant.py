@@ -238,7 +238,7 @@ class Segment:
 class Polygon:
     class Default:
         LINE_WIDTH = 0.4
-        Fill_Colour = ColourDefault()
+        Fill_Colour = ColourDefault(strength=10)
         Line_Colour = ColourDefault()
         Double_Line = DoubleDefault()
         LINE_DASH_STROKE = Line_Stroke.SOLID
@@ -319,3 +319,5 @@ class Tool:
         SEGMENT_THROUGH : ('segment', None),
         POLYGON : ('polygon', None)
     }
+    
+TYPES = ['point', 'segment', 'circle', 'polygon', 'linestring', 'function', 'colour', 'number']

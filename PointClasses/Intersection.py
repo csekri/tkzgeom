@@ -10,7 +10,7 @@ class Intersection(Point):
 
 
     def tikzify(self):
-        return "\\tkzInterLL(%s,%s)(%s,%s)" % (self.depends_on()[0], self.depends_on()[1], self.depends_on()[2], self.depends_on()[3])
+        return "\\tkzInterLL(%s,%s)(%s,%s)\\tkzGetPoint{%s}" % (self.depends_on()[0], self.depends_on()[1], self.depends_on()[2], self.depends_on()[3], self.get_id())
 
     def recompute_canvas(self, items, window, width, height):
         A = items[self.item["definition"]["A"]].get_canvas_coordinates()
@@ -29,7 +29,7 @@ class Intersection(Point):
             C, D = items[data[1]].depends_on()
             return dict(zip(["A", "B", "C", "D"], [A, B, C, D]))
         if len(data) == 3: # ss
-            if items[data[0]].depends_on():
+            if items[data[0]].item["type"] == 'segment':
                 data = list(reversed(data))
             C, D = items[data[2]].depends_on()
             return dict(zip(["A", "B", "C", "D"], [data[0], data[1], C, D]))

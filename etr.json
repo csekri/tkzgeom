@@ -1,0 +1,562 @@
+{
+    "items": [
+        {
+            "id": "A",
+            "type": "point",
+            "sub_type": "free",
+            "show": true,
+            "definition": {
+                "x": -2.004680187207488,
+                "y": 3.143525741029641
+            },
+            "marker": {
+                "size": 3,
+                "shape": "circle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 0.0,
+                "rounded_corners": 0.0,
+                "text": "",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": true,
+                "text": "$A$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "B",
+            "type": "point",
+            "sub_type": "free",
+            "show": true,
+            "definition": {
+                "x": -2.285491419656786,
+                "y": 0.023400936037441866
+            },
+            "marker": {
+                "size": 3,
+                "shape": "circle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 0.0,
+                "rounded_corners": 0.0,
+                "text": "",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": true,
+                "text": "$B$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "C",
+            "type": "point",
+            "sub_type": "free",
+            "show": true,
+            "definition": {
+                "x": 0.6318252730109206,
+                "y": 0.8970358814352579
+            },
+            "marker": {
+                "size": 3,
+                "shape": "circle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 0.0,
+                "rounded_corners": 0.0,
+                "text": "",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": true,
+                "text": "$C$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "D",
+            "type": "point",
+            "sub_type": "free",
+            "show": true,
+            "definition": {
+                "x": 3.5803432137285505,
+                "y": 3.7519500780031203
+            },
+            "marker": {
+                "size": 3,
+                "shape": "circle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 0.0,
+                "rounded_corners": 0.0,
+                "text": "",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": true,
+                "text": "$D$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "A_B",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "A",
+                "B": "B"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 3.0,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "Stealth"
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None"
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "B_C",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "B",
+                "B": "C"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 3.0,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "Stealth"
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None"
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "C_D",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "C",
+                "B": "D"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 3.0,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "Stealth"
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None"
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "Polygon_A",
+            "type": "polygon",
+            "show": true,
+            "definition": [
+                "A",
+                "B",
+                "C",
+                "D"
+            ],
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 10
+                }
+            }
+        },
+        {
+            "id": "E",
+            "type": "point",
+            "sub_type": "on_line",
+            "show": true,
+            "definition": {
+                "A": "A",
+                "B": "B",
+                "ratio": 0.5467711536553913
+            },
+            "marker": {
+                "size": 3,
+                "shape": "circle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 0.0,
+                "rounded_corners": 0.0,
+                "text": "",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": true,
+                "text": "$E$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "F",
+            "type": "point",
+            "sub_type": "segment_midpoint",
+            "show": true,
+            "definition": {
+                "A": "C",
+                "B": "D"
+            },
+            "marker": {
+                "size": 3,
+                "shape": "circle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 0.0,
+                "rounded_corners": 0.0,
+                "text": "",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": true,
+                "text": "$F$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "G",
+            "type": "point",
+            "sub_type": "intersection",
+            "show": true,
+            "definition": {
+                "A": "A",
+                "B": "B",
+                "C": "C",
+                "D": "D"
+            },
+            "marker": {
+                "size": 3,
+                "shape": "circle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 0.0,
+                "rounded_corners": 0.0,
+                "text": "",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": true,
+                "text": "$G$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        }
+    ],
+    "window": {
+        "left": -5.0,
+        "top": 5.0,
+        "scale": 1.0
+    },
+    "bg_colour": {
+        "name": "black",
+        "mix_with": "black",
+        "mix_percent": 0,
+        "strength": 0
+    },
+    "colours": [],
+    "code_before": "",
+    "code_after": "",
+    "packages": [
+        "\\usepackage{amsmath,amssymb}",
+        "\\usepackage[utf8]{inputenc}",
+        "\\usepackage[T1]{fontenc}",
+        "\\usepackage{xcolor}",
+        "\\usepackage{tkz-euclide,tkz-fct}",
+        "\\usetikzlibrary{arrows.meta, bending, patterns.meta, hobby, ducks}",
+        "\\usetikzlibrary{backgrounds, decorations.pathmorphing, calc}"
+    ]
+}

@@ -7,6 +7,7 @@ from Items import Items
 from Point import Point
 from PointClasses.FreePoint import FreePoint
 from Segment import Segment
+from Compile import compile_latex
 
 import CanvasRendering as cr
 
@@ -38,6 +39,9 @@ class EditManagement:
         else:
             scene.widgets["action_save"].setEnabled(False)
         scene.title(self.window_name())
+        compile_latex(scene, True)
+        cr.clear(scene)
+        cr.add_all_items(scene)
 
     def perform_undo(self, scene, *kwargs):
         if len(self.undo_history) < 2:
@@ -55,6 +59,7 @@ class EditManagement:
         else:
             scene.widgets["action_save"].setEnabled(True)
 
+        compile_latex(scene, True)
         cr.clear(scene)
         cr.add_all_items(scene)
         scene.title(self.window_name())
@@ -73,6 +78,7 @@ class EditManagement:
             scene.widgets["action_save"].setEnabled(False)
         else:
             scene.widgets["action_save"].setEnabled(True)
+        compile_latex(scene, True)
         cr.clear(scene)
         cr.add_all_items(scene)
         scene.title(self.window_name())
@@ -83,6 +89,7 @@ class EditManagement:
             scene.project_data = Items()
             self.add_undo_item(scene)
             self.unsaved_progress = 0
+            # compile_latex(scene, True)
             cr.clear(scene)
             cr.add_all_items(scene)
         scene.title(self.window_name())
@@ -107,6 +114,8 @@ class EditManagement:
                 self.opened_file = fname[0]
                 scene.project_data.recompute_canvas(641, 641)
                 scene.edit.add_undo_item(scene)
+                self.unsaved_progress = 0
+                compile_latex(scene, True)
                 cr.clear(scene)
                 cr.add_all_items(scene)
         scene.key_bank.set_move_canvas_up()
@@ -140,6 +149,7 @@ class EditManagement:
             self.opened_file = fname[0]
             self.unsaved_progress = False
         scene.title(self.window_name())
+        scene.key_bank.set_move_canvas_up()
 
     def unsaved_msg_box_cancelled(self, scene):
         print(self.unsaved_progress)

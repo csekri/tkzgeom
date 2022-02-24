@@ -16,7 +16,7 @@ from SelectPattern import SelectMode, ItemAccumulator
 from HighlightItem import item_in_focus
 import CanvasRendering as cr
 from KeyBank import KeyBank, KeyState
-from Fill.ListWidget import fill_listWidget_with_data
+from Fill.ListWidget import fill_listWidget_with_data, listWidget_set_current_row
 from SyntaxHighlight import syntax_highlight
 from Tikzifyables.Labelable import Labelable
 from Segment import Segment
@@ -31,19 +31,21 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
 
         self.mouse = Mouse()
         self.project_data = Items()
-        self.widgets = widgets
-        self.title = title
-        self.edit = EditManagement()
-        self.edit.add_undo_item(self)
-        self.key_bank = KeyBank()
         self.select_mode = SelectMode(0, 0)
-        self.select_history = ItemAccumulator()
-        self.mock_item = None
-        self.focus_id = ''
-        self.current_tab_idx = 0
+        self.widgets = widgets
+        self.title = title # function from main window to set window title
+        self.auto_compile = False
         self.show_pdf = False
         self.show_canvas_labels = True
         self.show_canvas_items = True
+        self.select_history = ItemAccumulator()
+        self.edit = EditManagement()
+        self.edit.add_undo_item(self)
+        self.key_bank = KeyBank()
+        self.mock_item = None
+        self.focus_id = ''
+        self.current_tab_idx = 0
+        self.list_focus_ids = [0]
 
     def mousePressEvent(self, event):
         self.mouse.set_xy(int(event.scenePos().x()), int(event.scenePos().y()))
@@ -62,10 +64,13 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
             self.project_data.recompute_canvas(641, 641)
             self.edit.add_undo_item(self)
             fill_listWidget_with_data(self.project_data, self.widgets["list_widget"], self.current_tab_idx)
+            self.widgets["tab_widget"].setCurrentIndex(c.TYPES.index('point'))
+            listWidget_set_current_row(self.widgets["list_widget"], item.get_id())
             browser_text = syntax_highlight(self.project_data.tikzify())
             self.widgets["text_browser"].setText(browser_text)
         else:
             focus = item_in_focus(self.project_data, self.mouse)
+            print('focus', focus)
             if not bool(focus):
                 self.select_history.reset_history()
                 return None
@@ -99,6 +104,8 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
                 self.project_data.recompute_canvas(641, 641)
                 self.edit.add_undo_item(self)
                 fill_listWidget_with_data(self.project_data, self.widgets["list_widget"], self.current_tab_idx)
+                self.widgets["tab_widget"].setCurrentIndex(c.TYPES.index(type))
+                listWidget_set_current_row(self.widgets["list_widget"], item.get_id())
                 browser_text = syntax_highlight(self.project_data.tikzify())
                 self.widgets["text_browser"].setText(browser_text)
         cr.clear(self)

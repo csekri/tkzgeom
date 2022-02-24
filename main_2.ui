@@ -323,7 +323,7 @@ QTabBar::tab:selected {
           <enum>Qt::NoFocus</enum>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="page">
           <property name="geometry">
@@ -331,7 +331,7 @@ QTabBar::tab:selected {
             <x>0</x>
             <y>0</y>
             <width>351</width>
-            <height>358</height>
+            <height>300</height>
            </rect>
           </property>
           <attribute name="label">
@@ -413,7 +413,7 @@ QTabBar::tab:selected {
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>-91</y>
+            <y>0</y>
             <width>330</width>
             <height>449</height>
            </rect>
@@ -820,7 +820,7 @@ QDoubleSpinBox::down-button {
             <x>0</x>
             <y>0</y>
             <width>351</width>
-            <height>358</height>
+            <height>300</height>
            </rect>
           </property>
           <attribute name="label">
@@ -829,6 +829,13 @@ QDoubleSpinBox::down-button {
           <layout class="QVBoxLayout" name="verticalLayout_15">
            <item>
             <widget class="QPlainTextEdit" name="plainTextEdit"/>
+           </item>
+           <item>
+            <widget class="QPushButton" name="point_apply_text_change">
+             <property name="text">
+              <string>Apply Change</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -1206,7 +1213,7 @@ QDoubleSpinBox::down-button {
             <x>0</x>
             <y>0</y>
             <width>351</width>
-            <height>326</height>
+            <height>268</height>
            </rect>
           </property>
           <attribute name="label">
@@ -1836,6 +1843,19 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="selectionMode">
      <enum>QAbstractItemView::ExtendedSelection</enum>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="auto_compile_checkbox">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>50</y>
+      <width>121</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Auto Compile</string>
     </property>
    </widget>
   </widget>
