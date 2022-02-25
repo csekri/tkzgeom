@@ -10,7 +10,8 @@ from Segment import Segment
 from Compile import compile_latex
 from SyntaxHighlight import syntax_highlight
 import CanvasRendering as cr
-from Fill.FillAll import fill_all
+from Fill.FillAll import fill_all_fields
+from Fill.ListWidget import fill_listWidget_with_data
 
 class EditManagement:
     def __init__(self):
@@ -33,16 +34,14 @@ class EditManagement:
         self.undo_history.append(deepcopy(scene.project_data))
         self.redo_history.clear()
         self.unsaved_progress += 1
-        scene.widgets["action_undo"].setEnabled(True)
-        scene.widgets["action_redo"].setEnabled(False)
-        if self.unsaved_progress != 0:
-            scene.widgets["action_save"].setEnabled(True)
-        else:
-            scene.widgets["action_save"].setEnabled(False)
+        scene.ui.actionUndo.setEnabled(True)
+        scene.ui.actionRedo.setEnabled(False)
+        scene.ui.actionSave.setEnabled(bool(self.unsaved_progress))
         scene.title(self.window_name())
         compile_latex(scene, True)
         browser_text = syntax_highlight(scene.project_data.tikzify())
-        scene.widgets["text_browser"].setText(browser_text)
+        scene.ui.textBrowser.setText(browser_text)
+        fill_all_fields(scene)
         cr.clear(scene)
         cr.add_all_items(scene)
 
@@ -52,19 +51,16 @@ class EditManagement:
         scene.project_data = deepcopy(self.undo_history[-2])
         self.redo_history.append(self.undo_history.pop())
         if len(self.undo_history) == 1:
-            scene.widgets["action_undo"].setEnabled(False)
-        scene.widgets["action_redo"].setEnabled(True)
+            scene.ui.actionUndo.setEnabled(False)
+        scene.ui.actionRedo.setEnabled(True)
 
         self.unsaved_progress -= 1
-
-        if self.unsaved_progress == 0:
-            scene.widgets["action_save"].setEnabled(False)
-        else:
-            scene.widgets["action_save"].setEnabled(True)
+        scene.ui.actionSave.setEnabled(bool(self.unsaved_progress))
 
         compile_latex(scene, True)
         browser_text = syntax_highlight(scene.project_data.tikzify())
-        scene.widgets["text_browser"].setText(browser_text)
+        scene.ui.textBrowser.setText(browser_text)
+        fill_all_fields(scene)
         cr.clear(scene)
         cr.add_all_items(scene)
         scene.title(self.window_name())
@@ -75,17 +71,14 @@ class EditManagement:
             return None
         scene.project_data = deepcopy(self.redo_history[-1])
         self.undo_history.append(self.redo_history.pop())
-        if not self.redo_history:
-            scene.widgets["action_redo"].setEnabled(False)
-        scene.widgets["action_undo"].setEnabled(True)
+        scene.ui.actionRedo.setEnabled(bool(self.redo_history))
+        scene.ui.actionUndo.setEnabled(True)
         self.unsaved_progress += 1
-        if self.unsaved_progress == 0:
-            scene.widgets["action_save"].setEnabled(False)
-        else:
-            scene.widgets["action_save"].setEnabled(True)
+        scene.ui.actionSave.setEnabled(bool(self.unsaved_progress))
         compile_latex(scene, True)
         browser_text = syntax_highlight(scene.project_data.tikzify())
-        scene.widgets["text_browser"].setText(browser_text)
+        scene.ui.textBrowser.setText(browser_text)
+        fill_all_fields(scene)
         cr.clear(scene)
         cr.add_all_items(scene)
         scene.title(self.window_name())
@@ -94,11 +87,13 @@ class EditManagement:
     def perform_new(self, scene, *kwargs):
         if not self.unsaved_msg_box_cancelled(scene):
             scene.project_data = Items()
+            fill_listWidget_with_data(scene.project_data, scene.ui.listWidget, scene.current_tab_idx)
             self.add_undo_item(scene)
             self.unsaved_progress = 0
             # compile_latex(scene, True)
             browser_text = syntax_highlight(scene.project_data.tikzify())
-            scene.widgets["text_browser"].setText(browser_text)
+            scene.ui.textBrowser.setText(browser_text)
+            fill_all_fields(scene)
             cr.clear(scene)
             cr.add_all_items(scene)
         scene.title(self.window_name())
@@ -126,7 +121,8 @@ class EditManagement:
                 self.unsaved_progress = 0
                 compile_latex(scene, True)
                 browser_text = syntax_highlight(scene.project_data.tikzify())
-                scene.widgets["text_browser"].setText(browser_text)
+                scene.ui.textBrowser.setText(browser_text)
+                fill_all_fields(scene)
                 cr.clear(scene)
                 cr.add_all_items(scene)
         scene.key_bank.set_move_canvas_up()
@@ -138,7 +134,7 @@ class EditManagement:
             with open(self.opened_file, 'w') as f:
                     json.dump(scene.project_data.state_dict(), f, indent=4)
             self.unsaved_progress = 0
-            scene.widgets["action_save"].setEnabled(False)
+            scene.ui.actionSave.setEnabled(False)
         else:
             self.save_as(scene)
         scene.title(self.window_name())

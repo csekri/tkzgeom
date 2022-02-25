@@ -25,14 +25,16 @@ from GeometryMath import dist, ortho_proj
 
 # class for the graphics scene (canvas)
 class GraphicsScene(QtWidgets.QGraphicsScene):
-    def __init__ (self, widgets, title):
+    def __init__ (self, ui, title):
         """Construct the graphicsScene class."""
         super(GraphicsScene, self).__init__ ()
 
+        self.ui = ui
         self.mouse = Mouse()
         self.project_data = Items()
+        self.current_tab_idx = 0
+        self.list_focus_ids = []
         self.select_mode = SelectMode(0, 0)
-        self.widgets = widgets
         self.title = title # function from main window to set window title
         self.auto_compile = False
         self.show_pdf = False
@@ -44,8 +46,8 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.key_bank = KeyBank()
         self.mock_item = None
         self.focus_id = ''
-        self.current_tab_idx = 0
-        self.list_focus_ids = [0]
+        self.skip_plaintextedit_changes = False
+        self.skip_combobox_changes = False
 
     def mousePressEvent(self, event):
         self.mouse.set_xy(int(event.scenePos().x()), int(event.scenePos().y()))
@@ -63,9 +65,9 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
             self.project_data.add(item)
             self.project_data.recompute_canvas(641, 641)
             self.edit.add_undo_item(self)
-            fill_listWidget_with_data(self.project_data, self.widgets["list_widget"], self.current_tab_idx)
-            self.widgets["tab_widget"].setCurrentIndex(c.TYPES.index('point'))
-            listWidget_set_current_row(self.widgets["list_widget"], item.get_id())
+            fill_listWidget_with_data(self.project_data, self.ui.listWidget, self.current_tab_idx)
+            self.ui.tabWidget.setCurrentIndex(c.TYPES.index('point'))
+            listWidget_set_current_row(self.ui.listWidget, item.get_id())
         else:
             focus = item_in_focus(self.project_data, self.mouse)
             print('focus', focus)
@@ -101,9 +103,9 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
                 self.project_data.add(item)
                 self.project_data.recompute_canvas(641, 641)
                 self.edit.add_undo_item(self)
-                fill_listWidget_with_data(self.project_data, self.widgets["list_widget"], self.current_tab_idx)
-                self.widgets["tab_widget"].setCurrentIndex(c.TYPES.index(type))
-                listWidget_set_current_row(self.widgets["list_widget"], item.get_id())
+                fill_listWidget_with_data(self.project_data, self.ui.listWidget, self.current_tab_idx)
+                self.ui.tabWidget.setCurrentIndex(c.TYPES.index(type))
+                listWidget_set_current_row(self.ui.listWidget, item.get_id())
         cr.clear(self)
         cr.add_all_items(self)
 
@@ -152,4 +154,4 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
     def mouseReleaseEvent(self, event):
         self.mouse.set_xy(int(event.scenePos().x()), int(event.scenePos().y()))
         browser_text = syntax_highlight(self.project_data.tikzify())
-        self.widgets["text_browser"].setText(browser_text)
+        self.ui.textBrowser.setText(browser_text)

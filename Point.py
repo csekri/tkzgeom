@@ -37,7 +37,7 @@ class Point(Item, Labelable, DashPatternable, LineColourable, FillColourable):
         options = [
             self.item["marker"]["shape"],
             'minimum size=' + str(self.item["marker"]["size"]),
-            '' if self.item["marker"]["inner_sep"] != c.Point.Default.Marker.INNER_SEP else 'inner sep=' + str(self.item["marker"]["inner_sep"]),
+            'inner sep=' + str(self.item["marker"]["inner_sep"]),
             '' if self.item["marker"]["shape"] == 'circle' or self.item["marker"]["rounded_corners"] == c.Point.Default.Marker.ROUNDED_CORNERS else f'rounded corners={self.item["marker"]["rounded_corners"]}'
             '' if self.item["marker"]["text"] == c.Point.Default.Marker.TEXT else 'text=' + str(self.item["marker"]["text"]),
             '' if self.item["marker"]["text_width"] == c.Point.Default.Marker.TEXT_WIDTH else 'text width=' + str(self.item["marker"]["text_width"]),

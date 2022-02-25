@@ -323,7 +323,7 @@ QTabBar::tab:selected {
           <enum>Qt::NoFocus</enum>
          </property>
          <property name="currentIndex">
-          <number>4</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="page">
           <property name="geometry">
@@ -343,7 +343,7 @@ QTabBar::tab:selected {
              <item>
               <widget class="QLabel" name="label_18">
                <property name="text">
-                <string>ID/Name</string>
+                <string>Name</string>
                </property>
               </widget>
              </item>
@@ -420,9 +420,9 @@ QTabBar::tab:selected {
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>0</y>
+            <y>-236</y>
             <width>330</width>
-            <height>449</height>
+            <height>504</height>
            </rect>
           </property>
           <attribute name="label">
@@ -481,7 +481,7 @@ QTabBar::tab:selected {
                 </widget>
                </item>
                <item>
-                <widget class="QDoubleSpinBox" name="doubleSpinBox">
+                <widget class="QDoubleSpinBox" name="point_size_spin">
                  <property name="styleSheet">
                   <string notr="true">QDoubleSpinBox {
 	max-height: 11px;
@@ -518,9 +518,15 @@ QDoubleSpinBox::down-button {
               </layout>
              </item>
              <item>
-              <widget class="QSlider" name="horizontalSlider">
+              <widget class="QSlider" name="point_size_slider">
                <property name="styleSheet">
                 <string notr="true"/>
+               </property>
+               <property name="minimum">
+                <number>0</number>
+               </property>
+               <property name="singleStep">
+                <number>1</number>
                </property>
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -541,9 +547,9 @@ QDoubleSpinBox::down-button {
                 </widget>
                </item>
                <item>
-                <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+                <widget class="QSpinBox" name="point_shape_number_spin">
                  <property name="styleSheet">
-                  <string notr="true">QDoubleSpinBox {
+                  <string notr="true">QSpinBox {
 	max-height: 11px;
 	min-height: 11px;
     min-width: 60px;
@@ -554,7 +560,7 @@ QDoubleSpinBox::down-button {
     padding-bottom: -2px;
 }
 
-QDoubleSpinBox::up-button {
+QSpinBox::up-button {
   subcontrol-origin: padding;
   subcontrol-position: right center;
   left: 7px;
@@ -562,7 +568,7 @@ QDoubleSpinBox::up-button {
   width: 18px;
 }
 
-QDoubleSpinBox::down-button {
+QSpinBox::down-button {
   subcontrol-origin: content;
   subcontrol-position: right center;
   left: 0px;
@@ -573,14 +579,26 @@ QDoubleSpinBox::down-button {
 
 </string>
                  </property>
+                 <property name="minimum">
+                  <number>3</number>
+                 </property>
+                 <property name="maximum">
+                  <number>20</number>
+                 </property>
                 </widget>
                </item>
               </layout>
              </item>
              <item>
-              <widget class="QSlider" name="horizontalSlider_2">
+              <widget class="QSlider" name="point_shape_number_slider">
                <property name="styleSheet">
                 <string notr="true"/>
+               </property>
+               <property name="minimum">
+                <number>3</number>
+               </property>
+               <property name="maximum">
+                <number>20</number>
                </property>
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -601,7 +619,7 @@ QDoubleSpinBox::down-button {
                 </widget>
                </item>
                <item>
-                <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
+                <widget class="QDoubleSpinBox" name="point_ratio_spin">
                  <property name="styleSheet">
                   <string notr="true">QDoubleSpinBox {
 	max-height: 11px;
@@ -638,7 +656,67 @@ QDoubleSpinBox::down-button {
               </layout>
              </item>
              <item>
-              <widget class="QSlider" name="horizontalSlider_3">
+              <widget class="QSlider" name="point_ratio_slider">
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_21">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_29">
+               <item>
+                <widget class="QLabel" name="label_39">
+                 <property name="text">
+                  <string>Inner Sep</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QDoubleSpinBox" name="point_inner_sep_spin">
+                 <property name="styleSheet">
+                  <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QSlider" name="point_inner_sep_slider">
                <property name="styleSheet">
                 <string notr="true"/>
                </property>
@@ -703,9 +781,9 @@ QDoubleSpinBox::down-button {
                    </widget>
                   </item>
                   <item>
-                   <widget class="QDoubleSpinBox" name="point_marker_colour_mixratio_spinbox">
+                   <widget class="QSpinBox" name="point_marker_colour_mixratio_spin">
                     <property name="styleSheet">
-                     <string notr="true">QDoubleSpinBox {
+                     <string notr="true">QSpinBox {
 	max-height: 11px;
 	min-height: 11px;
     min-width: 60px;
@@ -716,7 +794,7 @@ QDoubleSpinBox::down-button {
     padding-bottom: -2px;
 }
 
-QDoubleSpinBox::up-button {
+QSpinBox::up-button {
   subcontrol-origin: padding;
   subcontrol-position: right center;
   left: 7px;
@@ -724,7 +802,7 @@ QDoubleSpinBox::up-button {
   width: 18px;
 }
 
-QDoubleSpinBox::down-button {
+QSpinBox::down-button {
   subcontrol-origin: content;
   subcontrol-position: right center;
   left: 0px;
@@ -735,6 +813,15 @@ QDoubleSpinBox::down-button {
 
 </string>
                     </property>
+                    <property name="minimum">
+                     <number>0</number>
+                    </property>
+                    <property name="maximum">
+                     <number>100</number>
+                    </property>
+                    <property name="value">
+                     <number>0</number>
+                    </property>
                    </widget>
                   </item>
                  </layout>
@@ -743,6 +830,9 @@ QDoubleSpinBox::down-button {
                  <widget class="QSlider" name="point_marker_colour_mixratio_slider">
                   <property name="styleSheet">
                    <string notr="true"/>
+                  </property>
+                  <property name="maximum">
+                   <number>100</number>
                   </property>
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
@@ -763,9 +853,9 @@ QDoubleSpinBox::down-button {
                    </widget>
                   </item>
                   <item>
-                   <widget class="QDoubleSpinBox" name="point_marker_colour_strength_spinbox">
+                   <widget class="QSpinBox" name="point_marker_colour_strength_spin">
                     <property name="styleSheet">
-                     <string notr="true">QDoubleSpinBox {
+                     <string notr="true">QSpinBox {
 	max-height: 11px;
 	min-height: 11px;
     min-width: 60px;
@@ -776,7 +866,7 @@ QDoubleSpinBox::down-button {
     padding-bottom: -2px;
 }
 
-QDoubleSpinBox::up-button {
+QSpinBox::up-button {
   subcontrol-origin: padding;
   subcontrol-position: right center;
   left: 7px;
@@ -784,7 +874,7 @@ QDoubleSpinBox::up-button {
   width: 18px;
 }
 
-QDoubleSpinBox::down-button {
+QSpinBox::down-button {
   subcontrol-origin: content;
   subcontrol-position: right center;
   left: 0px;
@@ -795,6 +885,15 @@ QDoubleSpinBox::down-button {
 
 </string>
                     </property>
+                    <property name="minimum">
+                     <number>0</number>
+                    </property>
+                    <property name="maximum">
+                     <number>100</number>
+                    </property>
+                    <property name="value">
+                     <number>0</number>
+                    </property>
                    </widget>
                   </item>
                  </layout>
@@ -803,6 +902,9 @@ QDoubleSpinBox::down-button {
                  <widget class="QSlider" name="point_marker_colour_strength_slider">
                   <property name="styleSheet">
                    <string notr="true"/>
+                  </property>
+                  <property name="maximum">
+                   <number>100</number>
                   </property>
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
@@ -2039,12 +2141,6 @@ p, li { white-space: pre-wrap; }
     <addaction name="actionCopy_tikzpicture"/>
     <addaction name="actionCopy_document"/>
    </widget>
-   <widget class="QMenu" name="menuSettings">
-    <property name="title">
-     <string>Settings</string>
-    </property>
-    <addaction name="actionPreferences"/>
-   </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>Help</string>
@@ -2059,6 +2155,12 @@ p, li { white-space: pre-wrap; }
     <addaction name="actionShow_Canvas_Labels"/>
     <addaction name="actionShow_Canvas_Items"/>
     <addaction name="actionShow_Aspect_Ratio"/>
+   </widget>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>Settings</string>
+    </property>
+    <addaction name="actionPreferences"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>

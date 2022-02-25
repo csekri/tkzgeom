@@ -42,9 +42,9 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         """
         super(EuclMainWindow, self).__init__()
         self.setWindowIcon(QtGui.QIcon("../../icon/ico.png"))
-        uic.loadUi('main_2.ui', self)
-        self.scene = GraphicsScene(self.references_to_scene(), self.setWindowTitle)
-        self.graphicsView.setScene(self.scene)
+        self.ui = uic.loadUi('main_2.ui', self)
+        self.scene = GraphicsScene(self.ui, self.setWindowTitle)
+        self.ui.graphicsView.setScene(self.scene)
         self.show()
         self.clipboard = QtWidgets.QApplication.clipboard()
 
@@ -52,41 +52,41 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.skip_combobox_changes = False
         self.skip_plaintextedit_changes = False
 
-        self.actionOpen.triggered.connect(lambda x: self.scene.edit.open_file(self.scene, x))
-        self.actionUndo.triggered.connect(lambda x: self.scene.edit.perform_undo(self.scene, x))
-        self.actionRedo.triggered.connect(lambda x: self.scene.edit.perform_redo(self.scene, x))
-        self.actionNew.triggered.connect(lambda x: self.scene.edit.perform_new(self.scene, x))
-        self.actionSave.triggered.connect(lambda x: self.scene.edit.save(self.scene, x))
-        self.actionSave_As.triggered.connect(lambda x: self.scene.edit.save_as(self.scene, x))
-        self.actionCopy_tikzpicture.triggered.connect(self.copy_tikzpicture_func)
-        self.actionCopy_document.triggered.connect(self.copy_tikzdoc_func)
+        self.ui.actionOpen.triggered.connect(lambda x: self.scene.edit.open_file(self.scene, x))
+        self.ui.actionUndo.triggered.connect(lambda x: self.scene.edit.perform_undo(self.scene, x))
+        self.ui.actionRedo.triggered.connect(lambda x: self.scene.edit.perform_redo(self.scene, x))
+        self.ui.actionNew.triggered.connect(lambda x: self.scene.edit.perform_new(self.scene, x))
+        self.ui.actionSave.triggered.connect(lambda x: self.scene.edit.save(self.scene, x))
+        self.ui.actionSave_As.triggered.connect(lambda x: self.scene.edit.save_as(self.scene, x))
+        self.ui.actionCopy_tikzpicture.triggered.connect(self.copy_tikzpicture_func)
+        self.ui.actionCopy_document.triggered.connect(self.copy_tikzdoc_func)
 
-        self.point_radio.clicked.connect(lambda x: connect_mode.point_radio_func(self))
-        self.segment_radio.clicked.connect(lambda x: connect_mode.segment_radio_func(self))
-        self.circle_radio.clicked.connect(lambda x: connect_mode.circle_radio_func(self))
-        self.polygon_radio.clicked.connect(lambda x: connect_mode.polygon_radio_func(self))
-        self.linestring_radio.clicked.connect(lambda x: connect_mode.linestring_radio_func(self))
-        self.angle_radio.clicked.connect(lambda x: connect_mode.angle_radio_func(self))
-        self.right_angle_radio.clicked.connect(lambda x: connect_mode.right_angle_radio_func(self))
+        self.ui.point_radio.clicked.connect(lambda x: connect_mode.point_radio_func(self))
+        self.ui.segment_radio.clicked.connect(lambda x: connect_mode.segment_radio_func(self))
+        self.ui.circle_radio.clicked.connect(lambda x: connect_mode.circle_radio_func(self))
+        self.ui.polygon_radio.clicked.connect(lambda x: connect_mode.polygon_radio_func(self))
+        self.ui.linestring_radio.clicked.connect(lambda x: connect_mode.linestring_radio_func(self))
+        self.ui.angle_radio.clicked.connect(lambda x: connect_mode.angle_radio_func(self))
+        self.ui.right_angle_radio.clicked.connect(lambda x: connect_mode.right_angle_radio_func(self))
 
-        self.auto_compile_checkbox.stateChanged.connect(self.auto_compile_func)
+        self.ui.auto_compile_checkbox.stateChanged.connect(self.auto_compile_func)
 
-        self.point_combo.currentIndexChanged.connect(lambda x: connect_mode.point_combo_func(x, self))
-        self.circle_combo.currentIndexChanged.connect(lambda x: connect_mode.circle_combo_func(x, self))
+        self.ui.point_combo.currentIndexChanged.connect(lambda x: connect_mode.point_combo_func(x, self))
+        self.ui.circle_combo.currentIndexChanged.connect(lambda x: connect_mode.circle_combo_func(x, self))
 
-        self.tabWidget.currentChanged.connect(lambda x: tabWidget_func(x, self))
-        self.listWidget.itemDoubleClicked.connect(lambda x: listWidget_double_func(x, self))
-        self.listWidget.itemChanged.connect(lambda x: listWidget_text_changed_func(x, self))
-        self.listWidget.itemSelectionChanged.connect(lambda : listWidget_current_row_changed_func(self))
+        self.ui.tabWidget.currentChanged.connect(lambda x: tabWidget_func(x, self))
+        self.ui.listWidget.itemDoubleClicked.connect(lambda x: listWidget_double_func(x, self))
+        self.ui.listWidget.itemChanged.connect(lambda x: listWidget_text_changed_func(x, self))
+        self.ui.listWidget.itemSelectionChanged.connect(lambda : listWidget_current_row_changed_func(self))
 
-        self.actionShow_PDF.toggled.connect(self.show_pdf_checked_func)
-        self.actionShow_Canvas_Labels.toggled.connect(self.show_canvas_labels_func)
-        self.actionShow_Canvas_Items.toggled.connect(self.show_canvas_items_func)
+        self.ui.actionShow_PDF.toggled.connect(self.show_pdf_checked_func)
+        self.ui.actionShow_Canvas_Labels.toggled.connect(self.show_canvas_labels_func)
+        self.ui.actionShow_Canvas_Items.toggled.connect(self.show_canvas_items_func)
 
-        connect_point(self)
+        connect_point(self.scene)
 
     def resizeEvent(self, event):
-        self.scene.setSceneRect(0, 0, self.graphicsView.width(), self.graphicsView.height())
+        self.scene.setSceneRect(0, 0, self.ui.graphicsView.width(), self.ui.graphicsView.height())
 
 
     def keyPressEvent(self,event):
@@ -125,17 +125,17 @@ class EuclMainWindow(QtWidgets.QMainWindow):
             self.scene.edit.add_undo_item(self.scene)
         self.scene.focus_id = ''
         browser_text = syntax_highlight(self.scene.project_data.tikzify())
-        self.scene.widgets["text_browser"].setText(browser_text)
+        self.scene.ui.textBrowser.setText(browser_text)
 
 
     def references_to_scene(self):
         dictionary = {}
-        dictionary["list_widget"] = self.listWidget
-        dictionary["tab_widget"] = self.tabWidget
-        dictionary["text_browser"] = self.textBrowser
-        dictionary["action_undo"] = self.actionUndo
-        dictionary["action_redo"] = self.actionRedo
-        dictionary["action_save"] = self.actionSave
+        dictionary["list_widget"] = self.ui.listWidget
+        dictionary["tab_widget"] = self.ui.tabWidget
+        dictionary["text_browser"] = self.ui.textBrowser
+        dictionary["action_undo"] = self.ui.actionUndo
+        dictionary["action_redo"] = self.ui.actionRedo
+        dictionary["action_save"] = self.ui.actionSave
         return dictionary
 
     def point_widgets():
