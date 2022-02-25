@@ -47,6 +47,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.graphicsView.setScene(self.scene)
         self.show()
         self.listWidget_edit_row = None
+        self.skip_combobox_changes = False
 
         self.actionOpen.triggered.connect(lambda x: self.scene.edit.open_file(self.scene, x))
         self.actionUndo.triggered.connect(lambda x: self.scene.edit.perform_undo(self.scene, x))

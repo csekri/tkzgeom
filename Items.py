@@ -18,7 +18,16 @@ class Items:
             window=c.WindowDefault,
             packages=c.PackagesDefault,
             bg_colour=c.BackGroundColourDefault,
-            colours=[],
+            colours=[
+                {
+                    "id": "horseWhite",
+                    "definition": "#ededf0"
+                },
+                {
+                    "id": "loveRed",
+                    "definition": "#d50402"
+                }
+            ],
             code_before='',
             code_after=''):
         self.items = OrderedDict()
@@ -82,6 +91,12 @@ class Items:
         init_crop += "\\tkzInit[xmin=\\xmin, ymin=\\ymin, xmax=\\xmax, ymax=\\ymax, xstep=\\xstep, ystep=\\ystep]\n"
         init_crop += "\\tkzClip\n"
 
+        tikzified_colours = \
+            '\n'.join([('\\definecolor{%s}{HTML}{%s}' % (i["id"], i["definition"][1:])) for i in self.colours])
+        if tikzified_colours:
+            tikzified_colours = '% COLOURS\n' + tikzified_colours
+
+
         tikzified_points_def = '\n'.join(Items.filter_sort_map(Point, lambda x: x.tikzify()+'\n'+x.tikzify_node(), None)(self.items.values()))
         if tikzified_points_def:
             tikzified_points_def = '% POINT DEFINTIONS\n' + tikzified_points_def
@@ -106,12 +121,13 @@ class Items:
             tikzified_segments_draw = '% DRAW SEGMENTS\n' + tikzified_segments_draw
 
         object_blocks = [
+            tikzified_colours,
             init_crop,
             tikzified_points_def,
             tikzified_polygons,
-            tikzified_nodes_repeat,
             tikzified_points_label,
             tikzified_segments_draw,
+            tikzified_nodes_repeat,
         ]
         string = '\n\n'.join(filter(bool, object_blocks))
 

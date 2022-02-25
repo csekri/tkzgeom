@@ -66,8 +66,6 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
             fill_listWidget_with_data(self.project_data, self.widgets["list_widget"], self.current_tab_idx)
             self.widgets["tab_widget"].setCurrentIndex(c.TYPES.index('point'))
             listWidget_set_current_row(self.widgets["list_widget"], item.get_id())
-            browser_text = syntax_highlight(self.project_data.tikzify())
-            self.widgets["text_browser"].setText(browser_text)
         else:
             focus = item_in_focus(self.project_data, self.mouse)
             print('focus', focus)
@@ -106,8 +104,6 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
                 fill_listWidget_with_data(self.project_data, self.widgets["list_widget"], self.current_tab_idx)
                 self.widgets["tab_widget"].setCurrentIndex(c.TYPES.index(type))
                 listWidget_set_current_row(self.widgets["list_widget"], item.get_id())
-                browser_text = syntax_highlight(self.project_data.tikzify())
-                self.widgets["text_browser"].setText(browser_text)
         cr.clear(self)
         cr.add_all_items(self)
 

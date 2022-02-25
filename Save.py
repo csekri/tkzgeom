@@ -8,7 +8,7 @@ from Point import Point
 from PointClasses.FreePoint import FreePoint
 from Segment import Segment
 from Compile import compile_latex
-
+from SyntaxHighlight import syntax_highlight
 import CanvasRendering as cr
 
 class EditManagement:
@@ -40,6 +40,8 @@ class EditManagement:
             scene.widgets["action_save"].setEnabled(False)
         scene.title(self.window_name())
         compile_latex(scene, True)
+        browser_text = syntax_highlight(scene.project_data.tikzify())
+        scene.widgets["text_browser"].setText(browser_text)
         cr.clear(scene)
         cr.add_all_items(scene)
 
@@ -60,6 +62,8 @@ class EditManagement:
             scene.widgets["action_save"].setEnabled(True)
 
         compile_latex(scene, True)
+        browser_text = syntax_highlight(scene.project_data.tikzify())
+        scene.widgets["text_browser"].setText(browser_text)
         cr.clear(scene)
         cr.add_all_items(scene)
         scene.title(self.window_name())
@@ -79,6 +83,8 @@ class EditManagement:
         else:
             scene.widgets["action_save"].setEnabled(True)
         compile_latex(scene, True)
+        browser_text = syntax_highlight(scene.project_data.tikzify())
+        scene.widgets["text_browser"].setText(browser_text)
         cr.clear(scene)
         cr.add_all_items(scene)
         scene.title(self.window_name())
@@ -90,6 +96,8 @@ class EditManagement:
             self.add_undo_item(scene)
             self.unsaved_progress = 0
             # compile_latex(scene, True)
+            browser_text = syntax_highlight(scene.project_data.tikzify())
+            scene.widgets["text_browser"].setText(browser_text)
             cr.clear(scene)
             cr.add_all_items(scene)
         scene.title(self.window_name())
@@ -116,6 +124,8 @@ class EditManagement:
                 scene.edit.add_undo_item(scene)
                 self.unsaved_progress = 0
                 compile_latex(scene, True)
+                browser_text = syntax_highlight(scene.project_data.tikzify())
+                scene.widgets["text_browser"].setText(browser_text)
                 cr.clear(scene)
                 cr.add_all_items(scene)
         scene.key_bank.set_move_canvas_up()

@@ -8,6 +8,10 @@
 \usetikzlibrary{backgrounds, decorations.pathmorphing, calc}
 \begin{document}
 \begin{tikzpicture}
+% COLOURS
+\definecolor{horseWhite}{HTML}{ededf0}
+\definecolor{loveRed}{HTML}{d50402}
+
 \edef\xmin{-5.000000}\edef\xmax{5.000000}
 \edef\ymin{-5.000000}\edef\ymax{5.000000}
 \edef\xstep{1.000000}\edef\ystep{1.000000}
@@ -16,31 +20,28 @@
 
 
 % POINT DEFINTIONS
-\tkzDefPoint(2.0670826833073317, 3.049921996879875){A}
-\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0, ] (A) at (A) {\textcolor{white}{Save}};
-\tkzDefPoint(1.7550702028081124, -1.770670826833073){B}
-\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0, ] (B) at (B) {\textcolor{white}{Open}};
-\tkzDefPoint(-3.7519500780031203, 2.03588143525741){C}
-\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0, ] (C) at (C) {\textcolor{white}{Save As}};
-\tkzDefPointBy[homothety=center C ratio 0.6290232571117652](A) \tkzGetPoint{D}
-\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0, ] (D) at (D) {\textcolor{white}{Between}};
+\tkzDefPoint(-1.3806552262090483, 2.9563182527301093){A}
+\node[draw=black, fill=green, circle, minimum size=3, inner sep=0.0] (A) at (A) {};
+\tkzDefPoint(-2.1138845553822154, 0.03900156006240252){B}
+\node[draw=black, fill=green, circle, minimum size=3, inner sep=0.0] (B) at (B) {};
+\tkzDefPoint(3.2371294851794072, 0.7098283931357248){C}
+\node[draw=black, fill=cyan, circle, minimum size=3, inner sep=0.0] (C) at (C) {};
 
 % POLYGONS
-\fill[draw=black, fill=black!10](C.center)--(B.center)--(A.center)--cycle;
-
-\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0, ] (A) at (A) {\textcolor{white}{Save}};
-\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0, ] (B) at (B) {\textcolor{white}{Open}};
-\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0, ] (C) at (C) {\textcolor{white}{Save As}};
-\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0, ] (D) at (D) {\textcolor{white}{Between}};
+\fill[draw=black, fill=black!10](A.center)--(B.center)--(C.center)--(C.center)--cycle;
 
 % POINT LABELS
 \tkzLabelPoint(A){$A$}
 \tkzLabelPoint(B){$B$}
 \tkzLabelPoint(C){$C$}
-\tkzLabelPoint(D){$D$}
 
 % DRAW SEGMENTS
 \draw[Stealth-, draw=black](A) -- (B);
 \draw[Stealth-, draw=black](C) -- (A);
+\draw[Stealth-, draw=black](C) -- (B);
+
+\node[draw=black, fill=green, circle, minimum size=3, inner sep=0.0] (A) at (A) {};
+\node[draw=black, fill=green, circle, minimum size=3, inner sep=0.0] (B) at (B) {};
+\node[draw=black, fill=cyan, circle, minimum size=3, inner sep=0.0] (C) at (C) {};
 \end{tikzpicture}
 \end{document}
