@@ -5,7 +5,7 @@
 \usepackage{xcolor}
 \usepackage{tkz-euclide,tkz-fct}
 \usetikzlibrary{arrows.meta, bending, patterns.meta, hobby, ducks}
-\usetikzlibrary{backgrounds, decorations.pathmorphing, calc}
+\usetikzlibrary{shapes, backgrounds, decorations.pathmorphing, calc}
 \begin{document}
 \begin{tikzpicture}
 % COLOURS
@@ -20,28 +20,7 @@
 
 
 % POINT DEFINTIONS
-\tkzDefPoint(-1.3806552262090483, 2.9563182527301093){A}
-\node[draw=black, fill=green, circle, minimum size=3, inner sep=0.0] (A) at (A) {};
-\tkzDefPoint(-2.1138845553822154, 0.03900156006240252){B}
-\node[draw=black, fill=green, circle, minimum size=3, inner sep=0.0] (B) at (B) {};
-\tkzDefPoint(3.2371294851794072, 0.7098283931357248){C}
-\node[draw=black, fill=cyan, circle, minimum size=3, inner sep=0.0] (C) at (C) {};
-
-% POLYGONS
-\fill[draw=black, fill=black!10](A.center)--(B.center)--(C.center)--(C.center)--cycle;
-
-% POINT LABELS
-\tkzLabelPoint(A){$A$}
-\tkzLabelPoint(B){$B$}
-\tkzLabelPoint(C){$C$}
-
-% DRAW SEGMENTS
-\draw[Stealth-, draw=black](A) -- (B);
-\draw[Stealth-, draw=black](C) -- (A);
-\draw[Stealth-, draw=black](C) -- (B);
-
-\node[draw=black, fill=green, circle, minimum size=3, inner sep=0.0] (A) at (A) {};
-\node[draw=black, fill=green, circle, minimum size=3, inner sep=0.0] (B) at (B) {};
-\node[draw=black, fill=cyan, circle, minimum size=3, inner sep=0.0] (C) at (C) {};
+\tkzDefPoint(-1.053042121684867, 2.784711388455538){A}
+\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0] (A) at (A) {};
 \end{tikzpicture}
 \end{document}

@@ -46,8 +46,11 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.scene = GraphicsScene(self.references_to_scene(), self.setWindowTitle)
         self.graphicsView.setScene(self.scene)
         self.show()
+        self.clipboard = QtWidgets.QApplication.clipboard()
+
         self.listWidget_edit_row = None
         self.skip_combobox_changes = False
+        self.skip_plaintextedit_changes = False
 
         self.actionOpen.triggered.connect(lambda x: self.scene.edit.open_file(self.scene, x))
         self.actionUndo.triggered.connect(lambda x: self.scene.edit.perform_undo(self.scene, x))
@@ -55,7 +58,8 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.actionNew.triggered.connect(lambda x: self.scene.edit.perform_new(self.scene, x))
         self.actionSave.triggered.connect(lambda x: self.scene.edit.save(self.scene, x))
         self.actionSave_As.triggered.connect(lambda x: self.scene.edit.save_as(self.scene, x))
-
+        self.actionCopy_tikzpicture.triggered.connect(self.copy_tikzpicture_func)
+        self.actionCopy_document.triggered.connect(self.copy_tikzdoc_func)
 
         self.point_radio.clicked.connect(lambda x: connect_mode.point_radio_func(self))
         self.segment_radio.clicked.connect(lambda x: connect_mode.segment_radio_func(self))
@@ -157,4 +161,15 @@ class EuclMainWindow(QtWidgets.QMainWindow):
     def auto_compile_func(self, state):
         self.scene.auto_compile = bool(state)
 
+    def copy_tikzpicture_func(self):
+        print('copieren')
+        text = self.scene.project_data.tikzify()
+        self.clipboard.clear(mode=self.clipboard.Clipboard)
+        self.clipboard.setText(text, mode=self.clipboard.Clipboard)
+
+    def copy_tikzdoc_func(self):
+        print('copieren')
+        text = self.scene.project_data.doc_surround_tikzify()
+        self.clipboard.clear(mode=self.clipboard.Clipboard)
+        self.clipboard.setText(text, mode=self.clipboard.Clipboard)
 #

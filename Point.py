@@ -30,7 +30,7 @@ class Point(Item, Labelable, DashPatternable, LineColourable, FillColourable):
     def __tikzify_marker(self):
         extra = ''
         if self.item["marker"]["shape"] == 'regular polygon':
-            extra = 'regular polygon sizes=' + self.item["marker"]["shape_number"]
+            extra = 'regular polygon sides=' + str(self.item["marker"]["shape_number"])
         elif self.item["marker"]["shape"] == 'star':
             extra = f'star points={self.item["marker"]["shape_number"]}, star point ratio={self.item["marker"]["ratio"]}'
 

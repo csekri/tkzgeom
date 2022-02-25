@@ -251,7 +251,7 @@ PackagesDefault = [
     "\\usepackage{xcolor}",
     "\\usepackage{tkz-euclide,tkz-fct}",
     "\\usetikzlibrary{arrows.meta, bending, patterns.meta, hobby, ducks}",
-    "\\usetikzlibrary{backgrounds, decorations.pathmorphing, calc}"
+    "\\usetikzlibrary{shapes, backgrounds, decorations.pathmorphing, calc}"
 ]
 
 BackGroundColourDefault = {
@@ -319,5 +319,5 @@ class Tool:
         SEGMENT_THROUGH : ('segment', None),
         POLYGON : ('polygon', None)
     }
-    
+
 TYPES = ['point', 'segment', 'circle', 'polygon', 'linestring', 'function', 'colour', 'number']

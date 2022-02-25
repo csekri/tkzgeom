@@ -9,7 +9,9 @@ def fill_point_fields(main_window):
     if c.TYPES[main_window.scene.current_tab_idx] != 'point':
         return
     point = main_window.scene.project_data.items[ids[0]].item
+    main_window.skip_plaintextedit_changes = True
     main_window.plainTextEdit.setPlainText(point["marker"]["text"])
+    main_window.skip_plaintextedit_changes = False
     main_window.skip_combobox_changes = True
     main_window.point_marker_colour_name.clear()
     main_window.point_marker_colour_name.addItems(colours)
@@ -17,4 +19,6 @@ def fill_point_fields(main_window):
     main_window.point_marker_colour_mix_name.clear()
     main_window.point_marker_colour_mix_name.addItems(colours)
     main_window.point_marker_colour_mix_name.setCurrentIndex(colours.index(point["fill"]["colour"]["mix_with"]))
+    main_window.point_marker_shape.setCurrentIndex(c.attribute_values(c.Marker_Shape).index(point["marker"]["shape"]))
     main_window.skip_combobox_changes = False
+    main_window.point_show_label.setEnabled(point["label"]["show"])

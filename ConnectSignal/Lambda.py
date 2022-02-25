@@ -32,6 +32,8 @@ def listWidget_current_row_changed_func(main_window):
 
 def connect_plain_text_edit_abstract(main_window, properties_list, dict_key, plain_text_edit_widget):
     ids = main_window.scene.list_focus_ids
+    if main_window.skip_plaintextedit_changes:
+        return
     for id in ids:
         final_property = main_window.scene.project_data.items[id].item
         for prop in properties_list:
@@ -41,7 +43,7 @@ def connect_plain_text_edit_abstract(main_window, properties_list, dict_key, pla
 def connect_text_edit_pushbutton_apply_abstract(scene):
     scene.edit.add_undo_item(scene)
 
-def connect_combobox_colour_abstract(value, main_window, properties_list, dict_key, value_list):
+def connect_combobox_abstract(value, main_window, properties_list, dict_key, value_list):
     if main_window.skip_combobox_changes:
         return
     ids = main_window.scene.list_focus_ids
@@ -50,7 +52,15 @@ def connect_combobox_colour_abstract(value, main_window, properties_list, dict_k
         for prop in properties_list:
             final_property = final_property[prop]
         new_value = value_list[value]
-        print('new value', new_value)
         final_property[dict_key] = new_value
         print(main_window.scene.project_data.items[id].item)
+    main_window.scene.edit.add_undo_item(main_window.scene)
+
+def connect_checkbox_abstract(state, main_window, properties_list, dict_key):
+    ids = main_window.scene.list_focus_ids
+    for id in ids:
+        final_property = main_window.scene.project_data.items[id].item
+        for prop in properties_list:
+            final_property = final_property[prop]
+        final_property[dict_key] = bool(state)
     main_window.scene.edit.add_undo_item(main_window.scene)

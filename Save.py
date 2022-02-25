@@ -10,6 +10,7 @@ from Segment import Segment
 from Compile import compile_latex
 from SyntaxHighlight import syntax_highlight
 import CanvasRendering as cr
+from Fill.FillAll import fill_all
 
 class EditManagement:
     def __init__(self):

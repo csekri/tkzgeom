@@ -1,10 +1,10 @@
 class Labelable:
     def __init__(self, item):
-        self.label = item["label"]
-        self.id = item["id"]
         self.item = item
 
     def tikzify_label(self):
+        if not self.item["label"]["show"]:
+            return ''
         option = ''
         if self.item["label"]["offset"] != 0.0:
             option = self.item["label"]["anchor"] + '=' + str(self.item["label"]["offset"])

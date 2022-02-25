@@ -297,7 +297,7 @@ QTabBar::tab:selected {
 }</string>
      </property>
      <property name="currentIndex">
-      <number>6</number>
+      <number>0</number>
      </property>
      <property name="iconSize">
       <size>
@@ -323,7 +323,7 @@ QTabBar::tab:selected {
           <enum>Qt::NoFocus</enum>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="page">
           <property name="geometry">
@@ -420,7 +420,7 @@ QTabBar::tab:selected {
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>-149</y>
+            <y>0</y>
             <width>330</width>
             <height>449</height>
            </rect>
@@ -439,7 +439,7 @@ QTabBar::tab:selected {
               </widget>
              </item>
              <item>
-              <widget class="QComboBox" name="comboBox_2">
+              <widget class="QComboBox" name="point_marker_shape">
                <item>
                 <property name="text">
                  <string>Circle</string>
@@ -1208,7 +1208,7 @@ QDoubleSpinBox::down-button {
           <attribute name="label">
            <string>Label</string>
           </attribute>
-          <widget class="QCheckBox" name="checkBox_2">
+          <widget class="QCheckBox" name="point_show_label">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -2037,7 +2037,7 @@ p, li { white-space: pre-wrap; }
     <addaction name="actionRedo"/>
     <addaction name="separator"/>
     <addaction name="actionCopy_tikzpicture"/>
-    <addaction name="actionCopy_Document"/>
+    <addaction name="actionCopy_document"/>
    </widget>
    <widget class="QMenu" name="menuSettings">
     <property name="title">
@@ -2120,7 +2120,7 @@ p, li { white-space: pre-wrap; }
     <string>Copy tikzpicture</string>
    </property>
   </action>
-  <action name="actionCopy_Document">
+  <action name="actionCopy_document">
    <property name="text">
     <string>Copy Document</string>
    </property>
