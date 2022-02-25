@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.8.27)  25 FEB 2022 14:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.8.27)  25 FEB 2022 21:26
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -937,16 +937,16 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./try.
 aux) ) 
 Here is how much of TeX's memory you used:
- 23488 strings out of 480893
- 522834 string characters out of 5908067
+ 23487 strings out of 480893
+ 522830 string characters out of 5908067
  826556 words of memory out of 5000000
- 38509 multiletter control sequences out of 15000+600000
+ 38508 multiletter control sequences out of 15000+600000
  537550 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,7n,107p,7179b,766s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,7n,107p,7179b,764s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10
 .pfb>
-Output written on try.pdf (1 page, 10634 bytes).
+Output written on try.pdf (1 page, 10628 bytes).
 PDF statistics:
  39 PDF objects out of 1000 (max. 8388607)
  18 compressed objects within 1 object stream

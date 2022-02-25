@@ -323,7 +323,7 @@ QTabBar::tab:selected {
           <enum>Qt::NoFocus</enum>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="page">
           <property name="geometry">
@@ -960,7 +960,7 @@ QSpinBox::down-button {
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>0</y>
+            <y>-98</y>
             <width>330</width>
             <height>366</height>
            </rect>
@@ -1183,7 +1183,7 @@ QDoubleSpinBox::down-button {
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="pt_cb_selector_line_stroke">
+                 <widget class="QComboBox" name="point_line_stroke">
                   <property name="focusPolicy">
                    <enum>Qt::NoFocus</enum>
                   </property>
@@ -1272,14 +1272,14 @@ QDoubleSpinBox::down-button {
                    <enum>Qt::NoFocus</enum>
                   </property>
                   <property name="text">
-                   <string>Custom Patter</string>
+                   <string>Custom Pattern</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="lineEdit_4">
+                 <widget class="QLineEdit" name="point_custom_dash">
                   <property name="focusPolicy">
-                   <enum>Qt::NoFocus</enum>
+                   <enum>Qt::ClickFocus</enum>
                   </property>
                  </widget>
                 </item>

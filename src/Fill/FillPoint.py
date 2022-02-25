@@ -20,8 +20,11 @@ def fill_point_fields(scene):
     scene.ui.point_marker_colour_mix_name.addItems(colours)
     scene.ui.point_marker_colour_mix_name.setCurrentIndex(colours.index(point["fill"]["colour"]["mix_with"]))
     scene.ui.point_marker_shape.setCurrentIndex(c.attribute_values(c.Marker_Shape).index(point["marker"]["shape"]))
+    scene.ui.point_line_stroke.setCurrentIndex(c.attribute_values(c.Line_Stroke).index(point["line"]["dash"]["stroke"]))
     scene.skip_combobox_changes = False
+    scene.skip_checkox_changes = True
     scene.ui.point_show_label.setChecked(point["label"]["show"])
+    scene.skip_checkox_changes = False
 
     scene.ui.point_size_slider.setValue(point["marker"]["size"])
     scene.ui.point_size_spin.setValue(point["marker"]["size"])
@@ -40,3 +43,5 @@ def fill_point_fields(scene):
 
     scene.ui.point_marker_colour_strength_slider.setValue(point["fill"]["colour"]["strength"])
     scene.ui.point_marker_colour_strength_spin.setValue(point["fill"]["colour"]["strength"])
+
+    scene.ui.point_custom_dash.setText(' '.join(map(str, point["line"]["dash"]["custom_pattern"])))

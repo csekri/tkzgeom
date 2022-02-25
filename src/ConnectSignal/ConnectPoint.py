@@ -5,7 +5,8 @@ from ConnectSignal.Lambda import (
     connect_combobox_abstract,
     connect_checkbox_abstract,
     connect_slider_moved_abstract,
-    connect_slider_released_abstract
+    connect_slider_released_abstract,
+    connect_dash_lineedit_abstract
 )
 
 def connect_point(scene):
@@ -56,3 +57,9 @@ def connect_point(scene):
         lambda x: connect_slider_moved_abstract(x, scene, ['fill', 'colour'], 'strength', lambda x: x, scene.ui.point_marker_colour_strength_spin))
     scene.ui.point_marker_colour_strength_slider.sliderReleased.connect(
         lambda : connect_slider_released_abstract(scene))
+
+    scene.ui.point_custom_dash.editingFinished.connect(
+        lambda : connect_dash_lineedit_abstract(scene, ['line', 'dash'], 'custom_pattern', scene.ui.point_custom_dash))
+
+    scene.ui.point_line_stroke.currentIndexChanged.connect(
+        lambda x: connect_combobox_abstract(x, scene, ['line', 'dash'], 'stroke', c.attribute_values(c.Line_Stroke)))

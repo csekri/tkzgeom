@@ -48,6 +48,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.focus_id = ''
         self.skip_plaintextedit_changes = False
         self.skip_combobox_changes = False
+        self.skip_checkox_changes = False
 
     def mousePressEvent(self, event):
         self.mouse.set_xy(int(event.scenePos().x()), int(event.scenePos().y()))

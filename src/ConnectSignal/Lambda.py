@@ -32,6 +32,8 @@ def connect_plain_text_edit_abstract(scene, properties_list, dict_key, plain_tex
     ids = scene.list_focus_ids
     if scene.skip_plaintextedit_changes:
         return
+    if not ids:
+        return
     for id in ids:
         final_property = scene.project_data.items[id].item
         for prop in properties_list:
@@ -45,6 +47,8 @@ def connect_combobox_abstract(value, scene, properties_list, dict_key, value_lis
     if scene.skip_combobox_changes:
         return
     ids = scene.list_focus_ids
+    if not ids:
+        return
     for id in ids:
         final_property = scene.project_data.items[id].item
         for prop in properties_list:
@@ -54,7 +58,11 @@ def connect_combobox_abstract(value, scene, properties_list, dict_key, value_lis
     scene.edit.add_undo_item(scene)
 
 def connect_checkbox_abstract(state, scene, properties_list, dict_key):
+    if scene.skip_checkox_changes:
+        return
     ids = scene.list_focus_ids
+    if not ids:
+        return
     for id in ids:
         final_property = scene.project_data.items[id].item
         for prop in properties_list:
@@ -64,6 +72,8 @@ def connect_checkbox_abstract(state, scene, properties_list, dict_key):
 
 def connect_slider_moved_abstract(value, scene, properties_list, dict_key, linear_map, spinbox):
     ids = scene.list_focus_ids
+    if not ids:
+        return
     for id in ids:
         final_property = scene.project_data.items[id].item
         for prop in properties_list:
@@ -74,3 +84,29 @@ def connect_slider_moved_abstract(value, scene, properties_list, dict_key, linea
 
 def connect_slider_released_abstract(scene):
     scene.edit.add_undo_item(scene)
+
+def connect_dash_lineedit_abstract(scene, properties_list, dict_key, lineedit):
+    ids = scene.list_focus_ids
+    for id in ids:
+        final_property = scene.project_data.items[id].item
+        for prop in properties_list:
+            final_property = final_property[prop]
+        try:
+            lengths = list(map(int, lineedit.text().split(' ')))
+            if len(lengths) % 2 != 0:
+                throw_error = 1/0
+            final_property[dict_key] = lengths
+            scene.edit.add_undo_item(scene)
+        except:
+            lengths_str = ''
+            for num in final_property[dict_key]:
+                lengths_str += "%s " % str(num)
+            lengths_str = lengths_str[:-1]
+            lineedit.setText(lengths_str)
+
+
+
+
+
+
+#

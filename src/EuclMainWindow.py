@@ -23,6 +23,8 @@ from SyntaxHighlight import syntax_highlight
 import CanvasRendering as cr
 from Compile import compile_latex
 from ConnectSignal.ConnectPoint import connect_point
+from Fill.ListWidget import fill_listWidget_with_data
+from Fill.FillAll import fill_all_fields
 
 
 class EuclMainWindow(QtWidgets.QMainWindow):
@@ -88,6 +90,10 @@ class EuclMainWindow(QtWidgets.QMainWindow):
     def resizeEvent(self, event):
         self.scene.setSceneRect(0, 0, self.ui.graphicsView.width(), self.ui.graphicsView.height())
 
+    def closeEvent(self, event):
+        if self.scene.edit.unsaved_progress:
+            if self.scene.edit.unsaved_msg_box_cancelled(self.scene):
+                event.ignore()
 
     def keyPressEvent(self,event):
         if event.isAutoRepeat():
@@ -111,6 +117,19 @@ class EuclMainWindow(QtWidgets.QMainWindow):
             compile_latex(self.scene, False)
             cr.clear(self.scene)
             cr.add_all_items(self.scene)
+
+        if event.matches(QtGui.QKeySequence.Delete):
+            id = self.scene.ui.listWidget.currentItem().text()
+            self.scene.project_data.items[id].delete(self.scene.project_data.items)
+            fill_listWidget_with_data(self.scene.project_data, self.ui.listWidget, self.scene.current_tab_idx)
+            if self.scene.ui.listWidget.count() > 0:
+                self.scene.ui.listWidget.item(self.scene.ui.listWidget.count()-1).setSelected(True)
+                self.scene.ui.listWidget.setCurrentRow(self.scene.ui.listWidget.count()-1)
+            fill_all_fields(self.scene)
+            compile_latex(self.scene, True)
+            cr.clear(self.scene)
+            cr.add_all_items(self.scene)
+
 
     def keyReleaseEvent(self,event):
         if event.isAutoRepeat():
