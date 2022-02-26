@@ -1,6 +1,6 @@
 from Fill.ListWidget import fill_listWidget_with_data
 from Fill.FillAll import fill_all_fields
-
+from Colour import Colour
 import CanvasRendering as cr
 
 def tabWidget_func(value, main_window):
@@ -14,10 +14,11 @@ def listWidget_text_changed_func(item, main_window):
     # TODO check validity of new id
     if main_window.listWidget_edit_row:
         old_id = main_window.listWidget_edit_row
-        # main_window.listWidget.currentItem().setText(main_window.listWidget_edit_row)
-        # old_id = main_window.listWidget.currentItem().text()
-        main_window.scene.project_data.items[old_id].item["id"] = item.text()
-        main_window.scene.project_data.items[item.text()] = main_window.scene.project_data.items.pop(old_id)
+        if old_id in main_window.scene.project_data.items:
+            main_window.scene.project_data.items[old_id].item["id"] = item.text()
+            main_window.scene.project_data.items[item.text()] = main_window.scene.project_data.items.pop(old_id)
+        else:
+            pass
         main_window.listWidget_edit_row = None
         cr.clear(main_window.scene)
         cr.add_all_items(main_window.scene)
@@ -43,7 +44,9 @@ def connect_plain_text_edit_abstract(scene, properties_list, dict_key, plain_tex
 def connect_text_edit_pushbutton_apply_abstract(scene):
     scene.edit.add_undo_item(scene)
 
-def connect_combobox_abstract(value, scene, properties_list, dict_key, value_list):
+def connect_combobox_abstract(value, scene, properties_list, dict_key, value_list, is_colour=False):
+    if is_colour:
+        value_list = value_list + [i.get_id() for i in scene.project_data.items.values() if isinstance(i, Colour)]
     if scene.skip_combobox_changes:
         return
     ids = scene.list_focus_ids
@@ -87,22 +90,41 @@ def connect_slider_released_abstract(scene):
 
 def connect_dash_lineedit_abstract(scene, properties_list, dict_key, lineedit):
     ids = scene.list_focus_ids
-    for id in ids:
-        final_property = scene.project_data.items[id].item
-        for prop in properties_list:
-            final_property = final_property[prop]
-        try:
-            lengths = list(map(int, lineedit.text().split(' ')))
-            if len(lengths) % 2 != 0:
-                throw_error = 1/0
-            final_property[dict_key] = lengths
+    if not lineedit.hasFocus():
+        do_edit = True
+        for id in ids:
+            final_property = scene.project_data.items[id].item
+            for prop in properties_list:
+                final_property = final_property[prop]
+            try:
+                lengths = list(map(int, lineedit.text().split(' ')))
+                if len(lengths) % 2 != 0:
+                    throw_error = 1/0
+                final_property[dict_key] = lengths
+                do_edit = True
+            except:
+                lengths_str = ''
+                for num in final_property[dict_key]:
+                    lengths_str += "%s " % str(num)
+                lengths_str = lengths_str[:-1]
+                lineedit.setText(lengths_str)
+                do_edit = False
+        if do_edit:
             scene.edit.add_undo_item(scene)
-        except:
-            lengths_str = ''
-            for num in final_property[dict_key]:
-                lengths_str += "%s " % str(num)
-            lengths_str = lengths_str[:-1]
-            lineedit.setText(lengths_str)
+    else:
+        scene.ui.listWidget.setFocus(True)
+
+def connect_lineedit_abstract(scene, properties_list, dict_key, lineedit):
+    ids = scene.list_focus_ids
+    if not lineedit.hasFocus():
+        for id in ids:
+            final_property = scene.project_data.items[id].item
+            for prop in properties_list:
+                final_property = final_property[prop]
+            final_property[dict_key] = lineedit.text()
+        scene.edit.add_undo_item(scene)
+    else:
+        scene.ui.listWidget.setFocus(True)
 
 
 

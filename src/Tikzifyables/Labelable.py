@@ -7,7 +7,7 @@ class Labelable:
             return ''
         option = ''
         if self.item["label"]["offset"] != 0.0:
-            option = self.item["label"]["anchor"] + '=' + str(self.item["label"]["offset"])
+            option = f'{self.item["label"]["anchor"]}={str(self.item["label"]["offset"])}pt'
         elif self.item["label"]["anchor"] != 'below right':
             option = self.item["label"]["anchor"]
 

@@ -111,7 +111,6 @@ class EditManagement:
                         dictionary["window"],
                         dictionary["packages"],
                         dictionary["bg_colour"],
-                        dictionary["colours"],
                         dictionary["code_before"],
                         dictionary["code_after"]
                     )

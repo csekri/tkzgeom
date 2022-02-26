@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.8.27)  25 FEB 2022 21:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.8.27)  26 FEB 2022 04:22
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -923,12 +923,12 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 27.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 30.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 27.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 30.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -937,16 +937,16 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./try.
 aux) ) 
 Here is how much of TeX's memory you used:
- 23487 strings out of 480893
- 522830 string characters out of 5908067
- 826556 words of memory out of 5000000
- 38508 multiletter control sequences out of 15000+600000
+ 23515 strings out of 480893
+ 523381 string characters out of 5908067
+ 830556 words of memory out of 5000000
+ 38536 multiletter control sequences out of 15000+600000
  537550 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,7n,107p,7179b,764s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,7n,107p,7179b,762s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10
 .pfb>
-Output written on try.pdf (1 page, 10628 bytes).
+Output written on try.pdf (1 page, 11479 bytes).
 PDF statistics:
  39 PDF objects out of 1000 (max. 8388607)
  18 compressed objects within 1 object stream

@@ -8,10 +8,6 @@
 \usetikzlibrary{shapes, backgrounds, decorations.pathmorphing, calc}
 \begin{document}
 \begin{tikzpicture}
-% COLOURS
-\definecolor{horseWhite}{HTML}{ededf0}
-\definecolor{loveRed}{HTML}{d50402}
-
 \edef\xmin{-5.000000}\edef\xmax{5.000000}
 \edef\ymin{-5.000000}\edef\ymax{5.000000}
 \edef\xstep{1.000000}\edef\ystep{1.000000}
@@ -20,10 +16,26 @@
 
 
 % POINT DEFINTIONS
-\tkzDefPoint(-0.3354134165366611, 2.7067082683307335){A}
+\tkzDefPoint(-1.5210608424336973, 3.5491419656786274){A}
 \node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0] (A) at (A) {};
+\tkzDefPoint(-1.8486739469578781, 0.4914196567862721){B}
+\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0] (B) at (B) {};
+\tkzDefPoint(1.5054602184087358, 0.27301092043681763){C}
+\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0] (C) at (C) {};
+
+% POLYGONS
+\fill[draw=black, fill=black!10](A.center)--(B.center)--(C.center)--(C.center)--cycle;
 
 % POINT LABELS
 \tkzLabelPoint(A){$A$}
+\tkzLabelPoint(B){$B$}
+\tkzLabelPoint(C){$C$}
+
+% DRAW SEGMENTS
+\draw[Stealth-, draw=black](A) -- (B);
+
+\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0] (A) at (A) {};
+\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0] (B) at (B) {};
+\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0] (C) at (C) {};
 \end{tikzpicture}
 \end{document}

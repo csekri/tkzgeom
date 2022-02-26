@@ -32,7 +32,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.ui = ui
         self.mouse = Mouse()
         self.project_data = Items()
-        self.current_tab_idx = 0
+        self.current_tab_idx = self.ui.tabWidget.currentIndex()
         self.list_focus_ids = []
         self.select_mode = SelectMode(0, 0)
         self.title = title # function from main window to set window title

@@ -23,6 +23,7 @@ from SyntaxHighlight import syntax_highlight
 import CanvasRendering as cr
 from Compile import compile_latex
 from ConnectSignal.ConnectPoint import connect_point
+from ConnectSignal.ConnectColour import connect_colour
 from Fill.ListWidget import fill_listWidget_with_data
 from Fill.FillAll import fill_all_fields
 
@@ -86,6 +87,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.ui.actionShow_Canvas_Items.toggled.connect(self.show_canvas_items_func)
 
         connect_point(self.scene)
+        connect_colour(self.scene)
 
     def resizeEvent(self, event):
         self.scene.setSceneRect(0, 0, self.ui.graphicsView.width(), self.ui.graphicsView.height())
@@ -119,6 +121,8 @@ class EuclMainWindow(QtWidgets.QMainWindow):
             cr.add_all_items(self.scene)
 
         if event.matches(QtGui.QKeySequence.Delete):
+            if self.scene.ui.listWidget.count() == 0:
+                return
             id = self.scene.ui.listWidget.currentItem().text()
             self.scene.project_data.items[id].delete(self.scene.project_data.items)
             fill_listWidget_with_data(self.scene.project_data, self.ui.listWidget, self.scene.current_tab_idx)

@@ -14,9 +14,7 @@ def fill_colour_fields(scene):
         return
 
     hex = ''
-    for colour in scene.project_data.colours:
-        if colour["id"] == ids[0]:
-            hex = colour["definition"]
+    hex = scene.project_data.items[ids[0]].item["definition"]
     scene.ui.colour_visualise_pushbutton.setStyleSheet(
         '''QTextBrowser {
             background-color: %s;

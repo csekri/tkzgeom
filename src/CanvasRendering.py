@@ -51,9 +51,9 @@ def add_all_items(scene):
             if item.item["type"] == 'polygon':
                 item.draw_on_canvas(scene.project_data.items, scene, ColorMapping.OTHER_ITEM_FILL)
 
-    def add_non_point_nor_polygons(scene):
+    def add_segments(scene):
         for item in scene.project_data.items.values():
-            if item.item["type"] not in ['point', 'polygon']:
+            if item.item["type"] in ['segment']:
                 item.draw_on_canvas(scene.project_data.items, scene, ColorMapping.OTHER_ITEM)
 
     def add_half_ready_segment(scene):
@@ -99,7 +99,7 @@ def add_all_items(scene):
         add_pdf(scene)
     if scene.show_canvas_items or scene.key_bank.move_point.state == KeyState.DOWN:
         add_polygons(scene)
-        add_non_point_nor_polygons(scene)
+        add_segments(scene)
     add_half_ready_segment(scene)
     add_half_ready_polygon(scene)
     if scene.show_canvas_items or scene.key_bank.move_point.state == KeyState.DOWN:

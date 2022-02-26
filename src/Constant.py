@@ -130,6 +130,7 @@ class MarkerDefault:
 
 
 class Direction:
+    CENTRE = 'centered'
     NORTH = 'above'
     NORTH_EAST = 'above right'
     EAST = 'right'

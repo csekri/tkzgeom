@@ -5,6 +5,7 @@ from PointClasses.Intersection import Intersection
 from Point import Point
 from Segment import Segment
 from Polygon import Polygon
+from Colour import Colour
 import Constant as c
 
 class Factory:
@@ -23,6 +24,8 @@ class Factory:
                 return Intersection(item)
         if item['type'] == 'polygon':
             return Polygon(item)
+        if item['type'] == 'colour':
+            return Colour(item)
 
     @staticmethod
     def create_empty_item(type, sub_type):
@@ -39,6 +42,8 @@ class Factory:
                 return Intersection(None)
         if type == 'polygon':
             return Polygon(None)
+        if type == 'colour':
+            return Colour(None)
 
 
     # The following method, strickly speaking, are not part of the factory

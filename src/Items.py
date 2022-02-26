@@ -4,6 +4,7 @@ from PointClasses.OnLine import OnLine
 from Point import Point
 from Segment import Segment
 from Polygon import Polygon
+from Colour import Colour
 from HighlightItem import item_in_focus
 from PyQt5 import QtCore
 import Constant as c
@@ -12,29 +13,30 @@ from collections import namedtuple, OrderedDict
 
 Window = namedtuple('Window', ['left', 'top', 'scale'])
 
+'''
+colours=[
+    {
+        "id": "horseWhite",
+        "definition": "#ededf0"
+    },
+    {
+        "id": "loveRed",
+        "definition": "#d50402"
+    }
+]
+'''
 
 class Items:
     def __init__(self,
             window=c.WindowDefault,
             packages=c.PackagesDefault,
             bg_colour=c.BackGroundColourDefault,
-            colours=[
-                {
-                    "id": "horseWhite",
-                    "definition": "#ededf0"
-                },
-                {
-                    "id": "loveRed",
-                    "definition": "#d50402"
-                }
-            ],
             code_before='',
             code_after=''):
         self.items = OrderedDict()
         self.window = Window(left=window["left"], top=window["top"], scale=window["scale"])
         self.packages = packages
         self.bg_colour = bg_colour
-        self.colours = colours
         self.code_before = code_before
         self.code_after = code_after
 
@@ -72,10 +74,6 @@ class Items:
                         recomputed_ids.add(item.get_id())
 
 
-
-
-
-
     @staticmethod
     def filter_sort_map(class_of, tikzify_function, sort_key):
         if sort_key is None:
@@ -91,8 +89,9 @@ class Items:
         init_crop += "\\tkzInit[xmin=\\xmin, ymin=\\ymin, xmax=\\xmax, ymax=\\ymax, xstep=\\xstep, ystep=\\ystep]\n"
         init_crop += "\\tkzClip\n"
 
-        tikzified_colours = \
-            '\n'.join([('\\definecolor{%s}{HTML}{%s}' % (i["id"], i["definition"][1:])) for i in self.colours])
+        # tikzified_colours = \
+        #     '\n'.join([('\\definecolor{%s}{HTML}{%s}' % (i["id"], i["definition"][1:])) for i in self.colours])
+        tikzified_colours = '\n'.join(Items.filter_sort_map(Colour, lambda x: x.tikzify(), None)(self.items.values()))
         if tikzified_colours:
             tikzified_colours = '% COLOURS\n' + tikzified_colours
 
@@ -152,7 +151,6 @@ class Items:
             dictionary["items"].append(item.item)
         dictionary["window"] = { 'left': self.window.left, 'top': self.window.top, 'scale': self.window.scale}
         dictionary["bg_colour"] = self.bg_colour
-        dictionary["colours"] = self.colours
         dictionary["code_before"] = self.code_before
         dictionary["code_after"] = self.code_after
         dictionary["packages"] = self.packages
