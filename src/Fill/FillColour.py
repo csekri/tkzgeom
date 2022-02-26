@@ -20,7 +20,7 @@ def fill_colour_fields(scene):
             background-color: %s;
         }''' % hex
     )
-    scene.ui.colour_hex_label.setText(hex)
+    scene.ui.colour_hex_lineedit.setText(hex)
     r, g, b = hex_to_rgb(hex)
     scene.ui.colour_red_label.setText(str(r))
     scene.ui.colour_green_label.setText(str(g))

@@ -1,5 +1,6 @@
 from Fill.FillAll import fill_all_fields
 from Fill.ListWidget import fill_listWidget_with_data, listWidget_set_current_row
+from ConnectSignal.Lambda import connect_lineedit_abstract
 from Colour import Colour
 from Factory import Factory
 
@@ -16,3 +17,5 @@ def connect_add_colour_pushbutton(scene):
 def connect_colour(scene):
     scene.ui.colour_add_new_pushbutton.pressed.connect(
         lambda : connect_add_colour_pushbutton(scene))
+    scene.ui.colour_hex_lineedit.editingFinished.connect(
+        lambda : connect_lineedit_abstract(scene, [], 'definition', scene.ui.colour_hex_lineedit))

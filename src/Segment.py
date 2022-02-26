@@ -109,6 +109,13 @@ class Segment(Item, Arrowable, DashPatternable, LineColourable):
         dictionary["line"]["dash"] = {}
         dictionary["line"]["dash"]["stroke"] = c.Segment.Default.LINE_DASH_STROKE
         dictionary["line"]["dash"]["custom_pattern"] = c.Segment.Default.LINE_DASH_CUSTOM
+        dictionary["line"]["double"] = {}
+        dictionary["line"]["double"] = c.Segment.Default.Double_Line.DISTANCE
+        dictionary["line"]["double"]["colour"] = {}
+        dictionary["line"]["double"]["colour"]["name"] = c.Segment.Default.Double_Line.Colour.NAME
+        dictionary["line"]["double"]["colour"]["mix_with"] = c.Segment.Default.Double_Line.Colour.MIX_WITH
+        dictionary["line"]["double"]["colour"]["mix_percent"] = c.Segment.Default.Double_Line.Colour.MIX_RATIO
+        dictionary["line"]["double"]["colour"]["strength"] = c.Segment.Default.Double_Line.Colour.STRENGTH
         dictionary["o_arrow"] = {}
         dictionary["o_arrow"]["width"] = c.Segment.Default.O_Arrow.WIDTH
         dictionary["o_arrow"]["length"] = c.Segment.Default.O_Arrow.LENGTH

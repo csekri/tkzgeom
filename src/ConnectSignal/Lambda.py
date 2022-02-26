@@ -1,6 +1,10 @@
+import json
+
 from Fill.ListWidget import fill_listWidget_with_data
 from Fill.FillAll import fill_all_fields
 from Colour import Colour
+from Items import Items
+from Factory import Factory
 import CanvasRendering as cr
 
 def tabWidget_func(value, main_window):
@@ -14,12 +18,25 @@ def listWidget_text_changed_func(item, main_window):
     # TODO check validity of new id
     if main_window.listWidget_edit_row:
         old_id = main_window.listWidget_edit_row
+        type = main_window.scene.project_data.items[old_id].item["type"]
         if old_id in main_window.scene.project_data.items:
             main_window.scene.project_data.items[old_id].item["id"] = item.text()
             main_window.scene.project_data.items[item.text()] = main_window.scene.project_data.items.pop(old_id)
-        else:
-            pass
         main_window.listWidget_edit_row = None
+
+        # that is if the colour name is changed we replace all
+        # occurances of the colour
+        if type == 'colour':
+            state_dict = main_window.scene.project_data.state_dict()
+            string = json.dumps(state_dict)
+            string = string.replace(f': \"{old_id}\"', f': \"{item.text()}\"')
+            data = json.loads(string)
+            print(data)
+            main_window.scene.project_data\
+                = Items(data["window"], data["packages"], data["bg_colour"], data["code_before"], data["code_after"])
+            for ditem in (data["items"]):
+                main_window.scene.project_data.add(Factory.create_item(ditem))
+            main_window.scene.list_focus_ids = [item.text()]
         cr.clear(main_window.scene)
         cr.add_all_items(main_window.scene)
 
