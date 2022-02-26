@@ -4,23 +4,27 @@ from Item import Item
 from Point import Point
 from Tikzifyables.Arrowable import Arrowable
 from Tikzifyables.DashPatternable import DashPatternable
+from Tikzifyables.Doubleable import Doubleable
 from Tikzifyables.Colourable.LineColourable import LineColourable
 import Constant as c
 
-class Segment(Item, Arrowable, DashPatternable, LineColourable):
+class Segment(Item, Arrowable, DashPatternable, Doubleable, LineColourable):
     def __init__(self, item):
         Item.__init__(self, item)
         if item is None:
             self.dictionary_builder(None, "")
         Arrowable.__init__(self, self.item)
         DashPatternable.__init__(self, self.item)
+        Doubleable.__init__(self, self.item)
         LineColourable.__init__(self, self.item)
 
     def tikzify(self):
         options = [
+            '' if self.item["line"]["line_width"] == c.Segment.Default.LINE_WIDTH else f'line width={self.item["line"]["line_width"]}',
             self.tikzify_arrows(),
             self.tikzify_dash(),
-            'draw=' + self.tikzify_line_colour()
+            'draw=' + self.tikzify_line_colour(),
+            self.tikzify_double()
         ]
         options = filter(bool, options)
         return "\\draw[%s](%s) -- (%s);" % ( ', '.join(options) , self.item["definition"]["A"], self.item["definition"]["B"])
@@ -110,7 +114,7 @@ class Segment(Item, Arrowable, DashPatternable, LineColourable):
         dictionary["line"]["dash"]["stroke"] = c.Segment.Default.LINE_DASH_STROKE
         dictionary["line"]["dash"]["custom_pattern"] = c.Segment.Default.LINE_DASH_CUSTOM
         dictionary["line"]["double"] = {}
-        dictionary["line"]["double"] = c.Segment.Default.Double_Line.DISTANCE
+        dictionary["line"]["double"]["distance"] = c.Segment.Default.Double_Line.DISTANCE
         dictionary["line"]["double"]["colour"] = {}
         dictionary["line"]["double"]["colour"]["name"] = c.Segment.Default.Double_Line.Colour.NAME
         dictionary["line"]["double"]["colour"]["mix_with"] = c.Segment.Default.Double_Line.Colour.MIX_WITH

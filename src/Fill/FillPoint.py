@@ -43,7 +43,7 @@ def fill_point_fields(scene):
     scene.ui.point_text_width_slider.setValue(point["marker"]["text_width"])
     scene.ui.point_text_width_spin.setValue(point["marker"]["text_width"])
 
-    scene.ui.point_line_width_slider.setValue(10 * point["line"]["line_width"])
+    scene.ui.point_line_width_slider.setValue(10.0 * point["line"]["line_width"])
     scene.ui.point_line_width_spin.setValue(point["line"]["line_width"])
 
     scene.ui.point_marker_colour_mixratio_slider.setValue(point["fill"]["colour"]["mix_percent"])

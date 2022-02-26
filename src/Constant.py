@@ -86,7 +86,7 @@ class ColourDefault:
         self.OPACITY = opacity
 
 class DoubleDefault:
-    def __init__(self, distance=0.0, colour=ColourDefault()):
+    def __init__(self, distance=0.0, colour=ColourDefault(name=Colour.WHITE)):
         self.DISTANCE = distance
         self.Colour = colour
 

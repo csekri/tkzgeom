@@ -8,9 +8,6 @@
 \usetikzlibrary{shapes, backgrounds, decorations.pathmorphing, calc}
 \begin{document}
 \begin{tikzpicture}
-% COLOURS
-\definecolor{WomenPink}{HTML}{ffaabb}
-
 \edef\xmin{-5.000000}\edef\xmax{5.000000}
 \edef\ymin{-5.000000}\edef\ymax{5.000000}
 \edef\xstep{1.000000}\edef\ystep{1.000000}
@@ -19,10 +16,34 @@
 
 
 % POINT DEFINTIONS
-\tkzDefPoint(-1.2714508580343216, 2.847113884555382){A}
-\node[draw=black, fill=WomenPink, circle, minimum size=12, inner sep=0.0] (A) at (A) {};
+\tkzDefPoint(-1.9890795631825275, 3.003120124804992){A}
+\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0] (A) at (A) {};
+\tkzDefPoint(-2.987519500780031, 0.17940717628705105){B}
+\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0] (B) at (B) {};
+\tkzDefPoint(-0.7410296411856478, -2.4726989079563175){C}
+\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0] (C) at (C) {};
+\tkzDefPoint(2.8315132605304214, 0.3354134165366611){D}
+\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0] (D) at (D) {};
+\tkzDefPoint(1.2090483619344772, 2.7067082683307335){E}
+\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0] (E) at (E) {};
 
 % POINT LABELS
 \tkzLabelPoint(A){$A$}
+\tkzLabelPoint(B){$B$}
+\tkzLabelPoint(C){$C$}
+\tkzLabelPoint(D){$D$}
+\tkzLabelPoint(E){$E$}
+
+% DRAW SEGMENTS
+\draw[line width=1.2, Stealth-, draw=black, double, double distance=1.4](A) -- (B);
+\draw[line width=1.2, Stealth-, draw=black, double, double distance=1.4](A) -- (C);
+\draw[line width=1.2, Stealth-, draw=black, double, double distance=1.4](B) -- (C);
+\draw[line width=1.2, Stealth-, draw=black, double, double distance=1.4](B) -- (D);
+\draw[line width=1.2, Stealth-, draw=black, double, double distance=1.4](C) -- (D);
+\draw[line width=1.2, Stealth-, draw=black, double, double distance=1.4](C) -- (E);
+\draw[line width=1.2, Stealth-, draw=black, double, double distance=1.4](D) -- (A);
+\draw[line width=1.2, Stealth-, draw=black, double, double distance=1.4](D) -- (E);
+\draw[line width=1.2, Stealth-, draw=black, double, double distance=1.4](E) -- (A);
+\draw[line width=1.2, Stealth-, draw=black, double, double distance=1.4](E) -- (B);
 \end{tikzpicture}
 \end{document}

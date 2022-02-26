@@ -24,6 +24,7 @@ import CanvasRendering as cr
 from Compile import compile_latex
 from ConnectSignal.ConnectPoint import connect_point
 from ConnectSignal.ConnectColour import connect_colour
+from ConnectSignal.ConnectSegment import connect_segment
 from Fill.ListWidget import fill_listWidget_with_data
 from Fill.FillAll import fill_all_fields
 
@@ -87,6 +88,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.ui.actionShow_Canvas_Items.toggled.connect(self.show_canvas_items_func)
 
         connect_point(self.scene)
+        connect_segment(self.scene)
         connect_colour(self.scene)
 
     def resizeEvent(self, event):
