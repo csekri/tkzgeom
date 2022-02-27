@@ -41,7 +41,6 @@ def fill_colour(scene, item, colours, ui_name, ui_mix_with,
         ui_strength_spin, ui_strength_slider):
     scene.skip_combobox_changes = True
     ui_name.clear()
-    print(colours, item)
     ui_name.addItems(colours)
     ui_name.setCurrentIndex(colours.index(item["name"]))
     ui_mix_with.clear()
@@ -54,3 +53,28 @@ def fill_colour(scene, item, colours, ui_name, ui_mix_with,
 
     ui_strength_slider.setValue(item["strength"])
     ui_strength_spin.setValue(item["strength"])
+
+def fill_fill_pattern(scene, item, ui_type,
+        ui_distance_spin, ui_distance_slider,
+        ui_size_spin, ui_size_slider,
+        ui_rotation_spin, ui_rotation_slider,
+        ui_xshift_spin, ui_xshift_slider,
+        ui_yshift_spin, ui_yshift_slider):
+    scene.skip_combobox_changes = True
+    ui_type.setCurrentIndex(c.attribute_values(c.PatternType).index(item["type"]))
+    scene.skip_combobox_changes = False
+
+    ui_distance_slider.setValue(10.0*item["distance"])
+    ui_distance_spin.setValue(item["distance"])
+
+    ui_size_slider.setValue(20.0*item["size"])
+    ui_size_spin.setValue(item["size"])
+
+    ui_rotation_slider.setValue(1.0/1.8*item["rotation"])
+    ui_rotation_spin.setValue(item["rotation"])
+
+    ui_xshift_slider.setValue(20.0*item["xshift"])
+    ui_xshift_spin.setValue(item["xshift"])
+
+    ui_yshift_slider.setValue(20.0*item["yshift"])
+    ui_yshift_spin.setValue(item["yshift"])

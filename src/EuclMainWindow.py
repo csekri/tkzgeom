@@ -25,6 +25,7 @@ from Compile import compile_latex
 from ConnectSignal.ConnectPoint import connect_point
 from ConnectSignal.ConnectColour import connect_colour
 from ConnectSignal.ConnectSegment import connect_segment
+from ConnectSignal.ConnectPolygon import connect_polygon
 from Fill.ListWidget import fill_listWidget_with_data
 from Fill.FillAll import fill_all_fields
 
@@ -89,6 +90,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
 
         connect_point(self.scene)
         connect_segment(self.scene)
+        connect_polygon(self.scene)
         connect_colour(self.scene)
 
     def resizeEvent(self, event):

@@ -4206,7 +4206,7 @@ QDoubleSpinBox::down-button {
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>0</y>
+            <y>-172</y>
             <width>360</width>
             <height>542</height>
            </rect>
@@ -4231,7 +4231,7 @@ QDoubleSpinBox::down-button {
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="point_marker_colour_name_3">
+                 <widget class="QComboBox" name="polygon_marker_colour_name">
                   <property name="maxVisibleItems">
                    <number>20</number>
                   </property>
@@ -4249,7 +4249,7 @@ QDoubleSpinBox::down-button {
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="point_marker_colour_mix_name_3">
+                 <widget class="QComboBox" name="polygon_marker_colour_mix_name">
                   <property name="maxVisibleItems">
                    <number>20</number>
                   </property>
@@ -4269,7 +4269,7 @@ QDoubleSpinBox::down-button {
                    </widget>
                   </item>
                   <item>
-                   <widget class="QSpinBox" name="point_marker_colour_mixratio_spin_3">
+                   <widget class="QSpinBox" name="polygon_marker_colour_mixratio_spin">
                     <property name="styleSheet">
                      <string notr="true">QSpinBox {
 	max-height: 11px;
@@ -4315,7 +4315,7 @@ QSpinBox::down-button {
                  </layout>
                 </item>
                 <item>
-                 <widget class="QSlider" name="point_marker_colour_mixratio_slider_3">
+                 <widget class="QSlider" name="polygon_marker_colour_mixratio_slider">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
@@ -4341,7 +4341,7 @@ QSpinBox::down-button {
                    </widget>
                   </item>
                   <item>
-                   <widget class="QSpinBox" name="point_marker_colour_strength_spin_3">
+                   <widget class="QSpinBox" name="polygon_marker_colour_strength_spin">
                     <property name="styleSheet">
                      <string notr="true">QSpinBox {
 	max-height: 11px;
@@ -4387,7 +4387,7 @@ QSpinBox::down-button {
                  </layout>
                 </item>
                 <item>
-                 <widget class="QSlider" name="point_marker_colour_strength_slider_3">
+                 <widget class="QSlider" name="polygon_marker_colour_strength_slider">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
@@ -4420,7 +4420,96 @@ QSpinBox::down-button {
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="comboBox_6"/>
+                 <widget class="QComboBox" name="polygon_pattern_type">
+                  <property name="focusPolicy">
+                   <enum>Qt::ClickFocus</enum>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>none</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>solid</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>horizontal lines</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>vertical lines</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>north east lines</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>north west lines</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>grid</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>crosshatch</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>dots</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>crosshatch dots</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>bricks</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>checkerboard</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Lines</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Hatch</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Dots</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Fivepointed stars</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Sixpointed stars</string>
+                   </property>
+                  </item>
+                 </widget>
                 </item>
                </layout>
               </item>
@@ -4439,7 +4528,7 @@ QSpinBox::down-button {
                    </widget>
                   </item>
                   <item>
-                   <widget class="QDoubleSpinBox" name="point_line_width_spin_6">
+                   <widget class="QDoubleSpinBox" name="polygon_pattern_distance_spin">
                     <property name="focusPolicy">
                      <enum>Qt::ClickFocus</enum>
                     </property>
@@ -4479,7 +4568,7 @@ QDoubleSpinBox::down-button {
                  </layout>
                 </item>
                 <item>
-                 <widget class="QSlider" name="point_line_width_slider_6">
+                 <widget class="QSlider" name="polygon_pattern_distance_slider">
                   <property name="focusPolicy">
                    <enum>Qt::NoFocus</enum>
                   </property>
@@ -4508,7 +4597,7 @@ QDoubleSpinBox::down-button {
                    </widget>
                   </item>
                   <item>
-                   <widget class="QDoubleSpinBox" name="point_line_width_spin_7">
+                   <widget class="QDoubleSpinBox" name="polygon_pattern_size_spin">
                     <property name="focusPolicy">
                      <enum>Qt::ClickFocus</enum>
                     </property>
@@ -4548,7 +4637,7 @@ QDoubleSpinBox::down-button {
                  </layout>
                 </item>
                 <item>
-                 <widget class="QSlider" name="point_line_width_slider_7">
+                 <widget class="QSlider" name="polygon_pattern_size_slider">
                   <property name="focusPolicy">
                    <enum>Qt::NoFocus</enum>
                   </property>
@@ -4577,7 +4666,7 @@ QDoubleSpinBox::down-button {
                    </widget>
                   </item>
                   <item>
-                   <widget class="QDoubleSpinBox" name="point_line_width_spin_8">
+                   <widget class="QDoubleSpinBox" name="polygon_pattern_rotation_spin">
                     <property name="focusPolicy">
                      <enum>Qt::ClickFocus</enum>
                     </property>
@@ -4612,12 +4701,15 @@ QDoubleSpinBox::down-button {
 
 </string>
                     </property>
+                    <property name="maximum">
+                     <double>360.000000000000000</double>
+                    </property>
                    </widget>
                   </item>
                  </layout>
                 </item>
                 <item>
-                 <widget class="QSlider" name="point_line_width_slider_8">
+                 <widget class="QSlider" name="polygon_pattern_rotation_slider">
                   <property name="focusPolicy">
                    <enum>Qt::NoFocus</enum>
                   </property>
@@ -4648,7 +4740,7 @@ QDoubleSpinBox::down-button {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QDoubleSpinBox" name="point_line_width_spin_9">
+                     <widget class="QDoubleSpinBox" name="polygon_pattern_xshift_spin">
                       <property name="focusPolicy">
                        <enum>Qt::ClickFocus</enum>
                       </property>
@@ -4688,7 +4780,7 @@ QDoubleSpinBox::down-button {
                    </layout>
                   </item>
                   <item>
-                   <widget class="QSlider" name="point_line_width_slider_9">
+                   <widget class="QSlider" name="polygon_pattern_xshift_slider">
                     <property name="focusPolicy">
                      <enum>Qt::NoFocus</enum>
                     </property>
@@ -4717,7 +4809,7 @@ QDoubleSpinBox::down-button {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QDoubleSpinBox" name="point_line_width_spin_10">
+                     <widget class="QDoubleSpinBox" name="polygon_pattern_yshift_spin">
                       <property name="focusPolicy">
                        <enum>Qt::ClickFocus</enum>
                       </property>
@@ -4757,7 +4849,7 @@ QDoubleSpinBox::down-button {
                    </layout>
                   </item>
                   <item>
-                   <widget class="QSlider" name="point_line_width_slider_10">
+                   <widget class="QSlider" name="polygon_pattern_yshift_slider">
                     <property name="focusPolicy">
                      <enum>Qt::NoFocus</enum>
                     </property>

@@ -81,6 +81,24 @@ class ArrowTip:
     STRAIGHT_BARB = 'Straight Barb'
     TEE_BARB = 'Tee Barb'
 
+class PatternType:
+    NONE = 'none'
+    SOLID = 'solid'
+    HORIZONTAL_LINES = 'horizontal lines'
+    VERTICAL_LINES = 'vertical lines'
+    NORTH_EAST_LINES = 'north east lines'
+    NORTH_WEST_LINES = 'north west lines'
+    GRID = 'grid'
+    CROSSHATCH = 'crosshatch'
+    DOTS = 'dots'
+    CROSSHATCH_DOTS = 'crosshatch dots'
+    BRICKS = 'bricks'
+    CHECKERBOARD = 'checkerboard'
+    LINES = 'Lines'
+    HATCH = 'Hatch'
+    DOTS_EXTRA = 'Dots'
+    FIVEPOINTED_STARS = 'Fivepointed stars'
+    SIXPOINTED_STARS = 'Sixpointed stars'
 
 class ColourDefault:
     def __init__(self, name=Colour.BLACK, mix_with=Colour.BLACK, mix_ratio=0, strength=100, opacity=1.0):
@@ -105,13 +123,13 @@ class ArrowDefault:
         self.REVERSED = reversed
 
 class FillPatternDefault:
-    def __init__(self, type='none', distance=3.0, size=0.0, rotatio=0.0, xshift=0.0, yshift=0.0):
+    def __init__(self, type=PatternType.SOLID, distance=5.0, size=0.5, rotation=0.0, rotatio=0.0, xshift=0.0, yshift=0.0):
         self.TYPE = type
         self.DISTANCE = distance
         self.SIZE = size
         self.ROTATION = rotation
-        self.XSHIFT = 0.0
-        self.YSHIFT = 0.0
+        self.XSHIFT = xshift
+        self.YSHIFT = yshift
 
 
 class Marker_Shape:
@@ -247,6 +265,7 @@ class Polygon:
         Fill_Colour = ColourDefault(strength=10)
         Line_Colour = ColourDefault()
         Double_Line = DoubleDefault()
+        Fill_Pattern = FillPatternDefault()
         LINE_DASH_STROKE = Line_Stroke.SOLID
         LINE_DASH_CUSTOM = [5, 2]
 
@@ -325,5 +344,7 @@ class Tool:
         SEGMENT_THROUGH : ('segment', None),
         POLYGON : ('polygon', None)
     }
+
+PATTERN_EXTRAS = set([PatternType.LINES, PatternType.HATCH, PatternType.DOTS_EXTRA, PatternType.FIVEPOINTED_STARS, PatternType.SIXPOINTED_STARS])
 
 TYPES = ['point', 'segment', 'circle', 'polygon', 'linestring', 'function', 'colour', 'number']

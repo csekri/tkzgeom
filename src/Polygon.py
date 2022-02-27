@@ -6,22 +6,23 @@ from Item import Item
 from Tikzifyables.Arrowable import Arrowable
 from Tikzifyables.DashPatternable import DashPatternable
 from Tikzifyables.Colourable.LineColourable import LineColourable
-from Tikzifyables.Colourable.FillColourable import FillColourable
+from Tikzifyables.Fillable import Fillable
 import Constant as c
 
-class Polygon(Item, DashPatternable, LineColourable, FillColourable):
+class Polygon(Item, DashPatternable, LineColourable, Fillable):
     def __init__(self, item):
         Item.__init__(self, item)
         if item is None:
             self.dictionary_builder(None, "")
         DashPatternable.__init__(self, self.item)
         LineColourable.__init__(self, self.item)
+        Fillable.__init__(self, self.item)
 
     def tikzify(self):
         options = [
             self.tikzify_dash(),
             'draw=' + self.tikzify_line_colour(),
-            'fill=' + self.tikzify_fill_colour()
+            self.tikzify_fill_pattern()
         ]
         options = filter(bool, options)
         return "\\fill[%s](%s.center)--cycle;" % ( ', '.join(options) , '.center)--('.join(self.item["definition"]))
@@ -100,5 +101,13 @@ class Polygon(Item, DashPatternable, LineColourable, FillColourable):
         dictionary["fill"]["colour"]["mix_with"] = c.Polygon.Default.Fill_Colour.MIX_WITH
         dictionary["fill"]["colour"]["mix_percent"] = c.Polygon.Default.Fill_Colour.MIX_RATIO
         dictionary["fill"]["colour"]["strength"] = c.Polygon.Default.Fill_Colour.STRENGTH
+        dictionary["fill"]["pattern"] = {}
+        dictionary["fill"]["pattern"]["type"] = c.Polygon.Default.Fill_Pattern.TYPE
+        dictionary["fill"]["pattern"]["distance"] = c.Polygon.Default.Fill_Pattern.DISTANCE
+        dictionary["fill"]["pattern"]["size"] = c.Polygon.Default.Fill_Pattern.SIZE
+        dictionary["fill"]["pattern"]["rotation"] = c.Polygon.Default.Fill_Pattern.ROTATION
+        dictionary["fill"]["pattern"]["xshift"] = c.Polygon.Default.Fill_Pattern.XSHIFT
+        dictionary["fill"]["pattern"]["yshift"] = c.Polygon.Default.Fill_Pattern.YSHIFT
+
         print(c.Polygon.Default.Fill_Colour.STRENGTH)
         self.item = dictionary

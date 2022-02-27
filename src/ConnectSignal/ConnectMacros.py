@@ -70,3 +70,44 @@ def connect_colour(scene, attributes, ui_name, ui_mix_with,
         lambda x: connect_slider_moved_abstract(x, scene, attributes, 'strength', lambda x: x, ui_strength_spin))
     ui_strength_slider.sliderReleased.connect(
         lambda : connect_slider_released_abstract(scene))
+
+def connect_fill_pattern(scene, attributes, ui_type,
+        ui_distance_spin, ui_distance_slider,
+        ui_size_spin, ui_size_slider,
+        ui_rotation_spin, ui_rotation_slider,
+        ui_xshift_spin, ui_xshift_slider,
+        ui_yshift_spin, ui_yshift_slider):
+
+    ui_type.currentIndexChanged.connect(
+        lambda x: connect_combobox_abstract(x, scene, attributes, 'type', c.attribute_values(c.PatternType), True))
+
+    ui_distance_slider.sliderMoved.connect(
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'distance', lambda x: x/10.0, ui_distance_spin))
+    ui_distance_slider.sliderReleased.connect(
+        lambda : connect_slider_released_abstract(scene))
+
+    ui_size_slider.sliderMoved.connect(
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'size', lambda x: x/20.0, ui_size_spin))
+    ui_size_slider.sliderReleased.connect(
+        lambda : connect_slider_released_abstract(scene))
+
+    ui_rotation_slider.sliderMoved.connect(
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'rotation', lambda x: x*1.8, ui_rotation_spin))
+    ui_rotation_slider.sliderReleased.connect(
+        lambda : connect_slider_released_abstract(scene))
+
+    ui_xshift_slider.sliderMoved.connect(
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'xshift', lambda x: x/20.0, ui_xshift_spin))
+    ui_xshift_slider.sliderReleased.connect(
+        lambda : connect_slider_released_abstract(scene))
+
+    ui_yshift_slider.sliderMoved.connect(
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'yshift', lambda x: x/20.0, ui_yshift_spin))
+    ui_yshift_slider.sliderReleased.connect(
+        lambda : connect_slider_released_abstract(scene))
+
+
+
+
+
+#
