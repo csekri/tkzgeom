@@ -46,7 +46,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         """
         super(EuclMainWindow, self).__init__()
         self.setWindowIcon(QtGui.QIcon("../../icon/ico.png"))
-        self.ui = uic.loadUi('main_2.ui', self)
+        self.ui = uic.loadUi('main.ui', self)
         self.scene = GraphicsScene(self.ui, self.setWindowTitle)
         self.ui.graphicsView.setScene(self.scene)
         self.show()
