@@ -27,6 +27,12 @@ def fill_segment_fields(scene):
     scene.ui.segment_double_distance_slider.setValue(10.0 * segment["line"]["double"]["distance"])
     scene.ui.segment_double_distance_spin.setValue(segment["line"]["double"]["distance"])
 
+    scene.ui.segment_o_extension_slider.setValue(66.6+33.3*segment["line"]["o_extension"])
+    scene.ui.segment_o_extension_spin.setValue(segment["line"]["o_extension"])
+
+    scene.ui.segment_d_extension_slider.setValue(33.3*segment["line"]["d_extension"])
+    scene.ui.segment_d_extension_spin.setValue(segment["line"]["d_extension"])
+
     fill_o_arrow(scene, segment,
         scene.ui.segment_o_tip,
         scene.ui.segment_o_side,

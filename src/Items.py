@@ -75,10 +75,14 @@ class Items:
 
 
     @staticmethod
-    def filter_sort_map(class_of, tikzify_function, sort_key):
-        if sort_key is None:
+    def filter_sort_map(class_of, item_filter, tikzify_function, sort_key):
+        if sort_key is None and item_filter is None:
             return lambda items: map(tikzify_function, filter(lambda x: isinstance(x, class_of), items))
-        return lambda items: map(tikzify_function, sorted(filter(lambda x: isinstance(x, class_of), items), key=sort_key))
+        if item_filter is None:
+            return lambda items: map(tikzify_function, sorted(filter(lambda x: isinstance(x, class_of), items), key=sort_key))
+        if sort_key is None:
+            return lambda items: map(tikzify_function, filter(lambda x: isinstance(x, class_of) and item_filter(x), items))
+        return lambda items: map(tikzify_function, sorted(filter(lambda x: isinstance(x, class_of) and item_filter(x), items), key=sort_key))
 
 
     def tikzify(self):
@@ -87,32 +91,30 @@ class Items:
         init_crop += "\\edef\\xstep{%f}"  % self.window.scale
         init_crop += "\\edef\\ystep{%f}\n"  % self.window.scale
         init_crop += "\\tkzInit[xmin=\\xmin, ymin=\\ymin, xmax=\\xmax, ymax=\\ymax, xstep=\\xstep, ystep=\\ystep]\n"
-        init_crop += "\\tkzClip\n"
+        init_crop += "\\tkzClip"
 
-        # tikzified_colours = \
-        #     '\n'.join([('\\definecolor{%s}{HTML}{%s}' % (i["id"], i["definition"][1:])) for i in self.colours])
-        tikzified_colours = '\n'.join(Items.filter_sort_map(Colour, lambda x: x.tikzify(), None)(self.items.values()))
+        tikzified_colours = '\n'.join(Items.filter_sort_map(Colour, None, lambda x: x.tikzify(), None)(self.items.values()))
         if tikzified_colours:
             tikzified_colours = '% COLOURS\n' + tikzified_colours
 
 
-        tikzified_points_def = '\n'.join(Items.filter_sort_map(Point, lambda x: x.tikzify()+'\n'+x.tikzify_node(), None)(self.items.values()))
+        tikzified_points_def = '\n'.join(Items.filter_sort_map(Point, None, lambda x: x.tikzify()+'\n'+x.tikzify_node(), None)(self.items.values()))
         if tikzified_points_def:
             tikzified_points_def = '% POINT DEFINTIONS\n' + tikzified_points_def
 
 
-        tikzified_polygons = '\n'.join(Items.filter_sort_map(Polygon, lambda x: x.tikzify(), lambda y: y.get_id())(self.items.values()))
+        tikzified_polygons = '\n'.join(Items.filter_sort_map(Polygon, lambda x: x.item["show"], lambda x: x.tikzify(), lambda y: y.get_id())(self.items.values()))
         if tikzified_polygons:
             tikzified_polygons = '% POLYGONS\n' + tikzified_polygons
 
-        tikzified_nodes_repeat = '\n'.join(Items.filter_sort_map(Point, lambda x: x.tikzify_node(), lambda y: y.get_id())(self.items.values()))
+        tikzified_nodes_repeat = '\n'.join(Items.filter_sort_map(Point, lambda x: x.item["show"], lambda x: x.tikzify_node(), lambda y: y.get_id())(self.items.values()))
 
-        tikzified_points_label = '\n'.join(Items.filter_sort_map(Point, lambda x: x.tikzify_label(), lambda y: y.get_id())(self.items.values()))
+        tikzified_points_label = '\n'.join(Items.filter_sort_map(Point, lambda x: x.item["label"]["show"], lambda x: x.tikzify_label(), lambda y: y.get_id())(self.items.values()))
         if tikzified_points_label:
             tikzified_points_label = '% POINT LABELS\n' + tikzified_points_label
 
 
-        tikzified_segments_draw = '\n'.join(Items.filter_sort_map(Segment, lambda x: x.tikzify(), lambda y: y.get_id())(self.items.values()))
+        tikzified_segments_draw = '\n'.join(Items.filter_sort_map(Segment, lambda x: x.item["show"], lambda x: x.tikzify(), lambda y: y.get_id())(self.items.values()))
         if tikzified_segments_draw:
             tikzified_segments_draw = '% DRAW SEGMENTS\n' + tikzified_segments_draw
 

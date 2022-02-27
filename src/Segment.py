@@ -27,7 +27,13 @@ class Segment(Item, Arrowable, DashPatternable, Doubleable, LineColourable):
             self.tikzify_double()
         ]
         options = filter(bool, options)
-        return "\\draw[%s](%s) -- (%s);" % ( ', '.join(options) , self.item["definition"]["A"], self.item["definition"]["B"])
+        origin = self.item["definition"]["A"]\
+            if self.item["line"]["o_extension"] == 0.0\
+            else f'$({self.item["definition"]["A"]})!{self.item["line"]["o_extension"]}!({self.item["definition"]["B"]})$'
+        destination = self.item["definition"]["B"]\
+            if self.item["line"]["d_extension"] == 1.0\
+            else f'$({self.item["definition"]["A"]})!{self.item["line"]["d_extension"]}!({self.item["definition"]["B"]})$'
+        return '\\draw[%s](%s) -- (%s);' % ( ', '.join(options) , origin, destination)
 
     def __str__(self):
         return "Segment from (%s) to (%s)" % (self.item["definition"]["A"], self.item["definition"]["B"])
@@ -120,6 +126,8 @@ class Segment(Item, Arrowable, DashPatternable, Doubleable, LineColourable):
         dictionary["line"]["double"]["colour"]["mix_with"] = c.Segment.Default.Double_Line.Colour.MIX_WITH
         dictionary["line"]["double"]["colour"]["mix_percent"] = c.Segment.Default.Double_Line.Colour.MIX_RATIO
         dictionary["line"]["double"]["colour"]["strength"] = c.Segment.Default.Double_Line.Colour.STRENGTH
+        dictionary["line"]["o_extension"] = 0.0
+        dictionary["line"]["d_extension"] = 1.0
         dictionary["o_arrow"] = {}
         dictionary["o_arrow"]["width"] = c.Segment.Default.O_Arrow.WIDTH
         dictionary["o_arrow"]["length"] = c.Segment.Default.O_Arrow.LENGTH

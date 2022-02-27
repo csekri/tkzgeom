@@ -32,6 +32,16 @@ def connect_segment(scene):
     scene.ui.segment_double_distance_slider.sliderReleased.connect(
         lambda : connect_slider_released_abstract(scene))
 
+    scene.ui.segment_o_extension_slider.sliderMoved.connect(
+        lambda x: connect_slider_moved_abstract(x, scene, ['line'], 'o_extension', lambda x: x/33.3-2.0, scene.ui.segment_o_extension_spin))
+    scene.ui.segment_o_extension_slider.sliderReleased.connect(
+        lambda : connect_slider_released_abstract(scene))
+
+    scene.ui.segment_d_extension_slider.sliderMoved.connect(
+        lambda x: connect_slider_moved_abstract(x, scene, ['line'], 'd_extension', lambda x: x/33.3, scene.ui.segment_d_extension_spin))
+    scene.ui.segment_d_extension_slider.sliderReleased.connect(
+        lambda : connect_slider_released_abstract(scene))
+
     connect_o_arrow(scene,
         scene.ui.segment_o_tip,
         scene.ui.segment_o_side,
