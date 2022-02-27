@@ -2,7 +2,7 @@
 ![icon](icon/ico_big.png)
 # TkzGeom
 
-*This branch is a rewrite of the original software from the ground up. It is in early stages of development, hence expect missing features and bugs. You find the working original version in the main branch.*
+*This is a rewrite of the original software from the ground up. It is in early stages of development, hence expect missing features and bugs. You find the working original version in the branch named "old_version".*
 
 *The reason of the rewriting is to redesign the program in OOP style, reducing the repetitive codebase and allowing for easier future scalability. Having developed the original program gives the best insight for engineering/design improvement possibilities in this new version.*
 
@@ -11,16 +11,18 @@
 - *native support for a wide range of commutative diagrams*
 - *anti-aliased canvas items*
 - *tikz double line*
-- *adding custom RGB based colour*
+- *adding user-defined RGB based colours, improved colour management*
 - *continuous keypress to enable move point feature and move canvas feature*
-- *the properties dialog embedded in the main window*
-- *all items have unique (changeable) ID/name, that can be modified for easier navigation*
-- *in QlistWidget, multiple items can be selected an applied one common change simultaniously*
+- *the properties dialog embedded in the main window, as well as more intuitively grouped widgets*
+- *all items have unique ID/name, that can be modified for easier navigation*
+- *in QlistWidget, multiple items can be selected and edited simultaneously*
 - *toolTip to be added to most widgets*
+- *titlebar including project status*
 - *other optimisations/beautifications*
 
->*AltGr press moves points*, *CTRL press moves the canvas*
+>*AltGr press moves points*, *CTRL press moves the canvas.*
 
+> *README will be updated when most objectives are met.*
 
 
 

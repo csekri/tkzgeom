@@ -148,6 +148,8 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         if event.key() == self.scene.key_bank.move_canvas.key:
             self.scene.key_bank.set_move_canvas_up()
             self.scene.select_history.reset_history()
+            self.scene.edit.add_undo_item(self.scene)
+
         if self.scene.focus_id:
             self.scene.edit.add_undo_item(self.scene)
         self.scene.focus_id = ''
