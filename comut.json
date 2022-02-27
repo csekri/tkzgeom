@@ -1,0 +1,368 @@
+{
+    "items": [
+        {
+            "id": "A",
+            "type": "point",
+            "sub_type": "free",
+            "show": true,
+            "definition": {
+                "x": -0.22620904836193478,
+                "y": 3.252730109204368
+            },
+            "marker": {
+                "size": 3,
+                "shape": "rectangle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 4,
+                "rounded_corners": 3.0,
+                "text": "\\parbox{2cm}{\n\\textcolor{white}{\n\\textbf{Test 1}\\\\[0.2cm]This is the first node.\n}\n}",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": false,
+                "text": "$A$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "B",
+            "type": "point",
+            "sub_type": "free",
+            "show": true,
+            "definition": {
+                "x": -2.566302652106084,
+                "y": -1.6614664586583459
+            },
+            "marker": {
+                "size": 3,
+                "shape": "circle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 2,
+                "rounded_corners": 0.0,
+                "text": "\\parbox{2cm}{\n\\textcolor{white}{\n\\textbf{Test 2}\\\\[0.2cm]This is the second node.\n}\n}",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": false,
+                "text": "$B$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "C",
+            "type": "point",
+            "sub_type": "free",
+            "show": true,
+            "definition": {
+                "x": 2.566302652106084,
+                "y": -1.4430577223088923
+            },
+            "marker": {
+                "size": 3,
+                "shape": "diamond",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 2,
+                "rounded_corners": 0.0,
+                "text": "\\parbox{2cm}{\n\\textcolor{white}{\n\\textbf{Test 3}\\\\[0.2cm]This is the third node.\n}\n}",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": false,
+                "text": "$C$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "A_B",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "A",
+                "B": "B"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 0.8,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                }
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.5,
+                "length": 1.5,
+                "tip": "Stealth",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "B_C",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "B",
+                "B": "C"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 0.8,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "dashed",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                }
+            },
+            "o_arrow": {
+                "width": 2.0,
+                "length": 2.0,
+                "tip": "Latex^r",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 2.0,
+                "length": 2.0,
+                "tip": "Latex^r",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "C_A",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "C",
+                "B": "A"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 0.8,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                }
+            },
+            "o_arrow": {
+                "width": 1.5,
+                "length": 1.5,
+                "tip": "Stealth^o",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        }
+    ],
+    "window": {
+        "left": -5.0,
+        "top": 5.0,
+        "scale": 1.0
+    },
+    "bg_colour": {
+        "name": "black",
+        "mix_with": "black",
+        "mix_percent": 0,
+        "strength": 0
+    },
+    "code_before": "",
+    "code_after": "",
+    "packages": [
+        "\\usepackage{amsmath,amssymb}",
+        "\\usepackage[utf8]{inputenc}",
+        "\\usepackage[T1]{fontenc}",
+        "\\usepackage{xcolor}",
+        "\\usepackage{tkz-euclide,tkz-fct}",
+        "\\usetikzlibrary{arrows.meta, bending, patterns.meta, hobby, ducks}",
+        "\\usetikzlibrary{shapes, backgrounds, decorations.pathmorphing, calc}"
+    ]
+}

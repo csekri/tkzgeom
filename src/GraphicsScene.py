@@ -99,8 +99,8 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
                 item.item["id"] = id
                 if isinstance(item, Labelable):
                     item.item["label"]["text"] = f'${item.item["id"]}$'
-                if isinstance(item, Segment):
-                    item.item["o_arrow"]["tip"] = 'Stealth'
+                # if isinstance(item, Segment):
+                #     item.item["o_arrow"]["tip"] = 'Stealth'
                 self.project_data.add(item)
                 self.project_data.recompute_canvas(641, 641)
                 self.edit.add_undo_item(self)

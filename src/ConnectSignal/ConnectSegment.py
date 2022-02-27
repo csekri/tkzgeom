@@ -10,6 +10,11 @@ from ConnectSignal.Lambda import (
     # connect_lineedit_abstract
 )
 
+from ConnectSignal.ConnectMacros import (
+    connect_o_arrow,
+    connect_d_arrow,
+    connect_colour)
+
 def connect_segment(scene):
     scene.ui.segment_line_width_slider.sliderMoved.connect(
         lambda x: connect_slider_moved_abstract(x, scene, ['line'], 'line_width', lambda x: x/10.0, scene.ui.segment_line_width_spin))
@@ -26,3 +31,29 @@ def connect_segment(scene):
         lambda x: connect_slider_moved_abstract(x, scene, ['line', 'double'], 'distance', lambda x: x/10.0, scene.ui.segment_double_distance_spin))
     scene.ui.segment_double_distance_slider.sliderReleased.connect(
         lambda : connect_slider_released_abstract(scene))
+
+    connect_o_arrow(scene,
+        scene.ui.segment_o_tip,
+        scene.ui.segment_o_side,
+        scene.ui.segment_o_reversed,
+        scene.ui.segment_o_length_spin,
+        scene.ui.segment_o_length_slider,
+        scene.ui.segment_o_width_spin,
+        scene.ui.segment_o_width_slider)
+
+    connect_d_arrow(scene,
+        scene.ui.segment_d_tip,
+        scene.ui.segment_d_side,
+        scene.ui.segment_d_reversed,
+        scene.ui.segment_d_length_spin,
+        scene.ui.segment_d_length_slider,
+        scene.ui.segment_d_width_spin,
+        scene.ui.segment_d_width_slider)
+
+    connect_colour(scene, ['line', 'colour'],
+        scene.ui.segment_colour_name,
+        scene.ui.segment_colour_mix_name,
+        scene.ui.segment_colour_mixratio_spin,
+        scene.ui.segment_colour_mixratio_slider,
+        scene.ui.segment_colour_strength_spin,
+        scene.ui.segment_colour_strength_slider)

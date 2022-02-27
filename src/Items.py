@@ -105,10 +105,7 @@ class Items:
         if tikzified_polygons:
             tikzified_polygons = '% POLYGONS\n' + tikzified_polygons
 
-        tikzified_nodes_repeat = \
-        '\n'.join(Items.filter_sort_map(Point, lambda x: x.tikzify_node(), lambda y: y.get_id())(self.items.values()))\
-        if tikzified_polygons else ''
-
+        tikzified_nodes_repeat = '\n'.join(Items.filter_sort_map(Point, lambda x: x.tikzify_node(), lambda y: y.get_id())(self.items.values()))
 
         tikzified_points_label = '\n'.join(Items.filter_sort_map(Point, lambda x: x.tikzify_label(), lambda y: y.get_id())(self.items.values()))
         if tikzified_points_label:
@@ -124,9 +121,9 @@ class Items:
             init_crop,
             tikzified_points_def,
             tikzified_polygons,
-            tikzified_points_label,
             tikzified_segments_draw,
             tikzified_nodes_repeat,
+            tikzified_points_label,
         ]
         string = '\n\n'.join(filter(bool, object_blocks))
 

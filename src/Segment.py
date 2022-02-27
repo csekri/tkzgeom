@@ -124,10 +124,16 @@ class Segment(Item, Arrowable, DashPatternable, Doubleable, LineColourable):
         dictionary["o_arrow"]["width"] = c.Segment.Default.O_Arrow.WIDTH
         dictionary["o_arrow"]["length"] = c.Segment.Default.O_Arrow.LENGTH
         dictionary["o_arrow"]["tip"] = c.Segment.Default.O_Arrow.TIP
+        dictionary["o_arrow"]["bending"] = c.Segment.Default.O_Arrow.BENDING
+        dictionary["o_arrow"]["side"] = c.Segment.Default.O_Arrow.SIDE
+        dictionary["o_arrow"]["reversed"] = c.Segment.Default.O_Arrow.REVERSED
         dictionary["d_arrow"] = {}
         dictionary["d_arrow"]["width"] = c.Segment.Default.D_Arrow.WIDTH
         dictionary["d_arrow"]["length"] = c.Segment.Default.D_Arrow.LENGTH
         dictionary["d_arrow"]["tip"] = c.Segment.Default.D_Arrow.TIP
+        dictionary["d_arrow"]["bending"] = c.Segment.Default.D_Arrow.BENDING
+        dictionary["d_arrow"]["side"] = c.Segment.Default.D_Arrow.SIDE
+        dictionary["d_arrow"]["reversed"] = c.Segment.Default.D_Arrow.REVERSED
         dictionary["fill"] = {}
         dictionary["fill"]["colour"] = {}
         dictionary["fill"]["colour"]["name"] = c.Point.Default.Fill_Colour.NAME

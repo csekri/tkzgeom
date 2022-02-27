@@ -32,7 +32,12 @@ class Colour:
     WHITE = 'white'
     YELLOW = 'yellow'
 
-class ArrowTips:
+class ArrowSide:
+    BOTH = ''
+    LEFT = 'left'
+    RIGHT = 'right'
+
+class ArrowTip:
     NONE = 'None'
     STEALTH = 'Stealth'
     STEALTH_R = 'Stealth^r'
@@ -43,7 +48,7 @@ class ArrowTips:
     LATEX = 'Latex'
     LATEX_R = 'Latex^r'
     LATEX_O = 'Latex^o'
-    LATEX_OR = 'Latex^ro'
+    LATEX_OR = 'Latex^or'
     TO = 'To'
     COMPUTER_MODERN_RIGHTARROW = 'Computer Modern Rightarrow'
     IMPLES = 'Implies'
@@ -91,13 +96,13 @@ class DoubleDefault:
         self.Colour = colour
 
 class ArrowDefault:
-    def __init__(self, tip=ArrowTips.NONE, width=1.0, length=1.0, bending=False):
+    def __init__(self, tip=ArrowTip.NONE, side=ArrowSide.BOTH, width=1.0, length=1.0, reversed=False, bending=False):
         self.TIP = tip
         self.WIDTH = width
         self.LENGTH = length
         self.BENDING = bending
-        # self.REVERSE
-        # self.SIDE
+        self.SIDE = side
+        self.REVERSED = reversed
 
 class FillPatternDefault:
     def __init__(self, type='none', distance=3.0, size=0.0, rotatio=0.0, xshift=0.0, yshift=0.0):

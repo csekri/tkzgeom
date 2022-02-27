@@ -16,34 +16,49 @@
 
 
 % POINT DEFINTIONS
-\tkzDefPoint(-1.9890795631825275, 3.003120124804992){A}
-\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0] (A) at (A) {};
-\tkzDefPoint(-2.987519500780031, 0.17940717628705105){B}
-\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0] (B) at (B) {};
-\tkzDefPoint(-0.7410296411856478, -2.4726989079563175){C}
-\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0] (C) at (C) {};
-\tkzDefPoint(2.8315132605304214, 0.3354134165366611){D}
-\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0] (D) at (D) {};
-\tkzDefPoint(1.2090483619344772, 2.7067082683307335){E}
-\node[draw=black, fill=black, circle, minimum size=3, inner sep=0.0] (E) at (E) {};
-
-% POINT LABELS
-\tkzLabelPoint(A){$A$}
-\tkzLabelPoint(B){$B$}
-\tkzLabelPoint(C){$C$}
-\tkzLabelPoint(D){$D$}
-\tkzLabelPoint(E){$E$}
+\tkzDefPoint(-0.22620904836193478, 3.252730109204368){A}
+\node[draw=black, fill=black, rectangle, minimum size=3, inner sep=4, rounded corners=3.0pt] (A) at (A) {\parbox{2cm}{
+\textcolor{white}{
+\textbf{Test 1}\\[0.2cm]This is the first node.
+}
+}};
+\tkzDefPoint(-2.566302652106084, -1.6614664586583459){B}
+\node[draw=black, fill=black, circle, minimum size=3, inner sep=2] (B) at (B) {\parbox{2cm}{
+\textcolor{white}{
+\textbf{Test 2}\\[0.2cm]This is the second node.
+}
+}};
+\tkzDefPoint(2.566302652106084, -1.4430577223088923){C}
+\node[draw=black, fill=black, diamond, minimum size=3, inner sep=2] (C) at (C) {\parbox{2cm}{
+\textcolor{white}{
+\textbf{Test 3}\\[0.2cm]This is the third node.
+}
+}};
 
 % DRAW SEGMENTS
-\draw[line width=1.2, Stealth-, draw=black, double, double distance=1.4](A) -- (B);
-\draw[line width=1.2, Stealth-, draw=black, double, double distance=1.4](A) -- (C);
-\draw[line width=1.2, Stealth-, draw=black, double, double distance=1.4](B) -- (C);
-\draw[line width=1.2, Stealth-, draw=black, double, double distance=1.4](B) -- (D);
-\draw[line width=1.2, Stealth-, draw=black, double, double distance=1.4](C) -- (D);
-\draw[line width=1.2, Stealth-, draw=black, double, double distance=1.4](C) -- (E);
-\draw[line width=1.2, Stealth-, draw=black, double, double distance=1.4](D) -- (A);
-\draw[line width=1.2, Stealth-, draw=black, double, double distance=1.4](D) -- (E);
-\draw[line width=1.2, Stealth-, draw=black, double, double distance=1.4](E) -- (A);
-\draw[line width=1.2, Stealth-, draw=black, double, double distance=1.4](E) -- (B);
+\draw[line width=0.8, -{Stealth[scale=1.5]}, draw=black](A) -- (B);
+\draw[line width=0.8, {Latex[scale=2.0, round]}-{Latex[scale=2.0, round]}, dashed, draw=black](B) -- (C);
+\draw[line width=0.8, {Stealth[scale=1.5, open]}-, draw=black](C) -- (A);
+
+\node[draw=black, fill=black, rectangle, minimum size=3, inner sep=4, rounded corners=3.0pt] (A) at (A) {\parbox{2cm}{
+\textcolor{white}{
+\textbf{Test 1}\\[0.2cm]This is the first node.
+}
+}};
+\node[draw=black, fill=black, circle, minimum size=3, inner sep=2] (B) at (B) {\parbox{2cm}{
+\textcolor{white}{
+\textbf{Test 2}\\[0.2cm]This is the second node.
+}
+}};
+\node[draw=black, fill=black, diamond, minimum size=3, inner sep=2] (C) at (C) {\parbox{2cm}{
+\textcolor{white}{
+\textbf{Test 3}\\[0.2cm]This is the third node.
+}
+}};
+
+% POINT LABELS
+
+
+
 \end{tikzpicture}
 \end{document}

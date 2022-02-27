@@ -10,16 +10,13 @@ from ConnectSignal.Lambda import (
     connect_lineedit_abstract
 )
 
+from ConnectSignal.ConnectMacros import connect_colour
+
 def connect_point(scene):
     scene.ui.plainTextEdit.textChanged.connect(
         lambda : connect_plain_text_edit_abstract(scene, ['marker'], 'text', scene.ui.plainTextEdit))
     scene.ui.point_apply_text_change.clicked.connect(
         lambda : connect_text_edit_pushbutton_apply_abstract(scene))
-
-    scene.ui.point_marker_colour_name.currentIndexChanged.connect(
-        lambda x: connect_combobox_abstract(x, scene, ['fill', 'colour'], 'name', c.attribute_values(c.Colour), True))
-    scene.ui.point_marker_colour_mix_name.currentIndexChanged.connect(
-        lambda x: connect_combobox_abstract(x, scene, ['fill', 'colour'], 'mix_with', c.attribute_values(c.Colour), True))
 
     scene.ui.point_marker_shape.currentIndexChanged.connect(
         lambda x: connect_combobox_abstract(x, scene, ['marker'], 'shape', c.attribute_values(c.Marker_Shape)))
@@ -57,16 +54,6 @@ def connect_point(scene):
     scene.ui.point_line_width_slider.sliderReleased.connect(
         lambda : connect_slider_released_abstract(scene))
 
-    scene.ui.point_marker_colour_mixratio_slider.sliderMoved.connect(
-        lambda x: connect_slider_moved_abstract(x, scene, ['fill', 'colour'], 'mix_percent', lambda x: x, scene.ui.point_marker_colour_mixratio_spin))
-    scene.ui.point_marker_colour_mixratio_slider.sliderReleased.connect(
-        lambda : connect_slider_released_abstract(scene))
-
-    scene.ui.point_marker_colour_strength_slider.sliderMoved.connect(
-        lambda x: connect_slider_moved_abstract(x, scene, ['fill', 'colour'], 'strength', lambda x: x, scene.ui.point_marker_colour_strength_spin))
-    scene.ui.point_marker_colour_strength_slider.sliderReleased.connect(
-        lambda : connect_slider_released_abstract(scene))
-
     scene.ui.point_custom_dash.editingFinished.connect(
         lambda : connect_dash_lineedit_abstract(scene, ['line', 'dash'], 'custom_pattern', scene.ui.point_custom_dash))
 
@@ -88,3 +75,19 @@ def connect_point(scene):
         lambda x: connect_slider_moved_abstract(x, scene, ['marker'], 'rounded_corners', lambda x: x/4, scene.ui.point_rounded_corners_spin))
     scene.ui.point_rounded_corners_slider.sliderReleased.connect(
         lambda : connect_slider_released_abstract(scene))
+
+    connect_colour(scene, ['fill', 'colour'],
+        scene.ui.point_marker_colour_name,
+        scene.ui.point_marker_colour_mix_name,
+        scene.ui.point_marker_colour_mixratio_spin,
+        scene.ui.point_marker_colour_mixratio_slider,
+        scene.ui.point_marker_colour_strength_spin,
+        scene.ui.point_marker_colour_strength_slider)
+
+    connect_colour(scene, ['line', 'colour'],
+        scene.ui.point_border_colour_name,
+        scene.ui.point_border_colour_mix_name,
+        scene.ui.point_border_colour_mixratio_spin,
+        scene.ui.point_border_colour_mixratio_slider,
+        scene.ui.point_border_colour_strength_spin,
+        scene.ui.point_border_colour_strength_slider)
