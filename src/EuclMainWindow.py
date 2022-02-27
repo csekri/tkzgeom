@@ -1,7 +1,6 @@
 from PyQt5 import QtCore, QtWidgets, QtGui, uic
 import json
 from collections import namedtuple
-from pandas.io.clipboard import copy as copy_to_clipboard
 from copy import deepcopy
 import os
 
