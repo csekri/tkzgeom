@@ -39,7 +39,7 @@ class EditManagement:
         scene.ui.actionSave.setEnabled(bool(self.unsaved_progress))
         scene.title(self.window_name())
         compile_latex(scene, True)
-        browser_text = syntax_highlight(scene.project_data.tikzify())
+        browser_text = syntax_highlight(scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
         scene.ui.textBrowser.setText(browser_text)
         fill_all_fields(scene)
         cr.clear(scene)
@@ -58,7 +58,7 @@ class EditManagement:
         scene.ui.actionSave.setEnabled(bool(self.unsaved_progress))
 
         compile_latex(scene, True)
-        browser_text = syntax_highlight(scene.project_data.tikzify())
+        browser_text = syntax_highlight(scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
         scene.ui.textBrowser.setText(browser_text)
         fill_listWidget_with_data(scene.project_data, scene.ui.listWidget, scene.current_tab_idx)
         fill_all_fields(scene)
@@ -77,7 +77,7 @@ class EditManagement:
         self.unsaved_progress += 1
         scene.ui.actionSave.setEnabled(bool(self.unsaved_progress))
         compile_latex(scene, True)
-        browser_text = syntax_highlight(scene.project_data.tikzify())
+        browser_text = syntax_highlight(scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
         scene.ui.textBrowser.setText(browser_text)
         fill_listWidget_with_data(scene.project_data, scene.ui.listWidget, scene.current_tab_idx)
         fill_all_fields(scene)
@@ -93,7 +93,7 @@ class EditManagement:
             self.add_undo_item(scene)
             self.unsaved_progress = 0
             # compile_latex(scene, True)
-            browser_text = syntax_highlight(scene.project_data.tikzify())
+            browser_text = syntax_highlight(scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
             scene.ui.textBrowser.setText(browser_text)
             fill_all_fields(scene)
             cr.clear(scene)
@@ -117,11 +117,11 @@ class EditManagement:
                     for item in (dictionary["items"]):
                         scene.project_data.add(Factory.create_item(item))
                 self.opened_file = fname[0]
-                scene.project_data.recompute_canvas(641, 641)
+                scene.project_data.recompute_canvas(*scene.init_canvas_dims)
                 scene.edit.add_undo_item(scene)
                 self.unsaved_progress = 0
                 compile_latex(scene, True)
-                browser_text = syntax_highlight(scene.project_data.tikzify())
+                browser_text = syntax_highlight(scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
                 scene.ui.textBrowser.setText(browser_text)
                 fill_listWidget_with_data(scene.project_data, scene.ui.listWidget, scene.current_tab_idx)
                 fill_all_fields(scene)

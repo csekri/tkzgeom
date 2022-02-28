@@ -9,14 +9,13 @@ class FreePoint(Point):
 
     @staticmethod
     def phi(window, x, y, width, height):
-        window_initial_height = height
-        return (x - window.left) * window_initial_height / (window.scale * 10.0),\
-            (window.top - y) * window_initial_height / (window.scale * 10.0)
+        return (x - window.left) * height / (window.scale * 10.0),\
+            (window.top - y) * height / (window.scale * 10.0)
 
 
     @staticmethod
     def phi_inverse(window, x, y, width, height):
-        return window.left + x / width * window.scale*10.0,\
+        return window.left + x / height * window.scale*10.0,\
             window.top - y / height * window.scale*10.0
 
     def tikzify(self):

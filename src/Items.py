@@ -40,6 +40,7 @@ class Items:
         self.code_before = code_before
         self.code_after = code_after
 
+
     def set_window(self, left, top, scale):
         self.window = Window(left=left, top=top, scale=scale)
 
@@ -85,9 +86,9 @@ class Items:
         return lambda items: map(tikzify_function, sorted(filter(lambda x: isinstance(x, class_of) and item_filter(x), items), key=sort_key))
 
 
-    def tikzify(self):
-        init_crop = '\\edef\\xmin{%f}\\edef\\xmax{%f}\n'  % (self.window.left, self.window.left + 10 * self.window.scale)
-        init_crop += '\\edef\\ymin{%f}\\edef\\ymax{%f}\n'  % (self.window.top - 10 * self.window.scale, self.window.top)
+    def tikzify(self, current_width, current_height, init_width, init_height):
+        init_crop = '\\edef\\xmin{%f}\\edef\\xmax{%f}\n'  % (self.window.left, self.window.left + 10 * self.window.scale * current_width / init_height)
+        init_crop += '\\edef\\ymin{%f}\\edef\\ymax{%f}\n'  % (self.window.top - 10 * self.window.scale * current_height / init_height, self.window.top)
         init_crop += "\\edef\\xstep{%f}"  % self.window.scale
         init_crop += "\\edef\\ystep{%f}\n"  % self.window.scale
         init_crop += "\\tkzInit[xmin=\\xmin, ymin=\\ymin, xmax=\\xmax, ymax=\\ymax, xstep=\\xstep, ystep=\\ystep]\n"
@@ -131,11 +132,11 @@ class Items:
 
         return '\\begin{tikzpicture}\n%s\n\\end{tikzpicture}' % string
 
-    def doc_surround_tikzify(self):
+    def doc_surround_tikzify(self, current_width, current_height, init_width, init_height):
         string = '\documentclass[tikz]{standalone}\n'
         string += '\n'.join(self.packages)
         string += '\n' + '\\begin{document}' + '\n'
-        string += self.tikzify()
+        string += self.tikzify(current_width, current_height, init_width, init_height)
         string += '\n' + '\\end{document}' + '\n'
         return string
 

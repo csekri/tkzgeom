@@ -49,7 +49,9 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.ui = uic.loadUi('main.ui', self)
         self.scene = GraphicsScene(self.ui, self.setWindowTitle)
         self.ui.graphicsView.setScene(self.scene)
-        self.show()
+        self.show() # computes the widget dimensions
+        self.resize(1200, 800) # NEED it because we want to force call the resizeEvent
+        self.scene.init_canvas_dims = [self.scene.ui.graphicsView.width(), self.scene.ui.graphicsView.height()]
         self.clipboard = QtWidgets.QApplication.clipboard()
 
         self.listWidget_edit_row = None
@@ -92,8 +94,23 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         connect_polygon(self.scene)
         connect_colour(self.scene)
 
+    # def showEvent(self, event):
+    #     self.scene.init_canvas_dims = [self.scene.ui.graphicsView.width(), self.scene.ui.graphicsView.height()]
+    #     print(self.ui.graphicsView.viewport().size())
+    #     self.scene.setSceneRect(0, 0, self.ui.graphicsView.width(), self.ui.graphicsView.height())
+    #     self.ui.graphicsView.fitInView(self.scene.sceneRect(), QtCore.Qt.KeepAspectRatio)
+    #     self.scene.project_data.recompute_canvas(*self.scene.init_canvas_dims)
+    #     cr.clear(self.scene)
+    #     cr.add_all_items(self.scene)
+
+
     def resizeEvent(self, event):
-        self.scene.setSceneRect(0, 0, self.ui.graphicsView.width(), self.ui.graphicsView.height())
+        self.scene.current_canvas_dims = [self.ui.graphicsView.width(), self.ui.graphicsView.height()]
+        self.scene.setSceneRect(0, 0, self.scene.current_canvas_dims[0], self.scene.current_canvas_dims[1])
+        self.ui.graphicsView.fitInView(self.scene.sceneRect(), QtCore.Qt.KeepAspectRatio)
+        self.scene.project_data.recompute_canvas(*self.scene.init_canvas_dims)
+        cr.clear(self.scene)
+        cr.add_all_items(self.scene)
 
     def closeEvent(self, event):
         if self.scene.edit.unsaved_progress:
@@ -152,7 +169,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         if self.scene.focus_id:
             self.scene.edit.add_undo_item(self.scene)
         self.scene.focus_id = ''
-        browser_text = syntax_highlight(self.scene.project_data.tikzify())
+        browser_text = syntax_highlight(self.scene.project_data.tikzify(*self.scene.current_canvas_dims, *self.scene.init_canvas_dims))
         self.scene.ui.textBrowser.setText(browser_text)
 
 

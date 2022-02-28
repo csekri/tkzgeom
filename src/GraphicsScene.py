@@ -41,6 +41,8 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.show_canvas_labels = True
         self.show_canvas_items = True
         self.select_history = ItemAccumulator()
+        self.init_canvas_dims = [1, 1] # will be updated after mainWindow show() is run
+        self.current_canvas_dims = [1, 1] # will be updated after mainWindow show() is run
         self.edit = EditManagement()
         self.edit.add_undo_item(self)
         self.key_bank = KeyBank()
@@ -56,15 +58,16 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
 
         if self.select_mode.get_type() == c.Tool.FREE:
             item = Factory.create_empty_item("point", c.Point.Definition.FREE)
+            print(self.init_canvas_dims)
             definition = item.definition_builder(
-                FreePoint.phi_inverse(self.project_data.window, *self.mouse.get_xy(), 641, 641), None)
+                FreePoint.phi_inverse(self.project_data.window, *self.mouse.get_xy(), *self.init_canvas_dims), None)
             item.item["id"] = Factory.next_id(item, definition, self.project_data.items)
             item.item["definition"] = definition
             item.item["label"]["text"] = f'${item.item["id"]}$'
             if isinstance(item, Labelable):
                 item.id = item.item["id"]
             self.project_data.add(item)
-            self.project_data.recompute_canvas(641, 641)
+            self.project_data.recompute_canvas(*self.init_canvas_dims)
             self.edit.add_undo_item(self)
             fill_listWidget_with_data(self.project_data, self.ui.listWidget, self.current_tab_idx)
             self.ui.tabWidget.setCurrentIndex(c.TYPES.index('point'))
@@ -100,7 +103,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
                 if isinstance(item, Labelable):
                     item.item["label"]["text"] = f'${item.item["id"]}$'
                 self.project_data.add(item)
-                self.project_data.recompute_canvas(641, 641)
+                self.project_data.recompute_canvas(*self.init_canvas_dims)
                 self.edit.add_undo_item(self)
                 fill_listWidget_with_data(self.project_data, self.ui.listWidget, self.current_tab_idx)
                 self.ui.tabWidget.setCurrentIndex(c.TYPES.index(type))
@@ -122,7 +125,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
             focus_subtype = self.project_data.items[self.focus_id].item["sub_type"]
             if focus_subtype == c.Point.Definition.FREE:
                 definition = self.project_data.items[self.focus_id].definition_builder(
-                    FreePoint.phi_inverse(self.project_data.window, *self.mouse.get_xy(), 641, 641), None)
+                    FreePoint.phi_inverse(self.project_data.window, *self.mouse.get_xy(), *self.init_canvas_dims), None)
                 self.project_data.items[self.focus_id].item["definition"] = definition
             elif focus_subtype == c.Point.Definition.ON_LINE:
                 A, B = self.project_data.items[self.focus_id].depends_on()
@@ -141,16 +144,16 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
                 self.project_data.items[self.focus_id].item["definition"] = definition
 
         if self.key_bank.move_canvas.state == KeyState.DOWN:
-            old_tikz_dx, old_tikz_dy = FreePoint.phi_inverse(self.project_data.window, old_x, old_y, 641, 641)
-            tikz_dx, tikz_dy = FreePoint.phi_inverse(self.project_data.window, *self.mouse.get_xy(), 641, 641)
+            old_tikz_dx, old_tikz_dy = FreePoint.phi_inverse(self.project_data.window, old_x, old_y, *self.init_canvas_dims)
+            tikz_dx, tikz_dy = FreePoint.phi_inverse(self.project_data.window, *self.mouse.get_xy(), *self.init_canvas_dims)
             self.project_data.set_window_translate(tikz_dx-old_tikz_dx, tikz_dy-old_tikz_dy)
 
-        self.project_data.recompute_canvas(641, 641)
+        self.project_data.recompute_canvas(*self.init_canvas_dims)
         cr.clear(self)
         cr.add_all_items(self)
 
 
     def mouseReleaseEvent(self, event):
         self.mouse.set_xy(int(event.scenePos().x()), int(event.scenePos().y()))
-        browser_text = syntax_highlight(self.project_data.tikzify())
+        browser_text = syntax_highlight(self.project_data.tikzify(*self.current_canvas_dims, *self.init_canvas_dims))
         self.ui.textBrowser.setText(browser_text)
