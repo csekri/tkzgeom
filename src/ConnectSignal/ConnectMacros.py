@@ -4,9 +4,11 @@ from ConnectSignal.Lambda import (
     connect_checkbox_abstract,
     connect_slider_moved_abstract,
     connect_slider_released_abstract,
+    connect_lineedit_abstract
 )
 
-def connect_o_arrow(scene, ui_tip, ui_side, ui_reversed,
+def connect_o_arrow(
+        scene, ui_tip, ui_side, ui_reversed,
         ui_length_spin, ui_length_slider,
         ui_width_spin, ui_width_slider):
 
@@ -30,7 +32,8 @@ def connect_o_arrow(scene, ui_tip, ui_side, ui_reversed,
         lambda x: connect_checkbox_abstract(x, scene, ['o_arrow'], 'reversed'))
 
 
-def connect_d_arrow(scene, ui_tip, ui_side, ui_reversed,
+def connect_d_arrow(
+        scene, ui_tip, ui_side, ui_reversed,
         ui_length_spin, ui_length_slider,
         ui_width_spin, ui_width_slider):
 
@@ -71,7 +74,8 @@ def connect_colour(scene, attributes, ui_name, ui_mix_with,
     ui_strength_slider.sliderReleased.connect(
         lambda : connect_slider_released_abstract(scene))
 
-def connect_fill_pattern(scene, attributes, ui_type,
+def connect_fill_pattern(
+        scene, attributes, ui_type,
         ui_distance_spin, ui_distance_slider,
         ui_size_spin, ui_size_slider,
         ui_rotation_spin, ui_rotation_slider,
@@ -106,7 +110,26 @@ def connect_fill_pattern(scene, attributes, ui_type,
     ui_yshift_slider.sliderReleased.connect(
         lambda : connect_slider_released_abstract(scene))
 
+def connect_decoration(
+        scene, attributes, ui_type,
+        ui_amplitude_spin, ui_amplitude_slider,
+        ui_wavelength_spin, ui_wavelength_slider,
+        ui_text):
+    ui_type.currentIndexChanged.connect(
+        lambda x: connect_combobox_abstract(x, scene, attributes, 'type', c.attribute_values(c.DecorationType), True))
 
+    ui_amplitude_slider.sliderMoved.connect(
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'amplitude', lambda x: x/10.0, ui_amplitude_spin))
+    ui_amplitude_slider.sliderReleased.connect(
+        lambda : connect_slider_released_abstract(scene))
+
+    ui_wavelength_slider.sliderMoved.connect(
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'wavelength', lambda x: x/10.0, ui_wavelength_spin))
+    ui_wavelength_slider.sliderReleased.connect(
+        lambda : connect_slider_released_abstract(scene))
+
+    ui_text.editingFinished.connect(
+        lambda : connect_lineedit_abstract(scene, attributes, 'text', ui_text))
 
 
 

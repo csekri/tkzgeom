@@ -7,9 +7,10 @@ from Tikzifyables.Arrowable import Arrowable
 from Tikzifyables.DashPatternable import DashPatternable
 from Tikzifyables.Colourable.LineColourable import LineColourable
 from Tikzifyables.Fillable import Fillable
+from Tikzifyables.Decorationable import Decorationable
 import Constant as c
 
-class Polygon(Item, DashPatternable, LineColourable, Fillable):
+class Polygon(Item, DashPatternable, LineColourable, Fillable, Decorationable):
     def __init__(self, item):
         Item.__init__(self, item)
         if item is None:
@@ -17,12 +18,14 @@ class Polygon(Item, DashPatternable, LineColourable, Fillable):
         DashPatternable.__init__(self, self.item)
         LineColourable.__init__(self, self.item)
         Fillable.__init__(self, self.item)
+        Decorationable.__init__(self, self.item)
 
     def tikzify(self):
         options = [
             self.tikzify_dash(),
             'draw=' + self.tikzify_line_colour(),
-            self.tikzify_fill_pattern()
+            self.tikzify_fill_pattern(),
+            self.tikzify_decoration()
         ]
         options = filter(bool, options)
         return "\\fill[%s](%s.center)--cycle;" % ( ', '.join(options) , '.center)--('.join(self.item["definition"]))
@@ -95,6 +98,11 @@ class Polygon(Item, DashPatternable, LineColourable, Fillable):
         dictionary["line"]["dash"] = {}
         dictionary["line"]["dash"]["stroke"] = c.Polygon.Default.LINE_DASH_STROKE
         dictionary["line"]["dash"]["custom_pattern"] = c.Polygon.Default.LINE_DASH_CUSTOM
+        dictionary["line"]["decoration"] = {}
+        dictionary["line"]["decoration"]["type"] = c.Polygon.Default.Decoration.TYPE
+        dictionary["line"]["decoration"]["amplitude"] = c.Polygon.Default.Decoration.AMPLITUDE
+        dictionary["line"]["decoration"]["wavelength"] = c.Polygon.Default.Decoration.WAVELENGTH
+        dictionary["line"]["decoration"]["text"] = c.Polygon.Default.Decoration.TEXT
         dictionary["fill"] = {}
         dictionary["fill"]["colour"] = {}
         dictionary["fill"]["colour"]["name"] = c.Polygon.Default.Fill_Colour.NAME

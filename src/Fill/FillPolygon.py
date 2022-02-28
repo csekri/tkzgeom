@@ -1,6 +1,10 @@
 import Constant as c
 from Colour import Colour
-from Fill.FillMacros import fill_colour, fill_fill_pattern
+from Fill.FillMacros import (
+    fill_colour,
+    fill_fill_pattern,
+    fill_decoration
+)
 
 def fill_polygon_fields(scene):
     colours = c.attribute_values(c.Colour)\
@@ -33,3 +37,9 @@ def fill_polygon_fields(scene):
         scene.ui.polygon_pattern_xshift_slider,
         scene.ui.polygon_pattern_yshift_spin,
         scene.ui.polygon_pattern_yshift_slider)
+
+    fill_decoration(scene, polygon["line"]["decoration"],
+        scene.ui.polygon_decoration_type,
+        scene.ui.polygon_amplitude_spin, scene.ui.polygon_amplitude_slider,
+        scene.ui.polygon_wavelength_spin, scene.ui.polygon_wavelength_slider,
+        scene.ui.polygon_decoration_text)

@@ -10,7 +10,11 @@ from ConnectSignal.Lambda import (
     connect_lineedit_abstract
 )
 
-from ConnectSignal.ConnectMacros import connect_colour, connect_fill_pattern
+from ConnectSignal.ConnectMacros import (
+    connect_colour,
+    connect_fill_pattern,
+    connect_decoration
+)
 
 def connect_polygon(scene):
     connect_colour(scene, ['fill', 'colour'],
@@ -32,3 +36,9 @@ def connect_polygon(scene):
         scene.ui.polygon_pattern_xshift_slider,
         scene.ui.polygon_pattern_yshift_spin,
         scene.ui.polygon_pattern_yshift_slider)
+
+    connect_decoration(scene, ["line", "decoration"],
+        scene.ui.polygon_decoration_type,
+        scene.ui.polygon_amplitude_spin, scene.ui.polygon_amplitude_slider,
+        scene.ui.polygon_wavelength_spin, scene.ui.polygon_wavelength_slider,
+        scene.ui.polygon_decoration_text)

@@ -20,6 +20,8 @@ def fill_segment_fields(scene):
 
     scene.skip_combobox_changes = True
     scene.ui.segment_line_stroke.setCurrentIndex(c.attribute_values(c.Line_Stroke).index(segment["line"]["dash"]["stroke"]))
+    scene.ui.segment_o_connect_to.setCurrentIndex(c.attribute_values(c.LineConnectTo).index(segment["line"]["o_connect_to"]))
+    scene.ui.segment_d_connect_to.setCurrentIndex(c.attribute_values(c.LineConnectTo).index(segment["line"]["d_connect_to"]))
     scene.skip_combobox_changes = False
 
     scene.ui.segment_custom_dash.setText(' '.join(map(str, segment["line"]["dash"]["custom_pattern"])))

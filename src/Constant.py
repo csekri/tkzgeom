@@ -1,16 +1,21 @@
-from enum import Enum, auto, unique
+"""Collection of constants"""
 
 def attribute_values(class_input):
+    """Turn class attribute values into a list."""
     return [m for v, m in vars(class_input).items() if not (v.startswith('_')  or callable(m))]
 
-class MouseState:
+
+class MouseState: # TODO check if this is actually used anywhere, if so delete
     UP = 0
     DOWN = 1
 
-class MouseButton:
+
+class MouseButton: # TODO check if this is actually used anywhere, if so delete
     LEFT = 0
     RIGHT = 1
 
+
+# The base colours in tikz, 19 colours altogether.
 class Colour:
     BLACK = 'black'
     BLUE = 'blue'
@@ -32,11 +37,17 @@ class Colour:
     WHITE = 'white'
     YELLOW = 'yellow'
 
+
+# The side visible of a tikz arrow (from arrows.meta).
 class ArrowSide:
     BOTH = ''
     LEFT = 'left'
     RIGHT = 'right'
 
+
+# The arrowtip types in tikz (from arrows.meta).
+# The "^" character indicates that extra options are appended.
+# "r" means rounded, "o" means open, "or" means both of the two.
 class ArrowTip:
     NONE = 'None'
     STEALTH = 'Stealth'
@@ -81,6 +92,8 @@ class ArrowTip:
     STRAIGHT_BARB = 'Straight Barb'
     TEE_BARB = 'Tee Barb'
 
+
+# Fill patterns supported by tikz (patterns).
 class PatternType:
     NONE = 'none'
     SOLID = 'solid'
@@ -100,6 +113,8 @@ class PatternType:
     FIVEPOINTED_STARS = 'Fivepointed stars'
     SIXPOINTED_STARS = 'Sixpointed stars'
 
+
+# Parameters that define a colour.
 class ColourDefault:
     def __init__(self, name=Colour.BLACK, mix_with=Colour.BLACK, mix_ratio=0, strength=100, opacity=1.0):
         self.NAME = name
@@ -108,11 +123,15 @@ class ColourDefault:
         self.STRENGTH = strength
         self.OPACITY = opacity
 
+
+# Parameters that define the double line.
 class DoubleDefault:
     def __init__(self, distance=0.0, colour=ColourDefault(name=Colour.WHITE)):
         self.DISTANCE = distance
         self.Colour = colour
 
+
+# Parameters that define an arrow.
 class ArrowDefault:
     def __init__(self, tip=ArrowTip.NONE, side=ArrowSide.BOTH, width=1.0, length=1.0, reversed=False, bending=False):
         self.TIP = tip
@@ -122,6 +141,8 @@ class ArrowDefault:
         self.SIDE = side
         self.REVERSED = reversed
 
+
+# Parameters that define a pattern.
 class FillPatternDefault:
     def __init__(self, type=PatternType.SOLID, distance=5.0, size=0.5, rotation=0.0, rotatio=0.0, xshift=0.0, yshift=0.0):
         self.TYPE = type
@@ -132,6 +153,7 @@ class FillPatternDefault:
         self.YSHIFT = yshift
 
 
+# Node/marker shapes supported by TkzGeom
 class Marker_Shape:
     CIRCLE = 'circle'
     RECTANGE = 'rectangle'
@@ -140,6 +162,7 @@ class Marker_Shape:
     DIAMOND = 'diamond'
 
 
+# Parameters that define a node/marker.
 class MarkerDefault:
     def __init__(self, size=3, shape=Marker_Shape.CIRCLE, shape_number=5, ratio=2.25, inner_sep=0.0, rounded_corners=0.0, text='', text_width=0.0):
         self.SIZE = 3
@@ -152,6 +175,7 @@ class MarkerDefault:
         self.TEXT_WIDTH = text_width
 
 
+# Anchor of a label.
 class Direction:
     CENTRE = 'centered'
     NORTH = 'above'
@@ -164,6 +188,28 @@ class Direction:
     NORTH_WEST = 'above left'
 
 
+# Path decoration modes supported by TkzGeom.
+class DecorationType:
+    NONE = 'none'
+    TEXT_ALONG_CURVE = 'text along path'
+    ZIGZAG = 'zigzag'
+    SAW = 'saw'
+    RANDOM_STEPS = 'random steps'
+    BUMPS = 'bumps'
+    COIL= 'coil'
+    SNAKE = 'snake'
+
+
+# Parameters that make up a decoration.
+class DecorationDefault:
+    def __init__(self, type=DecorationType.NONE, amplitude=3.0, wavelength=3.0, text=''):
+        self.TYPE = type
+        self.AMPLITUDE = amplitude
+        self.WAVELENGTH = wavelength
+        self.TEXT = text
+
+
+# Parameters that define a label.
 class LabelDefault:
     def __init__(self, show=True, text='', anchor=Direction.SOUTH_EAST, offset=0.0):
         self.SHOW = show
@@ -172,6 +218,7 @@ class LabelDefault:
         self.OFFSET = offset
 
 
+# Line strokes supported by tikz.
 class Line_Stroke:
     SOLID = 'solid'
     LOOSELY_DASHED = 'loosely dashed'
@@ -189,7 +236,12 @@ class Line_Stroke:
     CUSTOM = 'custom'
 
 
-class Mode():
+# The segment is connected either to the boundary or the centre of a node.
+class LineConnectTo:
+    NODE_BOUNDARY = 'boundary'
+    NODE_CENTRE = 'centre'
+
+class Mode(): # TODO good idea but not sure if actually used.
     POINT = 0
     SEGMENT = 1
     CIRCLE = 2
@@ -197,12 +249,14 @@ class Mode():
     DECORATOR = 4
 
 
-class Canvas:
+class Canvas: # TODO not entirely used now.
     POINT_RADIUS = 7
     LINE_THICKNESS = 3
     CIRCLE_THICKNESS = 3
     MAX_DISTANCE_TO_HIGHLIGHT = 8
 
+
+# Contains the default values for a point plus the definition subtypes.
 class Point:
     class Default:
         SIZE = 3.0
@@ -228,7 +282,6 @@ class Point:
         PERPENDICULAR = 'perpendicular'
         ROTATION = 'rotation'
 
-
     TEXT_DICT = {
         Definition.FREE : "Free point.",
         Definition.INTERSECTION : "Intersection of #1 and #2.",
@@ -243,9 +296,8 @@ class Point:
         Definition.ROTATION : "The point defined as the rotation of #1, by angle #2 around centre #3."
     }
 
-# print(Point.TEXT_DICT[Point.Definition.FREE])
-# print(attribute_values(Direction))
 
+# Contains the default values for a segment.
 class Segment:
     class Default:
         LINE_WIDTH = 3.0
@@ -258,7 +310,9 @@ class Segment:
         D_Arrow = ArrowDefault()
         LINE_DASH_STROKE = Line_Stroke.SOLID
         LINE_DASH_CUSTOM = [5, 2]
+        LINE_CONNECT_TO = LineConnectTo.NODE_BOUNDARY
 
+# Contains the default values for a polygon.
 class Polygon:
     class Default:
         LINE_WIDTH = 0.4
@@ -266,9 +320,12 @@ class Polygon:
         Line_Colour = ColourDefault()
         Double_Line = DoubleDefault()
         Fill_Pattern = FillPatternDefault()
+        Decoration = DecorationDefault()
         LINE_DASH_STROKE = Line_Stroke.SOLID
         LINE_DASH_CUSTOM = [5, 2]
 
+
+# List of the default packages.
 PackagesDefault = [
     "\\usepackage{amsmath,amssymb}",
     "\\usepackage[utf8]{inputenc}",
@@ -279,19 +336,24 @@ PackagesDefault = [
     "\\usetikzlibrary{shapes, backgrounds, decorations.pathmorphing, calc}"
 ]
 
-BackGroundColourDefault = {
+
+BackGroundColourDefault = { # TODO investigate and delete.
     "name": "black",
     "mix_with": "black",
     "mix_percent": 0,
     "strength": 0
 }
 
+
+# The default dimensions of the window
 WindowDefault = {
     "left": -5.0,
     "top": 5.0,
     "scale": 1.0,
 }
 
+
+# The creator tools.
 class Tool:
     FREE = 0
     MIDPOINT_SEGMENT = 1
@@ -345,6 +407,10 @@ class Tool:
         POLYGON : ('polygon', None)
     }
 
+
+# The patterns that has extra tuning possibilities.
 PATTERN_EXTRAS = set([PatternType.LINES, PatternType.HATCH, PatternType.DOTS_EXTRA, PatternType.FIVEPOINTED_STARS, PatternType.SIXPOINTED_STARS])
 
+
+# List of types in items as it appears in the tabWidget.
 TYPES = ['point', 'segment', 'circle', 'polygon', 'linestring', 'function', 'colour', 'number']

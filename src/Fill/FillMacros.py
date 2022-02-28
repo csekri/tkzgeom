@@ -1,6 +1,7 @@
 import Constant as c
 
-def fill_o_arrow(scene, item, ui_tip, ui_side, ui_reversed,
+def fill_o_arrow(
+        scene, item, ui_tip, ui_side, ui_reversed,
         ui_length_spin, ui_length_slider,
         ui_width_spin, ui_width_slider):
     scene.skip_combobox_changes = True
@@ -18,7 +19,8 @@ def fill_o_arrow(scene, item, ui_tip, ui_side, ui_reversed,
     scene.ui.segment_o_reversed.setChecked(item["o_arrow"]["reversed"])
     scene.skip_checkox_changes = False
 
-def fill_d_arrow(scene, item, ui_tip, ui_side, ui_reversed,
+def fill_d_arrow(
+        scene, item, ui_tip, ui_side, ui_reversed,
         ui_length_spin, ui_length_slider,
         ui_width_spin, ui_width_slider):
     scene.skip_combobox_changes = True
@@ -36,7 +38,8 @@ def fill_d_arrow(scene, item, ui_tip, ui_side, ui_reversed,
     scene.ui.segment_o_reversed.setChecked(item["d_arrow"]["reversed"])
     scene.skip_checkox_changes = False
 
-def fill_colour(scene, item, colours, ui_name, ui_mix_with,
+def fill_colour(
+        scene, item, colours, ui_name, ui_mix_with,
         ui_mix_spin, ui_mix_slider,
         ui_strength_spin, ui_strength_slider):
     scene.skip_combobox_changes = True
@@ -54,7 +57,8 @@ def fill_colour(scene, item, colours, ui_name, ui_mix_with,
     ui_strength_slider.setValue(item["strength"])
     ui_strength_spin.setValue(item["strength"])
 
-def fill_fill_pattern(scene, item, ui_type,
+def fill_fill_pattern(
+        scene, item, ui_type,
         ui_distance_spin, ui_distance_slider,
         ui_size_spin, ui_size_slider,
         ui_rotation_spin, ui_rotation_slider,
@@ -78,3 +82,20 @@ def fill_fill_pattern(scene, item, ui_type,
 
     ui_yshift_slider.setValue(20.0*item["yshift"])
     ui_yshift_spin.setValue(item["yshift"])
+
+def fill_decoration(
+        scene, item, ui_type,
+        ui_amplitude_spin, ui_amplitude_slider,
+        ui_wavelength_spin, ui_wavelength_slider,
+        ui_text):
+    scene.skip_combobox_changes = True
+    ui_type.setCurrentIndex(c.attribute_values(c.DecorationType).index(item["type"]))
+    scene.skip_combobox_changes = False
+
+    ui_amplitude_slider.setValue(10.0*item["amplitude"])
+    ui_amplitude_spin.setValue(item["amplitude"])
+
+    ui_wavelength_slider.setValue(10.0*item["wavelength"])
+    ui_wavelength_spin.setValue(item["wavelength"])
+
+    ui_text.setText(item["text"])

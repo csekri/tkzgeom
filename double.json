@@ -6,11 +6,11 @@
             "sub_type": "free",
             "show": true,
             "definition": {
-                "x": -2.410296411856474,
-                "y": 2.940717628705148
+                "x": -0.2886115444617783,
+                "y": 2.628705148205928
             },
             "marker": {
-                "size": 6,
+                "size": 5,
                 "shape": "circle",
                 "shape_number": 5,
                 "ratio": 2.25,
@@ -56,11 +56,11 @@
             "sub_type": "free",
             "show": true,
             "definition": {
-                "x": -3.8299531981279253,
-                "y": 0.22620904836193478
+                "x": -2.254290171606864,
+                "y": 1.8798751950078003
             },
             "marker": {
-                "size": 6,
+                "size": 5,
                 "shape": "circle",
                 "shape_number": 5,
                 "ratio": 2.25,
@@ -106,11 +106,11 @@
             "sub_type": "free",
             "show": true,
             "definition": {
-                "x": 0.05460218408736317,
-                "y": -3.5023400936037437
+                "x": -2.7379095163806553,
+                "y": -0.05460218408736317
             },
             "marker": {
-                "size": 6,
+                "size": 5,
                 "shape": "circle",
                 "shape_number": 5,
                 "ratio": 2.25,
@@ -156,11 +156,11 @@
             "sub_type": "free",
             "show": true,
             "definition": {
-                "x": 3.018720748829953,
-                "y": 1.4898595943837756
+                "x": -1.6146645865834635,
+                "y": -1.926677067082684
             },
             "marker": {
-                "size": 6,
+                "size": 5,
                 "shape": "circle",
                 "shape_number": 5,
                 "ratio": 2.25,
@@ -206,11 +206,11 @@
             "sub_type": "free",
             "show": true,
             "definition": {
-                "x": 0.5538221528861156,
-                "y": 3.455538221528861
+                "x": 1.09984399375975,
+                "y": -1.9578783151326054
             },
             "marker": {
-                "size": 6,
+                "size": 5,
                 "shape": "circle",
                 "shape_number": 5,
                 "ratio": 2.25,
@@ -251,596 +251,16 @@
             }
         },
         {
-            "id": "A_B",
-            "type": "segment",
-            "show": true,
-            "definition": {
-                "A": "A",
-                "B": "B"
-            },
-            "label": {
-                "show": true,
-                "text": "",
-                "anchor": "below right",
-                "offset": 0.0
-            },
-            "line": {
-                "line_width": 1.1,
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                },
-                "dash": {
-                    "stroke": "solid",
-                    "custom_pattern": [
-                        5,
-                        2
-                    ]
-                },
-                "double": {
-                    "distance": 1.8,
-                    "colour": {
-                        "name": "white",
-                        "mix_with": "black",
-                        "mix_percent": 0,
-                        "strength": 100
-                    }
-                }
-            },
-            "o_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "d_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
-            }
-        },
-        {
-            "id": "B_C",
-            "type": "segment",
-            "show": true,
-            "definition": {
-                "A": "B",
-                "B": "C"
-            },
-            "label": {
-                "show": true,
-                "text": "",
-                "anchor": "below right",
-                "offset": 0.0
-            },
-            "line": {
-                "line_width": 1.1,
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                },
-                "dash": {
-                    "stroke": "solid",
-                    "custom_pattern": [
-                        5,
-                        2
-                    ]
-                },
-                "double": {
-                    "distance": 1.8,
-                    "colour": {
-                        "name": "white",
-                        "mix_with": "black",
-                        "mix_percent": 0,
-                        "strength": 100
-                    }
-                }
-            },
-            "o_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "d_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
-            }
-        },
-        {
-            "id": "C_D",
-            "type": "segment",
-            "show": true,
-            "definition": {
-                "A": "C",
-                "B": "D"
-            },
-            "label": {
-                "show": true,
-                "text": "",
-                "anchor": "below right",
-                "offset": 0.0
-            },
-            "line": {
-                "line_width": 1.1,
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                },
-                "dash": {
-                    "stroke": "solid",
-                    "custom_pattern": [
-                        5,
-                        2
-                    ]
-                },
-                "double": {
-                    "distance": 1.8,
-                    "colour": {
-                        "name": "white",
-                        "mix_with": "black",
-                        "mix_percent": 0,
-                        "strength": 100
-                    }
-                }
-            },
-            "o_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "d_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
-            }
-        },
-        {
-            "id": "D_E",
-            "type": "segment",
-            "show": true,
-            "definition": {
-                "A": "D",
-                "B": "E"
-            },
-            "label": {
-                "show": true,
-                "text": "",
-                "anchor": "below right",
-                "offset": 0.0
-            },
-            "line": {
-                "line_width": 1.1,
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                },
-                "dash": {
-                    "stroke": "solid",
-                    "custom_pattern": [
-                        5,
-                        2
-                    ]
-                },
-                "double": {
-                    "distance": 1.8,
-                    "colour": {
-                        "name": "white",
-                        "mix_with": "black",
-                        "mix_percent": 0,
-                        "strength": 100
-                    }
-                }
-            },
-            "o_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "d_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
-            }
-        },
-        {
-            "id": "E_A",
-            "type": "segment",
-            "show": true,
-            "definition": {
-                "A": "E",
-                "B": "A"
-            },
-            "label": {
-                "show": true,
-                "text": "",
-                "anchor": "below right",
-                "offset": 0.0
-            },
-            "line": {
-                "line_width": 1.1,
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                },
-                "dash": {
-                    "stroke": "solid",
-                    "custom_pattern": [
-                        5,
-                        2
-                    ]
-                },
-                "double": {
-                    "distance": 1.8,
-                    "colour": {
-                        "name": "white",
-                        "mix_with": "black",
-                        "mix_percent": 0,
-                        "strength": 100
-                    }
-                }
-            },
-            "o_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "d_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
-            }
-        },
-        {
-            "id": "A_C",
-            "type": "segment",
-            "show": true,
-            "definition": {
-                "A": "A",
-                "B": "C"
-            },
-            "label": {
-                "show": true,
-                "text": "",
-                "anchor": "below right",
-                "offset": 0.0
-            },
-            "line": {
-                "line_width": 1.1,
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                },
-                "dash": {
-                    "stroke": "solid",
-                    "custom_pattern": [
-                        5,
-                        2
-                    ]
-                },
-                "double": {
-                    "distance": 1.8,
-                    "colour": {
-                        "name": "white",
-                        "mix_with": "black",
-                        "mix_percent": 0,
-                        "strength": 100
-                    }
-                }
-            },
-            "o_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "d_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
-            }
-        },
-        {
-            "id": "C_E",
-            "type": "segment",
-            "show": true,
-            "definition": {
-                "A": "C",
-                "B": "E"
-            },
-            "label": {
-                "show": true,
-                "text": "",
-                "anchor": "below right",
-                "offset": 0.0
-            },
-            "line": {
-                "line_width": 1.1,
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                },
-                "dash": {
-                    "stroke": "solid",
-                    "custom_pattern": [
-                        5,
-                        2
-                    ]
-                },
-                "double": {
-                    "distance": 1.8,
-                    "colour": {
-                        "name": "white",
-                        "mix_with": "black",
-                        "mix_percent": 0,
-                        "strength": 100
-                    }
-                }
-            },
-            "o_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "d_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
-            }
-        },
-        {
-            "id": "E_B",
-            "type": "segment",
-            "show": true,
-            "definition": {
-                "A": "E",
-                "B": "B"
-            },
-            "label": {
-                "show": true,
-                "text": "",
-                "anchor": "below right",
-                "offset": 0.0
-            },
-            "line": {
-                "line_width": 1.1,
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                },
-                "dash": {
-                    "stroke": "solid",
-                    "custom_pattern": [
-                        5,
-                        2
-                    ]
-                },
-                "double": {
-                    "distance": 1.8,
-                    "colour": {
-                        "name": "white",
-                        "mix_with": "black",
-                        "mix_percent": 0,
-                        "strength": 100
-                    }
-                }
-            },
-            "o_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "d_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
-            }
-        },
-        {
-            "id": "B_D",
-            "type": "segment",
-            "show": true,
-            "definition": {
-                "A": "B",
-                "B": "D"
-            },
-            "label": {
-                "show": true,
-                "text": "",
-                "anchor": "below right",
-                "offset": 0.0
-            },
-            "line": {
-                "line_width": 1.1,
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                },
-                "dash": {
-                    "stroke": "solid",
-                    "custom_pattern": [
-                        5,
-                        2
-                    ]
-                },
-                "double": {
-                    "distance": 1.8,
-                    "colour": {
-                        "name": "white",
-                        "mix_with": "black",
-                        "mix_percent": 0,
-                        "strength": 100
-                    }
-                }
-            },
-            "o_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "d_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
-            }
-        },
-        {
-            "id": "D_A",
-            "type": "segment",
-            "show": true,
-            "definition": {
-                "A": "D",
-                "B": "A"
-            },
-            "label": {
-                "show": true,
-                "text": "",
-                "anchor": "below right",
-                "offset": 0.0
-            },
-            "line": {
-                "line_width": 1.1,
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                },
-                "dash": {
-                    "stroke": "solid",
-                    "custom_pattern": [
-                        5,
-                        2
-                    ]
-                },
-                "double": {
-                    "distance": 1.8,
-                    "colour": {
-                        "name": "white",
-                        "mix_with": "black",
-                        "mix_percent": 0,
-                        "strength": 100
-                    }
-                }
-            },
-            "o_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "d_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
-            }
-        },
-        {
             "id": "F",
             "type": "point",
             "sub_type": "free",
             "show": true,
             "definition": {
-                "x": -3.252730109204368,
-                "y": -2.7847113884555386
+                "x": 1.973478939157566,
+                "y": -0.21060842433697324
             },
             "marker": {
-                "size": 3,
+                "size": 5,
                 "shape": "circle",
                 "shape_number": 5,
                 "ratio": 2.25,
@@ -886,11 +306,11 @@
             "sub_type": "free",
             "show": true,
             "definition": {
-                "x": 3.174726989079563,
-                "y": -1.895475819032761
+                "x": 1.3962558502340094,
+                "y": 1.7706708268330735
             },
             "marker": {
-                "size": 3,
+                "size": 5,
                 "shape": "circle",
                 "shape_number": 5,
                 "ratio": 2.25,
@@ -931,11 +351,11 @@
             }
         },
         {
-            "id": "F_B",
+            "id": "A_B",
             "type": "segment",
             "show": true,
             "definition": {
-                "A": "F",
+                "A": "A",
                 "B": "B"
             },
             "label": {
@@ -945,7 +365,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 1.1,
+                "line_width": 1.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -960,24 +380,34 @@
                     ]
                 },
                 "double": {
-                    "distance": 1.8,
+                    "distance": 1.4,
                     "colour": {
                         "name": "white",
                         "mix_with": "black",
                         "mix_percent": 0,
                         "strength": 100
                     }
-                }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "centre",
+                "d_connect_to": "centre"
             },
             "o_arrow": {
                 "width": 1.0,
                 "length": 1.0,
-                "tip": "None"
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
             },
             "d_arrow": {
                 "width": 1.0,
                 "length": 1.0,
-                "tip": "None"
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
             },
             "fill": {
                 "colour": {
@@ -989,11 +419,11 @@
             }
         },
         {
-            "id": "F_C",
+            "id": "A_C",
             "type": "segment",
             "show": true,
             "definition": {
-                "A": "F",
+                "A": "A",
                 "B": "C"
             },
             "label": {
@@ -1003,7 +433,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 1.1,
+                "line_width": 1.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -1018,24 +448,34 @@
                     ]
                 },
                 "double": {
-                    "distance": 1.8,
+                    "distance": 1.4,
                     "colour": {
                         "name": "white",
                         "mix_with": "black",
                         "mix_percent": 0,
                         "strength": 100
                     }
-                }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "centre",
+                "d_connect_to": "centre"
             },
             "o_arrow": {
                 "width": 1.0,
                 "length": 1.0,
-                "tip": "None"
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
             },
             "d_arrow": {
                 "width": 1.0,
                 "length": 1.0,
-                "tip": "None"
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
             },
             "fill": {
                 "colour": {
@@ -1047,127 +487,11 @@
             }
         },
         {
-            "id": "F_A",
+            "id": "A_D",
             "type": "segment",
             "show": true,
             "definition": {
-                "A": "F",
-                "B": "A"
-            },
-            "label": {
-                "show": true,
-                "text": "",
-                "anchor": "below right",
-                "offset": 0.0
-            },
-            "line": {
-                "line_width": 1.1,
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                },
-                "dash": {
-                    "stroke": "solid",
-                    "custom_pattern": [
-                        5,
-                        2
-                    ]
-                },
-                "double": {
-                    "distance": 1.8,
-                    "colour": {
-                        "name": "white",
-                        "mix_with": "black",
-                        "mix_percent": 0,
-                        "strength": 100
-                    }
-                }
-            },
-            "o_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "d_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
-            }
-        },
-        {
-            "id": "F_E",
-            "type": "segment",
-            "show": true,
-            "definition": {
-                "A": "F",
-                "B": "E"
-            },
-            "label": {
-                "show": true,
-                "text": "",
-                "anchor": "below right",
-                "offset": 0.0
-            },
-            "line": {
-                "line_width": 1.1,
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                },
-                "dash": {
-                    "stroke": "solid",
-                    "custom_pattern": [
-                        5,
-                        2
-                    ]
-                },
-                "double": {
-                    "distance": 1.8,
-                    "colour": {
-                        "name": "white",
-                        "mix_with": "black",
-                        "mix_percent": 0,
-                        "strength": 100
-                    }
-                }
-            },
-            "o_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "d_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
-            }
-        },
-        {
-            "id": "F_D",
-            "type": "segment",
-            "show": true,
-            "definition": {
-                "A": "F",
+                "A": "A",
                 "B": "D"
             },
             "label": {
@@ -1177,7 +501,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 1.1,
+                "line_width": 1.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -1192,24 +516,1190 @@
                     ]
                 },
                 "double": {
-                    "distance": 1.8,
+                    "distance": 1.4,
                     "colour": {
                         "name": "white",
                         "mix_with": "black",
                         "mix_percent": 0,
                         "strength": 100
                     }
-                }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "centre",
+                "d_connect_to": "centre"
             },
             "o_arrow": {
                 "width": 1.0,
                 "length": 1.0,
-                "tip": "None"
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
             },
             "d_arrow": {
                 "width": 1.0,
                 "length": 1.0,
-                "tip": "None"
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "A_E",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "A",
+                "B": "E"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 1.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 1.4,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "centre",
+                "d_connect_to": "centre"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "A_F",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "A",
+                "B": "F"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 1.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 1.4,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "centre",
+                "d_connect_to": "centre"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "A_G",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "A",
+                "B": "G"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 1.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 1.4,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "centre",
+                "d_connect_to": "centre"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "B_C",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "B",
+                "B": "C"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 1.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 1.4,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "centre",
+                "d_connect_to": "centre"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "B_D",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "B",
+                "B": "D"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 1.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 1.4,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "centre",
+                "d_connect_to": "centre"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "B_E",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "B",
+                "B": "E"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 1.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 1.4,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "centre",
+                "d_connect_to": "centre"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "B_F",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "B",
+                "B": "F"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 1.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 1.4,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "centre",
+                "d_connect_to": "centre"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "B_G",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "B",
+                "B": "G"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 1.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 1.4,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "centre",
+                "d_connect_to": "centre"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "C_D",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "C",
+                "B": "D"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 1.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 1.4,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "centre",
+                "d_connect_to": "centre"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "C_E",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "C",
+                "B": "E"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 1.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 1.4,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "centre",
+                "d_connect_to": "centre"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "C_F",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "C",
+                "B": "F"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 1.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 1.4,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "centre",
+                "d_connect_to": "centre"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "C_G",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "C",
+                "B": "G"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 1.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 1.4,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "centre",
+                "d_connect_to": "centre"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "D_E",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "D",
+                "B": "E"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 1.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 1.4,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "centre",
+                "d_connect_to": "centre"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "D_F",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "D",
+                "B": "F"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 1.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 1.4,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "centre",
+                "d_connect_to": "centre"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "D_G",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "D",
+                "B": "G"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 1.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 1.4,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "centre",
+                "d_connect_to": "centre"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "E_F",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "E",
+                "B": "F"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 1.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 1.4,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "centre",
+                "d_connect_to": "centre"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            }
+        },
+        {
+            "id": "E_G",
+            "type": "segment",
+            "show": true,
+            "definition": {
+                "A": "E",
+                "B": "G"
+            },
+            "label": {
+                "show": true,
+                "text": "",
+                "anchor": "below right",
+                "offset": 0.0
+            },
+            "line": {
+                "line_width": 1.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 1.4,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "centre",
+                "d_connect_to": "centre"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
             },
             "fill": {
                 "colour": {
@@ -1235,7 +1725,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 1.1,
+                "line_width": 1.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -1250,314 +1740,34 @@
                     ]
                 },
                 "double": {
-                    "distance": 1.8,
+                    "distance": 1.4,
                     "colour": {
                         "name": "white",
                         "mix_with": "black",
                         "mix_percent": 0,
                         "strength": 100
                     }
-                }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "centre",
+                "d_connect_to": "centre"
             },
             "o_arrow": {
                 "width": 1.0,
                 "length": 1.0,
-                "tip": "None"
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
             },
             "d_arrow": {
                 "width": 1.0,
                 "length": 1.0,
-                "tip": "None"
-            },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
-            }
-        },
-        {
-            "id": "G_B",
-            "type": "segment",
-            "show": true,
-            "definition": {
-                "A": "G",
-                "B": "B"
-            },
-            "label": {
-                "show": true,
-                "text": "",
-                "anchor": "below right",
-                "offset": 0.0
-            },
-            "line": {
-                "line_width": 1.1,
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                },
-                "dash": {
-                    "stroke": "solid",
-                    "custom_pattern": [
-                        5,
-                        2
-                    ]
-                },
-                "double": {
-                    "distance": 1.8,
-                    "colour": {
-                        "name": "white",
-                        "mix_with": "black",
-                        "mix_percent": 0,
-                        "strength": 100
-                    }
-                }
-            },
-            "o_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "d_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
-            }
-        },
-        {
-            "id": "G_C",
-            "type": "segment",
-            "show": true,
-            "definition": {
-                "A": "G",
-                "B": "C"
-            },
-            "label": {
-                "show": true,
-                "text": "",
-                "anchor": "below right",
-                "offset": 0.0
-            },
-            "line": {
-                "line_width": 1.1,
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                },
-                "dash": {
-                    "stroke": "solid",
-                    "custom_pattern": [
-                        5,
-                        2
-                    ]
-                },
-                "double": {
-                    "distance": 1.8,
-                    "colour": {
-                        "name": "white",
-                        "mix_with": "black",
-                        "mix_percent": 0,
-                        "strength": 100
-                    }
-                }
-            },
-            "o_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "d_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
-            }
-        },
-        {
-            "id": "G_A",
-            "type": "segment",
-            "show": true,
-            "definition": {
-                "A": "G",
-                "B": "A"
-            },
-            "label": {
-                "show": true,
-                "text": "",
-                "anchor": "below right",
-                "offset": 0.0
-            },
-            "line": {
-                "line_width": 1.1,
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                },
-                "dash": {
-                    "stroke": "solid",
-                    "custom_pattern": [
-                        5,
-                        2
-                    ]
-                },
-                "double": {
-                    "distance": 1.8,
-                    "colour": {
-                        "name": "white",
-                        "mix_with": "black",
-                        "mix_percent": 0,
-                        "strength": 100
-                    }
-                }
-            },
-            "o_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "d_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
-            }
-        },
-        {
-            "id": "G_E",
-            "type": "segment",
-            "show": true,
-            "definition": {
-                "A": "G",
-                "B": "E"
-            },
-            "label": {
-                "show": true,
-                "text": "",
-                "anchor": "below right",
-                "offset": 0.0
-            },
-            "line": {
-                "line_width": 1.1,
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                },
-                "dash": {
-                    "stroke": "solid",
-                    "custom_pattern": [
-                        5,
-                        2
-                    ]
-                },
-                "double": {
-                    "distance": 1.8,
-                    "colour": {
-                        "name": "white",
-                        "mix_with": "black",
-                        "mix_percent": 0,
-                        "strength": 100
-                    }
-                }
-            },
-            "o_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "d_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
-            }
-        },
-        {
-            "id": "G_D",
-            "type": "segment",
-            "show": true,
-            "definition": {
-                "A": "G",
-                "B": "D"
-            },
-            "label": {
-                "show": true,
-                "text": "",
-                "anchor": "below right",
-                "offset": 0.0
-            },
-            "line": {
-                "line_width": 1.1,
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                },
-                "dash": {
-                    "stroke": "solid",
-                    "custom_pattern": [
-                        5,
-                        2
-                    ]
-                },
-                "double": {
-                    "distance": 1.8,
-                    "colour": {
-                        "name": "white",
-                        "mix_with": "black",
-                        "mix_percent": 0,
-                        "strength": 100
-                    }
-                }
-            },
-            "o_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
-            },
-            "d_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None"
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
             },
             "fill": {
                 "colour": {

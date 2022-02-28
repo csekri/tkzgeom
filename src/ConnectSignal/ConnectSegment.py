@@ -42,6 +42,11 @@ def connect_segment(scene):
     scene.ui.segment_d_extension_slider.sliderReleased.connect(
         lambda : connect_slider_released_abstract(scene))
 
+    scene.ui.segment_o_connect_to.currentIndexChanged.connect(
+        lambda x: connect_combobox_abstract(x, scene, ['line'], 'o_connect_to', c.attribute_values(c.LineConnectTo)))
+    scene.ui.segment_d_connect_to.currentIndexChanged.connect(
+        lambda x: connect_combobox_abstract(x, scene, ['line'], 'd_connect_to', c.attribute_values(c.LineConnectTo)))
+
     connect_o_arrow(scene,
         scene.ui.segment_o_tip,
         scene.ui.segment_o_side,
