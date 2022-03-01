@@ -2,6 +2,8 @@ from PointClasses.FreePoint import FreePoint
 from PointClasses.Midpoint import Midpoint
 from PointClasses.OnLine import OnLine
 from PointClasses.Intersection import Intersection
+from PointClasses.Translation import Translation
+from PointClasses.Projection import Projection
 from Point import Point
 from Segment import Segment
 from Polygon import Polygon
@@ -22,6 +24,10 @@ class Factory:
                 return OnLine(item)
             if item["sub_type"] == c.Point.Definition.INTERSECTION:
                 return Intersection(item)
+            if item["sub_type"] == c.Point.Definition.TRANSLATION:
+                return Translation(item)
+            if item["sub_type"] == c.Point.Definition.PROJECTION:
+                return Projection(item)
         if item['type'] == 'polygon':
             return Polygon(item)
         if item['type'] == 'colour':
@@ -40,11 +46,14 @@ class Factory:
                 return OnLine(None)
             if sub_type == c.Point.Definition.INTERSECTION:
                 return Intersection(None)
+            if sub_type == c.Point.Definition.TRANSLATION:
+                return Translation(None)
+            if sub_type == c.Point.Definition.PROJECTION:
+                return Projection(None)
         if type == 'polygon':
             return Polygon(None)
         if type == 'colour':
             return Colour(None)
-
 
     # The following method, strickly speaking, are not part of the factory
     # but only auxiliary methods helping the use of the factory.
