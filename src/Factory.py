@@ -7,8 +7,10 @@ from PointClasses.Projection import Projection
 from Point import Point
 from Segment import Segment
 from Polygon import Polygon
+from Linestring import Linestring
 from Colour import Colour
 import Constant as c
+
 
 class Factory:
     @staticmethod
@@ -30,6 +32,8 @@ class Factory:
                 return Projection(item)
         if item['type'] == 'polygon':
             return Polygon(item)
+        if item['type'] == 'linestring':
+            return Linestring(item)
         if item['type'] == 'colour':
             return Colour(item)
 
@@ -52,6 +56,8 @@ class Factory:
                 return Projection(None)
         if type == 'polygon':
             return Polygon(None)
+        if type == 'linestring':
+            return Linestring(None)
         if type == 'colour':
             return Colour(None)
 

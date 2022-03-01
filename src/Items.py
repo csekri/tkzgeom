@@ -4,6 +4,7 @@ from PointClasses.OnLine import OnLine
 from Point import Point
 from Segment import Segment
 from Polygon import Polygon
+from Linestring import Linestring
 from Colour import Colour
 from HighlightItem import item_in_focus
 from PyQt5 import QtCore
@@ -112,10 +113,13 @@ class Items:
         if tikzified_points_label:
             tikzified_points_label = '% POINT LABELS\n' + tikzified_points_label
 
-
         tikzified_segments_draw = '\n'.join(Items.filter_sort_map(Segment, lambda x: x.item["show"], lambda x: x.tikzify(), lambda y: y.get_id())(self.items.values()))
         if tikzified_segments_draw:
             tikzified_segments_draw = '% DRAW SEGMENTS\n' + tikzified_segments_draw
+
+        tikzified_linestrings_draw = '\n'.join(Items.filter_sort_map(Linestring, lambda x: x.item["show"], lambda x: x.tikzify(), lambda y: y.get_id())(self.items.values()))
+        if tikzified_linestrings_draw:
+            tikzified_linestrings_draw = '% DRAW SEGMENTS\n' + tikzified_linestrings_draw
 
         object_blocks = [
             tikzified_colours,
@@ -123,6 +127,7 @@ class Items:
             tikzified_points_def,
             tikzified_polygons,
             tikzified_segments_draw,
+            tikzified_linestrings_draw,
             tikzified_nodes_repeat,
             tikzified_points_label,
         ]

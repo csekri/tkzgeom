@@ -89,6 +89,11 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
                         self.select_history.id_history = ids
                         self.select_history.type_history = ''.join(map(lambda x: self.select_history.type_map[self.project_data.items[x].item["type"]], ids))
                         return None
+                if self.select_mode.get_type() == c.Tool.LINESTRING:
+                    if ids[-2] != ids[-1]:
+                        self.select_history.id_history = ids
+                        self.select_history.type_history = ''.join(map(lambda x: self.select_history.type_map[self.project_data.items[x].item["type"]], ids))
+                        return None
                 if self.select_mode.get_type() == c.Tool.POINT_ON_LINE:
                     A, B = self.project_data.items[ids[0]].item["definition"].values()
                     A_coords = self.project_data.items[A].get_canvas_coordinates()

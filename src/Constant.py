@@ -153,6 +153,12 @@ class FillPatternDefault:
         self.YSHIFT = yshift
 
 
+class LineJunctionType:
+    MITER = 'miter'
+    ROUND = 'round'
+    BEVEL = 'bevel'
+
+
 # Node/marker shapes supported by TkzGeom
 class Marker_Shape:
     CIRCLE = 'circle'
@@ -312,17 +318,33 @@ class Segment:
         LINE_DASH_CUSTOM = [5, 2]
         LINE_CONNECT_TO = LineConnectTo.NODE_BOUNDARY
 
+
 # Contains the default values for a polygon.
 class Polygon:
     class Default:
         LINE_WIDTH = 0.4
         Fill_Colour = ColourDefault(strength=10)
         Line_Colour = ColourDefault()
-        Double_Line = DoubleDefault()
+        # Double_Line = DoubleDefault()
         Fill_Pattern = FillPatternDefault()
         Decoration = DecorationDefault()
         LINE_DASH_STROKE = Line_Stroke.SOLID
         LINE_DASH_CUSTOM = [5, 2]
+
+
+# Contains the default values for a linestring.
+class Linestring: # TODO don't forget arrow bending, it is important
+    class Default:
+        LINE_WIDTH = 0.4
+        Line_Colour = ColourDefault()
+        Double_Line = DoubleDefault()
+        Decoration = DecorationDefault()
+        O_Arrow = ArrowDefault()
+        D_Arrow = ArrowDefault()
+        Line_Junction = LineJunctionType.MITER
+        LINE_DASH_STROKE = Line_Stroke.SOLID
+        LINE_DASH_CUSTOM = [5, 2]
+        LINE_CONNECT_TO = LineConnectTo.NODE_BOUNDARY
 
 
 # List of the default packages.
@@ -404,7 +426,8 @@ class Tool:
         MAKEGRID: ('point', Point.Definition.ON_LINE),
 
         SEGMENT_THROUGH : ('segment', None),
-        POLYGON : ('polygon', None)
+        POLYGON : ('polygon', None),
+        LINESTRING: ('linestring', None)
     }
 
 

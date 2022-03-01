@@ -203,7 +203,7 @@
             <item>
              <widget class="QRadioButton" name="linestring_radio">
               <property name="enabled">
-               <bool>false</bool>
+               <bool>true</bool>
               </property>
               <property name="focusPolicy">
                <enum>Qt::NoFocus</enum>

@@ -12,6 +12,7 @@ from HighlightItem import item_in_focus
 import Constant as c
 from Segment import Segment
 from Polygon import Polygon
+from Linestring import Linestring
 from KeyBank import KeyState
 
 class ColorMapping:
@@ -56,6 +57,11 @@ def add_all_items(scene):
             if item.item["type"] in ['segment']:
                 item.draw_on_canvas(scene.project_data.items, scene, ColorMapping.OTHER_ITEM)
 
+    def add_linestrings(scene):
+        for item in scene.project_data.items.values():
+            if item.item["type"] in ['linestring']:
+                item.draw_on_canvas(scene.project_data.items, scene, ColorMapping.OTHER_ITEM)
+
     def add_half_ready_segment(scene):
         if scene.select_mode.get_type() == c.Tool.SEGMENT_THROUGH\
         and len(scene.select_history.type_history) == 1:
@@ -64,6 +70,15 @@ def add_all_items(scene):
                 *scene.mouse.get_xy(),
                 scene,
                 ColorMapping.OTHER_ITEM)
+
+    def add_half_ready_linestring(scene):
+        if scene.select_mode.get_type() == c.Tool.LINESTRING\
+        and scene.select_history.type_history:
+            Linestring.draw_on_canvas_static(
+                *scene.mouse.get_xy(),
+                scene.select_history.id_history,
+                scene,
+                ColorMapping.OTHER_ITEM_FILL)
 
     def add_half_ready_polygon(scene):
         if scene.select_mode.get_type() == c.Tool.POLYGON\
@@ -100,7 +115,9 @@ def add_all_items(scene):
     if scene.show_canvas_items or scene.key_bank.move_point.state == KeyState.DOWN or scene.key_bank.move_canvas.state == KeyState.DOWN:
         add_polygons(scene)
         add_segments(scene)
+        add_linestrings(scene)
     add_half_ready_segment(scene)
+    add_half_ready_linestring(scene)
     add_half_ready_polygon(scene)
     if scene.show_canvas_items or scene.key_bank.move_point.state == KeyState.DOWN or scene.key_bank.move_canvas.state == KeyState.DOWN:
         add_points(scene)

@@ -59,3 +59,28 @@ def ll_intersection(A, B, P, Q):
 
 def translation(A, B, P):
     return add(sub(B, A), P)
+
+
+def point_segment_dist_sqr(A, B, P):
+    x1, y1 = A
+    x2, y2 = B
+    x3, y3 = P
+    px = x2 - x1
+    py = y2 - y1
+    norm = px * px + py * py
+    if norm == 0.0:
+        return 0.0
+    u = ((x3 - x1) * px + (y3 - y1) * py) / float(norm)
+
+    if u > 1:
+        u = 1
+    elif u < 0:
+        u = 0
+
+    x = x1 + u * px
+    y = y1 + u * py
+    dx = x - x3
+    dy = y - y3
+
+    dist = dx * dx + dy * dy
+    return dist

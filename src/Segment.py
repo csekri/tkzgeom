@@ -7,6 +7,7 @@ from Tikzifyables.DashPatternable import DashPatternable
 from Tikzifyables.Doubleable import Doubleable
 from Tikzifyables.Colourable.LineColourable import LineColourable
 import Constant as c
+from GeometryMath import point_segment_dist_sqr
 
 class Segment(Item, Arrowable, DashPatternable, Doubleable, LineColourable):
     def __init__(self, item):
@@ -60,28 +61,10 @@ class Segment(Item, Arrowable, DashPatternable, Doubleable, LineColourable):
         scene.addItem(graphics_line)
 
     def distance_sqr(self, x, y, items):
-        x1, y1 = items[self.item["definition"]["A"]].get_canvas_coordinates()
-        x2, y2 = items[self.item["definition"]["B"]].get_canvas_coordinates()
-        x3, y3 = x, y
-        px = x2-x1
-        py = y2-y1
-        norm = px*px + py*py
-        if norm == 0.0:
-            return 0.0
-        u =  ((x3 - x1) * px + (y3 - y1) * py) / float(norm)
-
-        if u > 1:
-            u = 1
-        elif u < 0:
-            u = 0
-
-        x = x1 + u * px
-        y = y1 + u * py
-        dx = x - x3
-        dy = y - y3
-
-        dist = dx*dx + dy*dy
-        return dist
+        A = items[self.item["definition"]["A"]].get_canvas_coordinates()
+        B = items[self.item["definition"]["B"]].get_canvas_coordinates()
+        P = x, y
+        return point_segment_dist_sqr(A, B, P)
 
     def definition_builder(self, data):
         return {"A": data[0], "B": data[1]}
@@ -150,10 +133,10 @@ class Segment(Item, Arrowable, DashPatternable, Doubleable, LineColourable):
         dictionary["d_arrow"]["side"] = c.Segment.Default.D_Arrow.SIDE
         dictionary["d_arrow"]["reversed"] = c.Segment.Default.D_Arrow.REVERSED
         dictionary["fill"] = {}
-        dictionary["fill"]["colour"] = {}
-        dictionary["fill"]["colour"]["name"] = c.Point.Default.Fill_Colour.NAME
-        dictionary["fill"]["colour"]["mix_with"] = c.Point.Default.Fill_Colour.MIX_WITH
-        dictionary["fill"]["colour"]["mix_percent"] = c.Point.Default.Fill_Colour.MIX_RATIO
-        dictionary["fill"]["colour"]["strength"] = c.Point.Default.Fill_Colour.STRENGTH
+        # dictionary["fill"]["colour"] = {}
+        # dictionary["fill"]["colour"]["name"] = c.Point.Default.Fill_Colour.NAME
+        # dictionary["fill"]["colour"]["mix_with"] = c.Point.Default.Fill_Colour.MIX_WITH
+        # dictionary["fill"]["colour"]["mix_percent"] = c.Point.Default.Fill_Colour.MIX_RATIO
+        # dictionary["fill"]["colour"]["strength"] = c.Point.Default.Fill_Colour.STRENGTH
 
         self.item = dictionary
