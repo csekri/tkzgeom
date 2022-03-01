@@ -97,11 +97,11 @@ def add_all_items(scene):
 
     if scene.show_pdf:
         add_pdf(scene)
-    if scene.show_canvas_items or scene.key_bank.move_point.state == KeyState.DOWN:
+    if scene.show_canvas_items or scene.key_bank.move_point.state == KeyState.DOWN or scene.key_bank.move_canvas.state == KeyState.DOWN:
         add_polygons(scene)
         add_segments(scene)
     add_half_ready_segment(scene)
     add_half_ready_polygon(scene)
-    if scene.show_canvas_items or scene.key_bank.move_point.state == KeyState.DOWN:
+    if scene.show_canvas_items or scene.key_bank.move_point.state == KeyState.DOWN or scene.key_bank.move_canvas.state == KeyState.DOWN:
         add_points(scene)
     add_item_in_focus(scene)
