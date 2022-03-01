@@ -26,10 +26,15 @@
 
 > *README will be updated when most objectives are met.*
 
+**Binaries:**
 
+- old version for Windows 10
 
+https://mega.nz/file/58cHAQJJ#ViVTsIa1EE4nqlMXZhILufJB4re2-jTaOdPdLnbHbJU
 
+- new version (incomplete) for Window 10
 
+https://mega.nz/file/AgdDzSAK#jkwmAbc_CtISYdXjymspLg0GcvkljpCuoTwbWrEcpnE
 
 **TkzGeom** is a GUI tool to create publication quality figures in *.tex* or *.pdf* format. It aids and speeds up the production of a wide range of tikz images.
 
