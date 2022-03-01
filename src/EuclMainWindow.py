@@ -25,7 +25,7 @@ from ConnectSignal.ConnectPoint import connect_point
 from ConnectSignal.ConnectColour import connect_colour
 from ConnectSignal.ConnectSegment import connect_segment
 from ConnectSignal.ConnectPolygon import connect_polygon
-from Fill.ListWidget import fill_listWidget_with_data
+from Fill.ListWidget import fill_listWidget_with_data, set_selected_id_in_listWidget
 from Fill.FillAll import fill_all_fields
 
 
@@ -135,15 +135,14 @@ class EuclMainWindow(QtWidgets.QMainWindow):
                 return
             id = self.scene.ui.listWidget.currentItem().text()
             self.scene.project_data.items[id].delete(self.scene.project_data.items)
-            fill_listWidget_with_data(self.scene.project_data, self.ui.listWidget, self.scene.current_tab_idx)
-            if self.scene.ui.listWidget.count() > 0:
-                self.scene.ui.listWidget.item(self.scene.ui.listWidget.count()-1).setSelected(True)
-                self.scene.ui.listWidget.setCurrentRow(self.scene.ui.listWidget.count()-1)
-            fill_all_fields(self.scene)
-            compile_latex(self.scene, True)
-            cr.clear(self.scene)
-            cr.add_all_items(self.scene)
-
+            current_row_old = self.scene.ui.listWidget.currentRow()
+            fill_listWidget_with_data(self.scene.project_data, self.scene.ui.listWidget, self.scene.current_tab_idx)
+            set_selected_id_in_listWidget(self.scene, min(current_row_old, self.scene.ui.listWidget.count()-1))
+            self.scene.edit.add_undo_item(self.scene)
+            # fill_all_fields(self.scene)
+            # compile_latex(self.scene, True)
+            # cr.clear(self.scene)
+            # cr.add_all_items(self.scene)
 
     def keyReleaseEvent(self,event):
         if event.isAutoRepeat():
@@ -163,22 +162,6 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.scene.focus_id = ''
         browser_text = syntax_highlight(self.scene.project_data.tikzify(*self.scene.current_canvas_dims, *self.scene.init_canvas_dims))
         self.scene.ui.textBrowser.setText(browser_text)
-
-
-    def references_to_scene(self):
-        dictionary = {}
-        dictionary["list_widget"] = self.ui.listWidget
-        dictionary["tab_widget"] = self.ui.tabWidget
-        dictionary["text_browser"] = self.ui.textBrowser
-        dictionary["action_undo"] = self.ui.actionUndo
-        dictionary["action_redo"] = self.ui.actionRedo
-        dictionary["action_save"] = self.ui.actionSave
-        return dictionary
-
-    def point_widgets():
-        dictionary = {}
-        dictionary["plain_text_edit"] = self.plainTextEdit
-        # dictionary["plain_text_edit"] = self.plainTextEdit
 
     def show_pdf_checked_func(self, state):
         self.scene.show_pdf = state

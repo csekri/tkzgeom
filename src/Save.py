@@ -11,7 +11,8 @@ from Compile import compile_latex
 from SyntaxHighlight import syntax_highlight
 import CanvasRendering as cr
 from Fill.FillAll import fill_all_fields
-from Fill.ListWidget import fill_listWidget_with_data
+from Fill.ListWidget import fill_listWidget_with_data, set_selected_id_in_listWidget
+
 
 class EditManagement:
     def __init__(self):
@@ -60,12 +61,13 @@ class EditManagement:
         compile_latex(scene, True)
         browser_text = syntax_highlight(scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
         scene.ui.textBrowser.setText(browser_text)
+        current_row_old = scene.ui.listWidget.currentRow()
         fill_listWidget_with_data(scene.project_data, scene.ui.listWidget, scene.current_tab_idx)
+        set_selected_id_in_listWidget(scene, min(current_row_old, scene.ui.listWidget.count()-1))
         fill_all_fields(scene)
         cr.clear(scene)
         cr.add_all_items(scene)
         scene.title(self.window_name())
-
 
     def perform_redo(self, scene, *kwargs):
         if not self.redo_history:
@@ -79,18 +81,19 @@ class EditManagement:
         compile_latex(scene, True)
         browser_text = syntax_highlight(scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
         scene.ui.textBrowser.setText(browser_text)
+        current_row_old = scene.ui.listWidget.currentRow()
         fill_listWidget_with_data(scene.project_data, scene.ui.listWidget, scene.current_tab_idx)
+        set_selected_id_in_listWidget(scene, min(current_row_old, scene.ui.listWidget.count()-1))
         fill_all_fields(scene)
         cr.clear(scene)
         cr.add_all_items(scene)
         scene.title(self.window_name())
 
-
     def perform_new(self, scene, *kwargs):
         if not self.unsaved_msg_box_cancelled(scene):
             scene.project_data = Items()
             fill_listWidget_with_data(scene.project_data, scene.ui.listWidget, scene.current_tab_idx)
-            scene.list_focus_ids = []
+            set_selected_id_in_listWidget(scene, 0)
             self.add_undo_item(scene)
             self.unsaved_progress = 0
             # compile_latex(scene, True)
@@ -100,7 +103,6 @@ class EditManagement:
             cr.clear(scene)
             cr.add_all_items(scene)
         scene.title(self.window_name())
-
 
     def open_file(self, scene, *kwargs):
         if not self.unsaved_msg_box_cancelled(scene):
@@ -120,18 +122,17 @@ class EditManagement:
                 self.opened_file = fname[0]
                 scene.project_data.recompute_canvas(*scene.init_canvas_dims)
                 fill_listWidget_with_data(scene.project_data, scene.ui.listWidget, scene.current_tab_idx)
-                scene.list_focus_ids = [scene.ui.listWidget.item(0).text()]
+                set_selected_id_in_listWidget(scene, 0)
                 scene.edit.add_undo_item(scene)
                 self.unsaved_progress = 0
-                compile_latex(scene, True)
+                # compile_latex(scene, True)
                 browser_text = syntax_highlight(scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
                 scene.ui.textBrowser.setText(browser_text)
-                fill_all_fields(scene)
-                cr.clear(scene)
-                cr.add_all_items(scene)
+                # fill_all_fields(scene)
+                # cr.clear(scene)
+                # cr.add_all_items(scene)
         scene.key_bank.set_move_canvas_up()
         scene.title(self.window_name())
-
 
     def save(self, scene, *kwargs):
         print('before save', self.unsaved_progress)
@@ -146,7 +147,6 @@ class EditManagement:
         scene.key_bank.set_move_canvas_up()
         print('after save', self.unsaved_progress)
 
-
     def save_as(self, scene, *kwargs):
         """
         SUMMARY
@@ -156,10 +156,12 @@ class EditManagement:
         RETURNS
             None
         """
-        fname = QtWidgets.QFileDialog.getSaveFileName(caption="Save file", filter="JavaScript Object Notation / .json (*.json *.JSON)")
+        fname = QtWidgets.QFileDialog.getSaveFileName(
+            caption='Save file',
+            filter='JavaScript Object Notation / .json (*.json *.JSON)')
         if fname[0] != '':
             with open(fname[0], 'w') as f:
-                    json.dump(scene.project_data.state_dict(), f, indent=4)
+                json.dump(scene.project_data.state_dict(), f, indent=4)
             self.opened_file = fname[0]
             self.unsaved_progress = 0
         scene.title(self.window_name())

@@ -20,7 +20,9 @@
 - *titlebar including project status*
 - *other optimisations/beautifications*
 
->*AltGr press moves points*, *CTRL press moves the canvas.*
+>*Under **Windows** OS Alt press moves points*, *CTRL press moves the canvas.*
+
+>*Under **Linux** OS AltGr press moves points*, *CTRL press moves the canvas.*
 
 > *README will be updated when most objectives are met.*
 

@@ -1,4 +1,5 @@
 from PyQt5 import QtCore, QtGui
+from sys import platform
 
 class KeyState:
     UP = 0
@@ -11,7 +12,10 @@ class Key:
 
 class KeyBank:
     def __init__(self):
-        self.move_point = Key(QtCore.Qt.Key.Key_AltGr, KeyState.UP)
+        if platform.startswith('win'):
+            self.move_point = Key(QtCore.Qt.Key.Key_Alt, KeyState.UP)
+        else:
+            self.move_point = Key(QtCore.Qt.Key.Key_AltGr, KeyState.UP)
         self.move_canvas = Key(QtCore.Qt.Key.Key_Control, KeyState.UP)
 
     def set_move_point_down(self):

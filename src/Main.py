@@ -10,6 +10,7 @@ from EuclMainWindow import EuclMainWindow
 if __name__ == '__main__':
     # initialises the GUI interface and makes the main window pop up
     app = QtWidgets.QApplication(sys.argv)
+    app.setStyle('Fusion')
     eucl_main_window = EuclMainWindow()
     eucl_main_window.setWindowTitle("TkzGeom")
     # eucl_main_window.installEventFilter(eucl_main_window)
