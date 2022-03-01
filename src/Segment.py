@@ -84,7 +84,7 @@ class Segment(Item, Arrowable, DashPatternable, Doubleable, LineColourable):
         return dist
 
     def definition_builder(self, data):
-        return { "A": data[0], "B": data[1]}
+        return {"A": data[0], "B": data[1]}
 
 
     @staticmethod

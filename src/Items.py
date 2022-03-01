@@ -40,7 +40,6 @@ class Items:
         self.code_before = code_before
         self.code_after = code_after
 
-
     def set_window(self, left, top, scale):
         self.window = Window(left=left, top=top, scale=scale)
 
@@ -84,7 +83,6 @@ class Items:
         if sort_key is None:
             return lambda items: map(tikzify_function, filter(lambda x: isinstance(x, class_of) and item_filter(x), items))
         return lambda items: map(tikzify_function, sorted(filter(lambda x: isinstance(x, class_of) and item_filter(x), items), key=sort_key))
-
 
     def tikzify(self, current_width, current_height, init_width, init_height):
         init_crop = '\\edef\\xmin{%f}\\edef\\xmax{%f}\n'  % (self.window.left, self.window.left + 10 * self.window.scale * current_width / init_height)
@@ -141,7 +139,11 @@ class Items:
         return string
 
     def change_id(self, from_id, to_id):
-        for item in self.items:
+        print(from_id, to_id)
+        self.items[to_id] = self.items.pop(from_id)
+        if isinstance(self.items[to_id], Point) and self.items[to_id].item["label"]["text"] == f'${from_id}$':
+            self.items[to_id].item["label"]["text"] = f'${to_id}$'
+        for item in self.items.values():
             item.change_id(from_id, to_id)
 
 

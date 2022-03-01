@@ -22,11 +22,13 @@ def listWidget_text_changed_func(item, main_window):
     # TODO check validity of new id
     if main_window.listWidget_edit_row:
         old_id = main_window.listWidget_edit_row
-        type = main_window.scene.project_data.items[old_id].item["type"]
-        if old_id in main_window.scene.project_data.items:
-            main_window.scene.project_data.items[old_id].item["id"] = item.text()
-            main_window.scene.project_data.items[item.text()] = main_window.scene.project_data.items.pop(old_id)
+        # type = main_window.scene.project_data.items[old_id].item["type"]
+        # if old_id in main_window.scene.project_data.items:
+        #     main_window.scene.project_data.items[old_id].item["id"] = item.text()
+        #     main_window.scene.project_data.items[item.text()] = main_window.scene.project_data.items.pop(old_id)
         main_window.listWidget_edit_row = None
+
+        main_window.scene.project_data.change_id(old_id, item.text())
 
         # that is if the colour name is changed we replace all
         # occurances of the colour
@@ -41,6 +43,9 @@ def listWidget_text_changed_func(item, main_window):
             for ditem in (data["items"]):
                 main_window.scene.project_data.add(Factory.create_item(ditem))
             main_window.scene.list_focus_ids = [item.text()]
+        fill_listWidget_with_data(main_window.scene.project_data, main_window.scene.ui.listWidget, main_window.scene.current_tab_idx)
+        set_selected_id_in_listWidget(main_window.scene, main_window.ui.scene.ui.listWidget.currentRow())
+        main_window.scene.edit.add_undo_item(main_window.scene)
         cr.clear(main_window.scene)
         cr.add_all_items(main_window.scene)
 

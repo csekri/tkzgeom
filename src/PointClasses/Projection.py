@@ -11,9 +11,9 @@ class Projection(Point):
 
     def tikzify(self):
         return '\\tkzDefPointBy[projection=onto %s--%s](%s)\\tkzGetPoint{%s}\n' % (
-            self.item["definition"]["P"],
             self.item["definition"]["A"],
             self.item["definition"]["B"],
+            self.item["definition"]["P"],
             self.get_id())
 
     def recompute_canvas(self, items, window, width, height):
