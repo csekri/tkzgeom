@@ -90,6 +90,7 @@ class EditManagement:
         if not self.unsaved_msg_box_cancelled(scene):
             scene.project_data = Items()
             fill_listWidget_with_data(scene.project_data, scene.ui.listWidget, scene.current_tab_idx)
+            scene.list_focus_ids = []
             self.add_undo_item(scene)
             self.unsaved_progress = 0
             # compile_latex(scene, True)
@@ -118,12 +119,13 @@ class EditManagement:
                         scene.project_data.add(Factory.create_item(item))
                 self.opened_file = fname[0]
                 scene.project_data.recompute_canvas(*scene.init_canvas_dims)
+                fill_listWidget_with_data(scene.project_data, scene.ui.listWidget, scene.current_tab_idx)
+                scene.list_focus_ids = [scene.ui.listWidget.item(0).text()]
                 scene.edit.add_undo_item(scene)
                 self.unsaved_progress = 0
                 compile_latex(scene, True)
                 browser_text = syntax_highlight(scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
                 scene.ui.textBrowser.setText(browser_text)
-                fill_listWidget_with_data(scene.project_data, scene.ui.listWidget, scene.current_tab_idx)
                 fill_all_fields(scene)
                 cr.clear(scene)
                 cr.add_all_items(scene)
@@ -132,6 +134,7 @@ class EditManagement:
 
 
     def save(self, scene, *kwargs):
+        print('before save', self.unsaved_progress)
         if self.opened_file != '' and self.unsaved_progress != 0:
             with open(self.opened_file, 'w') as f:
                     json.dump(scene.project_data.state_dict(), f, indent=4)
@@ -140,6 +143,8 @@ class EditManagement:
         else:
             self.save_as(scene)
         scene.title(self.window_name())
+        scene.key_bank.set_move_canvas_up()
+        print('after save', self.unsaved_progress)
 
 
     def save_as(self, scene, *kwargs):
@@ -156,7 +161,7 @@ class EditManagement:
             with open(fname[0], 'w') as f:
                     json.dump(scene.project_data.state_dict(), f, indent=4)
             self.opened_file = fname[0]
-            self.unsaved_progress = False
+            self.unsaved_progress = 0
         scene.title(self.window_name())
         scene.key_bank.set_move_canvas_up()
 

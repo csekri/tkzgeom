@@ -94,15 +94,6 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         connect_polygon(self.scene)
         connect_colour(self.scene)
 
-    # def showEvent(self, event):
-    #     self.scene.init_canvas_dims = [self.scene.ui.graphicsView.width(), self.scene.ui.graphicsView.height()]
-    #     print(self.ui.graphicsView.viewport().size())
-    #     self.scene.setSceneRect(0, 0, self.ui.graphicsView.width(), self.ui.graphicsView.height())
-    #     self.ui.graphicsView.fitInView(self.scene.sceneRect(), QtCore.Qt.KeepAspectRatio)
-    #     self.scene.project_data.recompute_canvas(*self.scene.init_canvas_dims)
-    #     cr.clear(self.scene)
-    #     cr.add_all_items(self.scene)
-
 
     def resizeEvent(self, event):
         self.scene.current_canvas_dims = [self.ui.graphicsView.width(), self.ui.graphicsView.height()]
@@ -120,7 +111,6 @@ class EuclMainWindow(QtWidgets.QMainWindow):
     def keyPressEvent(self,event):
         if event.isAutoRepeat():
             return None
-        modifiers = event.modifiers()
         if event.key() == self.scene.key_bank.move_point.key:
             self.scene.key_bank.set_move_point_down()
             self.scene.select_history.reset_history()
@@ -164,7 +154,9 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         if event.key() == self.scene.key_bank.move_canvas.key:
             self.scene.key_bank.set_move_canvas_up()
             self.scene.select_history.reset_history()
-            self.scene.edit.add_undo_item(self.scene)
+            if self.scene.canvas_moved:
+                self.scene.edit.add_undo_item(self.scene)
+                self.scene.canvas_moved = False
 
         if self.scene.focus_id:
             self.scene.edit.add_undo_item(self.scene)

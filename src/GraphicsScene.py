@@ -48,6 +48,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.key_bank = KeyBank()
         self.mock_item = None
         self.focus_id = ''
+        self.canvas_moved = False
         self.skip_plaintextedit_changes = False
         self.skip_combobox_changes = False
         self.skip_checkox_changes = False
@@ -144,10 +145,14 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
                 self.project_data.items[self.focus_id].item["definition"] = definition
 
         if self.key_bank.move_canvas.state == KeyState.DOWN:
-            old_tikz_dx, old_tikz_dy = FreePoint.phi_inverse(self.project_data.window, old_x, old_y, *self.init_canvas_dims)
-            tikz_dx, tikz_dy = FreePoint.phi_inverse(self.project_data.window, *self.mouse.get_xy(), *self.init_canvas_dims)
-            self.project_data.set_window_translate(tikz_dx-old_tikz_dx, tikz_dy-old_tikz_dy)
-
+            old_tikz_x, old_tikz_y = FreePoint.phi_inverse(self.project_data.window, old_x, old_y, *self.init_canvas_dims)
+            tikz_x, tikz_y = FreePoint.phi_inverse(self.project_data.window, *self.mouse.get_xy(), *self.init_canvas_dims)
+            self.project_data.set_window_translate(tikz_x-old_tikz_x, tikz_y-old_tikz_y)
+            if tikz_x-old_tikz_x != 0 or tikz_y-old_tikz_y != 0:
+                print('set to true')
+                self.canvas_moved = True
+            else:
+                print('not moved')
         self.project_data.recompute_canvas(*self.init_canvas_dims)
         cr.clear(self)
         cr.add_all_items(self)

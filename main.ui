@@ -10,6 +10,9 @@
     <height>711</height>
    </rect>
   </property>
+  <property name="mouseTracking">
+   <bool>false</bool>
+  </property>
   <property name="focusPolicy">
    <enum>Qt::StrongFocus</enum>
   </property>
@@ -313,7 +316,7 @@
            <enum>Qt::ScrollBarAlwaysOff</enum>
           </property>
           <property name="renderHints">
-           <set>QPainter::Antialiasing|QPainter::TextAntialiasing</set>
+           <set>QPainter::Antialiasing|QPainter::SmoothPixmapTransform|QPainter::TextAntialiasing</set>
           </property>
          </widget>
         </item>
@@ -491,7 +494,7 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>309</width>
+                <width>217</width>
                 <height>614</height>
                </rect>
               </property>
@@ -1126,8 +1129,8 @@ QSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>330</width>
-                <height>273</height>
+                <width>113</width>
+                <height>139</height>
                </rect>
               </property>
               <attribute name="label">
@@ -1151,7 +1154,7 @@ QSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>309</width>
+                <width>240</width>
                 <height>421</height>
                </rect>
               </property>
@@ -1570,8 +1573,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>330</width>
-                <height>273</height>
+                <width>172</width>
+                <height>175</height>
                </rect>
               </property>
               <attribute name="label">
@@ -1763,8 +1766,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>330</width>
-                <height>273</height>
+                <width>129</width>
+                <height>120</height>
                </rect>
               </property>
               <attribute name="label">
@@ -3813,8 +3816,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>330</width>
-                <height>273</height>
+                <width>100</width>
+                <height>30</height>
                </rect>
               </property>
               <attribute name="label">
@@ -5251,7 +5254,7 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>309</width>
+                <width>240</width>
                 <height>455</height>
                </rect>
               </property>

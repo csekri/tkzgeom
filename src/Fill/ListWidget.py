@@ -13,3 +13,5 @@ def fill_listWidget_with_data(project_data, listWidget, tab_index):
 def listWidget_set_current_row(listWidget, id):
     items = listWidget.findItems(id, QtCore.Qt.MatchExactly)
     listWidget.setCurrentRow(listWidget.row(items[0]))
+
+# def set_selected_ids_in_listWidget(scene, index):
