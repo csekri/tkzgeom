@@ -26,7 +26,7 @@ class Projection(Point):
         return "Orthogonal projection (%s) of point %s onto line %s"\
             % (self.item["id"], self.item["definition"]["P"], self.item["definition"]["A"]+self.item["definition"]["B"])
 
-    def definition_builder(self, data, items):
+    def definition_builder(self, data, items=None):
         if len(data) == 3:
             return dict(zip(["A", "B", "P"], data))
         if items[data[0]].item["type"] == 'point':

@@ -23,7 +23,7 @@ class Intersection(Point):
     def __str__(self):
         return "OnLine (%s) of %s and %s with ratio %s" % (self.get_id(), self.item["definition"]["A"], self.item["definition"]["B"], self.item["definition"]["ratio"])
 
-    def definition_builder(self, data, items):
+    def definition_builder(self, data, items=None):
         if len(data) == 2: # ss
             A, B = items[data[0]].depends_on()
             C, D = items[data[1]].depends_on()

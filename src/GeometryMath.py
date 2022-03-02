@@ -50,7 +50,7 @@ def ll_intersection(A, B, P, Q):
     """
     denominator = (A[0]-B[0]) * (P[1]-Q[1]) - (A[1]-B[1]) * (P[0]-Q[0])
     if denominator == 0:
-        return (0.0, 0.0)
+        return 0.0, 0.0
     numerator_x = (A[0]*B[1]-B[0]*A[1]) * (P[0]-Q[0]) - (A[0]-B[0]) * (P[0]*Q[1]-Q[0]*P[1])
     numerator_y = (A[0]*B[1]-B[0]*A[1]) * (P[1]-Q[1]) - (A[1]-B[1]) * (P[0]*Q[1]-Q[0]*P[1])
 
@@ -84,3 +84,26 @@ def point_segment_dist_sqr(A, B, P):
 
     dist = dx * dx + dy * dy
     return dist
+
+
+def pt_circle_dist_sqr(O, r, P):
+    return abs(norm(sub(O, P)) - r) ** 2
+
+
+def circumradius(A, centre):
+    return norm(sub(A, centre))
+
+
+def circumcentre(A, B, C):
+    D = 2 * (A[0]*(B[1]-C[1]) + B[0]*(C[1]-A[1]) + C[0]*(A[1]-B[1]))
+    K_x_A = (A[0]*A[0] + A[1]*A[1]) * (B[1]-C[1])
+    K_x_B = (B[0]*B[0] + B[1]*B[1]) * (C[1]-A[1])
+    K_x_C = (C[0]*C[0] + C[1]*C[1]) * (A[1]-B[1])
+    K_x = (K_x_A + K_x_B + K_x_C) / D
+
+    K_y_A = (A[0]*A[0] + A[1]*A[1]) * (C[0]-B[0])
+    K_y_B = (B[0]*B[0] + B[1]*B[1]) * (A[0]-C[0])
+    K_y_C = (C[0]*C[0] + C[1]*C[1]) * (B[0]-A[0])
+    K_y = (K_y_A + K_y_B + K_y_C) / D
+
+    return K_x, K_y

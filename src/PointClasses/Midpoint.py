@@ -2,6 +2,7 @@ from Point import Point
 from Item import Item
 import Constant as c
 
+
 class Midpoint(Point):
     def __init__(self, item):
         Point.__init__(self, item)
@@ -19,7 +20,7 @@ class Midpoint(Point):
     def __str__(self):
         return "Midpoint (%s) of %s and %s" % (self.item["id"], self.item["definition"]["A"], self.item["definition"]["B"])
 
-    def definition_builder(self, data, items):
+    def definition_builder(self, data, items=None):
         if len(data) == 2:
             return dict(zip(["A", "B"], data))
         return dict(zip(["A", "B"], items[data[0]].item["definition"].values()))

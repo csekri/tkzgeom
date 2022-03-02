@@ -26,7 +26,7 @@ class Translation(Point):
         return "Translate (%s) from point %s with vector %s"\
             % (self.item["id"], self.item["definition"]["P"], self.item["definition"]["A"]+self.item["definition"]["B"])
 
-    def definition_builder(self, data, items):
+    def definition_builder(self, data, items=None):
         return dict(zip(["A", "B", "P"], data))
 
     @staticmethod

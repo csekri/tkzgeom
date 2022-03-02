@@ -9,6 +9,8 @@ from Segment import Segment
 from Polygon import Polygon
 from Linestring import Linestring
 from Colour import Colour
+from CircleClasses.CircleWithCentre import CircleWithCentre
+from CircleClasses.CircumCircle import CircumCircle
 import Constant as c
 
 
@@ -30,6 +32,11 @@ class Factory:
                 return Translation(item)
             if item["sub_type"] == c.Point.Definition.PROJECTION:
                 return Projection(item)
+        if item["type"] == 'circle':
+            if item["sub_type"] == c.Circle.Definition.WITH_CENTRE:
+                return CircleWithCentre(item)
+            if item["sub_type"] == c.Circle.Definition.CIRCUM:
+                return CircumCircle(item)
         if item['type'] == 'polygon':
             return Polygon(item)
         if item['type'] == 'linestring':
@@ -54,6 +61,11 @@ class Factory:
                 return Translation(None)
             if sub_type == c.Point.Definition.PROJECTION:
                 return Projection(None)
+        if type == 'circle':
+            if sub_type == c.Circle.Definition.WITH_CENTRE:
+                return CircleWithCentre(None)
+            if sub_type == c.Circle.Definition.CIRCUM:
+                return CircumCircle(None)
         if type == 'polygon':
             return Polygon(None)
         if type == 'linestring':

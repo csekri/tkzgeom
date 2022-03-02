@@ -1,5 +1,6 @@
 from Point import Point
 from Segment import Segment
+from Circle import Circle
 from Polygon import Polygon
 from Linestring import Linestring
 from collections import OrderedDict
@@ -19,7 +20,7 @@ def item_in_focus(project_data, mouse, engagement_distance=20):
 
     distances = {}
     for item in project_data.items.values():
-        if isinstance(item, Segment):
+        if isinstance(item, Segment) or isinstance(item, Circle):
             distance = item.distance_sqr(*mouse.get_xy(), project_data.items)
             if distance < eng_dist_sqr:
                 distances[item.get_id()] = distance

@@ -79,10 +79,10 @@ class Polygon(Item, DashPatternable, LineColourable, Fillable, Decorationable):
     def next_id_func(self, definition, iter_counter):
         return 'Polygon_' + chr(ord('A') + iter_counter % 26) + (iter_counter // 26) * '\''
 
-    def definition_builder(self, data, items):
+    def definition_builder(self, data, items=None):
         return data[:-1]
 
-    def dictionary_builder(self, definition, id):
+    def dictionary_builder(self, definition, id, sub_type=None):
         dictionary = {}
         dictionary["id"] = id
         dictionary["type"] = 'polygon'
@@ -117,5 +117,4 @@ class Polygon(Item, DashPatternable, LineColourable, Fillable, Decorationable):
         dictionary["fill"]["pattern"]["xshift"] = c.Polygon.Default.Fill_Pattern.XSHIFT
         dictionary["fill"]["pattern"]["yshift"] = c.Polygon.Default.Fill_Pattern.YSHIFT
 
-        print(c.Polygon.Default.Fill_Colour.STRENGTH)
         self.item = dictionary

@@ -80,10 +80,10 @@ class Linestring(Item, DashPatternable, LineColourable, Decorationable):
     def next_id_func(self, definition, iter_counter):
         return 'Linestring_' + chr(ord('A') + iter_counter % 26) + (iter_counter // 26) * '\''
 
-    def definition_builder(self, data, items):
+    def definition_builder(self, data, items=None):
         return data[:-1]
 
-    def dictionary_builder(self, definition, id): # TODO create Linestring class in Constant.py and modify entries here
+    def dictionary_builder(self, definition, id, sub_type=None): # TODO create Linestring class in Constant.py and modify entries here
         dictionary = {}
         dictionary["id"] = id
         dictionary["type"] = 'linestring'
@@ -129,11 +129,5 @@ class Linestring(Item, DashPatternable, LineColourable, Decorationable):
         dictionary["d_arrow"]["bending"] = c.Linestring.Default.D_Arrow.BENDING
         dictionary["d_arrow"]["side"] = c.Linestring.Default.D_Arrow.SIDE
         dictionary["d_arrow"]["reversed"] = c.Linestring.Default.D_Arrow.REVERSED
-        # dictionary["fill"] = {}
-        # dictionary["fill"]["colour"] = {}
-        # dictionary["fill"]["colour"]["name"] = c.Point.Default.Fill_Colour.NAME
-        # dictionary["fill"]["colour"]["mix_with"] = c.Point.Default.Fill_Colour.MIX_WITH
-        # dictionary["fill"]["colour"]["mix_percent"] = c.Point.Default.Fill_Colour.MIX_RATIO
-        # dictionary["fill"]["colour"]["strength"] = c.Point.Default.Fill_Colour.STRENGTH
 
         self.item = dictionary

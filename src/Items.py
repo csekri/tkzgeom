@@ -3,6 +3,7 @@ from PointClasses.Midpoint import Midpoint
 from PointClasses.OnLine import OnLine
 from Point import Point
 from Segment import Segment
+from Circle import Circle
 from Polygon import Polygon
 from Linestring import Linestring
 from Colour import Colour
@@ -60,7 +61,7 @@ class Items:
         return string
 
     def recompute_canvas(self, width, height):
-        num_points = len(list(filter(lambda x: isinstance(x, Point), self.items.values())))
+        num_points = len(list(filter(lambda x: isinstance(x, Point) or isinstance(x, Circle), self.items.values())))
         recomputed_ids = set()
         for item in self.items.values():
             if isinstance(item, FreePoint):
@@ -69,7 +70,7 @@ class Items:
 
         while len(recomputed_ids) < num_points:
             for item in self.items.values():
-                if isinstance(item, Point) and item.get_id() not in recomputed_ids:
+                if (isinstance(item, Point) or isinstance(item, Circle)) and item.get_id() not in recomputed_ids:
                     if set(item.depends_on()).issubset(recomputed_ids):
                         item.recompute_canvas(self.items, self.window, width, height)
                         recomputed_ids.add(item.get_id())
@@ -97,11 +98,9 @@ class Items:
         if tikzified_colours:
             tikzified_colours = '% COLOURS\n' + tikzified_colours
 
-
         tikzified_points_def = '\n'.join(Items.filter_sort_map(Point, None, lambda x: x.tikzify()+'\n'+x.tikzify_node(), None)(self.items.values()))
         if tikzified_points_def:
             tikzified_points_def = '% POINT DEFINTIONS\n' + tikzified_points_def
-
 
         tikzified_polygons = '\n'.join(Items.filter_sort_map(Polygon, lambda x: x.item["show"], lambda x: x.tikzify(), lambda y: y.get_id())(self.items.values()))
         if tikzified_polygons:
@@ -117,9 +116,13 @@ class Items:
         if tikzified_segments_draw:
             tikzified_segments_draw = '% DRAW SEGMENTS\n' + tikzified_segments_draw
 
+        tikzified_circles_draw = '\n'.join(Items.filter_sort_map(Circle, lambda x: x.item["show"], lambda x: x.tikzify(), lambda y: y.get_id())(self.items.values()))
+        if tikzified_circles_draw:
+            tikzified_circles_draw = '% DRAW CIRCLES\n' + tikzified_circles_draw
+
         tikzified_linestrings_draw = '\n'.join(Items.filter_sort_map(Linestring, lambda x: x.item["show"], lambda x: x.tikzify(), lambda y: y.get_id())(self.items.values()))
         if tikzified_linestrings_draw:
-            tikzified_linestrings_draw = '% DRAW SEGMENTS\n' + tikzified_linestrings_draw
+            tikzified_linestrings_draw = '% DRAW LINESTRINGS\n' + tikzified_linestrings_draw
 
         object_blocks = [
             tikzified_colours,
@@ -127,6 +130,7 @@ class Items:
             tikzified_points_def,
             tikzified_polygons,
             tikzified_segments_draw,
+            tikzified_circles_draw,
             tikzified_linestrings_draw,
             tikzified_nodes_repeat,
             tikzified_points_label,
@@ -150,7 +154,6 @@ class Items:
             self.items[to_id].item["label"]["text"] = f'${to_id}$'
         for item in self.items.values():
             item.change_id(from_id, to_id)
-
 
     def state_dict(self):
         dictionary = { 'items' : []}

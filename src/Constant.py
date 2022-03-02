@@ -289,18 +289,46 @@ class Point:
         ROTATION = 'rotation'
 
     TEXT_DICT = {
-        Definition.FREE : "Free point.",
-        Definition.INTERSECTION : "Intersection of #1 and #2.",
-        Definition.CIRCLE_CENTRE : "The middle point of the #1.",
-        Definition.SEGMENT_MIDPOINT : "The midpoint of segment #1.",
-        Definition.ON_LINE : "The point defined as dilation of #1, by factor #2 across centre #3.",
-        Definition.ON_CIRCLE : "The point on the #1 at angle #2.",
-        Definition.PROJECTION : "The orthogonal projection of #1 on #2.",
-        Definition.BISECTOR : "A point on the bisector of angle #1.",
-        Definition.TRANSLATION : "The point given by translating point #1 with vector #2.",
-        Definition.PERPENDICULAR : "A point on the perpendicular to segment #1 at #2.",
-        Definition.ROTATION : "The point defined as the rotation of #1, by angle #2 around centre #3."
+        Definition.FREE: "Free point.",
+        Definition.INTERSECTION: "Intersection of #1 and #2.",
+        Definition.CIRCLE_CENTRE: "The middle point of the #1.",
+        Definition.SEGMENT_MIDPOINT: "The midpoint of segment #1.",
+        Definition.ON_LINE: "The point defined as dilation of #1, by factor #2 across centre #3.",
+        Definition.ON_CIRCLE: "The point on the #1 at angle #2.",
+        Definition.PROJECTION: "The orthogonal projection of #1 on #2.",
+        Definition.BISECTOR: "A point on the bisector of angle #1.",
+        Definition.TRANSLATION: "The point given by translating point #1 with vector #2.",
+        Definition.PERPENDICULAR: "A point on the perpendicular to segment #1 at #2.",
+        Definition.ROTATION: "The point defined as the rotation of #1, by angle #2 around centre #3."
     }
+
+# Contains the default values for a point plus the definition subtypes.
+class Circle:
+    class Default: # TODO change this
+        SIZE = 3.0
+        LINE_WIDTH = 0.4
+        NODE_INSIDE_TEXT = ''
+        Fill_Colour = ColourDefault()
+        Line_Colour = ColourDefault()
+        Marker = MarkerDefault()
+        Label = LabelDefault()
+        LINE_DASH_STROKE = Line_Stroke.SOLID
+        LINE_DASH_CUSTOM = [5, 2]
+
+    class Definition:
+        WITH_CENTRE = 'with_centre'
+        CIRCUM = 'circum'
+        INSCRIBED = 'inscribed'
+        ARC = 'arc'
+        SECTOR = 'sector'
+
+    # TEXT_DICT = {
+    #     Definition.WITH_CENTRE: "Free point.",
+    #     Definition.CIRCUM: "Intersection of #1 and #2.",
+    #     Definition.INSCRIBED: "The middle point of the #1.",
+    #     Definition.ARC: "The midpoint of segment #1.",
+    #     Definition.SECTOR: "The point defined as dilation of #1, by factor #2 across centre #3.",
+    # }
 
 
 # Contains the default values for a segment.
@@ -394,8 +422,8 @@ class Tool:
     POLYGON = 101
     LINESTRING = 102
 
-    CIRCUM_CIRCLE = 200
-    TWO_POINT_CIRCLE = 201
+    CIRCLE_WITH_CENTRE = 200
+    CIRCUM_CIRCLE = 201
     ARC = 202
     SECTOR = 203
     INSCRIBED_CIRCLE = 204
@@ -425,9 +453,13 @@ class Tool:
         ROTATION: ('point', Point.Definition.ROTATION),
         MAKEGRID: ('point', Point.Definition.ON_LINE),
 
-        SEGMENT_THROUGH : ('segment', None),
-        POLYGON : ('polygon', None),
-        LINESTRING: ('linestring', None)
+        SEGMENT_THROUGH: ('segment', None),
+        POLYGON: ('polygon', None),
+        LINESTRING: ('linestring', None),
+
+        CIRCLE_WITH_CENTRE: ('circle', 'with_centre'),
+        CIRCUM_CIRCLE: ('circle', 'circum')
+
     }
 
 

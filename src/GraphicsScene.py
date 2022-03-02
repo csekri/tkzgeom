@@ -16,7 +16,7 @@ from SelectPattern import SelectMode, ItemAccumulator
 from HighlightItem import item_in_focus
 import CanvasRendering as cr
 from KeyBank import KeyBank, KeyState
-from Fill.ListWidget import fill_listWidget_with_data, listWidget_set_current_row
+from Fill.ListWidget import fill_listWidget_with_data, set_selected_id_in_listWidget
 from SyntaxHighlight import syntax_highlight
 from Tikzifyables.Labelable import Labelable
 from Segment import Segment
@@ -70,9 +70,9 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
             self.project_data.add(item)
             self.project_data.recompute_canvas(*self.init_canvas_dims)
             self.edit.add_undo_item(self)
-            fill_listWidget_with_data(self.project_data, self.ui.listWidget, self.current_tab_idx)
             self.ui.tabWidget.setCurrentIndex(c.TYPES.index('point'))
-            listWidget_set_current_row(self.ui.listWidget, item.get_id())
+            fill_listWidget_with_data(self.project_data, self.ui.listWidget, self.current_tab_idx)
+            set_selected_id_in_listWidget(self, -1)
         else:
             focus = item_in_focus(self.project_data, self.mouse)
             print('focus', focus)
@@ -111,12 +111,11 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
                 self.project_data.add(item)
                 self.project_data.recompute_canvas(*self.init_canvas_dims)
                 self.edit.add_undo_item(self)
-                fill_listWidget_with_data(self.project_data, self.ui.listWidget, self.current_tab_idx)
                 self.ui.tabWidget.setCurrentIndex(c.TYPES.index(type))
-                listWidget_set_current_row(self.ui.listWidget, item.get_id())
+                fill_listWidget_with_data(self.project_data, self.ui.listWidget, self.current_tab_idx)
+                set_selected_id_in_listWidget(self, -1)
         cr.clear(self)
         cr.add_all_items(self)
-
 
     def mouseMoveEvent(self, event):
         old_x, old_y = self.mouse.get_xy()
@@ -154,14 +153,10 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
             tikz_x, tikz_y = FreePoint.phi_inverse(self.project_data.window, *self.mouse.get_xy(), *self.init_canvas_dims)
             self.project_data.set_window_translate(tikz_x-old_tikz_x, tikz_y-old_tikz_y)
             if tikz_x-old_tikz_x != 0 or tikz_y-old_tikz_y != 0:
-                print('set to true')
                 self.canvas_moved = True
-            else:
-                print('not moved')
         self.project_data.recompute_canvas(*self.init_canvas_dims)
         cr.clear(self)
         cr.add_all_items(self)
-
 
     def mouseReleaseEvent(self, event):
         self.mouse.set_xy(int(event.scenePos().x()), int(event.scenePos().y()))

@@ -49,5 +49,11 @@ class Item(object):
     def tikzify(self):
         raise NotImplementedError
 
+    def definition_builder(self, data, items=None):
+        return NotImplementedError
+
+    def dictionary_builder(self, definition, id, sub_type=None):
+        return NotImplementedError
+
     def __str__(self):
         raise NotImplementedError

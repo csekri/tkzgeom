@@ -24,7 +24,7 @@ class OnLine(Point):
     def __str__(self):
         return "OnLine (%s) of %s and %s with ratio %s" % (self.get_id(), self.item["definition"]["A"], self.item["definition"]["B"], self.item["definition"]["ratio"])
 
-    def definition_builder(self, data, items):
+    def definition_builder(self, data, items=None):
         return dict(zip(["A", "B", "ratio"], data))
 
     @staticmethod

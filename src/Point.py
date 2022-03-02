@@ -7,6 +7,7 @@ from Tikzifyables.DashPatternable import DashPatternable
 from Tikzifyables.Colourable.LineColourable import LineColourable
 from Tikzifyables.Colourable.FillColourable import FillColourable
 
+
 class Point(Item, Labelable, DashPatternable, LineColourable, FillColourable):
     def __init__(self, item):
         Item.__init__(self, item)
@@ -25,7 +26,6 @@ class Point(Item, Labelable, DashPatternable, LineColourable, FillColourable):
     def set_canvas_coordinates(self, x, y):
         self.__canvas_x = x
         self.__canvas_y = y
-
 
     def __tikzify_marker(self):
         extra = ''
@@ -58,7 +58,6 @@ class Point(Item, Labelable, DashPatternable, LineColourable, FillColourable):
         options = filter(bool, options)
         return '\\node[%s] (%s) at (%s) {%s};' % (', '.join(options), self.get_id(), self.get_id(), self.item["marker"]["text"])
 
-
     def tikzify(self):
         raise NotImplementedError
 
@@ -78,7 +77,7 @@ class Point(Item, Labelable, DashPatternable, LineColourable, FillColourable):
             # text.setTextWidth(400)
             scene.addItem(text)
 
-        graphics_point = QtWidgets.QGraphicsEllipseItem(self.__canvas_x-radius,self.__canvas_y-radius, 2*radius, 2*radius)
+        # graphics_point = QtWidgets.QGraphicsEllipseItem(self.__canvas_x-radius,self.__canvas_y-radius, 2*radius, 2*radius)
 
     def distance_sqr(self, x, y, items):
         return (self.__canvas_x-x) ** 2 + (self.__canvas_y-y) ** 2
@@ -86,7 +85,7 @@ class Point(Item, Labelable, DashPatternable, LineColourable, FillColourable):
     def next_id_func(self, definition, iter_counter):
         return chr(ord('A') + iter_counter % 26) + (iter_counter // 26) * '\''
 
-    def dictionary_builder(self, definition, id, sub_type):
+    def dictionary_builder(self, definition, id, sub_type=None):
         dictionary = {}
         dictionary["id"] = id
         dictionary["type"] = 'point'

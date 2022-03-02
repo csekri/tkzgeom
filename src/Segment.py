@@ -9,6 +9,7 @@ from Tikzifyables.Colourable.LineColourable import LineColourable
 import Constant as c
 from GeometryMath import point_segment_dist_sqr
 
+
 class Segment(Item, Arrowable, DashPatternable, Doubleable, LineColourable):
     def __init__(self, item):
         Item.__init__(self, item)
@@ -83,10 +84,10 @@ class Segment(Item, Arrowable, DashPatternable, Doubleable, LineColourable):
             current += '_' + iter_counter * '\''
         return current
 
-    def definition_builder(self, data, items):
+    def definition_builder(self, data, items=None):
         return dict(zip(["A", "B"], data))
 
-    def dictionary_builder(self, definition, id):
+    def dictionary_builder(self, definition, id, sub_type=None):
         dictionary = {}
         dictionary["id"] = id
         dictionary["type"] = 'segment'

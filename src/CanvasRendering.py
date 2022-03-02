@@ -57,6 +57,11 @@ def add_all_items(scene):
             if item.item["type"] in ['segment']:
                 item.draw_on_canvas(scene.project_data.items, scene, ColorMapping.OTHER_ITEM)
 
+    def add_circles(scene):
+        for item in scene.project_data.items.values():
+            if item.item["type"] in ['circle']:
+                item.draw_on_canvas(scene.project_data.items, scene, ColorMapping.OTHER_ITEM)
+
     def add_linestrings(scene):
         for item in scene.project_data.items.values():
             if item.item["type"] in ['linestring']:
@@ -115,6 +120,7 @@ def add_all_items(scene):
     if scene.show_canvas_items or scene.key_bank.move_point.state == KeyState.DOWN or scene.key_bank.move_canvas.state == KeyState.DOWN:
         add_polygons(scene)
         add_segments(scene)
+        add_circles(scene)
         add_linestrings(scene)
     add_half_ready_segment(scene)
     add_half_ready_linestring(scene)

@@ -27,7 +27,7 @@ class FreePoint(Point):
     def recompute_canvas(self, items, window, width, height):
         self.set_canvas_coordinates(*FreePoint.phi(window, self.item["definition"]["x"], self.item["definition"]["y"], width, height))
 
-    def definition_builder(self, data, items):
+    def definition_builder(self, data, items=None):
         return { "x": data[0], "y": data[1] }
 
 
