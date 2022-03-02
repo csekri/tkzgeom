@@ -52,22 +52,23 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.skip_plaintextedit_changes = False
         self.skip_combobox_changes = False
         self.skip_checkox_changes = False
+        self.item_to_be = None
 
     def mousePressEvent(self, event):
         self.mouse.set_xy(int(event.scenePos().x()), int(event.scenePos().y()))
         self.mouse.set_pressed_xy(int(event.scenePos().x()), int(event.scenePos().y()))
 
         if self.select_mode.get_type() == c.Tool.FREE:
-            item = Factory.create_empty_item("point", c.Point.Definition.FREE)
+            self.item_to_be = Factory.create_empty_item("point", c.Point.Definition.FREE)
             print(self.init_canvas_dims)
-            definition = item.definition_builder(
+            definition = self.item_to_be.definition_builder(
                 FreePoint.phi_inverse(self.project_data.window, *self.mouse.get_xy(), *self.init_canvas_dims), None)
-            item.item["id"] = Factory.next_id(item, definition, self.project_data.items)
-            item.item["definition"] = definition
-            item.item["label"]["text"] = f'${item.item["id"]}$'
-            if isinstance(item, Labelable):
-                item.id = item.item["id"]
-            self.project_data.add(item)
+            self.item_to_be.item["id"] = Factory.next_id(self.item_to_be, definition, self.project_data.items)
+            self.item_to_be.item["definition"] = definition
+            self.item_to_be.item["label"]["text"] = f'${self.item_to_be.item["id"]}$'
+            if isinstance(self.item_to_be, Labelable):
+                self.item_to_be.id = self.item_to_be.item["id"]
+            self.project_data.add(self.item_to_be)
             self.project_data.recompute_canvas(*self.init_canvas_dims)
             self.edit.add_undo_item(self)
             self.ui.tabWidget.setCurrentIndex(c.TYPES.index('point'))
@@ -81,9 +82,9 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
                 return None
             self.select_history.add_to_history(focus, self.project_data.items[focus].item["type"])
             type, sub_type = c.Tool.TYPE_MAP[self.select_mode.get_type()]
-            item = Factory.create_empty_item(type, sub_type)
+            self.item_to_be = Factory.create_empty_item(type, sub_type)
 
-            if ids := self.select_history.match_pattern(item.patterns()):
+            if ids := self.select_history.match_pattern(self.item_to_be.patterns()):
                 if self.select_mode.get_type() == c.Tool.POLYGON:
                     if ids[0] != ids[-1]:
                         self.select_history.id_history = ids
@@ -102,13 +103,13 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
                     PB = dist(B_coords, self.mouse.get_xy())
                     ratio = AP / (AP + PB)
                     ids = [A, B, ratio]
-                definition = item.definition_builder(ids, self.project_data.items)
-                id = Factory.next_id(item, definition, self.project_data.items)
-                item.item["definition"] = definition
-                item.item["id"] = id
-                if isinstance(item, Labelable):
-                    item.item["label"]["text"] = f'${item.item["id"]}$'
-                self.project_data.add(item)
+                definition = self.item_to_be.definition_builder(ids, self.project_data.items)
+                id = Factory.next_id(self.item_to_be, definition, self.project_data.items)
+                self.item_to_be.item["definition"] = definition
+                self.item_to_be.item["id"] = id
+                if isinstance(self.item_to_be, Labelable):
+                    self.item_to_be.item["label"]["text"] = f'${self.item_to_be.item["id"]}$'
+                self.project_data.add(self.item_to_be)
                 self.project_data.recompute_canvas(*self.init_canvas_dims)
                 self.edit.add_undo_item(self)
                 self.ui.tabWidget.setCurrentIndex(c.TYPES.index(type))

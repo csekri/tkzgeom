@@ -56,12 +56,21 @@ class Circle(Item, Arrowable, DashPatternable, Doubleable, LineColourable):
         graphics_point.setBrush(brush)
         scene.addItem(graphics_point)
 
-    # @staticmethod
-    # def draw_on_canvas_static(x1, y1, x2, y2, scene, colour=QtCore.Qt.darkMagenta):
-    #     thickness = 4
-    #     graphics_line = QtWidgets.QGraphicsLineItem(x1, y1, x2, y2)
-    #     graphics_line.setPen(QtGui.QPen(QtGui.QBrush(colour), thickness))
-    #     scene.addItem(graphics_line)
+    @staticmethod
+    def draw_on_canvas_static(centre, radius, scene, colour=QtCore.Qt.darkMagenta):
+        thickness = 4
+        graphics_point = QtWidgets.QGraphicsEllipseItem(*gmath.sub(centre, [radius, radius]), 2*radius, 2*radius)
+        pen = QtGui.QPen()
+        pen.setWidth(thickness)
+        pen.setColor(colour)
+        graphics_point.setPen(pen)
+        brush = QtGui.QBrush()
+        brush.setStyle(QtCore.Qt.NoBrush)
+        graphics_point.setBrush(brush)
+        scene.addItem(graphics_point)
+
+    def recompute_canvas_with_mouse(self, scene, x, y):
+        return NotImplementedError
 
     def distance_sqr(self, x, y, items):
         O = self.get_canvas_centre_xy()

@@ -96,6 +96,8 @@ def circumradius(A, centre):
 
 def circumcentre(A, B, C):
     D = 2 * (A[0]*(B[1]-C[1]) + B[0]*(C[1]-A[1]) + C[0]*(A[1]-B[1]))
+    if D == 0:
+        return None
     K_x_A = (A[0]*A[0] + A[1]*A[1]) * (B[1]-C[1])
     K_x_B = (B[0]*B[0] + B[1]*B[1]) * (C[1]-A[1])
     K_x_C = (C[0]*C[0] + C[1]*C[1]) * (A[1]-B[1])

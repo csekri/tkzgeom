@@ -18,9 +18,22 @@ class CircumCircle(Circle):
         B = items[self.depends_on()[1]].get_canvas_coordinates()
         C = items[self.depends_on()[2]].get_canvas_coordinates()
         centre = gmath.circumcentre(A, B, C)
+        if centre is None:
+            self.set_canvas_centre_xy(*B)
+            self.set_canvas_radius(0)
         radius = gmath.circumradius(A, centre)
         self.set_canvas_centre_xy(*centre)
         self.set_canvas_radius(radius)
+
+    def recompute_canvas_with_mouse(self, scene, x, y):
+        A = scene.project_data.items[scene.select_history.id_history[0]].get_canvas_coordinates()
+        B = scene.project_data.items[scene.select_history.id_history[1]].get_canvas_coordinates()
+        C = x, y
+        centre = gmath.circumcentre(A, B, C)
+        if centre is None:
+            return B, 0
+        radius = gmath.circumradius(A, centre)
+        return centre, radius
 
     def __str__(self):
         return "Circumscribed circle (%s) of %s" % (self.item["id"], self.item["definition"]["A"]+self.item["definition"]["B"]+self.item["definition"]["C"])

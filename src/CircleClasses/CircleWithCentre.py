@@ -19,6 +19,11 @@ class CircleWithCentre(Circle):
         self.set_canvas_centre_xy(*O)
         self.set_canvas_radius(norm(sub(O, P)))
 
+    def recompute_canvas_with_mouse(self, scene, x, y):
+        O = scene.project_data.items[scene.select_history.id_history[0]].get_canvas_coordinates()
+        P = x, y
+        return O, norm(sub(O, P))
+
     def __str__(self):
         return "Circle (%s) with centre %s and perimetric point %s" % (self.item["id"], self.item["definition"]["O"], self.item["definition"]["P"])
 

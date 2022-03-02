@@ -11,6 +11,7 @@ import numpy as np
 from HighlightItem import item_in_focus
 import Constant as c
 from Segment import Segment
+from Circle import Circle
 from Polygon import Polygon
 from Linestring import Linestring
 from KeyBank import KeyState
@@ -76,6 +77,14 @@ def add_all_items(scene):
                 scene,
                 ColorMapping.OTHER_ITEM)
 
+    def add_half_ready_circle(scene):
+        if scene.select_mode.get_type() in [c.Tool.CIRCUM_CIRCLE, c.Tool.CIRCLE_WITH_CENTRE]\
+        and len(scene.select_history.type_history) + 1 == c.CIRCLE_PATTERN_LENGTH[scene.select_mode.get_type()]:
+            centre, radius = scene.item_to_be.recompute_canvas_with_mouse(scene, *scene.mouse.get_xy())
+            Circle.draw_on_canvas_static(
+                centre, radius, scene,
+                ColorMapping.OTHER_ITEM)
+
     def add_half_ready_linestring(scene):
         if scene.select_mode.get_type() == c.Tool.LINESTRING\
         and scene.select_history.type_history:
@@ -123,6 +132,7 @@ def add_all_items(scene):
         add_circles(scene)
         add_linestrings(scene)
     add_half_ready_segment(scene)
+    add_half_ready_circle(scene)
     add_half_ready_linestring(scene)
     add_half_ready_polygon(scene)
     if scene.show_canvas_items or scene.key_bank.move_point.state == KeyState.DOWN or scene.key_bank.move_canvas.state == KeyState.DOWN:

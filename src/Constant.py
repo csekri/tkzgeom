@@ -466,6 +466,7 @@ class Tool:
 # The patterns that has extra tuning possibilities.
 PATTERN_EXTRAS = set([PatternType.LINES, PatternType.HATCH, PatternType.DOTS_EXTRA, PatternType.FIVEPOINTED_STARS, PatternType.SIXPOINTED_STARS])
 
+CIRCLE_PATTERN_LENGTH = {Tool.CIRCLE_WITH_CENTRE: 2, Tool.CIRCUM_CIRCLE: 3}
 
 # List of types in items as it appears in the tabWidget.
 TYPES = ['point', 'segment', 'circle', 'polygon', 'linestring', 'function', 'colour', 'number']
