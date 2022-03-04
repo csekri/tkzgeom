@@ -428,8 +428,8 @@ class Tool:
     SECTOR = 203
     INSCRIBED_CIRCLE = 204
 
-    MOVE_POINT = 300
-    MOVE_AND_SCALE_CANVAS = 301
+    # MOVE_POINT = 300
+    # MOVE_AND_SCALE_CANVAS = 301
 
     MARK_ANGLE = 400
     MARK_RIGHT_ANGLE = 401
@@ -439,28 +439,50 @@ class Tool:
     POLAR_FUNCTION = 501
     PARAMETRIC_FUNCTION = 502
 
-    TYPE_MAP = {
-        FREE: ('point', Point.Definition.FREE),
-        MIDPOINT_SEGMENT: ('point', Point.Definition.SEGMENT_MIDPOINT),
-        INTERSECT_POINT: ('point', Point.Definition.INTERSECTION),
-        CIRCLE_CENTRE: ('point', Point.Definition.CIRCLE_CENTRE),
-        TRANSLATION: ('point', Point.Definition.TRANSLATION),
-        POINT_ON_LINE: ('point', Point.Definition.ON_LINE),
-        POINT_ON_CIRCLE: ('point', Point.Definition.ON_CIRCLE),
-        ORTHOGONAL_PROJECTION: ('point', Point.Definition.PROJECTION),
-        PERPENDICULAR: ('point', Point.Definition.PERPENDICULAR),
-        BISECTOR: ('point', Point.Definition.BISECTOR),
-        ROTATION: ('point', Point.Definition.ROTATION),
-        MAKEGRID: ('point', Point.Definition.ON_LINE),
 
-        SEGMENT_THROUGH: ('segment', None),
-        POLYGON: ('polygon', None),
-        LINESTRING: ('linestring', None),
+TOOL_TO_PARSE_MAP = {
+    Tool.FREE: 'FreePoint',
+    Tool.MIDPOINT_SEGMENT: 'MidPoint',
+    Tool.INTERSECT_POINT: 'Intersection',
+    Tool.CIRCLE_CENTRE: 'Centre',
+    Tool.TRANSLATION: 'Translation',
+    Tool.POINT_ON_LINE: 'OnLine',
+    Tool.POINT_ON_CIRCLE: 'OnCircle',
+    Tool.ORTHOGONAL_PROJECTION: 'Projection',
+    Tool.PERPENDICULAR: 'Perpendicular',
+    Tool.BISECTOR: 'Bisector',
+    Tool.ROTATION: 'Rotation',
+    Tool.MAKEGRID: 'MakeGrid',
 
-        CIRCLE_WITH_CENTRE: ('circle', 'with_centre'),
-        CIRCUM_CIRCLE: ('circle', 'circum')
+    Tool.SEGMENT_THROUGH: 'Segment',
+    Tool.POLYGON: 'Polygon',
+    Tool.LINESTRING: 'Linestring',
 
-    }
+    Tool.CIRCLE_WITH_CENTRE: 'WithCentre',
+    Tool.CIRCUM_CIRCLE: 'Circum'
+}
+
+PARSE_TO_TYPE_MAP = {
+    TOOL_TO_PARSE_MAP[Tool.FREE]: ('point', Point.Definition.FREE),
+    TOOL_TO_PARSE_MAP[Tool.MIDPOINT_SEGMENT]: ('point', Point.Definition.SEGMENT_MIDPOINT),
+    TOOL_TO_PARSE_MAP[Tool.INTERSECT_POINT]: ('point', Point.Definition.INTERSECTION),
+    TOOL_TO_PARSE_MAP[Tool.CIRCLE_CENTRE]: ('point', Point.Definition.CIRCLE_CENTRE),
+    TOOL_TO_PARSE_MAP[Tool.TRANSLATION]: ('point', Point.Definition.TRANSLATION),
+    TOOL_TO_PARSE_MAP[Tool.POINT_ON_LINE]: ('point', Point.Definition.ON_LINE),
+    TOOL_TO_PARSE_MAP[Tool.POINT_ON_CIRCLE]: ('point', Point.Definition.ON_CIRCLE),
+    TOOL_TO_PARSE_MAP[Tool.ORTHOGONAL_PROJECTION]: ('point', Point.Definition.PROJECTION),
+    TOOL_TO_PARSE_MAP[Tool.PERPENDICULAR]: ('point', Point.Definition.PERPENDICULAR),
+    TOOL_TO_PARSE_MAP[Tool.BISECTOR]: ('point', Point.Definition.BISECTOR),
+    TOOL_TO_PARSE_MAP[Tool.ROTATION]: ('point', Point.Definition.ROTATION),
+    TOOL_TO_PARSE_MAP[Tool.MAKEGRID]: ('point', Point.Definition.ON_LINE),
+
+    TOOL_TO_PARSE_MAP[Tool.SEGMENT_THROUGH]: ('segment', None),
+    TOOL_TO_PARSE_MAP[Tool.POLYGON]: ('polygon', None),
+    TOOL_TO_PARSE_MAP[Tool.LINESTRING]: ('linestring', None),
+
+    TOOL_TO_PARSE_MAP[Tool.CIRCLE_WITH_CENTRE]: ('circle', 'with_centre'),
+    TOOL_TO_PARSE_MAP[Tool.CIRCUM_CIRCLE]: ('circle', 'circum')
+}
 
 
 # The patterns that has extra tuning possibilities.

@@ -67,10 +67,6 @@ class Segment(Item, Arrowable, DashPatternable, Doubleable, LineColourable):
         P = x, y
         return point_segment_dist_sqr(A, B, P)
 
-    def definition_builder(self, data):
-        return {"A": data[0], "B": data[1]}
-
-
     @staticmethod
     def static_patterns():
         return ["pp"]
@@ -87,10 +83,19 @@ class Segment(Item, Arrowable, DashPatternable, Doubleable, LineColourable):
     def definition_builder(self, data, items=None):
         return dict(zip(["A", "B"], data))
 
+    def parse_into_definition(self, arguments, items):
+        if len(arguments) != 2:
+            return None
+        condition = not all(map(lambda x: self.name_pattern(x), arguments))
+        if condition:
+            return None
+        return self.definition_builder(arguments)
+
     def dictionary_builder(self, definition, id, sub_type=None):
         dictionary = {}
         dictionary["id"] = id
         dictionary["type"] = 'segment'
+        dictionary["sub_type"] = None
         dictionary["show"] = True
         dictionary["definition"] = definition
         dictionary["label"] = {}

@@ -87,6 +87,7 @@ class Linestring(Item, DashPatternable, LineColourable, Decorationable):
         dictionary = {}
         dictionary["id"] = id
         dictionary["type"] = 'linestring'
+        dictionary["sub_type"] = None
         dictionary["show"] = True
         dictionary["definition"] = definition
         dictionary["line"] = {}

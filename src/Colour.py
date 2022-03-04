@@ -1,5 +1,6 @@
 from Item import Item
 
+
 class Colour(Item):
     def __init__(self, item):
         Item.__init__(self, item)

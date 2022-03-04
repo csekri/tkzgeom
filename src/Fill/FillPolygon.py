@@ -16,6 +16,7 @@ def fill_polygon_fields(scene):
         return
     polygon = scene.project_data.items[ids[0]].item
 
+    scene.ui.polygon_def_str.setText(scene.project_data.items[ids[0]].definition_string())
     fill_colour(scene, polygon["fill"]["colour"], colours,
         scene.ui.polygon_marker_colour_name,
         scene.ui.polygon_marker_colour_mix_name,

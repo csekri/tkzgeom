@@ -246,6 +246,68 @@
            </widget>
           </item>
           <item>
+           <layout class="QVBoxLayout" name="verticalLayout_89">
+            <item>
+             <widget class="QComboBox" name="circle_combo_2">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
+              <item>
+               <property name="text">
+                <string>Make Grid</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Regular Polygon</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Complete Graph</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Star Graph</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Turtle</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="circle_radio_2">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
+              <property name="text">
+               <string>Point Clouds</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="Line" name="line_4">
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
            <layout class="QVBoxLayout" name="verticalLayout_85">
             <item>
              <widget class="QRadioButton" name="angle_radio">
@@ -421,7 +483,11 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLineEdit" name="lineEdit_18"/>
+                  <widget class="QLineEdit" name="lineEdit_19">
+                   <property name="focusPolicy">
+                    <enum>Qt::ClickFocus</enum>
+                   </property>
+                  </widget>
                  </item>
                 </layout>
                </item>
@@ -435,21 +501,11 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLineEdit" name="lineEdit_19"/>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_4">
-                 <item>
-                  <widget class="QLabel" name="label_20">
-                   <property name="text">
-                    <string>Def Param</string>
+                  <widget class="QLineEdit" name="point_def_str">
+                   <property name="focusPolicy">
+                    <enum>Qt::ClickFocus</enum>
                    </property>
                   </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="lineEdit_20"/>
                  </item>
                 </layout>
                </item>
@@ -1784,7 +1840,7 @@ QDoubleSpinBox::down-button {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLineEdit" name="lineEdit_25"/>
+                  <widget class="QLineEdit" name="lineEdit_26"/>
                  </item>
                 </layout>
                </item>
@@ -1798,7 +1854,7 @@ QDoubleSpinBox::down-button {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLineEdit" name="lineEdit_26"/>
+                  <widget class="QLineEdit" name="segment_def_str"/>
                  </item>
                 </layout>
                </item>
@@ -3816,13 +3872,56 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>100</width>
-                <height>30</height>
+                <width>125</width>
+                <height>74</height>
                </rect>
               </property>
               <attribute name="label">
                <string>Definition</string>
               </attribute>
+              <layout class="QVBoxLayout" name="verticalLayout_72">
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_88">
+                 <item>
+                  <widget class="QLabel" name="label_92">
+                   <property name="text">
+                    <string>Definition</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="circle_def_str"/>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_87">
+                 <item>
+                  <widget class="QLabel" name="label_91">
+                   <property name="text">
+                    <string>Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEdit_29"/>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_14">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
              </widget>
              <widget class="QWidget" name="page_11">
               <property name="geometry">
@@ -3892,15 +3991,15 @@ QDoubleSpinBox::down-button {
            <item>
             <widget class="QToolBox" name="toolBox_4">
              <property name="currentIndex">
-              <number>3</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="page_15">
               <property name="geometry">
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>125</width>
-                <height>97</height>
+                <width>326</width>
+                <height>298</height>
                </rect>
               </property>
               <attribute name="label">
@@ -3931,7 +4030,7 @@ QDoubleSpinBox::down-button {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLineEdit" name="lineEdit_27"/>
+                  <widget class="QLineEdit" name="polygon_def_str"/>
                  </item>
                 </layout>
                </item>

@@ -1,6 +1,7 @@
 from Point import Point
 from Item import Item
 import Constant as c
+import re
 
 class FreePoint(Point):
     def __init__(self, item):
@@ -11,7 +12,6 @@ class FreePoint(Point):
     def phi(window, x, y, width, height):
         return (x - window.left) * height / (window.scale * 10.0),\
             (window.top - y) * height / (window.scale * 10.0)
-
 
     @staticmethod
     def phi_inverse(window, x, y, width, height):
@@ -30,6 +30,14 @@ class FreePoint(Point):
     def definition_builder(self, data, items=None):
         return { "x": data[0], "y": data[1] }
 
+    def parse_into_definition(self, arguments, items):
+        if len(arguments) != 2:
+            return None
+        try:
+            arg_conv = list(map(float, arguments))
+        except ValueError:
+            return None
+        return self.definition_builder(arg_conv)
 
     def __str__(self):
         return "FreePoint (%s) at (%s, %s)" % (self.item["id"], self.item["definition"]["x"], self.item["definition"]["y"])

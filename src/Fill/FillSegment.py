@@ -5,6 +5,7 @@ from Fill.FillMacros import (
     fill_d_arrow,
     fill_colour)
 
+
 def fill_segment_fields(scene):
     colours = c.attribute_values(c.Colour)\
         + [i.get_id() for i in scene.project_data.items.values() if isinstance(i, Colour)]
@@ -15,6 +16,7 @@ def fill_segment_fields(scene):
         return
     segment = scene.project_data.items[ids[0]].item
 
+    scene.ui.segment_def_str.setText(scene.project_data.items[ids[0]].definition_string())
     scene.ui.segment_line_width_slider.setValue(10.0 * segment["line"]["line_width"])
     scene.ui.segment_line_width_spin.setValue(segment["line"]["line_width"])
 

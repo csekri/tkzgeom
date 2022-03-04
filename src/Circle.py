@@ -135,11 +135,5 @@ class Circle(Item, Arrowable, DashPatternable, Doubleable, LineColourable):
         dictionary["d_arrow"]["side"] = c.Segment.Default.D_Arrow.SIDE
         dictionary["d_arrow"]["reversed"] = c.Segment.Default.D_Arrow.REVERSED
         dictionary["fill"] = {}
-        # dictionary["fill"]["colour"] = {}
-        # dictionary["fill"]["colour"]["name"] = c.Point.Default.Fill_Colour.NAME
-        # dictionary["fill"]["colour"]["mix_with"] = c.Point.Default.Fill_Colour.MIX_WITH
-        # dictionary["fill"]["colour"]["mix_percent"] = c.Point.Default.Fill_Colour.MIX_RATIO
-        # dictionary["fill"]["colour"]["strength"] = c.Point.Default.Fill_Colour.STRENGTH
 
         self.item = dictionary
-

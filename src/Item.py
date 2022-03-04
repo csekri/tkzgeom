@@ -1,3 +1,6 @@
+import re
+import Constant as c
+
 def phi(window, x, y, width, height):
     return window.left + x / width * window.scale*10.0,\
         window.top - y / height * window.scale*10.0
@@ -49,8 +52,21 @@ class Item(object):
     def tikzify(self):
         raise NotImplementedError
 
+    def parse_into_definition(self, arguments, items):
+        raise NotImplementedError
+
+    def name_pattern(self, argument):
+        pattern = r"""^([a-zA-Z0-9]+'*[_-]?)+$"""
+        return re.search(pattern, argument)
+
     def definition_builder(self, data, items=None):
         return NotImplementedError
+
+    def definition_string(self):
+        type, sub_type = self.item["type"], self.item["sub_type"]
+        parse_name = list(c.PARSE_TO_TYPE_MAP.keys())[list(c.PARSE_TO_TYPE_MAP.values()).index((type, sub_type))]
+        def_str = [('{0:.6g}'.format(i) if isinstance(i, float) else i) for i in self.item["definition"].values()]
+        return '%s(%s)' % (parse_name, ', '.join(def_str))
 
     def dictionary_builder(self, definition, id, sub_type=None):
         return NotImplementedError

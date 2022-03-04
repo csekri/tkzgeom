@@ -25,6 +25,14 @@ class Midpoint(Point):
             return dict(zip(["A", "B"], data))
         return dict(zip(["A", "B"], items[data[0]].item["definition"].values()))
 
+    def parse_into_definition(self, arguments, items):
+        if len(arguments) != 2:
+            return None
+        condition = not all(map(lambda x: self.name_pattern(x), arguments))
+        if condition:
+            return None
+        return self.definition_builder(arguments)
+
     @staticmethod
     def static_patterns():
         return ["pp", "s"]

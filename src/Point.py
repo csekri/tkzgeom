@@ -77,8 +77,6 @@ class Point(Item, Labelable, DashPatternable, LineColourable, FillColourable):
             # text.setTextWidth(400)
             scene.addItem(text)
 
-        # graphics_point = QtWidgets.QGraphicsEllipseItem(self.__canvas_x-radius,self.__canvas_y-radius, 2*radius, 2*radius)
-
     def distance_sqr(self, x, y, items):
         return (self.__canvas_x-x) ** 2 + (self.__canvas_y-y) ** 2
 

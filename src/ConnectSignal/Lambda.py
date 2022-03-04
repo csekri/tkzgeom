@@ -6,6 +6,9 @@ from Colour import Colour
 from Items import Items
 from Factory import Factory
 import CanvasRendering as cr
+import Constant as c
+from DefinitionParser import parse_def
+from copy import deepcopy
 
 
 def tabWidget_func(value, main_window):
@@ -161,6 +164,40 @@ def connect_lineedit_abstract(scene, properties_list, dict_key, lineedit):
     else:
         scene.ui.listWidget.setFocus(True)
 
+
+def connect_def_str_lineedit_abstract(scene, lineedit):
+    # TODO extra code needed to prevent cross dependency of two objects
+    # e.g. A -> B and B -> A should not happen simultaneously
+    ids = scene.list_focus_ids
+    if not ids:
+        return None
+    id = ids[0]
+    if not lineedit.hasFocus():
+        do_edit = True
+        try:
+            parse_step1 = parse_def(lineedit.text(), c.PARSE_TO_TYPE_MAP)
+            if not parse_step1:
+                throw_error = 1/0
+            type, sub_type = c.PARSE_TO_TYPE_MAP[parse_step1[0]]
+            item = Factory.create_empty_item(type, sub_type)
+            parse_step2 = item.parse_into_definition(parse_step1[1], scene.project_data.items)
+            if not parse_step2:
+                throw_error = 1/0
+            item_dict = deepcopy(scene.project_data.items[id].item)
+            item_dict["definition"] = parse_step2
+            item_dict["type"] = type
+            item_dict["sub_type"] = sub_type
+            scene.project_data.items[id] = Factory.create_item(item_dict)
+            lineedit.setText(lineedit.text().replace(' ', ''))
+            do_edit = True
+        except ZeroDivisionError:
+            lineedit.setText(scene.project_data.items[id].definition_string())
+            do_edit = False
+        if do_edit:
+            scene.project_data.recompute_canvas(*scene.init_canvas_dims)
+            scene.edit.add_undo_item(scene)
+    else:
+        scene.ui.listWidget.setFocus(True)
 
 
 

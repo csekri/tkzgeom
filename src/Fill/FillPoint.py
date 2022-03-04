@@ -2,6 +2,7 @@ import Constant as c
 from Colour import Colour
 from Fill.FillMacros import fill_colour
 
+
 def fill_point_fields(scene):
     ids = scene.list_focus_ids
     colours = c.attribute_values(c.Colour)\
@@ -11,6 +12,8 @@ def fill_point_fields(scene):
     if c.TYPES[scene.current_tab_idx] != 'point':
         return
     point = scene.project_data.items[ids[0]].item
+
+    scene.ui.point_def_str.setText(scene.project_data.items[ids[0]].definition_string())
     scene.skip_plaintextedit_changes = True
     scene.ui.plainTextEdit.setPlainText(point["marker"]["text"])
     scene.skip_plaintextedit_changes = False

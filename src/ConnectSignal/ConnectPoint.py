@@ -11,6 +11,8 @@ from ConnectSignal.Lambda import (
 )
 
 from ConnectSignal.ConnectMacros import connect_colour
+from ConnectSignal.Lambda import connect_def_str_lineedit_abstract
+
 
 def connect_point(scene):
     scene.ui.plainTextEdit.textChanged.connect(
@@ -91,3 +93,6 @@ def connect_point(scene):
         scene.ui.point_border_colour_mixratio_slider,
         scene.ui.point_border_colour_strength_spin,
         scene.ui.point_border_colour_strength_slider)
+
+    scene.ui.point_def_str.editingFinished.connect(
+        lambda : connect_def_str_lineedit_abstract(scene, scene.ui.point_def_str))

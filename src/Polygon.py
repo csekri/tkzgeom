@@ -42,6 +42,10 @@ class Polygon(Item, DashPatternable, LineColourable, Fillable, Decorationable):
         polygon_item.setPen(pen)
         scene.addItem(polygon_item)
 
+    def definition_string(self):
+        def_str = [('{0:.6g}'.format(i) if isinstance(i, float) else i) for i in self.item["definition"]]
+        return '%s(%s)' % (type(self).__name__, ', '.join(def_str))
+
     @staticmethod
     def draw_on_canvas_static(x, y, id_history, scene, colour=QtCore.Qt.darkMagenta):
         coordinates = [QtCore.QPointF(*scene.project_data.items[x].get_canvas_coordinates()) for x in id_history]
@@ -65,10 +69,6 @@ class Polygon(Item, DashPatternable, LineColourable, Fillable, Decorationable):
     def depends_on(self):
         return self.item["definition"]
 
-    def definition_builder(self, data):
-        return data
-
-
     @staticmethod
     def static_patterns():
         return [i*'p' for i in range(3,40)]
@@ -82,10 +82,19 @@ class Polygon(Item, DashPatternable, LineColourable, Fillable, Decorationable):
     def definition_builder(self, data, items=None):
         return data[:-1]
 
+    def parse_into_definition(self, arguments, items):
+        if len(arguments) <= 2:
+            return None
+        condition = not all(map(lambda x: self.name_pattern(x), arguments))
+        if condition:
+            return None
+        return self.definition_builder(arguments + ["mock_item"])
+
     def dictionary_builder(self, definition, id, sub_type=None):
         dictionary = {}
         dictionary["id"] = id
         dictionary["type"] = 'polygon'
+        dictionary["sub_type"] = None
         dictionary["show"] = True
         dictionary["definition"] = definition
         dictionary["line"] = {}

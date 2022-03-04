@@ -60,6 +60,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
 
         if self.select_mode.get_type() == c.Tool.FREE:
             self.item_to_be = Factory.create_empty_item("point", c.Point.Definition.FREE)
+            print('match',self.item_to_be.name_pattern('Open_21'))
             print(self.init_canvas_dims)
             definition = self.item_to_be.definition_builder(
                 FreePoint.phi_inverse(self.project_data.window, *self.mouse.get_xy(), *self.init_canvas_dims), None)
@@ -81,7 +82,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
                 self.select_history.reset_history()
                 return None
             self.select_history.add_to_history(focus, self.project_data.items[focus].item["type"])
-            type, sub_type = c.Tool.TYPE_MAP[self.select_mode.get_type()]
+            type, sub_type = c.PARSE_TO_TYPE_MAP[c.TOOL_TO_PARSE_MAP[self.select_mode.get_type()]]
             self.item_to_be = Factory.create_empty_item(type, sub_type)
 
             if ids := self.select_history.match_pattern(self.item_to_be.patterns()):

@@ -7,13 +7,15 @@ from ConnectSignal.Lambda import (
     connect_slider_moved_abstract,
     connect_slider_released_abstract,
     connect_dash_lineedit_abstract,
-    # connect_lineedit_abstract
+    # connect_lineedit_abstract,
+    connect_def_str_lineedit_abstract
 )
 
 from ConnectSignal.ConnectMacros import (
     connect_o_arrow,
     connect_d_arrow,
     connect_colour)
+
 
 def connect_segment(scene):
     scene.ui.segment_line_width_slider.sliderMoved.connect(
@@ -72,3 +74,6 @@ def connect_segment(scene):
         scene.ui.segment_colour_mixratio_slider,
         scene.ui.segment_colour_strength_spin,
         scene.ui.segment_colour_strength_slider)
+
+    scene.ui.segment_def_str.editingFinished.connect(
+        lambda : connect_def_str_lineedit_abstract(scene, scene.ui.segment_def_str))
