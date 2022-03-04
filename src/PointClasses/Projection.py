@@ -37,8 +37,14 @@ class Projection(Point):
     def parse_into_definition(self, arguments, items):
         if len(arguments) != 3:
             return None
-        condition = not all(map(lambda x: self.name_pattern(x), arguments))
-        if condition:
+        condition1 = not all(map(lambda x: self.name_pattern(x), arguments))
+        if condition1:
+            return None
+        condition2 = not all(map(lambda x: x in items, arguments))
+        if condition2:
+            return None
+        condition3 = not all(map(lambda x: items[x].item["type"] == 'point', arguments))
+        if condition3:
             return None
         return self.definition_builder(arguments)
 

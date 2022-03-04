@@ -139,10 +139,6 @@ class EuclMainWindow(QtWidgets.QMainWindow):
             fill_listWidget_with_data(self.scene.project_data, self.scene.ui.listWidget, self.scene.current_tab_idx)
             set_selected_id_in_listWidget(self.scene, min(current_row_old, self.scene.ui.listWidget.count()-1))
             self.scene.edit.add_undo_item(self.scene)
-            # fill_all_fields(self.scene)
-            # compile_latex(self.scene, True)
-            # cr.clear(self.scene)
-            # cr.add_all_items(self.scene)
 
     def keyReleaseEvent(self,event):
         if event.isAutoRepeat():

@@ -34,7 +34,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.project_data = Items()
         self.current_tab_idx = self.ui.tabWidget.currentIndex()
         self.list_focus_ids = []
-        self.select_mode = SelectMode(0, 0)
+        self.select_mode = SelectMode()
         self.title = title # function from main window to set window title
         self.auto_compile = False
         self.show_pdf = False

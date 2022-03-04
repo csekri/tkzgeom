@@ -6,18 +6,18 @@ from copy import copy
 
 
 class SelectMode:
-    def __init__(self, type_index, sub_type_index):
-        self.type_index = type_index
-        self.sub_type_index = sub_type_index
+    def __init__(self):
+        self.type_index = 0
+        self.sub_type_index = dict(zip(list(range(10)), 10*[0]))
 
     def get_type(self):
-        return 100 * self.type_index  + self.sub_type_index
+        return 100 * self.type_index + self.sub_type_index[self.type_index]
 
-    def set_mode(self, type_index, sub_type_index):
-        if type_index is not None:
+    def set_mode(self, type_index, sub_type_index, set_type):
+        if set_type:
             self.type_index = type_index
         if sub_type_index is not None:
-            self.sub_type_index = sub_type_index
+            self.sub_type_index[type_index] = sub_type_index
 
 
 class ItemAccumulator:
@@ -40,7 +40,6 @@ class ItemAccumulator:
     def reset_history(self):
         self.type_history = ''
         self.id_history.clear()
-
 
     def match_pattern(self, patterns):
         print('type', self.type_history)
