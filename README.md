@@ -28,13 +28,13 @@
 
 **Binaries:**
 
-- old version for Windows 10
+- old version for Windows 10:\
+<a href="https://mega.nz/file/58cHAQJJ#ViVTsIa1EE4nqlMXZhILufJB4re2-jTaOdPdLnbHbJU">tkzgeom_old_version.zip</a>
 
-https://mega.nz/file/58cHAQJJ#ViVTsIa1EE4nqlMXZhILufJB4re2-jTaOdPdLnbHbJU
-
-- new version (incomplete) for Window 10
-
-https://mega.nz/file/AgdDzSAK#jkwmAbc_CtISYdXjymspLg0GcvkljpCuoTwbWrEcpnE
+- new version (incomplete) for Window 10:\
+<a href="https://mega.nz/file/AgdDzSAK#jkwmAbc_CtISYdXjymspLg0GcvkljpCuoTwbWrEcpnE">tkzgeom_2022_03_01_snapshot.zip</a>
+\
+<a href="https://mega.nz/file/Ys9V1aSZ#B21VUB__qZu1P33JiwOEu75nR9twWnf3cXWaqcaOPmA">tkzgeom_2022_03_04_snapshot.zip</a>
 
 **TkzGeom** is a GUI tool to create publication quality figures in *.tex* or *.pdf* format. It aids and speeds up the production of a wide range of tikz images.
 
