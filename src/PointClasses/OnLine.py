@@ -27,6 +27,18 @@ class OnLine(Point):
     def definition_builder(self, data, items=None):
         return dict(zip(["A", "B", "ratio"], data))
 
+    def parse_into_definition(self, arguments, items):
+        if len(arguments) != 3:
+            return None
+        condition = not all(map(lambda x: self.name_pattern(x), arguments[:2]))
+        try:
+            float(arguments[2])
+        except ValueError:
+            return None
+        if condition:
+            return None
+        return self.definition_builder(arguments[:2] + [float(arguments[2])])
+
     @staticmethod
     def static_patterns():
         return ["s"]
