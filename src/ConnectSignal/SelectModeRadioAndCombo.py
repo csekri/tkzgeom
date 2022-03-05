@@ -36,7 +36,7 @@ def right_angle_radio_func(main_window):
 
 
 def cloud_radio_func(main_window):
-    main_window.scene.select_mode.set_mode(6, main_window.circle_combo.currentIndex(), True)
+    main_window.scene.select_mode.set_mode(6, main_window.cloud_combo.currentIndex(), True)
     print(main_window.scene.select_mode.get_type(), True)
 
 

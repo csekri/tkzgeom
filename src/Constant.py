@@ -452,7 +452,6 @@ class Tool:
     TURTLE = 604
 
 
-
 TOOL_TO_PARSE_MAP = {
     Tool.FREE: 'FreePoint',
     Tool.MIDPOINT_SEGMENT: 'MidPoint',
@@ -465,14 +464,16 @@ TOOL_TO_PARSE_MAP = {
     Tool.PERPENDICULAR: 'Perpendicular',
     Tool.BISECTOR: 'Bisector',
     Tool.ROTATION: 'Rotation',
-    Tool.MAKEGRID: 'MakeGrid',
 
     Tool.SEGMENT_THROUGH: 'Segment',
     Tool.POLYGON: 'Polygon',
     Tool.LINESTRING: 'Linestring',
 
     Tool.CIRCLE_WITH_CENTRE: 'WithCentre',
-    Tool.CIRCUM_CIRCLE: 'Circum'
+    Tool.CIRCUM_CIRCLE: 'Circum',
+
+    Tool.MAKEGRID: 'MakeGrid',
+    Tool.REGULAR_POLYGON: 'RegularPolygon'
 }
 
 PARSE_TO_TYPE_MAP = {
@@ -487,14 +488,16 @@ PARSE_TO_TYPE_MAP = {
     TOOL_TO_PARSE_MAP[Tool.PERPENDICULAR]: ('point', Point.Definition.PERPENDICULAR),
     TOOL_TO_PARSE_MAP[Tool.BISECTOR]: ('point', Point.Definition.BISECTOR),
     TOOL_TO_PARSE_MAP[Tool.ROTATION]: ('point', Point.Definition.ROTATION),
-    TOOL_TO_PARSE_MAP[Tool.MAKEGRID]: ('point', Point.Definition.ON_LINE),
 
     TOOL_TO_PARSE_MAP[Tool.SEGMENT_THROUGH]: ('segment', None),
     TOOL_TO_PARSE_MAP[Tool.POLYGON]: ('polygon', None),
     TOOL_TO_PARSE_MAP[Tool.LINESTRING]: ('linestring', None),
 
     TOOL_TO_PARSE_MAP[Tool.CIRCLE_WITH_CENTRE]: ('circle', 'with_centre'),
-    TOOL_TO_PARSE_MAP[Tool.CIRCUM_CIRCLE]: ('circle', 'circum')
+    TOOL_TO_PARSE_MAP[Tool.CIRCUM_CIRCLE]: ('circle', 'circum'),
+
+    TOOL_TO_PARSE_MAP[Tool.MAKEGRID]: ('cloud', None),
+    TOOL_TO_PARSE_MAP[Tool.REGULAR_POLYGON]: ('cloud', None)
 }
 
 

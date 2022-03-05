@@ -21,7 +21,7 @@ from SyntaxHighlight import syntax_highlight
 from Tikzifyables.Labelable import Labelable
 from Segment import Segment
 from GeometryMath import dist, ortho_proj
-from Dialogs.MakeGridDialog import MakeGridDialog
+from PointCloudHandler import select_point_cloud
 
 
 # class for the graphics scene (canvas)
@@ -60,18 +60,9 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.mouse.set_pressed_xy(int(event.scenePos().x()), int(event.scenePos().y()))
 
         if self.select_mode.get_type() >= c.Tool.MAKEGRID:
-            focus = item_in_focus(self.project_data, self.mouse)
-            print('focus', focus)
-            if not bool(focus):
-                self.select_history.reset_history()
+            if not select_point_cloud(self):
                 return
-            self.select_history.add_to_history(focus, self.project_data.items[focus].item["type"])
-            if ids := self.select_history.match_pattern(['ppp']):
-                dialog = MakeGridDialog(self, ids)
-                dialog.exec_()
-            return
-
-        if self.select_mode.get_type() == c.Tool.FREE:
+        elif self.select_mode.get_type() == c.Tool.FREE:
             self.item_to_be = Factory.create_empty_item("point", c.Point.Definition.FREE)
             print('match',self.item_to_be.name_pattern('Open_21'))
             print(self.init_canvas_dims)
@@ -93,7 +84,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
             print('focus', focus)
             if not bool(focus):
                 self.select_history.reset_history()
-                return None
+                return
             self.select_history.add_to_history(focus, self.project_data.items[focus].item["type"])
             type, sub_type = c.PARSE_TO_TYPE_MAP[c.TOOL_TO_PARSE_MAP[self.select_mode.get_type()]]
             self.item_to_be = Factory.create_empty_item(type, sub_type)
@@ -103,12 +94,12 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
                     if ids[0] != ids[-1]:
                         self.select_history.id_history = ids
                         self.select_history.type_history = ''.join(map(lambda x: self.select_history.type_map[self.project_data.items[x].item["type"]], ids))
-                        return None
+                        return
                 if self.select_mode.get_type() == c.Tool.LINESTRING:
                     if ids[-2] != ids[-1]:
                         self.select_history.id_history = ids
                         self.select_history.type_history = ''.join(map(lambda x: self.select_history.type_map[self.project_data.items[x].item["type"]], ids))
-                        return None
+                        return
                 if self.select_mode.get_type() == c.Tool.POINT_ON_LINE:
                     A, B = self.project_data.items[ids[0]].item["definition"].values()
                     A_coords = self.project_data.items[A].get_canvas_coordinates()
@@ -133,8 +124,6 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         cr.add_all_items(self)
 
     def mouseMoveEvent(self, event):
-        # if self.list_focus_ids:
-        #     print('deep depend',self.project_data.items[self.list_focus_ids[0]].deep_depends_on(self.project_data.items))
         old_x, old_y = self.mouse.get_xy()
         self.mouse.set_xy(int(event.scenePos().x()), int(event.scenePos().y()))
 
