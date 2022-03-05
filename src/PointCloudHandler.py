@@ -2,6 +2,7 @@ import Constant as c
 from HighlightItem import item_in_focus
 from Dialogs.MakeGridDialog import  MakeGridDialog
 from Dialogs.RegularPolygonDialog import RegularPolygonDialog
+from Dialogs.CompleteGraphDialog import CompleteGraphDialog
 
 
 def select_point_cloud(scene):
@@ -18,6 +19,11 @@ def select_point_cloud(scene):
     if scene.select_mode.get_type() == c.Tool.REGULAR_POLYGON:
         if ids := scene.select_history.match_pattern(['pp']):
             dialog = RegularPolygonDialog(scene, ids)
+            dialog.exec_()
+            return True
+    if scene.select_mode.get_type() == c.Tool.COMPLETE_GRAPH:
+        if ids := scene.select_history.match_pattern(['pp']):
+            dialog = CompleteGraphDialog(scene, ids)
             dialog.exec_()
             return True
     return False
