@@ -1,6 +1,7 @@
 from PyQt5 import QtWidgets, uic
 
 from Factory import Factory
+from Fill.ListWidget import fill_listWidget_with_data, set_selected_id_in_listWidget
 
 
 class MakeGridDialog(QtWidgets.QDialog):
@@ -62,14 +63,19 @@ class MakeGridDialog(QtWidgets.QDialog):
             x = y
 
         linestring = []
-        for i in range(len(top_accumulator)):
-            linestring.append(top_accumulator[i])
-            linestring.append(bottom_accumulator[i])
-            linestring.append(top_accumulator[i])
-        for i in range(len(left_accumulator)):
-            linestring.append(left_accumulator[i])
-            linestring.append(right_accumulator[i])
-            linestring.append(left_accumulator[i])
+        if self.rows == 1:
+            linestring = top_accumulator
+        elif self.cols == 1:
+            linestring = left_accumulator
+        else:
+            for i in range(len(top_accumulator)):
+                linestring.append(top_accumulator[i])
+                linestring.append(bottom_accumulator[i])
+                linestring.append(top_accumulator[i])
+            for i in range(len(left_accumulator)):
+                linestring.append(left_accumulator[i])
+                linestring.append(right_accumulator[i])
+                linestring.append(left_accumulator[i])
         item = Factory.create_empty_item('linestring', None)
         definition = linestring
         item.item["id"] = Factory.next_id(item, definition, self.scene.project_data.items)
@@ -77,11 +83,10 @@ class MakeGridDialog(QtWidgets.QDialog):
         self.scene.project_data.add(item)
 
         self.scene.project_data.recompute_canvas(*self.scene.init_canvas_dims)
+        current_row_old = self.scene.ui.listWidget.currentRow()
+        fill_listWidget_with_data(self.scene.project_data, self.scene.ui.listWidget, self.scene.current_tab_idx)
+        set_selected_id_in_listWidget(self.scene, current_row_old)
         self.scene.edit.add_undo_item(self.scene)
-        print('top_accumulator', top_accumulator)
-        print('left_accumulator', left_accumulator)
-        print('right_accumulator', right_accumulator)
-        print('bottom_accumulator', bottom_accumulator)
 
     def rejected(self):
         pass
