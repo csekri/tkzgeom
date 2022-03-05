@@ -120,6 +120,8 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         cr.add_all_items(self)
 
     def mouseMoveEvent(self, event):
+        # if self.list_focus_ids:
+        #     print('deep depend',self.project_data.items[self.list_focus_ids[0]].deep_depends_on(self.project_data.items))
         old_x, old_y = self.mouse.get_xy()
         self.mouse.set_xy(int(event.scenePos().x()), int(event.scenePos().y()))
 

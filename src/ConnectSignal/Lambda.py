@@ -180,6 +180,7 @@ def connect_def_str_lineedit_abstract(scene, lineedit):
                 throw_error = 1/0
             type, sub_type = c.PARSE_TO_TYPE_MAP[parse_step1[0]]
             item = Factory.create_empty_item(type, sub_type)
+            item.item["id"] = id
             parse_step2 = item.parse_into_definition(parse_step1[1], scene.project_data.items)
             if not parse_step2:
                 throw_error = 1/0

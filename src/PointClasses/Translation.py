@@ -30,16 +30,21 @@ class Translation(Point):
         return dict(zip(["A", "B", "P"], data))
 
     def parse_into_definition(self, arguments, items):
+        # arguments length condition
         if len(arguments) != 3:
             return None
-        condition1 = not all(map(lambda x: self.name_pattern(x), arguments))
-        if condition1:
+        # all arguments are members of the regular expression for argument name
+        if not all(map(lambda x: self.name_pattern(x), arguments)):
             return None
-        condition2 = not all(map(lambda x: x in items, arguments))
-        if condition2:
+        # all arguments are items that already exist
+        if not all(map(lambda x: x in items, arguments)):
             return None
-        condition3 = not all(map(lambda x: items[x].item["type"] == 'point', arguments))
-        if condition3:
+        # the type of all arguments is of a certain type
+        if not all(map(lambda x: items[x].item["type"] == 'point', arguments)):
+            return None
+        # self-reference condition (self-reference is not permitted)
+        print('self id', self.get_id())
+        if self.get_id() in arguments:
             return None
         return self.definition_builder(arguments)
 

@@ -23,6 +23,15 @@ class Item(object):
                 dependent_set.add(item.get_id())
         return dependent_set
 
+    def deep_depends_on(self, items):
+        accumulator_set = set()
+        depends = self.depends_on()
+        if depends:
+            accumulator_set |= set(depends)
+            for id in depends:
+                accumulator_set |= items[id].deep_depends_on(items)
+        return accumulator_set
+
     def delete(self, items):
         dependents = self.being_depended_on(items)
         for item in dependents:

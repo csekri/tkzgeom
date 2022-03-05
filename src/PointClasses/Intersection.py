@@ -35,6 +35,25 @@ class Intersection(Point):
             return dict(zip(["A", "B", "C", "D"], [data[0], data[1], C, D]))
         return dict(zip(["A", "B", "C", "D"], data))
 
+    def parse_into_definition(self, arguments, items):
+        # arguments length condition
+        if len(arguments) != 4:
+            return None
+        # all arguments are members of the regular expression for argument name
+        if not all(map(lambda x: self.name_pattern(x), arguments)):
+            return None
+        # all arguments are items that already exist
+        if not all(map(lambda x: x in items, arguments)):
+            return None
+        # the type of all arguments is of a certain type
+        if not all(map(lambda x: items[x].item["type"] == 'point', arguments)):
+            return None
+        # self-reference condition (self-reference is not permitted)
+        print('self id', self.get_id())
+        if self.get_id() in arguments:
+            return None
+        return self.definition_builder(arguments)
+
     @staticmethod
     def static_patterns():
         return ["ss", "pppp", "spp", "pps"]
