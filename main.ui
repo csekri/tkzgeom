@@ -102,11 +102,6 @@
                 <string>Rotation</string>
                </property>
               </item>
-              <item>
-               <property name="text">
-                <string>Make Grid</string>
-               </property>
-              </item>
              </widget>
             </item>
             <item>
@@ -248,9 +243,9 @@
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_89">
             <item>
-             <widget class="QComboBox" name="circle_combo_2">
+             <widget class="QComboBox" name="cloud_combo">
               <property name="enabled">
-               <bool>false</bool>
+               <bool>true</bool>
               </property>
               <property name="focusPolicy">
                <enum>Qt::NoFocus</enum>
@@ -283,9 +278,9 @@
              </widget>
             </item>
             <item>
-             <widget class="QRadioButton" name="circle_radio_2">
+             <widget class="QRadioButton" name="cloud_radio">
               <property name="enabled">
-               <bool>false</bool>
+               <bool>true</bool>
               </property>
               <property name="focusPolicy">
                <enum>Qt::NoFocus</enum>
@@ -3998,8 +3993,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>326</width>
-                <height>298</height>
+                <width>125</width>
+                <height>97</height>
                </rect>
               </property>
               <attribute name="label">

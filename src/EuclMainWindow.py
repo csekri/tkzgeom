@@ -74,11 +74,13 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.ui.linestring_radio.clicked.connect(lambda x: connect_mode.linestring_radio_func(self))
         self.ui.angle_radio.clicked.connect(lambda x: connect_mode.angle_radio_func(self))
         self.ui.right_angle_radio.clicked.connect(lambda x: connect_mode.right_angle_radio_func(self))
+        self.ui.cloud_radio.clicked.connect(lambda x: connect_mode.cloud_radio_func(self))
 
         self.ui.auto_compile_checkbox.stateChanged.connect(self.auto_compile_func)
 
         self.ui.point_combo.currentIndexChanged.connect(lambda x: connect_mode.point_combo_func(x, self))
         self.ui.circle_combo.currentIndexChanged.connect(lambda x: connect_mode.circle_combo_func(x, self))
+        self.ui.cloud_combo.currentIndexChanged.connect(lambda x: connect_mode.cloud_combo_func(x, self))
 
         self.ui.tabWidget.currentChanged.connect(lambda x: tabWidget_func(x, self))
         self.ui.listWidget.itemDoubleClicked.connect(lambda x: listWidget_double_func(x, self))

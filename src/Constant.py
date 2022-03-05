@@ -405,6 +405,7 @@ WindowDefault = {
 
 # The creator tools.
 class Tool:
+    # 0 - 99
     FREE = 0
     MIDPOINT_SEGMENT = 1
     INTERSECT_POINT = 2
@@ -416,28 +417,40 @@ class Tool:
     PERPENDICULAR = 8
     BISECTOR = 9
     ROTATION = 10
-    MAKEGRID = 11
 
+    # 100-199
     SEGMENT_THROUGH = 100
     POLYGON = 101
     LINESTRING = 102
 
+    # 200-299
     CIRCLE_WITH_CENTRE = 200
     CIRCUM_CIRCLE = 201
     ARC = 202
     SECTOR = 203
     INSCRIBED_CIRCLE = 204
 
+    # 300-399
     # MOVE_POINT = 300
     # MOVE_AND_SCALE_CANVAS = 301
 
+    # 400-499
     MARK_ANGLE = 400
     MARK_RIGHT_ANGLE = 401
     # COMPASS = 402
 
+    # 500-599
     YFX_FUNCTION = 500
     POLAR_FUNCTION = 501
     PARAMETRIC_FUNCTION = 502
+
+    # 600-699
+    MAKEGRID = 600
+    REGULAR_POLYGON = 601
+    COMPLETE_GRAPH = 602
+    STAR_GRAPH = 603
+    TURTLE = 604
+
 
 
 TOOL_TO_PARSE_MAP = {

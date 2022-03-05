@@ -35,6 +35,11 @@ def right_angle_radio_func(main_window):
     print(main_window.scene.select_mode.get_type())
 
 
+def cloud_radio_func(main_window):
+    main_window.scene.select_mode.set_mode(6, main_window.circle_combo.currentIndex(), True)
+    print(main_window.scene.select_mode.get_type(), True)
+
+
 '''
 More radio definitions go here.
 '''
@@ -47,4 +52,9 @@ def point_combo_func(value, main_window):
 
 def circle_combo_func(value, main_window):
     main_window.scene.select_mode.set_mode(2, value, False)
+    print(main_window.scene.select_mode.get_type())
+
+
+def cloud_combo_func(value, main_window):
+    main_window.scene.select_mode.set_mode(6, value, False)
     print(main_window.scene.select_mode.get_type())

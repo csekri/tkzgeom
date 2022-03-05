@@ -21,6 +21,7 @@ from SyntaxHighlight import syntax_highlight
 from Tikzifyables.Labelable import Labelable
 from Segment import Segment
 from GeometryMath import dist, ortho_proj
+from Dialogs.MakeGridDialog import MakeGridDialog
 
 
 # class for the graphics scene (canvas)
@@ -57,6 +58,18 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
     def mousePressEvent(self, event):
         self.mouse.set_xy(int(event.scenePos().x()), int(event.scenePos().y()))
         self.mouse.set_pressed_xy(int(event.scenePos().x()), int(event.scenePos().y()))
+
+        if self.select_mode.get_type() >= c.Tool.MAKEGRID:
+            focus = item_in_focus(self.project_data, self.mouse)
+            print('focus', focus)
+            if not bool(focus):
+                self.select_history.reset_history()
+                return
+            self.select_history.add_to_history(focus, self.project_data.items[focus].item["type"])
+            if ids := self.select_history.match_pattern(['ppp']):
+                dialog = MakeGridDialog(self, ids)
+                dialog.exec_()
+            return
 
         if self.select_mode.get_type() == c.Tool.FREE:
             self.item_to_be = Factory.create_empty_item("point", c.Point.Definition.FREE)
