@@ -179,6 +179,8 @@ def connect_def_str_lineedit_abstract(scene, lineedit):
             if not parse_step1:
                 throw_error = 1/0
             type, sub_type = c.PARSE_TO_TYPE_MAP[parse_step1[0]]
+            if type != scene.project_data.items[id].item["type"]:
+                throw_error = 1/0
             item = Factory.create_empty_item(type, sub_type)
             item.item["id"] = id
             parse_step2 = item.parse_into_definition(parse_step1[1], scene.project_data.items)
@@ -188,6 +190,7 @@ def connect_def_str_lineedit_abstract(scene, lineedit):
             item_dict["definition"] = parse_step2
             item_dict["type"] = type
             item_dict["sub_type"] = sub_type
+
             scene.project_data.items[id] = Factory.create_item(item_dict)
             lineedit.setText(lineedit.text().replace(' ', ''))
             do_edit = True

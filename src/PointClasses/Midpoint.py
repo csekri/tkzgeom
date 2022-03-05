@@ -39,9 +39,13 @@ class Midpoint(Point):
         if not all(map(lambda x: items[x].item["type"] == 'point', arguments)):
             return None
         # self-reference condition (self-reference is not permitted)
-        print('self id', self.get_id())
         if self.get_id() in arguments:
             return None
+        # condition for cross reference
+        for id in arguments:
+            deep_depends = items[id].deep_depends_on(items)
+            if self.get_id() in deep_depends:
+                return None
         return self.definition_builder(arguments)
 
     @staticmethod

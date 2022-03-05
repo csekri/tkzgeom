@@ -48,6 +48,11 @@ class OnLine(Point):
         # self-reference condition (self-reference is not permitted)
         if self.get_id() in arguments[:2]:
             return None
+        # condition for cross reference
+        for id in arguments[:2]:
+            deep_depends = items[id].deep_depends_on(items)
+            if self.get_id() in deep_depends:
+                return None
 
         return self.definition_builder(arguments[:2] + [float(arguments[2])])
 
