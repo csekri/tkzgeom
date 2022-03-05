@@ -275,6 +275,11 @@
                 <string>Turtle</string>
                </property>
               </item>
+              <item>
+               <property name="text">
+                <string>From File</string>
+               </property>
+              </item>
              </widget>
             </item>
             <item>
@@ -307,7 +312,7 @@
             <item>
              <widget class="QRadioButton" name="angle_radio">
               <property name="enabled">
-               <bool>false</bool>
+               <bool>true</bool>
               </property>
               <property name="focusPolicy">
                <enum>Qt::NoFocus</enum>
@@ -320,7 +325,7 @@
             <item>
              <widget class="QRadioButton" name="right_angle_radio">
               <property name="enabled">
-               <bool>false</bool>
+               <bool>true</bool>
               </property>
               <property name="focusPolicy">
                <enum>Qt::NoFocus</enum>
@@ -337,7 +342,7 @@
             <item>
              <widget class="QPushButton" name="pushButton">
               <property name="enabled">
-               <bool>false</bool>
+               <bool>true</bool>
               </property>
               <property name="focusPolicy">
                <enum>Qt::NoFocus</enum>
@@ -427,7 +432,7 @@
 }</string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>3</number>
          </property>
          <property name="iconSize">
           <size>
@@ -453,7 +458,7 @@
               <enum>Qt::NoFocus</enum>
              </property>
              <property name="currentIndex">
-              <number>0</number>
+              <number>3</number>
              </property>
              <widget class="QWidget" name="page">
               <property name="geometry">
@@ -479,6 +484,9 @@
                  </item>
                  <item>
                   <widget class="QLineEdit" name="lineEdit_19">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
                    <property name="focusPolicy">
                     <enum>Qt::ClickFocus</enum>
                    </property>
@@ -514,12 +522,19 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QSpinBox" name="spinBox"/>
+                  <widget class="QSpinBox" name="spinBox">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
                  </item>
                 </layout>
                </item>
                <item>
                 <widget class="QCheckBox" name="point_show">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="text">
                   <string>Show</string>
                  </property>
@@ -545,7 +560,7 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>196</width>
+                <width>309</width>
                 <height>543</height>
                </rect>
               </property>
@@ -1180,8 +1195,8 @@ QSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>93</width>
-                <height>118</height>
+                <width>326</width>
+                <height>271</height>
                </rect>
               </property>
               <attribute name="label">
@@ -1205,7 +1220,7 @@ QSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>204</width>
+                <width>309</width>
                 <height>349</height>
                </rect>
               </property>
@@ -1624,8 +1639,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>142</width>
-                <height>148</height>
+                <width>326</width>
+                <height>271</height>
                </rect>
               </property>
               <attribute name="label">
@@ -1810,15 +1825,15 @@ QDoubleSpinBox::down-button {
            <item>
             <widget class="QToolBox" name="toolBox_2">
              <property name="currentIndex">
-              <number>0</number>
+              <number>3</number>
              </property>
              <widget class="QWidget" name="page_5">
               <property name="geometry">
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>125</width>
-                <height>97</height>
+                <width>326</width>
+                <height>271</height>
                </rect>
               </property>
               <attribute name="label">
@@ -1835,7 +1850,11 @@ QDoubleSpinBox::down-button {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLineEdit" name="lineEdit_26"/>
+                  <widget class="QLineEdit" name="lineEdit_26">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
                  </item>
                 </layout>
                </item>
@@ -1855,6 +1874,9 @@ QDoubleSpinBox::down-button {
                </item>
                <item>
                 <widget class="QCheckBox" name="point_show_2">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="text">
                   <string>Show</string>
                  </property>
@@ -1880,7 +1902,7 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>216</width>
+                <width>309</width>
                 <height>427</height>
                </rect>
               </property>
@@ -2358,7 +2380,7 @@ QSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>223</width>
+                <width>309</width>
                 <height>288</height>
                </rect>
               </property>
@@ -2901,7 +2923,7 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>248</width>
+                <width>309</width>
                 <height>288</height>
                </rect>
               </property>
@@ -3867,8 +3889,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>125</width>
-                <height>74</height>
+                <width>326</width>
+                <height>271</height>
                </rect>
               </property>
               <attribute name="label">
@@ -3899,7 +3921,11 @@ QDoubleSpinBox::down-button {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLineEdit" name="lineEdit_29"/>
+                  <widget class="QLineEdit" name="lineEdit_29">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
                  </item>
                 </layout>
                </item>
@@ -3922,53 +3948,2193 @@ QDoubleSpinBox::down-button {
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>0</y>
-                <width>100</width>
-                <height>30</height>
+                <y>-347</y>
+                <width>309</width>
+                <height>618</height>
                </rect>
               </property>
               <attribute name="label">
                <string>Border</string>
               </attribute>
+              <layout class="QVBoxLayout" name="verticalLayout_98">
+               <item>
+                <widget class="QGroupBox" name="groupBox_15">
+                 <property name="focusPolicy">
+                  <enum>Qt::NoFocus</enum>
+                 </property>
+                 <property name="title">
+                  <string>Border Colour</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_90">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_81">
+                    <item>
+                     <widget class="QLabel" name="label_86">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="text">
+                       <string>Colour</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="point_border_colour_name_3">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_82">
+                    <item>
+                     <widget class="QLabel" name="label_93">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="text">
+                       <string>Mix Colour</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="point_border_colour_mix_name_3">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_91">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_89">
+                      <item>
+                       <widget class="QLabel" name="label_94">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Mix Ratio</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="point_border_colour_mixratio_spin_3">
+                        <property name="focusPolicy">
+                         <enum>Qt::ClickFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="point_border_colour_mixratio_slider_3">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_92">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_90">
+                      <item>
+                       <widget class="QLabel" name="label_102">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Colour Strength</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="point_border_colour_strength_spin_3">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="point_border_colour_strength_slider_3">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="groupBox_14">
+                 <property name="focusPolicy">
+                  <enum>Qt::NoFocus</enum>
+                 </property>
+                 <property name="title">
+                  <string>Line Stroke</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_73">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_4">
+                    <item>
+                     <widget class="QLabel" name="label_77">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="text">
+                       <string>Stroke</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="point_line_stroke_3">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="toolTip">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Line stroke type for the border of the point marker.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>solid</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>loosely dashed</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>dashed</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>densely dashed</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>loosely dotted</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>dotted</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>densely dotted</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>loosely dash dot</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>dash dot</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>densely dash dot</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>loosely dash dot dot</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>dash dot dot</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>densely dash dot dot</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>custom</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_73">
+                    <item>
+                     <widget class="QLabel" name="label_84">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="text">
+                       <string>Custom Pattern</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="point_custom_dash_3">
+                      <property name="focusPolicy">
+                       <enum>Qt::ClickFocus</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_74">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_80">
+                      <item>
+                       <widget class="QLabel" name="label_85">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Line Width</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="point_line_width_spin_3">
+                        <property name="focusPolicy">
+                         <enum>Qt::ClickFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="point_line_width_slider_3">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="groupBox_16">
+                 <property name="title">
+                  <string>Double</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_93">
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_94">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_100">
+                      <item>
+                       <widget class="QLabel" name="label_103">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Double Distance</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="segment_double_distance_spin_2">
+                        <property name="focusPolicy">
+                         <enum>Qt::ClickFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="segment_double_distance_slider_2">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <widget class="QGroupBox" name="groupBox_17">
+                    <property name="title">
+                     <string>Colour</string>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_95">
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_101">
+                       <item>
+                        <widget class="QLabel" name="label_104">
+                         <property name="text">
+                          <string>Colour</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QComboBox" name="segment_colour_name_2">
+                         <property name="maxVisibleItems">
+                          <number>20</number>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_102">
+                       <item>
+                        <widget class="QLabel" name="label_105">
+                         <property name="text">
+                          <string>Mix Colour</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QComboBox" name="segment_colour_mix_name_2">
+                         <property name="maxVisibleItems">
+                          <number>20</number>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <layout class="QVBoxLayout" name="verticalLayout_96">
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_103">
+                         <item>
+                          <widget class="QLabel" name="label_106">
+                           <property name="text">
+                            <string>Mix Ratio</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QSpinBox" name="segment_colour_mixratio_spin_2">
+                           <property name="styleSheet">
+                            <string notr="true">QSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                           </property>
+                           <property name="minimum">
+                            <number>0</number>
+                           </property>
+                           <property name="maximum">
+                            <number>100</number>
+                           </property>
+                           <property name="value">
+                            <number>0</number>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <widget class="QSlider" name="segment_colour_mixratio_slider_2">
+                         <property name="styleSheet">
+                          <string notr="true"/>
+                         </property>
+                         <property name="maximum">
+                          <number>100</number>
+                         </property>
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <layout class="QVBoxLayout" name="verticalLayout_97">
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_104">
+                         <item>
+                          <widget class="QLabel" name="label_107">
+                           <property name="text">
+                            <string>Colour Strength</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QSpinBox" name="segment_colour_strength_spin_2">
+                           <property name="styleSheet">
+                            <string notr="true">QSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                           </property>
+                           <property name="minimum">
+                            <number>0</number>
+                           </property>
+                           <property name="maximum">
+                            <number>100</number>
+                           </property>
+                           <property name="value">
+                            <number>0</number>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <widget class="QSlider" name="segment_colour_strength_slider_2">
+                         <property name="styleSheet">
+                          <string notr="true"/>
+                         </property>
+                         <property name="maximum">
+                          <number>100</number>
+                         </property>
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
              </widget>
              <widget class="QWidget" name="page_12">
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>0</y>
-                <width>100</width>
-                <height>30</height>
+                <y>-199</y>
+                <width>309</width>
+                <height>470</height>
                </rect>
               </property>
               <attribute name="label">
                <string>Fill Pattern</string>
               </attribute>
+              <layout class="QVBoxLayout" name="verticalLayout_136">
+               <item>
+                <widget class="QGroupBox" name="groupBox_24">
+                 <property name="title">
+                  <string>Colour</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_133">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_143">
+                    <item>
+                     <widget class="QLabel" name="label_143">
+                      <property name="text">
+                       <string>Colour</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="polygon_marker_colour_name_3">
+                      <property name="maxVisibleItems">
+                       <number>20</number>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_144">
+                    <item>
+                     <widget class="QLabel" name="label_144">
+                      <property name="text">
+                       <string>Mix Colour</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="polygon_marker_colour_mix_name_3">
+                      <property name="maxVisibleItems">
+                       <number>20</number>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_134">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_145">
+                      <item>
+                       <widget class="QLabel" name="label_145">
+                        <property name="text">
+                         <string>Mix Ratio</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QSpinBox" name="polygon_marker_colour_mixratio_spin_3">
+                        <property name="styleSheet">
+                         <string notr="true">QSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                        <property name="minimum">
+                         <number>0</number>
+                        </property>
+                        <property name="maximum">
+                         <number>100</number>
+                        </property>
+                        <property name="value">
+                         <number>0</number>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="polygon_marker_colour_mixratio_slider_3">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="maximum">
+                       <number>100</number>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_135">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_146">
+                      <item>
+                       <widget class="QLabel" name="label_146">
+                        <property name="text">
+                         <string>Colour Strength</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QSpinBox" name="polygon_marker_colour_strength_spin_3">
+                        <property name="styleSheet">
+                         <string notr="true">QSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                        <property name="minimum">
+                         <number>0</number>
+                        </property>
+                        <property name="maximum">
+                         <number>100</number>
+                        </property>
+                        <property name="value">
+                         <number>0</number>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="polygon_marker_colour_strength_slider_3">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="maximum">
+                       <number>100</number>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="groupBox_23">
+                 <property name="title">
+                  <string>Pattern</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_127">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_136">
+                    <item>
+                     <widget class="QLabel" name="label_137">
+                      <property name="text">
+                       <string>Name</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="polygon_pattern_type_3">
+                      <property name="focusPolicy">
+                       <enum>Qt::ClickFocus</enum>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>none</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>solid</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>horizontal lines</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>vertical lines</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>north east lines</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>north west lines</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>grid</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>crosshatch</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>dots</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>crosshatch dots</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>bricks</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>checkerboard</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Lines</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Hatch</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Dots</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Fivepointed stars</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Sixpointed stars</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_128">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_137">
+                      <item>
+                       <widget class="QLabel" name="label_138">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Distance</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="polygon_pattern_distance_spin_3">
+                        <property name="focusPolicy">
+                         <enum>Qt::ClickFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="polygon_pattern_distance_slider_3">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_129">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_138">
+                      <item>
+                       <widget class="QLabel" name="label_139">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Size</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="polygon_pattern_size_spin_3">
+                        <property name="focusPolicy">
+                         <enum>Qt::ClickFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="polygon_pattern_size_slider_3">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_130">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_139">
+                      <item>
+                       <widget class="QLabel" name="label_140">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Rotation</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="polygon_pattern_rotation_spin_3">
+                        <property name="focusPolicy">
+                         <enum>Qt::ClickFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                        <property name="maximum">
+                         <double>360.000000000000000</double>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="polygon_pattern_rotation_slider_3">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_140">
+                    <item>
+                     <layout class="QVBoxLayout" name="verticalLayout_131">
+                      <item>
+                       <layout class="QHBoxLayout" name="horizontalLayout_141">
+                        <item>
+                         <widget class="QLabel" name="label_141">
+                          <property name="focusPolicy">
+                           <enum>Qt::NoFocus</enum>
+                          </property>
+                          <property name="text">
+                           <string>X Shift</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QDoubleSpinBox" name="polygon_pattern_xshift_spin_3">
+                          <property name="focusPolicy">
+                           <enum>Qt::ClickFocus</enum>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                      <item>
+                       <widget class="QSlider" name="polygon_pattern_xshift_slider_3">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true"/>
+                        </property>
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QVBoxLayout" name="verticalLayout_132">
+                      <item>
+                       <layout class="QHBoxLayout" name="horizontalLayout_142">
+                        <item>
+                         <widget class="QLabel" name="label_142">
+                          <property name="focusPolicy">
+                           <enum>Qt::NoFocus</enum>
+                          </property>
+                          <property name="text">
+                           <string>Y Shift</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QDoubleSpinBox" name="polygon_pattern_yshift_spin_3">
+                          <property name="focusPolicy">
+                           <enum>Qt::ClickFocus</enum>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                      <item>
+                       <widget class="QSlider" name="polygon_pattern_yshift_slider_3">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true"/>
+                        </property>
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
              </widget>
              <widget class="QWidget" name="page_13">
               <property name="geometry">
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>100</width>
-                <height>30</height>
+                <width>326</width>
+                <height>271</height>
                </rect>
               </property>
               <attribute name="label">
                <string>Origin Arrow</string>
               </attribute>
+              <layout class="QVBoxLayout" name="verticalLayout_140">
+               <item>
+                <widget class="QGroupBox" name="groupBox_25">
+                 <property name="title">
+                  <string>Arrow</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_137">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_147">
+                    <item>
+                     <widget class="QLabel" name="label_20">
+                      <property name="text">
+                       <string>Tip</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="segment_o_tip_2">
+                      <property name="focusPolicy">
+                       <enum>Qt::ClickFocus</enum>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>None</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>stealth</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>stealth round</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>stealth open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>stealth open round</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>&lt;</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>&gt;</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>latex</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>latex round</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>latex open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>latex open round</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>to / classical tikz rightarrow</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>computer modern rightarrow</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>implies</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>butt cap</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>fast round</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>fast triangle</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>round cap</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>triangle cap</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>circle</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>circle open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>diamond</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>diamond open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>ellipse</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>ellipse open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>kite</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>kite open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>rectangle</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>rectangle open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>square</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>square open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>triangle</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>triangle open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>turned square</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>turned square open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>arc barb</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>bar</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>bracket</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>hooks</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>parenthesis</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>straight barb</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>tee barb</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_148">
+                    <item>
+                     <widget class="QLabel" name="label_147">
+                      <property name="text">
+                       <string>Side</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="segment_o_side_2">
+                      <item>
+                       <property name="text">
+                        <string>Both</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Left</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Right</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="segment_o_reversed_2">
+                      <property name="text">
+                       <string>Reversed</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_138">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_149">
+                      <item>
+                       <widget class="QLabel" name="label_148">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Length</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="segment_o_length_spin_2">
+                        <property name="focusPolicy">
+                         <enum>Qt::ClickFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="segment_o_length_slider_2">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_139">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_150">
+                      <item>
+                       <widget class="QLabel" name="label_149">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Width</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="segment_o_width_spin_2">
+                        <property name="focusPolicy">
+                         <enum>Qt::ClickFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="segment_o_width_slider_2">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
              </widget>
              <widget class="QWidget" name="page_14">
               <property name="geometry">
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>100</width>
-                <height>30</height>
+                <width>326</width>
+                <height>271</height>
                </rect>
               </property>
               <attribute name="label">
                <string>Destination Arrow</string>
               </attribute>
+              <layout class="QVBoxLayout" name="verticalLayout_144">
+               <item>
+                <widget class="QGroupBox" name="groupBox_26">
+                 <property name="title">
+                  <string>Arrow</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_141">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_151">
+                    <item>
+                     <widget class="QLabel" name="label_150">
+                      <property name="text">
+                       <string>Tip</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="segment_d_tip_2">
+                      <property name="focusPolicy">
+                       <enum>Qt::ClickFocus</enum>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>None</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>stealth</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>stealth round</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>stealth open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>stealth open round</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>&lt;</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>&gt;</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>latex</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>latex round</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>latex open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>latex open round</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>to / classical tikz rightarrow</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>computer modern rightarrow</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>implies</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>butt cap</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>fast round</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>fast triangle</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>round cap</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>triangle cap</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>circle</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>circle open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>diamond</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>diamond open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>ellipse</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>ellipse open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>kite</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>kite open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>rectangle</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>rectangle open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>square</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>square open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>triangle</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>triangle open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>turned square</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>turned square open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>arc barb</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>bar</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>bracket</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>hooks</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>parenthesis</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>straight barb</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>tee barb</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_152">
+                    <item>
+                     <widget class="QLabel" name="label_151">
+                      <property name="text">
+                       <string>Side</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="segment_d_side_2">
+                      <item>
+                       <property name="text">
+                        <string>Both</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Left</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Right</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="segment_d_reversed_2">
+                      <property name="text">
+                       <string>Reversed</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_142">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_153">
+                      <item>
+                       <widget class="QLabel" name="label_152">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Length</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="segment_d_length_spin_2">
+                        <property name="focusPolicy">
+                         <enum>Qt::ClickFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="segment_d_length_slider_2">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_143">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_154">
+                      <item>
+                       <widget class="QLabel" name="label_153">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Width</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="segment_d_width_spin_2">
+                        <property name="focusPolicy">
+                         <enum>Qt::ClickFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="segment_d_width_slider_2">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </widget>
            </item>
@@ -3986,15 +6152,15 @@ QDoubleSpinBox::down-button {
            <item>
             <widget class="QToolBox" name="toolBox_4">
              <property name="currentIndex">
-              <number>0</number>
+              <number>3</number>
              </property>
              <widget class="QWidget" name="page_15">
               <property name="geometry">
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>125</width>
-                <height>97</height>
+                <width>326</width>
+                <height>298</height>
                </rect>
               </property>
               <attribute name="label">
@@ -4011,7 +6177,11 @@ QDoubleSpinBox::down-button {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLineEdit" name="lineEdit_28"/>
+                  <widget class="QLineEdit" name="lineEdit_28">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
                  </item>
                 </layout>
                </item>
@@ -4031,6 +6201,9 @@ QDoubleSpinBox::down-button {
                </item>
                <item>
                 <widget class="QCheckBox" name="point_show_3">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="text">
                   <string>Show</string>
                  </property>
@@ -4056,7 +6229,7 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>272</width>
+                <width>309</width>
                 <height>470</height>
                </rect>
               </property>
@@ -5347,8 +7520,8 @@ QDoubleSpinBox::down-button {
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>0</y>
-                <width>204</width>
+                <y>-73</y>
+                <width>309</width>
                 <height>371</height>
                </rect>
               </property>
@@ -5378,7 +7551,7 @@ QDoubleSpinBox::down-button {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QComboBox" name="point_border_colour_name_2">
+                     <widget class="QComboBox" name="polygon_border_colour_name">
                       <property name="focusPolicy">
                        <enum>Qt::NoFocus</enum>
                       </property>
@@ -5399,7 +7572,7 @@ QDoubleSpinBox::down-button {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QComboBox" name="point_border_colour_mix_name_2">
+                     <widget class="QComboBox" name="polygon_border_colour_mix_name">
                       <property name="focusPolicy">
                        <enum>Qt::NoFocus</enum>
                       </property>
@@ -5422,7 +7595,7 @@ QDoubleSpinBox::down-button {
                        </widget>
                       </item>
                       <item>
-                       <widget class="QDoubleSpinBox" name="point_border_colour_mixratio_spin_2">
+                       <widget class="QDoubleSpinBox" name="polygon_border_colour_mixratio_spin">
                         <property name="focusPolicy">
                          <enum>Qt::ClickFocus</enum>
                         </property>
@@ -5462,7 +7635,7 @@ QDoubleSpinBox::down-button {
                      </layout>
                     </item>
                     <item>
-                     <widget class="QSlider" name="point_border_colour_mixratio_slider_2">
+                     <widget class="QSlider" name="polygon_border_colour_mixratio_slider">
                       <property name="focusPolicy">
                        <enum>Qt::NoFocus</enum>
                       </property>
@@ -5491,7 +7664,7 @@ QDoubleSpinBox::down-button {
                        </widget>
                       </item>
                       <item>
-                       <widget class="QDoubleSpinBox" name="point_border_colour_strength_spin_2">
+                       <widget class="QDoubleSpinBox" name="polygon_border_colour_strength_spin">
                         <property name="focusPolicy">
                          <enum>Qt::NoFocus</enum>
                         </property>
@@ -5531,7 +7704,7 @@ QDoubleSpinBox::down-button {
                      </layout>
                     </item>
                     <item>
-                     <widget class="QSlider" name="point_border_colour_strength_slider_2">
+                     <widget class="QSlider" name="polygon_border_colour_strength_slider">
                       <property name="focusPolicy">
                        <enum>Qt::NoFocus</enum>
                       </property>
@@ -5570,7 +7743,7 @@ QDoubleSpinBox::down-button {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QComboBox" name="point_line_stroke_2">
+                     <widget class="QComboBox" name="polygon_line_stroke">
                       <property name="focusPolicy">
                        <enum>Qt::NoFocus</enum>
                       </property>
@@ -5664,7 +7837,7 @@ QDoubleSpinBox::down-button {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="point_custom_dash_2">
+                     <widget class="QLineEdit" name="polygon_custom_dash">
                       <property name="focusPolicy">
                        <enum>Qt::ClickFocus</enum>
                       </property>
@@ -5687,7 +7860,7 @@ QDoubleSpinBox::down-button {
                        </widget>
                       </item>
                       <item>
-                       <widget class="QDoubleSpinBox" name="point_line_width_spin_2">
+                       <widget class="QDoubleSpinBox" name="polygon_line_width_spin">
                         <property name="focusPolicy">
                          <enum>Qt::ClickFocus</enum>
                         </property>
@@ -5727,7 +7900,7 @@ QDoubleSpinBox::down-button {
                      </layout>
                     </item>
                     <item>
-                     <widget class="QSlider" name="point_line_width_slider_2">
+                     <widget class="QSlider" name="polygon_line_width_slider">
                       <property name="focusPolicy">
                        <enum>Qt::NoFocus</enum>
                       </property>
@@ -5754,7 +7927,7 @@ QDoubleSpinBox::down-button {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QComboBox" name="comboBox_3">
+                  <widget class="QComboBox" name="polygon_line_junction">
                    <item>
                     <property name="text">
                      <string>Round</string>
@@ -5788,6 +7961,1980 @@ QDoubleSpinBox::down-button {
           <attribute name="title">
            <string/>
           </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_173">
+           <item>
+            <widget class="QToolBox" name="toolBox_5">
+             <property name="currentIndex">
+              <number>1</number>
+             </property>
+             <widget class="QWidget" name="page_24">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>326</width>
+                <height>271</height>
+               </rect>
+              </property>
+              <attribute name="label">
+               <string>Definition</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="verticalLayout_145">
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_155">
+                 <item>
+                  <widget class="QLabel" name="label_154">
+                   <property name="text">
+                    <string>Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEdit_31">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_156">
+                 <item>
+                  <widget class="QLabel" name="label_155">
+                   <property name="text">
+                    <string>Definition</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="linestring_def_str"/>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="point_show_5">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="text">
+                  <string>Show</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_18">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>247</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page_26">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>316</width>
+                <height>330</height>
+               </rect>
+              </property>
+              <attribute name="label">
+               <string>Line Strategy</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="verticalLayout_156">
+               <item>
+                <widget class="QTabWidget" name="tabWidget_4">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
+                 <property name="currentIndex">
+                  <number>0</number>
+                 </property>
+                 <widget class="QWidget" name="tab_11">
+                  <attribute name="title">
+                   <string>Segments</string>
+                  </attribute>
+                  <layout class="QVBoxLayout" name="verticalLayout_157">
+                   <item>
+                    <layout class="QVBoxLayout" name="verticalLayout_158">
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_168">
+                       <item>
+                        <widget class="QLabel" name="label_166">
+                         <property name="focusPolicy">
+                          <enum>Qt::NoFocus</enum>
+                         </property>
+                         <property name="text">
+                          <string>Rouded Corners</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QDoubleSpinBox" name="point_line_width_spin_19">
+                         <property name="focusPolicy">
+                          <enum>Qt::ClickFocus</enum>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <widget class="QSlider" name="point_line_width_slider_19">
+                       <property name="focusPolicy">
+                        <enum>Qt::NoFocus</enum>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true"/>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <spacer name="verticalSpacer_19">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeType">
+                      <enum>QSizePolicy::Ignored</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </widget>
+                 <widget class="QWidget" name="tab_12">
+                  <attribute name="title">
+                   <string>Orig/Dest Angle</string>
+                  </attribute>
+                  <layout class="QVBoxLayout" name="verticalLayout_159">
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_169">
+                     <item>
+                      <layout class="QVBoxLayout" name="verticalLayout_160">
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_170">
+                         <item>
+                          <widget class="QLabel" name="label_167">
+                           <property name="focusPolicy">
+                            <enum>Qt::NoFocus</enum>
+                           </property>
+                           <property name="text">
+                            <string>Orig Angle</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QDoubleSpinBox" name="point_line_width_spin_20">
+                           <property name="focusPolicy">
+                            <enum>Qt::ClickFocus</enum>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <widget class="QSlider" name="point_line_width_slider_20">
+                         <property name="focusPolicy">
+                          <enum>Qt::NoFocus</enum>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true"/>
+                         </property>
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <layout class="QVBoxLayout" name="verticalLayout_161">
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_171">
+                         <item>
+                          <widget class="QLabel" name="label_168">
+                           <property name="focusPolicy">
+                            <enum>Qt::NoFocus</enum>
+                           </property>
+                           <property name="text">
+                            <string>Dest Angle</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QDoubleSpinBox" name="point_line_width_spin_21">
+                           <property name="focusPolicy">
+                            <enum>Qt::ClickFocus</enum>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <widget class="QSlider" name="point_line_width_slider_21">
+                         <property name="focusPolicy">
+                          <enum>Qt::NoFocus</enum>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true"/>
+                         </property>
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="checkBox_6">
+                     <property name="text">
+                      <string>Self-Loop</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                 <widget class="QWidget" name="tab_13">
+                  <attribute name="title">
+                   <string>Bended</string>
+                  </attribute>
+                  <layout class="QVBoxLayout" name="verticalLayout_162">
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_172">
+                     <item>
+                      <widget class="QLabel" name="label_169">
+                       <property name="text">
+                        <string>Direction</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QRadioButton" name="radioButton_5">
+                       <property name="text">
+                        <string>Left</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QRadioButton" name="radioButton_6">
+                       <property name="text">
+                        <string>Right</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QVBoxLayout" name="verticalLayout_163">
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_173">
+                       <item>
+                        <widget class="QLabel" name="label_170">
+                         <property name="focusPolicy">
+                          <enum>Qt::NoFocus</enum>
+                         </property>
+                         <property name="text">
+                          <string>Bend Angle</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QDoubleSpinBox" name="point_line_width_spin_22">
+                         <property name="focusPolicy">
+                          <enum>Qt::ClickFocus</enum>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <widget class="QSlider" name="point_line_width_slider_22">
+                       <property name="focusPolicy">
+                        <enum>Qt::NoFocus</enum>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true"/>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </widget>
+                 <widget class="QWidget" name="tab_14">
+                  <attribute name="title">
+                   <string>Smooth</string>
+                  </attribute>
+                 </widget>
+                </widget>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="groupBox_29">
+                 <property name="title">
+                  <string>Decoration</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_164">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_174">
+                    <item>
+                     <widget class="QLabel" name="label_171">
+                      <property name="text">
+                       <string>Type</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="polygon_decoration_type_3">
+                      <property name="focusPolicy">
+                       <enum>Qt::ClickFocus</enum>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>none</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>text along curve</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>zigzag</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>saw</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>random steps</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>bumps</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>coil</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>snake</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_165">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_175">
+                      <item>
+                       <widget class="QLabel" name="label_172">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Amplitude</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="polygon_amplitude_spin_3">
+                        <property name="focusPolicy">
+                         <enum>Qt::ClickFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="polygon_amplitude_slider_3">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_166">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_176">
+                      <item>
+                       <widget class="QLabel" name="label_173">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Wavelength</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="polygon_wavelength_spin_3">
+                        <property name="focusPolicy">
+                         <enum>Qt::ClickFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="polygon_wavelength_slider_3">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_177">
+                    <item>
+                     <widget class="QLabel" name="label_174">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="text">
+                       <string>Text</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="polygon_decoration_text_3">
+                      <property name="focusPolicy">
+                       <enum>Qt::ClickFocus</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_20">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>84</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page_27">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>309</width>
+                <height>371</height>
+               </rect>
+              </property>
+              <attribute name="label">
+               <string>Border</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="verticalLayout_167">
+               <item>
+                <widget class="QGroupBox" name="groupBox_30">
+                 <property name="focusPolicy">
+                  <enum>Qt::NoFocus</enum>
+                 </property>
+                 <property name="title">
+                  <string>Border Colour</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_168">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_178">
+                    <item>
+                     <widget class="QLabel" name="label_175">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="text">
+                       <string>Colour</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="point_border_colour_name_5">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_179">
+                    <item>
+                     <widget class="QLabel" name="label_176">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="text">
+                       <string>Mix Colour</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="point_border_colour_mix_name_5">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_169">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_180">
+                      <item>
+                       <widget class="QLabel" name="label_177">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Mix Ratio</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="point_border_colour_mixratio_spin_5">
+                        <property name="focusPolicy">
+                         <enum>Qt::ClickFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="point_border_colour_mixratio_slider_5">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_170">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_181">
+                      <item>
+                       <widget class="QLabel" name="label_178">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Colour Strength</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="point_border_colour_strength_spin_5">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="point_border_colour_strength_slider_5">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="groupBox_31">
+                 <property name="focusPolicy">
+                  <enum>Qt::NoFocus</enum>
+                 </property>
+                 <property name="title">
+                  <string>Line Stroke</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_171">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_182">
+                    <item>
+                     <widget class="QLabel" name="label_179">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="text">
+                       <string>Stroke</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="point_line_stroke_5">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="toolTip">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Line stroke type for the border of the point marker.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>solid</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>loosely dashed</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>dashed</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>densely dashed</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>loosely dotted</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>dotted</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>densely dotted</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>loosely dash dot</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>dash dot</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>densely dash dot</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>loosely dash dot dot</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>dash dot dot</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>densely dash dot dot</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>custom</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_183">
+                    <item>
+                     <widget class="QLabel" name="label_180">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="text">
+                       <string>Custom Pattern</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="point_custom_dash_5">
+                      <property name="focusPolicy">
+                       <enum>Qt::ClickFocus</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_172">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_184">
+                      <item>
+                       <widget class="QLabel" name="label_181">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Line Width</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="point_line_width_spin_5">
+                        <property name="focusPolicy">
+                         <enum>Qt::ClickFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="point_line_width_slider_5">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_185">
+                 <item>
+                  <widget class="QLabel" name="label_182">
+                   <property name="text">
+                    <string>Line Junction</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="comboBox_5">
+                   <item>
+                    <property name="text">
+                     <string>Round</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Bevel</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Miter</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page_25">
+              <attribute name="label">
+               <string>Origin Arrow</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="verticalLayout_149">
+               <item>
+                <widget class="QGroupBox" name="groupBox_27">
+                 <property name="title">
+                  <string>Arrow</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_146">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_157">
+                    <item>
+                     <widget class="QLabel" name="label_156">
+                      <property name="text">
+                       <string>Tip</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="segment_o_tip_3">
+                      <property name="focusPolicy">
+                       <enum>Qt::ClickFocus</enum>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>None</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>stealth</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>stealth round</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>stealth open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>stealth open round</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>&lt;</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>&gt;</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>latex</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>latex round</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>latex open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>latex open round</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>to / classical tikz rightarrow</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>computer modern rightarrow</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>implies</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>butt cap</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>fast round</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>fast triangle</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>round cap</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>triangle cap</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>circle</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>circle open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>diamond</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>diamond open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>ellipse</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>ellipse open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>kite</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>kite open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>rectangle</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>rectangle open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>square</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>square open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>triangle</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>triangle open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>turned square</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>turned square open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>arc barb</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>bar</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>bracket</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>hooks</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>parenthesis</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>straight barb</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>tee barb</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_158">
+                    <item>
+                     <widget class="QLabel" name="label_157">
+                      <property name="text">
+                       <string>Side</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="segment_o_side_3">
+                      <item>
+                       <property name="text">
+                        <string>Both</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Left</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Right</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="segment_o_reversed_3">
+                      <property name="text">
+                       <string>Reversed</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_147">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_159">
+                      <item>
+                       <widget class="QLabel" name="label_158">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Length</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="segment_o_length_spin_3">
+                        <property name="focusPolicy">
+                         <enum>Qt::ClickFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="segment_o_length_slider_3">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_148">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_160">
+                      <item>
+                       <widget class="QLabel" name="label_159">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Width</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="segment_o_width_spin_3">
+                        <property name="focusPolicy">
+                         <enum>Qt::ClickFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="segment_o_width_slider_3">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page_28">
+              <attribute name="label">
+               <string>Destination Arrow</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="verticalLayout_153">
+               <item>
+                <widget class="QGroupBox" name="groupBox_28">
+                 <property name="title">
+                  <string>Arrow</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_150">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_161">
+                    <item>
+                     <widget class="QLabel" name="label_160">
+                      <property name="text">
+                       <string>Tip</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="segment_d_tip_3">
+                      <property name="focusPolicy">
+                       <enum>Qt::ClickFocus</enum>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>None</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>stealth</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>stealth round</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>stealth open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>stealth open round</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>&lt;</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>&gt;</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>latex</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>latex round</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>latex open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>latex open round</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>to / classical tikz rightarrow</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>computer modern rightarrow</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>implies</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>butt cap</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>fast round</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>fast triangle</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>round cap</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>triangle cap</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>circle</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>circle open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>diamond</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>diamond open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>ellipse</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>ellipse open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>kite</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>kite open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>rectangle</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>rectangle open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>square</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>square open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>triangle</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>triangle open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>turned square</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>turned square open</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>arc barb</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>bar</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>bracket</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>hooks</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>parenthesis</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>straight barb</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>tee barb</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_162">
+                    <item>
+                     <widget class="QLabel" name="label_161">
+                      <property name="text">
+                       <string>Side</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="segment_d_side_3">
+                      <item>
+                       <property name="text">
+                        <string>Both</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Left</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Right</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="segment_d_reversed_3">
+                      <property name="text">
+                       <string>Reversed</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_151">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_163">
+                      <item>
+                       <widget class="QLabel" name="label_162">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Length</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="segment_d_length_spin_3">
+                        <property name="focusPolicy">
+                         <enum>Qt::ClickFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="segment_d_length_slider_3">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_152">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_164">
+                      <item>
+                       <widget class="QLabel" name="label_163">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Width</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="segment_d_width_spin_3">
+                        <property name="focusPolicy">
+                         <enum>Qt::ClickFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="segment_d_width_slider_3">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+          </layout>
          </widget>
          <widget class="QWidget" name="function_tab">
           <attribute name="icon">

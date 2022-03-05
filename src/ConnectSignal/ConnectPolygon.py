@@ -45,5 +45,14 @@ def connect_polygon(scene):
         scene.ui.polygon_wavelength_spin, scene.ui.polygon_wavelength_slider,
         scene.ui.polygon_decoration_text)
 
+    connect_colour(scene, ['line', 'colour'],
+        scene.ui.polygon_border_colour_name,
+        scene.ui.polygon_border_colour_mix_name,
+        scene.ui.polygon_border_colour_mixratio_spin,
+        scene.ui.polygon_border_colour_mixratio_slider,
+        scene.ui.polygon_border_colour_strength_spin,
+        scene.ui.polygon_border_colour_strength_slider)
+
+
     scene.ui.polygon_def_str.editingFinished.connect(
         lambda : connect_def_str_lineedit_abstract(scene, scene.ui.polygon_def_str))

@@ -67,7 +67,7 @@
 
 ## Example of editing an existing project
 
-![anim](demos/prezi.gif)
+![anim](demos/prezi_2.gif)
 
 ## Animated video using a saved session from TkzGeom
 

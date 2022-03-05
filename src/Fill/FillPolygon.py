@@ -39,6 +39,14 @@ def fill_polygon_fields(scene):
         scene.ui.polygon_pattern_yshift_spin,
         scene.ui.polygon_pattern_yshift_slider)
 
+    fill_colour(scene, polygon["line"]["colour"], colours,
+        scene.ui.polygon_border_colour_name,
+        scene.ui.polygon_border_colour_mix_name,
+        scene.ui.polygon_border_colour_mixratio_spin,
+        scene.ui.polygon_border_colour_mixratio_slider,
+        scene.ui.polygon_border_colour_strength_spin,
+        scene.ui.polygon_border_colour_strength_slider)
+
     fill_decoration(scene, polygon["line"]["decoration"],
         scene.ui.polygon_decoration_type,
         scene.ui.polygon_amplitude_spin, scene.ui.polygon_amplitude_slider,
