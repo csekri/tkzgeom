@@ -2,43 +2,24 @@
 ![icon](icon/ico_big.png)
 # TkzGeom
 
-*This is a rewrite of the original software from the ground up. It is in early stages of development, hence expect missing features and bugs. You find the working original version in the branch named "old_version".*
+*This is a rewrite of the original software from the ground up.
+It is in early stages of development, hence expect missing features and bugs.
+You find the working original version in the GitHub branch named "old_version".*
 
-*The reason of the rewriting is to redesign the program in OOP style, reducing the repetitive codebase and allowing for easier future scalability. Having developed the original program gives the best insight for engineering/design improvement possibilities in this new version.*
-
-
-*Planned additional features:*
-- *native support for a wide range of commutative diagrams*
-- *anti-aliased canvas items*
-- *tikz double line*
-- *adding user-defined RGB based colours, improved colour management*
-- *continuous keypress to enable move point feature and move canvas feature*
-- *the properties dialog embedded in the main window, as well as more intuitively grouped widgets*
-- *all items have unique ID/name, that can be modified for easier navigation*
-- *in QlistWidget, multiple items can be selected and edited simultaneously*
-- *toolTip to be added to most widgets*
-- *titlebar including project status*
-- *other optimisations/beautifications*
-
->*Under **Windows** OS Alt press moves points*, *CTRL press moves the canvas.*
-
->*Under **Linux** OS AltGr press moves points*, *CTRL press moves the canvas.*
-
-> *README will be updated when most objectives are met.*
-
-**Binaries:**
-
-- old version for Windows 10:\
-<a href="https://mega.nz/file/58cHAQJJ#ViVTsIa1EE4nqlMXZhILufJB4re2-jTaOdPdLnbHbJU">tkzgeom_old_version.zip</a>
-
-- new version (incomplete) for Window 10:\
-<a href="https://mega.nz/file/AgdDzSAK#jkwmAbc_CtISYdXjymspLg0GcvkljpCuoTwbWrEcpnE">tkzgeom_2022_03_01_snapshot.zip</a>
-\
-<a href="https://mega.nz/file/Ys9V1aSZ#B21VUB__qZu1P33JiwOEu75nR9twWnf3cXWaqcaOPmA">tkzgeom_2022_03_04_snapshot.zip</a>
-
-**TkzGeom** is a GUI tool to create publication quality figures in *.tex* or *.pdf* format. It aids and speeds up the production of a wide range of tikz images.
+*The reason of the rewriting is to redesign the program in OOP style,
+reducing the repetitive codebase and allowing for easier future scalability.
+Having developed the original program gives the best insight for
+engineering/design improvement possibilities in this new version.*
 
 
+TkzGeom is a perfect GUI tool for the creation of publication quality figures
+including but not limited to the following domains:
+
+1. commutative diagrams
+2. graphs and networks
+3. Euclidean geometry in 2d
+4. circuit diagrams (non natively)
+5. other simple diagrams/figures
 
 
 # Contents
@@ -47,62 +28,75 @@
 - [TkzGeom](#tkzgeom)
 - [Contents](#contents)
 - [Demos](#demos)
-	- [Example of editing an existing project](#example-of-editing-an-existing-project)
-	- [Animated video using a saved session from TkzGeom](#animated-video-using-a-saved-session-from-tkzgeom)
+	- [Example of editing a project](#example-of-editing-a-project)
 - [Requirements](#requirements)
 - [Usage](#usage)
+	- [Move points on the canvas](#move-points-on-the-canvas)
+	- [Move the canvas](#move-the-canvas)
 - [Features](#features)
 - [Shortcuts](#shortcuts)
-- [Object explanation](#object-explanation)
-	- [Point](#point)
-	- [Segment](#segment)
-	- [Circle](#circle)
-	- [Interactions](#interactions)
-	- [Decorators](#decorators)
 - [Limitations](#limitations)
+- [Binaries](#binaries)
 
 <!-- /TOC -->
 
 # Demos
 
-## Example of editing an existing project
+## Example of editing a project
 
 ![anim](demos/prezi_2.gif)
 
-## Animated video using a saved session from TkzGeom
-
-![anim](demos/anim.gif)
-
-> Note that these demos are reduced in size and frame rate.
+> Note that this animation is reduced in size and frame rate.
 
 # Requirements
 
-- TexLive 2019 or newer or MiKTeX 2019 or newer (have not tested MiKTeX but should work in principle), the program runs without it as long as auto-compile is turned off, and the project is never compiled but it results in user experience without visual feedback.
-- A PDF to JPG converter, the default converter is `pdftocairo`, which is part of TexLive. This can be configured in the settings menu.
-- `Gnuplot`, this is needed only when functions are in the figure.
-- Libraries for Python can be installed using `pip install -r requirements.txt`. Note that here `Pygments` is not needed, only if the user wants to try other syntax highlighting than the built in.
+- **TeXLive 2019 or newer** or MiKTeX 2019 or newer
+  (have not tested MiKTeX but should work in principle), more information
+  TeXLive installation here: <a href="https://www.tug.org/texlive/acquire-netinstall.html">
+  download texlive</a> (also make sure that the system environment variables
+  are set up)
+
+- A **pdf to png converter**, the default converter is `pdftocairo`,
+  which is part of TeXLive. This can be configured in the settings menu.
+
+- Libraries for Python can be installed using `pip install -r requirements.txt`.
+  Note that here `Pygments` is not needed, only if the user wants to try other
+  syntax highlighting than the built in.
 
 # Usage
 
-1. Run the `Makefile` by running make in the root folder of the program.
-2. From the radio button at the top of the screen choose the object type you would like to draw.
-3. In the corresponding droplist select the item to be added. Functions can be added on the separate click button.
-4. Click on the canvas or on existing objects.
-5. Once the object exists, "Right Click" the canvas and fine tune the appearance of the objects.
-6. Move the free points on the canvas or the canvas itself by choosing the "interactions" radio button. Zoom the canvas in/out using the slider on the right hand side.
+1. Run the software (run the makefile or the executable)
+2. At the top of the window, select a tool.
+3. Click on the canvas or select existing objects on the canvas.
+4. Modify the appearance of object in the right-hand side of the window.
+5. Copy the tikz code and paste it into your document.
+6. Save the project so that it can be opened and modified later.
+
+## Move points on the canvas
+
+Hover the mouse pointer over a free point. Press and hold **Alt** on Windows,
+**AltGr** on Linux. Move the mouse the its new location while keeping the key pressed.
+Release the key.
+
+## Move the canvas
+
+Move the mouse pointer to the canvas. Press and hold **Ctrl**. Move the mouse to
+a new place. Release the key.
 
 # Features
 
 1. instantly generated TikZ code,
-2. move free points on the canvas,
+2. move points on the canvas,
 3. auto compilation into PDF for visual feedback,
-4. additional packages and libraries can be added,
-5. additional tikz code can be added after the generated code, so unimplemented features can be used on the user defined points, e.g. this can be used to define electric circuits with ease,
-6. additional code can be added before the image, this is useful e.g. for `\newcommand`s,
-7. perfect tool for visualising figures in Euclidean geometry,
-8. projects can be saved, and loaded in the popular JSON extension, loading such file in a programming language with `openCV` can create animated videos.
+4. additional packages and libraries can be added *(not yet implemented)*,
+5. additional tikz code can be added after the generated code, so unimplemented
+   features can be used on the user defined points, e.g. this can be used to
+   define electric circuits with ease *(not yet implemented)*,
+6. additional code can be added before the image, this is useful
+e.g. for `\newcommand`s *(not yet implemented)*,
+8. projects can be saved, and loaded in the popular JSON extension.
 
-> Basic knowledge of tikz helps making the most out of this software.
+> Basic knowledge of tikz helps make the most out of this software.
 
 # Shortcuts
 
@@ -117,8 +111,9 @@
 |CTRL+SHIFT+S    |save as                             |
 |CTRL+N          |create new project                  |
 
-# Object explanation
-## Point
+<!--
+/# Object explanation
+/## Point
 **point**: click <ins>anywhere</ins> on the canvas;
 defines a point at any coordinate,
 
@@ -155,7 +150,7 @@ defines a point on rotated by a given angle around another point
 **make grid**: click <ins>three points and rows and columns</ins> in a popup window (these points will span the grid);
 defines the lattice of points generated by the three selected points (movement of the three points results in the entire lattice move)
 
-## Segment
+/## Segment
 
 **segment**: click <ins>two points</ins>;
 defines a segment connecting the two points
@@ -166,7 +161,7 @@ defines a polygon object
 **linestring**: click <ins>the vertices of the linestring and the last vertex again</ins> to conclude;
 defines a linestring object
 
-## Circle
+/## Circle
 
 **circumscribed circle**: click <ins>three points</ins>;
 defines the circumscribed circle around three points
@@ -182,18 +177,33 @@ defines a sector with first point as center, the other two defining the radius a
 
 **inscribed circle**: click <ins>three points</ins>;
 defines the inscribed circle around three points
-## Interactions
+/## Interactions
 **move point**: drag free points the change their positions
 
 **move canvas**: drag canvas to a new position
-## Decorators
+/## Decorators
 **mark angle**: click <ins>three points</ins>;
 defines an arc to show the presence of an angle
 
 **mark right angle**: click <ins>three points</ins>;
 defines an arc to show the presence of a right angle
+-->
 
 # Limitations
 
-A select of features are included as part of the GUI, enough to cover most everyday situations, but does not aim to be comprehensive. To mitigate this issue, there is an option to add any code after the automatically generated code, and also to add other LaTeX packages/libraries.
-The draw order of objects is predetermined, there is no built in way to change this. (e.g. segments are always drawn above polygons.)
+Select features are included as part of the GUI, enough to cover most everyday
+situations, but does not aim to be comprehensive. To mitigate this issue,
+there is an option to add any code after the automatically generated code,
+and also to add other LaTeX packages/libraries. The draw order of objects is
+predetermined, there is no built in way to change this.
+(e.g. segments are always drawn above polygons.)
+
+# Binaries
+
+- old version for Windows 10:\
+<a href="https://mega.nz/file/58cHAQJJ#ViVTsIa1EE4nqlMXZhILufJB4re2-jTaOdPdLnbHbJU">tkzgeom_old_version.zip</a>
+
+- new version (incomplete) for Window 10:\
+<a href="https://mega.nz/file/AgdDzSAK#jkwmAbc_CtISYdXjymspLg0GcvkljpCuoTwbWrEcpnE">tkzgeom_2022_03_01_snapshot.zip</a>
+\
+<a href="https://mega.nz/file/Ys9V1aSZ#B21VUB__qZu1P33JiwOEu75nR9twWnf3cXWaqcaOPmA">tkzgeom_2022_03_04_snapshot.zip</a>

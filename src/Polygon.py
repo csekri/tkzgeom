@@ -10,6 +10,7 @@ from Tikzifyables.Fillable import Fillable
 from Tikzifyables.Decorationable import Decorationable
 import Constant as c
 
+
 class Polygon(Item, DashPatternable, LineColourable, Fillable, Decorationable):
     def __init__(self, item):
         Item.__init__(self, item)
@@ -24,6 +25,7 @@ class Polygon(Item, DashPatternable, LineColourable, Fillable, Decorationable):
         options = [
             self.tikzify_dash(),
             'draw=' + self.tikzify_line_colour(),
+            '' if self.item["line"]["line_width"] == c.Point.Default.LINE_WIDTH else f'line width={self.item["line"]["line_width"]}',
             self.tikzify_fill_pattern(),
             self.tikzify_decoration()
         ]
@@ -56,8 +58,6 @@ class Polygon(Item, DashPatternable, LineColourable, Fillable, Decorationable):
         pen.setStyle(QtCore.Qt.NoPen)
         polygon_item.setPen(pen)
         scene.addItem(polygon_item)
-
-
 
     def is_inside(self, x, y, items):
         polygon_coordinates = []

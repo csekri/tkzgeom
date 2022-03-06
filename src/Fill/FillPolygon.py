@@ -17,6 +17,15 @@ def fill_polygon_fields(scene):
     polygon = scene.project_data.items[ids[0]].item
 
     scene.ui.polygon_def_str.setText(scene.project_data.items[ids[0]].definition_string())
+
+    scene.skip_combobox_changes = True
+    scene.ui.polygon_line_stroke.setCurrentIndex(c.attribute_values(c.Line_Stroke).index(polygon["line"]["dash"]["stroke"]))
+    scene.skip_combobox_changes = False
+
+    scene.ui.polygon_line_width_slider.setValue(10.0 * polygon["line"]["line_width"])
+    scene.ui.polygon_line_width_spin.setValue(polygon["line"]["line_width"])
+    scene.ui.polygon_custom_dash.setText(' '.join(map(str, polygon["line"]["dash"]["custom_pattern"])))
+
     fill_colour(scene, polygon["fill"]["colour"], colours,
         scene.ui.polygon_marker_colour_name,
         scene.ui.polygon_marker_colour_mix_name,

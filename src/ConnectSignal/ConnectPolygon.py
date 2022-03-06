@@ -19,6 +19,18 @@ from ConnectSignal.ConnectMacros import (
 
 
 def connect_polygon(scene):
+    scene.ui.polygon_line_width_slider.sliderMoved.connect(
+        lambda x: connect_slider_moved_abstract(x, scene, ['line'], 'line_width', lambda x: x/10.0, scene.ui.polygon_line_width_spin))
+    scene.ui.polygon_line_width_slider.sliderReleased.connect(
+        lambda : connect_slider_released_abstract(scene))
+
+    scene.ui.polygon_custom_dash.editingFinished.connect(
+        lambda : connect_dash_lineedit_abstract(scene, ['line', 'dash'], 'custom_pattern', scene.ui.polygon_custom_dash))
+
+    scene.ui.polygon_line_stroke.currentIndexChanged.connect(
+        lambda x: connect_combobox_abstract(x, scene, ['line', 'dash'], 'stroke', c.attribute_values(c.Line_Stroke)))
+
+
     connect_colour(scene, ['fill', 'colour'],
         scene.ui.polygon_marker_colour_name,
         scene.ui.polygon_marker_colour_mix_name,
