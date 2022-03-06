@@ -69,3 +69,4 @@ def fill_point_fields(scene):
         scene.ui.point_border_colour_mixratio_slider,
         scene.ui.point_border_colour_strength_spin,
         scene.ui.point_border_colour_strength_slider)
+

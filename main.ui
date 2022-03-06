@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1202</width>
+    <width>1189</width>
     <height>711</height>
    </rect>
   </property>
@@ -27,7 +27,7 @@
    <enum>QTabWidget::Rounded</enum>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_88">
+   <layout class="QVBoxLayout" name="verticalLayout_101">
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_99" stretch="2,0,1">
       <property name="spacing">
@@ -432,7 +432,7 @@
 }</string>
          </property>
          <property name="currentIndex">
-          <number>3</number>
+          <number>0</number>
          </property>
          <property name="iconSize">
           <size>
@@ -458,7 +458,7 @@
               <enum>Qt::NoFocus</enum>
              </property>
              <property name="currentIndex">
-              <number>3</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="page">
               <property name="geometry">
@@ -466,7 +466,7 @@
                 <x>0</x>
                 <y>0</y>
                 <width>326</width>
-                <height>271</height>
+                <height>272</height>
                </rect>
               </property>
               <attribute name="label">
@@ -1196,7 +1196,7 @@ QSpinBox::down-button {
                 <x>0</x>
                 <y>0</y>
                 <width>326</width>
-                <height>271</height>
+                <height>272</height>
                </rect>
               </property>
               <attribute name="label">
@@ -1228,198 +1228,6 @@ QSpinBox::down-button {
                <string>Border</string>
               </attribute>
               <layout class="QVBoxLayout" name="verticalLayout_2">
-               <item>
-                <widget class="QGroupBox" name="groupBox_2">
-                 <property name="focusPolicy">
-                  <enum>Qt::NoFocus</enum>
-                 </property>
-                 <property name="title">
-                  <string>Border Colour</string>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_16">
-                  <item>
-                   <layout class="QHBoxLayout" name="horizontalLayout_21">
-                    <item>
-                     <widget class="QLabel" name="label_30">
-                      <property name="focusPolicy">
-                       <enum>Qt::NoFocus</enum>
-                      </property>
-                      <property name="text">
-                       <string>Colour</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QComboBox" name="point_border_colour_name">
-                      <property name="focusPolicy">
-                       <enum>Qt::NoFocus</enum>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <layout class="QHBoxLayout" name="horizontalLayout_22">
-                    <item>
-                     <widget class="QLabel" name="label_31">
-                      <property name="focusPolicy">
-                       <enum>Qt::NoFocus</enum>
-                      </property>
-                      <property name="text">
-                       <string>Mix Colour</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QComboBox" name="point_border_colour_mix_name">
-                      <property name="focusPolicy">
-                       <enum>Qt::NoFocus</enum>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <layout class="QVBoxLayout" name="verticalLayout_17">
-                    <item>
-                     <layout class="QHBoxLayout" name="horizontalLayout_23">
-                      <item>
-                       <widget class="QLabel" name="label_32">
-                        <property name="focusPolicy">
-                         <enum>Qt::NoFocus</enum>
-                        </property>
-                        <property name="text">
-                         <string>Mix Ratio</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QDoubleSpinBox" name="point_border_colour_mixratio_spin">
-                        <property name="focusPolicy">
-                         <enum>Qt::ClickFocus</enum>
-                        </property>
-                        <property name="styleSheet">
-                         <string notr="true">QDoubleSpinBox {
-	max-height: 11px;
-	min-height: 11px;
-    min-width: 60px;
-    max-width: 60px;
-    padding-right: 10px;
-    background-color: lightgray;
-    padding-top: -2px;
-    padding-bottom: -2px;
-}
-
-QDoubleSpinBox::up-button {
-  subcontrol-origin: padding;
-  subcontrol-position: right center;
-  left: 7px;
-  height: 18px;
-  width: 18px;
-}
-
-QDoubleSpinBox::down-button {
-  subcontrol-origin: content;
-  subcontrol-position: right center;
-  left: 0px;
-  top: 0px;
-  height: 18px;
-  width: 18px;
-}
-
-</string>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </item>
-                    <item>
-                     <widget class="QSlider" name="point_border_colour_mixratio_slider">
-                      <property name="focusPolicy">
-                       <enum>Qt::NoFocus</enum>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true"/>
-                      </property>
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <layout class="QVBoxLayout" name="verticalLayout_18">
-                    <item>
-                     <layout class="QHBoxLayout" name="horizontalLayout_24">
-                      <item>
-                       <widget class="QLabel" name="label_33">
-                        <property name="focusPolicy">
-                         <enum>Qt::NoFocus</enum>
-                        </property>
-                        <property name="text">
-                         <string>Colour Strength</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QDoubleSpinBox" name="point_border_colour_strength_spin">
-                        <property name="focusPolicy">
-                         <enum>Qt::NoFocus</enum>
-                        </property>
-                        <property name="styleSheet">
-                         <string notr="true">QDoubleSpinBox {
-	max-height: 11px;
-	min-height: 11px;
-    min-width: 60px;
-    max-width: 60px;
-    padding-right: 10px;
-    background-color: lightgray;
-    padding-top: -2px;
-    padding-bottom: -2px;
-}
-
-QDoubleSpinBox::up-button {
-  subcontrol-origin: padding;
-  subcontrol-position: right center;
-  left: 7px;
-  height: 18px;
-  width: 18px;
-}
-
-QDoubleSpinBox::down-button {
-  subcontrol-origin: content;
-  subcontrol-position: right center;
-  left: 0px;
-  top: 0px;
-  height: 18px;
-  width: 18px;
-}
-
-</string>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </item>
-                    <item>
-                     <widget class="QSlider" name="point_border_colour_strength_slider">
-                      <property name="focusPolicy">
-                       <enum>Qt::NoFocus</enum>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true"/>
-                      </property>
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
                <item>
                 <widget class="QGroupBox" name="groupBox_3">
                  <property name="focusPolicy">
@@ -1617,6 +1425,198 @@ QDoubleSpinBox::down-button {
                 </widget>
                </item>
                <item>
+                <widget class="QGroupBox" name="groupBox_2">
+                 <property name="focusPolicy">
+                  <enum>Qt::NoFocus</enum>
+                 </property>
+                 <property name="title">
+                  <string>Border Colour</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_16">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_21">
+                    <item>
+                     <widget class="QLabel" name="label_30">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="text">
+                       <string>Colour</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="point_border_colour_name">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_22">
+                    <item>
+                     <widget class="QLabel" name="label_31">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="text">
+                       <string>Mix Colour</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="point_border_colour_mix_name">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_17">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_23">
+                      <item>
+                       <widget class="QLabel" name="label_32">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Mix Ratio</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="point_border_colour_mixratio_spin">
+                        <property name="focusPolicy">
+                         <enum>Qt::ClickFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="point_border_colour_mixratio_slider">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_18">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_24">
+                      <item>
+                       <widget class="QLabel" name="label_33">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Colour Strength</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="point_border_colour_strength_spin">
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDoubleSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="point_border_colour_strength_slider">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
                 <spacer name="verticalSpacer_3">
                  <property name="focusPolicy">
                   <enum>Qt::NoFocus</enum>
@@ -1640,7 +1640,7 @@ QDoubleSpinBox::down-button {
                 <x>0</x>
                 <y>0</y>
                 <width>326</width>
-                <height>271</height>
+                <height>272</height>
                </rect>
               </property>
               <attribute name="label">
@@ -1825,7 +1825,7 @@ QDoubleSpinBox::down-button {
            <item>
             <widget class="QToolBox" name="toolBox_2">
              <property name="currentIndex">
-              <number>3</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="page_5">
               <property name="geometry">
@@ -1833,7 +1833,7 @@ QDoubleSpinBox::down-button {
                 <x>0</x>
                 <y>0</y>
                 <width>326</width>
-                <height>271</height>
+                <height>272</height>
                </rect>
               </property>
               <attribute name="label">
@@ -1901,9 +1901,9 @@ QDoubleSpinBox::down-button {
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>0</y>
+                <y>-346</y>
                 <width>309</width>
-                <height>427</height>
+                <height>618</height>
                </rect>
               </property>
               <attribute name="label">
@@ -2107,6 +2107,195 @@ QDoubleSpinBox::down-button {
                 </widget>
                </item>
                <item>
+                <widget class="QGroupBox" name="groupBox_6">
+                 <property name="title">
+                  <string>Colour</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_31">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_40">
+                    <item>
+                     <widget class="QLabel" name="label_48">
+                      <property name="text">
+                       <string>Colour</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="segment_colour_name">
+                      <property name="maxVisibleItems">
+                       <number>20</number>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_41">
+                    <item>
+                     <widget class="QLabel" name="label_49">
+                      <property name="text">
+                       <string>Mix Colour</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="segment_colour_mix_name">
+                      <property name="maxVisibleItems">
+                       <number>20</number>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_32">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_42">
+                      <item>
+                       <widget class="QLabel" name="label_50">
+                        <property name="text">
+                         <string>Mix Ratio</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QSpinBox" name="segment_colour_mixratio_spin">
+                        <property name="styleSheet">
+                         <string notr="true">QSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                        <property name="minimum">
+                         <number>0</number>
+                        </property>
+                        <property name="maximum">
+                         <number>100</number>
+                        </property>
+                        <property name="value">
+                         <number>0</number>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="segment_colour_mixratio_slider">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="maximum">
+                       <number>100</number>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_33">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_43">
+                      <item>
+                       <widget class="QLabel" name="label_51">
+                        <property name="text">
+                         <string>Colour Strength</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QSpinBox" name="segment_colour_strength_spin">
+                        <property name="styleSheet">
+                         <string notr="true">QSpinBox {
+	max-height: 11px;
+	min-height: 11px;
+    min-width: 60px;
+    max-width: 60px;
+    padding-right: 10px;
+    background-color: lightgray;
+    padding-top: -2px;
+    padding-bottom: -2px;
+}
+
+QSpinBox::up-button {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  left: 7px;
+  height: 18px;
+  width: 18px;
+}
+
+QSpinBox::down-button {
+  subcontrol-origin: content;
+  subcontrol-position: right center;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  width: 18px;
+}
+
+</string>
+                        </property>
+                        <property name="minimum">
+                         <number>0</number>
+                        </property>
+                        <property name="maximum">
+                         <number>100</number>
+                        </property>
+                        <property name="value">
+                         <number>0</number>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QSlider" name="segment_colour_strength_slider">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="maximum">
+                       <number>100</number>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
                 <widget class="QGroupBox" name="groupBox_5">
                  <property name="title">
                   <string>Double</string>
@@ -2182,22 +2371,22 @@ QDoubleSpinBox::down-button {
                    </layout>
                   </item>
                   <item>
-                   <widget class="QGroupBox" name="groupBox_6">
+                   <widget class="QGroupBox" name="groupBox_18">
                     <property name="title">
                      <string>Colour</string>
                     </property>
-                    <layout class="QVBoxLayout" name="verticalLayout_31">
+                    <layout class="QVBoxLayout" name="verticalLayout_88">
                      <item>
-                      <layout class="QHBoxLayout" name="horizontalLayout_40">
+                      <layout class="QHBoxLayout" name="horizontalLayout_105">
                        <item>
-                        <widget class="QLabel" name="label_48">
+                        <widget class="QLabel" name="label_108">
                          <property name="text">
                           <string>Colour</string>
                          </property>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QComboBox" name="segment_colour_name">
+                        <widget class="QComboBox" name="segment_double_colour_name">
                          <property name="maxVisibleItems">
                           <number>20</number>
                          </property>
@@ -2206,16 +2395,16 @@ QDoubleSpinBox::down-button {
                       </layout>
                      </item>
                      <item>
-                      <layout class="QHBoxLayout" name="horizontalLayout_41">
+                      <layout class="QHBoxLayout" name="horizontalLayout_106">
                        <item>
-                        <widget class="QLabel" name="label_49">
+                        <widget class="QLabel" name="label_109">
                          <property name="text">
                           <string>Mix Colour</string>
                          </property>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QComboBox" name="segment_colour_mix_name">
+                        <widget class="QComboBox" name="segment_double_colour_mix_name">
                          <property name="maxVisibleItems">
                           <number>20</number>
                          </property>
@@ -2224,18 +2413,18 @@ QDoubleSpinBox::down-button {
                       </layout>
                      </item>
                      <item>
-                      <layout class="QVBoxLayout" name="verticalLayout_32">
+                      <layout class="QVBoxLayout" name="verticalLayout_99">
                        <item>
-                        <layout class="QHBoxLayout" name="horizontalLayout_42">
+                        <layout class="QHBoxLayout" name="horizontalLayout_107">
                          <item>
-                          <widget class="QLabel" name="label_50">
+                          <widget class="QLabel" name="label_110">
                            <property name="text">
                             <string>Mix Ratio</string>
                            </property>
                           </widget>
                          </item>
                          <item>
-                          <widget class="QSpinBox" name="segment_colour_mixratio_spin">
+                          <widget class="QSpinBox" name="segment_double_colour_mixratio_spin">
                            <property name="styleSheet">
                             <string notr="true">QSpinBox {
 	max-height: 11px;
@@ -2281,7 +2470,7 @@ QSpinBox::down-button {
                         </layout>
                        </item>
                        <item>
-                        <widget class="QSlider" name="segment_colour_mixratio_slider">
+                        <widget class="QSlider" name="segment_double_colour_mixratio_slider">
                          <property name="styleSheet">
                           <string notr="true"/>
                          </property>
@@ -2296,18 +2485,18 @@ QSpinBox::down-button {
                       </layout>
                      </item>
                      <item>
-                      <layout class="QVBoxLayout" name="verticalLayout_33">
+                      <layout class="QVBoxLayout" name="verticalLayout_100">
                        <item>
-                        <layout class="QHBoxLayout" name="horizontalLayout_43">
+                        <layout class="QHBoxLayout" name="horizontalLayout_108">
                          <item>
-                          <widget class="QLabel" name="label_51">
+                          <widget class="QLabel" name="label_111">
                            <property name="text">
                             <string>Colour Strength</string>
                            </property>
                           </widget>
                          </item>
                          <item>
-                          <widget class="QSpinBox" name="segment_colour_strength_spin">
+                          <widget class="QSpinBox" name="segment_double_colour_strength_spin">
                            <property name="styleSheet">
                             <string notr="true">QSpinBox {
 	max-height: 11px;
@@ -2353,7 +2542,7 @@ QSpinBox::down-button {
                         </layout>
                        </item>
                        <item>
-                        <widget class="QSlider" name="segment_colour_strength_slider">
+                        <widget class="QSlider" name="segment_double_colour_strength_slider">
                          <property name="styleSheet">
                           <string notr="true"/>
                          </property>
@@ -2380,7 +2569,7 @@ QSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>309</width>
+                <width>223</width>
                 <height>288</height>
                </rect>
               </property>
@@ -2923,7 +3112,7 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>309</width>
+                <width>248</width>
                 <height>288</height>
                </rect>
               </property>
@@ -3890,7 +4079,7 @@ QDoubleSpinBox::down-button {
                 <x>0</x>
                 <y>0</y>
                 <width>326</width>
-                <height>271</height>
+                <height>272</height>
                </rect>
               </property>
               <attribute name="label">
@@ -3948,8 +4137,8 @@ QDoubleSpinBox::down-button {
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>-347</y>
-                <width>309</width>
+                <y>0</y>
+                <width>216</width>
                 <height>618</height>
                </rect>
               </property>
@@ -4618,8 +4807,8 @@ QSpinBox::down-button {
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>-199</y>
-                <width>309</width>
+                <y>0</y>
+                <width>272</width>
                 <height>470</height>
                </rect>
               </property>
@@ -5287,8 +5476,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>326</width>
-                <height>271</height>
+                <width>223</width>
+                <height>203</height>
                </rect>
               </property>
               <attribute name="label">
@@ -5714,8 +5903,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>326</width>
-                <height>271</height>
+                <width>223</width>
+                <height>203</height>
                </rect>
               </property>
               <attribute name="label">
@@ -6152,7 +6341,7 @@ QDoubleSpinBox::down-button {
            <item>
             <widget class="QToolBox" name="toolBox_4">
              <property name="currentIndex">
-              <number>3</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="page_15">
               <property name="geometry">
@@ -6160,7 +6349,7 @@ QDoubleSpinBox::down-button {
                 <x>0</x>
                 <y>0</y>
                 <width>326</width>
-                <height>298</height>
+                <height>299</height>
                </rect>
               </property>
               <attribute name="label">
@@ -6229,7 +6418,7 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>309</width>
+                <width>272</width>
                 <height>470</height>
                </rect>
               </property>
@@ -7520,8 +7709,8 @@ QDoubleSpinBox::down-button {
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>-73</y>
-                <width>309</width>
+                <y>0</y>
+                <width>204</width>
                 <height>371</height>
                </rect>
               </property>
@@ -7965,7 +8154,7 @@ QDoubleSpinBox::down-button {
            <item>
             <widget class="QToolBox" name="toolBox_5">
              <property name="currentIndex">
-              <number>1</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="page_24">
               <property name="geometry">
@@ -7973,7 +8162,7 @@ QDoubleSpinBox::down-button {
                 <x>0</x>
                 <y>0</y>
                 <width>326</width>
-                <height>271</height>
+                <height>272</height>
                </rect>
               </property>
               <attribute name="label">
@@ -8666,7 +8855,7 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>309</width>
+                <width>204</width>
                 <height>371</height>
                </rect>
               </property>
@@ -9095,6 +9284,14 @@ QDoubleSpinBox::down-button {
               </layout>
              </widget>
              <widget class="QWidget" name="page_25">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>223</width>
+                <height>203</height>
+               </rect>
+              </property>
               <attribute name="label">
                <string>Origin Arrow</string>
               </attribute>
@@ -9514,6 +9711,14 @@ QDoubleSpinBox::down-button {
               </layout>
              </widget>
              <widget class="QWidget" name="page_28">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>223</width>
+                <height>203</height>
+               </rect>
+              </property>
               <attribute name="label">
                <string>Destination Arrow</string>
               </attribute>
@@ -10233,7 +10438,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1202</width>
+     <width>1189</width>
      <height>21</height>
     </rect>
    </property>

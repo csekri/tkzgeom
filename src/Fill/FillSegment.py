@@ -62,3 +62,11 @@ def fill_segment_fields(scene):
         scene.ui.segment_colour_mixratio_slider,
         scene.ui.segment_colour_strength_spin,
         scene.ui.segment_colour_strength_slider)
+
+    fill_colour(scene, segment["line"]["double"]["colour"], colours,
+        scene.ui.segment_double_colour_name,
+        scene.ui.segment_double_colour_mix_name,
+        scene.ui.segment_double_colour_mixratio_spin,
+        scene.ui.segment_double_colour_mixratio_slider,
+        scene.ui.segment_double_colour_strength_spin,
+        scene.ui.segment_double_colour_strength_slider)

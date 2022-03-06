@@ -75,5 +75,13 @@ def connect_segment(scene):
         scene.ui.segment_colour_strength_spin,
         scene.ui.segment_colour_strength_slider)
 
+    connect_colour(scene, ['line', 'double', 'colour'],
+        scene.ui.segment_double_colour_name,
+        scene.ui.segment_double_colour_mix_name,
+        scene.ui.segment_double_colour_mixratio_spin,
+        scene.ui.segment_double_colour_mixratio_slider,
+        scene.ui.segment_double_colour_strength_spin,
+        scene.ui.segment_double_colour_strength_slider)
+
     scene.ui.segment_def_str.editingFinished.connect(
         lambda : connect_def_str_lineedit_abstract(scene, scene.ui.segment_def_str))
