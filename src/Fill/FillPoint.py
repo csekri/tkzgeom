@@ -1,6 +1,6 @@
 import Constant as c
 from Colour import Colour
-from Fill.FillMacros import fill_colour
+from Fill.FillMacros import fill_colour, fill_dash
 
 
 def fill_point_fields(scene):
@@ -19,7 +19,6 @@ def fill_point_fields(scene):
     scene.skip_plaintextedit_changes = False
     scene.skip_combobox_changes = True
     scene.ui.point_marker_shape.setCurrentIndex(c.attribute_values(c.Marker_Shape).index(point["marker"]["shape"]))
-    scene.ui.point_line_stroke.setCurrentIndex(c.attribute_values(c.Line_Stroke).index(point["line"]["dash"]["stroke"]))
     scene.ui.point_anchor.setCurrentIndex(c.attribute_values(c.Direction).index(point["label"]["anchor"]))
     scene.skip_combobox_changes = False
     scene.skip_checkox_changes = True
@@ -44,8 +43,6 @@ def fill_point_fields(scene):
     scene.ui.point_line_width_slider.setValue(10.0 * point["line"]["line_width"])
     scene.ui.point_line_width_spin.setValue(point["line"]["line_width"])
 
-    scene.ui.point_custom_dash.setText(' '.join(map(str, point["line"]["dash"]["custom_pattern"])))
-
     scene.ui.point_label_text.setText(point["label"]["text"])
 
     scene.ui.point_offset_slider.setValue(10+point["label"]["offset"])
@@ -61,6 +58,8 @@ def fill_point_fields(scene):
         scene.ui.point_marker_colour_mixratio_slider,
         scene.ui.point_marker_colour_strength_spin,
         scene.ui.point_marker_colour_strength_slider)
+
+    fill_dash(scene, point["line"]["dash"], scene.ui.point_line_stroke, scene.ui.point_custom_dash)
 
     fill_colour(scene, point["line"]["colour"], colours,
         scene.ui.point_border_colour_name,

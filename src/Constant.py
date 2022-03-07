@@ -305,13 +305,13 @@ class Point:
 # Contains the default values for a point plus the definition subtypes.
 class Circle:
     class Default: # TODO change this
-        SIZE = 3.0
         LINE_WIDTH = 0.4
-        NODE_INSIDE_TEXT = ''
-        Fill_Colour = ColourDefault()
+        Fill_Colour = ColourDefault(strength=10)
+        Fill_Pattern = FillPatternDefault()
         Line_Colour = ColourDefault()
-        Marker = MarkerDefault()
-        Label = LabelDefault()
+        O_Arrow = ArrowDefault()
+        D_Arrow = ArrowDefault()
+        Double_Line = DoubleDefault()
         LINE_DASH_STROKE = Line_Stroke.SOLID
         LINE_DASH_CUSTOM = [5, 2]
 
@@ -334,11 +334,10 @@ class Circle:
 # Contains the default values for a segment.
 class Segment:
     class Default:
-        LINE_WIDTH = 3.0
+        LINE_WIDTH = 0.4
         Fill_Colour = ColourDefault()
         Line_Colour = ColourDefault()
         Marker = MarkerDefault()
-        Label = LabelDefault()
         Double_Line = DoubleDefault()
         O_Arrow = ArrowDefault()
         D_Arrow = ArrowDefault()
@@ -380,8 +379,8 @@ PackagesDefault = [
     "\\usepackage{amsmath,amssymb}",
     "\\usepackage[utf8]{inputenc}",
     "\\usepackage[T1]{fontenc}",
-    "\\usepackage{xcolor}",
-    "\\usepackage{tkz-euclide,tkz-fct}",
+    "\\usepackage[rgb]{xcolor} % xcolor must be loaded before everything tikz",
+    "\\usepackage{tikz, tkz-euclide,tkz-fct}",
     "\\usetikzlibrary{arrows.meta, bending, patterns.meta, hobby, ducks}",
     "\\usetikzlibrary{shapes, backgrounds, decorations.pathmorphing, calc}"
 ]

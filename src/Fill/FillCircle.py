@@ -1,9 +1,11 @@
 import Constant as c
 from Colour import Colour
-# from Fill.FillMacros import (
-#     fill_o_arrow,
-#     fill_d_arrow,
-#     fill_colour)
+from Fill.FillMacros import (
+    fill_fill_pattern,
+    fill_d_arrow,
+    fill_colour,
+    fill_dash
+)
 
 
 def fill_circle_fields(scene):
@@ -17,48 +19,45 @@ def fill_circle_fields(scene):
     circle = scene.project_data.items[ids[0]].item
 
     scene.ui.circle_def_str.setText(scene.project_data.items[ids[0]].definition_string())
-    # scene.ui.segment_line_width_slider.setValue(10.0 * segment["line"]["line_width"])
-    # scene.ui.segment_line_width_spin.setValue(segment["line"]["line_width"])
-    #
-    # scene.skip_combobox_changes = True
-    # scene.ui.segment_line_stroke.setCurrentIndex(c.attribute_values(c.Line_Stroke).index(segment["line"]["dash"]["stroke"]))
-    # scene.ui.segment_o_connect_to.setCurrentIndex(c.attribute_values(c.LineConnectTo).index(segment["line"]["o_connect_to"]))
-    # scene.ui.segment_d_connect_to.setCurrentIndex(c.attribute_values(c.LineConnectTo).index(segment["line"]["d_connect_to"]))
-    # scene.skip_combobox_changes = False
-    #
-    # scene.ui.segment_custom_dash.setText(' '.join(map(str, segment["line"]["dash"]["custom_pattern"])))
-    #
-    # scene.ui.segment_double_distance_slider.setValue(10.0 * segment["line"]["double"]["distance"])
-    # scene.ui.segment_double_distance_spin.setValue(segment["line"]["double"]["distance"])
-    #
-    # scene.ui.segment_o_extension_slider.setValue(66.6+33.3*segment["line"]["o_extension"])
-    # scene.ui.segment_o_extension_spin.setValue(segment["line"]["o_extension"])
-    #
-    # scene.ui.segment_d_extension_slider.setValue(33.3*segment["line"]["d_extension"])
-    # scene.ui.segment_d_extension_spin.setValue(segment["line"]["d_extension"])
-    #
-    # fill_o_arrow(scene, segment,
-    #     scene.ui.segment_o_tip,
-    #     scene.ui.segment_o_side,
-    #     scene.ui.segment_o_reversed,
-    #     scene.ui.segment_o_length_spin,
-    #     scene.ui.segment_o_length_slider,
-    #     scene.ui.segment_o_width_spin,
-    #     scene.ui.segment_o_width_slider)
-    #
-    # fill_d_arrow(scene, segment,
-    #     scene.ui.segment_d_tip,
-    #     scene.ui.segment_d_side,
-    #     scene.ui.segment_d_reversed,
-    #     scene.ui.segment_d_length_spin,
-    #     scene.ui.segment_d_length_slider,
-    #     scene.ui.segment_d_width_spin,
-    #     scene.ui.segment_d_width_slider)
-    #
-    # fill_colour(scene, segment["line"]["colour"], colours,
-    #     scene.ui.segment_colour_name,
-    #     scene.ui.segment_colour_mix_name,
-    #     scene.ui.segment_colour_mixratio_spin,
-    #     scene.ui.segment_colour_mixratio_slider,
-    #     scene.ui.segment_colour_strength_spin,
-    #     scene.ui.segment_colour_strength_slider)
+
+    fill_fill_pattern(scene, circle["fill"]["pattern"],
+        scene.ui.circle_pattern_type,
+        scene.ui.circle_pattern_distance_spin,
+        scene.ui.circle_pattern_distance_slider,
+        scene.ui.circle_pattern_size_spin,
+        scene.ui.circle_pattern_size_slider,
+        scene.ui.circle_pattern_rotation_spin,
+        scene.ui.circle_pattern_rotation_slider,
+        scene.ui.circle_pattern_xshift_spin,
+        scene.ui.circle_pattern_xshift_slider,
+        scene.ui.circle_pattern_yshift_spin,
+        scene.ui.circle_pattern_yshift_slider)
+
+    fill_colour(scene, circle["fill"]["colour"], colours,
+        scene.ui.circle_marker_colour_name,
+        scene.ui.circle_marker_colour_mix_name,
+        scene.ui.circle_marker_colour_mixratio_spin,
+        scene.ui.circle_marker_colour_mixratio_slider,
+        scene.ui.circle_marker_colour_strength_spin,
+        scene.ui.circle_marker_colour_strength_slider)
+
+    fill_colour(scene, circle["line"]["colour"], colours,
+        scene.ui.circle_border_colour_name,
+        scene.ui.circle_border_colour_mix_name,
+        scene.ui.circle_border_colour_mixratio_spin,
+        scene.ui.circle_border_colour_mixratio_slider,
+        scene.ui.circle_border_colour_strength_spin,
+        scene.ui.circle_border_colour_strength_slider)
+
+    fill_colour(scene, circle["line"]["double"]["colour"], colours,
+        scene.ui.circle_double_colour_name,
+        scene.ui.circle_double_colour_mix_name,
+        scene.ui.circle_double_colour_mixratio_spin,
+        scene.ui.circle_double_colour_mixratio_slider,
+        scene.ui.circle_double_colour_strength_spin,
+        scene.ui.circle_double_colour_strength_slider)
+
+    fill_dash(scene, circle["line"]["dash"], scene.ui.circle_line_stroke, scene.ui.circle_custom_dash)
+
+    scene.ui.circle_double_distance_slider.setValue(10.0 * circle["line"]["double"]["distance"])
+    scene.ui.circle_double_distance_spin.setValue(circle["line"]["double"]["distance"])

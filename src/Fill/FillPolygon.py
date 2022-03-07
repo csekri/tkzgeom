@@ -3,8 +3,10 @@ from Colour import Colour
 from Fill.FillMacros import (
     fill_colour,
     fill_fill_pattern,
-    fill_decoration
+    fill_decoration,
+    fill_dash
 )
+
 
 def fill_polygon_fields(scene):
     colours = c.attribute_values(c.Colour)\
@@ -18,13 +20,8 @@ def fill_polygon_fields(scene):
 
     scene.ui.polygon_def_str.setText(scene.project_data.items[ids[0]].definition_string())
 
-    scene.skip_combobox_changes = True
-    scene.ui.polygon_line_stroke.setCurrentIndex(c.attribute_values(c.Line_Stroke).index(polygon["line"]["dash"]["stroke"]))
-    scene.skip_combobox_changes = False
-
     scene.ui.polygon_line_width_slider.setValue(10.0 * polygon["line"]["line_width"])
     scene.ui.polygon_line_width_spin.setValue(polygon["line"]["line_width"])
-    scene.ui.polygon_custom_dash.setText(' '.join(map(str, polygon["line"]["dash"]["custom_pattern"])))
 
     fill_colour(scene, polygon["fill"]["colour"], colours,
         scene.ui.polygon_marker_colour_name,
@@ -34,6 +31,7 @@ def fill_polygon_fields(scene):
         scene.ui.polygon_marker_colour_strength_spin,
         scene.ui.polygon_marker_colour_strength_slider)
 
+    fill_dash(scene, polygon["line"]["dash"], scene.ui.polygon_line_stroke, scene.ui.polygon_custom_dash)
 
     fill_fill_pattern(scene, polygon["fill"]["pattern"],
         scene.ui.polygon_pattern_type,

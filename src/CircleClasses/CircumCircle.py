@@ -10,8 +10,8 @@ class CircumCircle(Circle):
         self.item["sub_type"] = c.Circle.Definition.CIRCUM
 
     def tikzify(self):
-        return '\\tkzDefCircle[circum](%s,%s,%s)\\tkzDrawCircle(tkzPointResult,%s)'\
-        % (self.item["definition"]["A"], self.item["definition"]["B"], self.item["definition"]["C"], self.item["definition"]["C"])
+        return '\\tkzDefCircle[circum](%s,%s,%s)\\tkzDrawCircle[%s](tkzPointResult,%s)'\
+        % (self.item["definition"]["A"], self.item["definition"]["B"], self.item["definition"]["C"], self.tikzify_options(), self.item["definition"]["C"])
 
     def recompute_canvas(self, items, window, width, height):
         A = items[self.depends_on()[0]].get_canvas_coordinates()

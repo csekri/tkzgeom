@@ -14,7 +14,9 @@ from ConnectSignal.Lambda import (
 from ConnectSignal.ConnectMacros import (
     connect_o_arrow,
     connect_d_arrow,
-    connect_colour)
+    connect_colour,
+    connect_dash
+)
 
 
 def connect_segment(scene):
@@ -22,12 +24,6 @@ def connect_segment(scene):
         lambda x: connect_slider_moved_abstract(x, scene, ['line'], 'line_width', lambda x: x/10.0, scene.ui.segment_line_width_spin))
     scene.ui.segment_line_width_slider.sliderReleased.connect(
         lambda : connect_slider_released_abstract(scene))
-
-    scene.ui.segment_custom_dash.editingFinished.connect(
-        lambda : connect_dash_lineedit_abstract(scene, ['line', 'dash'], 'custom_pattern', scene.ui.segment_custom_dash))
-
-    scene.ui.segment_line_stroke.currentIndexChanged.connect(
-        lambda x: connect_combobox_abstract(x, scene, ['line', 'dash'], 'stroke', c.attribute_values(c.Line_Stroke)))
 
     scene.ui.segment_double_distance_slider.sliderMoved.connect(
         lambda x: connect_slider_moved_abstract(x, scene, ['line', 'double'], 'distance', lambda x: x/10.0, scene.ui.segment_double_distance_spin))
@@ -66,6 +62,8 @@ def connect_segment(scene):
         scene.ui.segment_d_length_slider,
         scene.ui.segment_d_width_spin,
         scene.ui.segment_d_width_slider)
+
+    connect_dash(scene, ['line' 'dash'], scene.ui.segment_line_stroke, scene.ui.segment_custom_dash)
 
     connect_colour(scene, ['line', 'colour'],
         scene.ui.segment_colour_name,

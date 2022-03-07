@@ -3,7 +3,9 @@ from Colour import Colour
 from Fill.FillMacros import (
     fill_o_arrow,
     fill_d_arrow,
-    fill_colour)
+    fill_colour,
+    fill_dash
+)
 
 
 def fill_segment_fields(scene):
@@ -21,12 +23,9 @@ def fill_segment_fields(scene):
     scene.ui.segment_line_width_spin.setValue(segment["line"]["line_width"])
 
     scene.skip_combobox_changes = True
-    scene.ui.segment_line_stroke.setCurrentIndex(c.attribute_values(c.Line_Stroke).index(segment["line"]["dash"]["stroke"]))
     scene.ui.segment_o_connect_to.setCurrentIndex(c.attribute_values(c.LineConnectTo).index(segment["line"]["o_connect_to"]))
     scene.ui.segment_d_connect_to.setCurrentIndex(c.attribute_values(c.LineConnectTo).index(segment["line"]["d_connect_to"]))
     scene.skip_combobox_changes = False
-
-    scene.ui.segment_custom_dash.setText(' '.join(map(str, segment["line"]["dash"]["custom_pattern"])))
 
     scene.ui.segment_double_distance_slider.setValue(10.0 * segment["line"]["double"]["distance"])
     scene.ui.segment_double_distance_spin.setValue(segment["line"]["double"]["distance"])
@@ -54,6 +53,8 @@ def fill_segment_fields(scene):
         scene.ui.segment_d_length_slider,
         scene.ui.segment_d_width_spin,
         scene.ui.segment_d_width_slider)
+
+    fill_dash(scene, segment["line"]["dash"], scene.ui.segment_line_stroke, scene.ui.segment_custom_dash)
 
     fill_colour(scene, segment["line"]["colour"], colours,
         scene.ui.segment_colour_name,

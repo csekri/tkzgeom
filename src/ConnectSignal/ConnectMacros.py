@@ -4,7 +4,8 @@ from ConnectSignal.Lambda import (
     connect_checkbox_abstract,
     connect_slider_moved_abstract,
     connect_slider_released_abstract,
-    connect_lineedit_abstract
+    connect_lineedit_abstract,
+    connect_dash_lineedit_abstract
 )
 
 def connect_o_arrow(
@@ -130,6 +131,14 @@ def connect_decoration(
 
     ui_text.editingFinished.connect(
         lambda : connect_lineedit_abstract(scene, attributes, 'text', ui_text))
+
+
+def connect_dash(scene, attributes, ui_dash, ui_custom_stroke):
+    ui_custom_stroke.editingFinished.connect(
+        lambda : connect_dash_lineedit_abstract(scene, ['line', 'dash'], 'custom_pattern', ui_custom_stroke))
+
+    ui_dash.currentIndexChanged.connect(
+        lambda x: connect_combobox_abstract(x, scene, ['line', 'dash'], 'stroke', c.attribute_values(c.Line_Stroke)))
 
 
 

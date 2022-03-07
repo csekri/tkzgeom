@@ -14,7 +14,8 @@ from ConnectSignal.Lambda import (
 from ConnectSignal.ConnectMacros import (
     connect_colour,
     connect_fill_pattern,
-    connect_decoration
+    connect_decoration,
+    connect_dash
 )
 
 
@@ -24,13 +25,6 @@ def connect_polygon(scene):
     scene.ui.polygon_line_width_slider.sliderReleased.connect(
         lambda : connect_slider_released_abstract(scene))
 
-    scene.ui.polygon_custom_dash.editingFinished.connect(
-        lambda : connect_dash_lineedit_abstract(scene, ['line', 'dash'], 'custom_pattern', scene.ui.polygon_custom_dash))
-
-    scene.ui.polygon_line_stroke.currentIndexChanged.connect(
-        lambda x: connect_combobox_abstract(x, scene, ['line', 'dash'], 'stroke', c.attribute_values(c.Line_Stroke)))
-
-
     connect_colour(scene, ['fill', 'colour'],
         scene.ui.polygon_marker_colour_name,
         scene.ui.polygon_marker_colour_mix_name,
@@ -38,6 +32,9 @@ def connect_polygon(scene):
         scene.ui.polygon_marker_colour_mixratio_slider,
         scene.ui.polygon_marker_colour_strength_spin,
         scene.ui.polygon_marker_colour_strength_slider)
+
+    connect_dash(scene, ['line' 'dash'], scene.ui.polygon_line_stroke, scene.ui.polygon_custom_dash)
+
     connect_fill_pattern(scene, ['fill', 'pattern'],
         scene.ui.polygon_pattern_type,
         scene.ui.polygon_pattern_distance_spin,
@@ -64,7 +61,6 @@ def connect_polygon(scene):
         scene.ui.polygon_border_colour_mixratio_slider,
         scene.ui.polygon_border_colour_strength_spin,
         scene.ui.polygon_border_colour_strength_slider)
-
 
     scene.ui.polygon_def_str.editingFinished.connect(
         lambda : connect_def_str_lineedit_abstract(scene, scene.ui.polygon_def_str))

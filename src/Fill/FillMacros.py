@@ -99,3 +99,11 @@ def fill_decoration(
     ui_wavelength_spin.setValue(item["wavelength"])
 
     ui_text.setText(item["text"])
+
+
+def fill_dash(scene, item, ui_dash, ui_custom):
+    scene.skip_combobox_changes = True
+    ui_dash.setCurrentIndex(c.attribute_values(c.Line_Stroke).index(item["stroke"]))
+    scene.skip_combobox_changes = False
+    ui_custom.setText(' '.join(map(str, item["custom_pattern"])))
+

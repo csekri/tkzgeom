@@ -10,7 +10,7 @@ from ConnectSignal.Lambda import (
     connect_lineedit_abstract
 )
 
-from ConnectSignal.ConnectMacros import connect_colour
+from ConnectSignal.ConnectMacros import connect_colour, connect_dash
 from ConnectSignal.Lambda import connect_def_str_lineedit_abstract
 
 
@@ -85,6 +85,8 @@ def connect_point(scene):
         scene.ui.point_marker_colour_mixratio_slider,
         scene.ui.point_marker_colour_strength_spin,
         scene.ui.point_marker_colour_strength_slider)
+
+    connect_dash(scene, ['line' 'dash'], scene.ui.point_line_stroke, scene.ui.point_custom_dash)
 
     connect_colour(scene, ['line', 'colour'],
         scene.ui.point_border_colour_name,

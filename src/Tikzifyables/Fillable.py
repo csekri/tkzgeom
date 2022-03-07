@@ -7,6 +7,7 @@ class Fillable(FillColourable):
     def tikzify_fill_pattern(self):
         stars = [c.PatternType.FIVEPOINTED_STARS, c.PatternType.SIXPOINTED_STARS]
         with_area = stars + [c.PatternType.DOTS_EXTRA]
+        pattern_colour = '' if not self.tikzify_fill_colour() else 'pattern color=' + self.tikzify_fill_colour()
         options = []
         if self.item["fill"]["pattern"]["type"] == c.PatternType.NONE:
             return ''
@@ -15,6 +16,7 @@ class Fillable(FillColourable):
             return ', '.join(options)
         if self.item["fill"]["pattern"]["type"] not in c.PATTERN_EXTRAS:
             options.append(f'pattern={self.item["fill"]["pattern"]["type"]}')
+            options.append(pattern_colour)
             return ', '.join(options)
         else:
             pattern_options = []
@@ -36,5 +38,5 @@ class Fillable(FillColourable):
             if self.item["fill"]["pattern"]["type"] == c.PatternType.SIXPOINTED_STARS:
                 pattern_options.append('points=6')
             if self.item["fill"]["pattern"]["type"] in stars:
-                return 'pattern={Stars[%s]}' % (', '.join(pattern_options))
-            return 'pattern={%s[%s]}' % (self.item["fill"]["pattern"]["type"], ', '.join(pattern_options))
+                return 'pattern={Stars[%s]}, %s' % (', '.join(pattern_options), pattern_colour)
+            return 'pattern={%s[%s]}, %s' % (self.item["fill"]["pattern"]["type"], ', '.join(pattern_options), pattern_colour)

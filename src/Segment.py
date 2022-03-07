@@ -104,11 +104,6 @@ class Segment(Item, Arrowable, DashPatternable, Doubleable, LineColourable):
         dictionary["sub_type"] = None
         dictionary["show"] = True
         dictionary["definition"] = definition
-        dictionary["label"] = {}
-        dictionary["label"]["show"] = c.Segment.Default.Label.SHOW
-        dictionary["label"]["text"] = c.Segment.Default.Label.TEXT
-        dictionary["label"]["anchor"] = c.Segment.Default.Label.ANCHOR
-        dictionary["label"]["offset"] = c.Segment.Default.Label.OFFSET
         dictionary["line"] = {}
         dictionary["line"]["line_width"] = c.Segment.Default.LINE_WIDTH
         dictionary["line"]["colour"] = {}

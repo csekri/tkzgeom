@@ -140,7 +140,7 @@ class Items:
         return '\\begin{tikzpicture}\n%s\n\\end{tikzpicture}' % string
 
     def doc_surround_tikzify(self, current_width, current_height, init_width, init_height):
-        string = '\documentclass[tikz]{standalone}\n'
+        string = '\documentclass{standalone}\n'
         string += '\n'.join(self.packages)
         string += '\n' + '\\begin{document}' + '\n'
         string += self.tikzify(current_width, current_height, init_width, init_height)
