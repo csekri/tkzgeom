@@ -93,6 +93,26 @@ class ArrowTip:
     TEE_BARB = 'Tee Barb'
 
 
+class StrategyType:
+    SEGMENTS = 'segments'
+    VERTHOZ = 'vert-hoz'
+    HOZVERT = 'hoz-vert'
+    BENDED_LEFT = 'bended-left'
+    BENDED_RIGHT = 'bended-right'
+    SMOOTH = 'smooth'
+
+
+class StrategyDefault:
+    def __init__(self, type=StrategyType.SEGMENTS, rounded_corners=0.0, bend_angle=30, in_angle=90, out_angle=0, smooth_tension=0.55, loop_size=0):
+        self.TYPE = type
+        self.ROUNDED_CORNERS = rounded_corners
+        self.BEND_ANGLE = bend_angle
+        self.IN_ANGLE = in_angle
+        self.OUT_ANGLE = out_angle
+        self.SMOOTH_TENSION = smooth_tension
+        self.LOOP_SIZE = loop_size
+
+
 # Fill patterns supported by tikz (patterns).
 class PatternType:
     NONE = 'none'
@@ -366,6 +386,7 @@ class Linestring: # TODO don't forget arrow bending, it is important
         Line_Colour = ColourDefault()
         Double_Line = DoubleDefault()
         Decoration = DecorationDefault()
+        Strategy = StrategyDefault()
         O_Arrow = ArrowDefault()
         D_Arrow = ArrowDefault()
         Line_Junction = LineJunctionType.MITER

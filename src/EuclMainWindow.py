@@ -27,6 +27,7 @@ from ConnectSignal.ConnectColour import connect_colour
 from ConnectSignal.ConnectSegment import connect_segment
 from ConnectSignal.ConnectCircle import connect_circle
 from ConnectSignal.ConnectPolygon import connect_polygon
+from ConnectSignal.ConnectLinestring import connect_linestring
 from Fill.ListWidget import fill_listWidget_with_data, set_selected_id_in_listWidget
 from Fill.FillAll import fill_all_fields
 
@@ -98,6 +99,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         connect_segment(self.scene)
         connect_circle(self.scene)
         connect_polygon(self.scene)
+        connect_linestring(self.scene)
         connect_colour(self.scene)
 
         img = Image.new("RGB", (self.width(), self.height()), (255, 255, 255))

@@ -98,7 +98,7 @@ class Polygon(Item, DashPatternable, LineColourable, Fillable, Decorationable):
         # self-reference condition (self-reference is not permitted)
         if self.get_id() in arguments:
             return None
-        return self.definition_builder(arguments)
+        return self.definition_builder(arguments+['mock item'])
 
     def dictionary_builder(self, definition, id, sub_type=None):
         dictionary = {}

@@ -10,7 +10,7 @@ import Constant as c
 from GeometryMath import point_segment_dist_sqr
 
 
-class Linestring(Item, DashPatternable, LineColourable, Decorationable):
+class Linestring(Item, DashPatternable, LineColourable, Decorationable, Arrowable):
     def __init__(self, item):
         Item.__init__(self, item)
         if item is None:
@@ -18,15 +18,18 @@ class Linestring(Item, DashPatternable, LineColourable, Decorationable):
         DashPatternable.__init__(self, self.item)
         LineColourable.__init__(self, self.item)
         Decorationable.__init__(self, self.item)
+        Arrowable.__init__(self, self.item)
 
     def tikzify(self):
         options = [
+            '' if self.item["line"]["line_width"] == c.Segment.Default.LINE_WIDTH else f'line width={self.item["line"]["line_width"]}',
             self.tikzify_dash(),
             'draw=' + self.tikzify_line_colour(),
+            self.tikzify_arrows(),
             self.tikzify_decoration()
         ]
         options = filter(bool, options)
-        return "\\draw[%s](%s.center)--cycle;" % (', '.join(options), ')--('.join(self.item["definition"]))
+        return "\\draw[%s](%s.center);" % (', '.join(options), '.center)--('.join(self.item["definition"]))
 
     def __str__(self): # TODO modify this too, this is now an error
         return "Segment from (%s) to (%s)" % (self.item["definition"]["A"], self.item["definition"]["B"])
@@ -67,8 +70,9 @@ class Linestring(Item, DashPatternable, LineColourable, Decorationable):
     def depends_on(self):
         return self.item["definition"]
 
-    def definition_builder(self, data):
-        return data
+    def definition_string(self):
+        def_str = [('{0:.6g}'.format(i) if isinstance(i, float) else i) for i in self.item["definition"]]
+        return '%s(%s)' % (type(self).__name__, ', '.join(def_str))
 
     @staticmethod
     def static_patterns():
@@ -82,6 +86,25 @@ class Linestring(Item, DashPatternable, LineColourable, Decorationable):
 
     def definition_builder(self, data, items=None):
         return data[:-1]
+
+    def parse_into_definition(self, arguments, items):
+        # arguments length condition
+        if len(arguments) <= 1:
+            return None
+        # all arguments are members of the regular expression for argument name
+        if not all(map(lambda x: self.name_pattern(x), arguments)):
+            return None
+        # all arguments are items that already exist
+        if not all(map(lambda x: x in items, arguments)):
+            return None
+        # the type of all arguments is of a certain type
+        if not all(map(lambda x: items[x].item["type"] == 'point', arguments)):
+            return None
+        # self-reference condition (self-reference is not permitted)
+        if self.get_id() in arguments:
+            return None
+        return self.definition_builder(arguments+['mock item'])
+
 
     def dictionary_builder(self, definition, id, sub_type=None): # TODO create Linestring class in Constant.py and modify entries here
         dictionary = {}
@@ -112,6 +135,14 @@ class Linestring(Item, DashPatternable, LineColourable, Decorationable):
         dictionary["line"]["decoration"]["amplitude"] = c.Linestring.Default.Decoration.AMPLITUDE
         dictionary["line"]["decoration"]["wavelength"] = c.Linestring.Default.Decoration.WAVELENGTH
         dictionary["line"]["decoration"]["text"] = c.Linestring.Default.Decoration.TEXT
+        dictionary["line"]["strategy"] = {}
+        dictionary["line"]["strategy"]["type"] = c.Linestring.Default.Strategy.TYPE
+        dictionary["line"]["strategy"]["rounded_corners"] = c.Linestring.Default.Strategy.ROUNDED_CORNERS
+        dictionary["line"]["strategy"]["bend_angle"] = c.Linestring.Default.Strategy.BEND_ANGLE
+        dictionary["line"]["strategy"]["in_angle"] = c.Linestring.Default.Strategy.IN_ANGLE
+        dictionary["line"]["strategy"]["out_angle"] = c.Linestring.Default.Strategy.OUT_ANGLE
+        dictionary["line"]["strategy"]["smooth_tension"] = c.Linestring.Default.Strategy.SMOOTH_TENSION
+        dictionary["line"]["strategy"]["loop_size"] = c.Linestring.Default.Strategy.LOOP_SIZE
         # dictionary["line"]["o_extension"] = 0.0
         # dictionary["line"]["d_extension"] = 1.0
         dictionary["line"]["o_connect_to"] = c.Linestring.Default.LINE_CONNECT_TO

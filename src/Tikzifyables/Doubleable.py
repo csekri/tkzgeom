@@ -9,7 +9,6 @@ class Doubleable(Colourable):
         if self.item["line"]["double"]["distance"] == 0.0:
             return ''
         colour = self.tikzify_colour(self.item["line"]["double"]["colour"])
-        print(f'double colou{colour}r')
         options = [
             'double' if colour == 'white' else f'double={colour}',
             f'double distance={self.item["line"]["double"]["distance"]}'
