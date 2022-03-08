@@ -17,7 +17,8 @@ from ConnectSignal.ConnectMacros import (
     connect_decoration,
     connect_dash,
     connect_o_arrow,
-    connect_d_arrow
+    connect_d_arrow,
+    connect_strategy
 )
 
 
@@ -60,6 +61,18 @@ def connect_linestring(scene):
         scene.ui.linestring_d_length_slider,
         scene.ui.linestring_d_width_spin,
         scene.ui.linestring_d_width_slider)
+
+    connect_strategy(scene, ['line', 'strategy'],
+        scene.ui.linestring_tabWidget,
+        scene.ui.linestring_segment_radio,
+        scene.ui.linestring_vfst_radio,
+        scene.ui.linestring_hfst_radio,
+        scene.ui.linestring_segment_radio,
+        scene.ui.linestring_rounded_corners_spin, scene.ui.linestring_rounded_corners_slider,
+        scene.ui.linestring_o_angle_spin, scene.ui.linestring_o_angle_slider,
+        scene.ui.linestring_d_angle_spin, scene.ui.linestring_d_angle_slider,
+        None, None, None, None, None
+                     )
 
     scene.ui.linestring_def_str.editingFinished.connect(
         lambda : connect_def_str_lineedit_abstract(scene, scene.ui.linestring_def_str))

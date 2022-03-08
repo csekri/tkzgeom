@@ -8,6 +8,7 @@ from ConnectSignal.Lambda import (
     connect_dash_lineedit_abstract
 )
 
+
 def connect_o_arrow(
         scene, ui_tip, ui_side, ui_reversed,
         ui_length_spin, ui_length_slider,
@@ -57,6 +58,7 @@ def connect_d_arrow(
     ui_reversed.stateChanged.connect(
         lambda x: connect_checkbox_abstract(x, scene, ['d_arrow'], 'reversed'))
 
+
 def connect_colour(scene, attributes, ui_name, ui_mix_with,
         ui_mix_spin, ui_mix_slider,
         ui_strength_spin, ui_strength_slider):
@@ -74,6 +76,7 @@ def connect_colour(scene, attributes, ui_name, ui_mix_with,
         lambda x: connect_slider_moved_abstract(x, scene, attributes, 'strength', lambda x: x, ui_strength_spin))
     ui_strength_slider.sliderReleased.connect(
         lambda : connect_slider_released_abstract(scene))
+
 
 def connect_fill_pattern(
         scene, attributes, ui_type,
@@ -111,6 +114,7 @@ def connect_fill_pattern(
     ui_yshift_slider.sliderReleased.connect(
         lambda : connect_slider_released_abstract(scene))
 
+
 def connect_decoration(
         scene, attributes, ui_type,
         ui_amplitude_spin, ui_amplitude_slider,
@@ -141,5 +145,27 @@ def connect_dash(scene, attributes, ui_dash, ui_custom_stroke):
         lambda x: connect_combobox_abstract(x, scene, ['line', 'dash'], 'stroke', c.attribute_values(c.Line_Stroke)))
 
 
+def connect_strategy(
+        scene, attributes, ui_tabWidget, ui_segment_radio, ui_vfst_radio, ui_hfst_radio,
+        ui_rounded_corners_spin, ui_rounded_corners_slider,
+        ui_in_angle_spin, ui_in_angle_slider,
+        ui_out_angle_spin, ui_out_angle_slider,
+        ui_bended_left_radio, ui_bended_right_radio,
+        ui_bend_angle_spin, ui_bend_angle_slider,
+        ui_smooth_tension_spin, ui_smooth_tension_slider):
+    def tabWidget_func(index, scene):
+        ids = scene.list_focus_ids
+        if not ids:
+            return
+        for id in ids:
+            final_property = scene.project_data.items[id].item
+            for prop in attributes:
+                final_property = final_property[prop]
+            if index < 3:
+                final_property["type"] = c.attribute_values(c.StrategyType)[0]
+            else:
+                final_property["type"] = c.attribute_values(c.StrategyType)[index+2]
+
+    ui_tabWidget.currentChanged.connect(lambda x: tabWidget_func(x, scene))
 
 #

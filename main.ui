@@ -8266,7 +8266,7 @@ QDoubleSpinBox::down-button {
               </attribute>
               <layout class="QVBoxLayout" name="verticalLayout_103">
                <item>
-                <widget class="QTabWidget" name="tabWidget_4">
+                <widget class="QTabWidget" name="linestring_tabWidget">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
                    <horstretch>0</horstretch>
@@ -8425,7 +8425,7 @@ QDoubleSpinBox::down-button {
                           </widget>
                          </item>
                          <item>
-                          <widget class="QDoubleSpinBox" name="point_line_width_spin_20">
+                          <widget class="QDoubleSpinBox" name="linestring_o_angle_spin">
                            <property name="focusPolicy">
                             <enum>Qt::ClickFocus</enum>
                            </property>
@@ -8465,7 +8465,7 @@ QDoubleSpinBox::down-button {
                         </layout>
                        </item>
                        <item>
-                        <widget class="QSlider" name="point_line_width_slider_20">
+                        <widget class="QSlider" name="linestring_o_angle_slider">
                          <property name="focusPolicy">
                           <enum>Qt::NoFocus</enum>
                          </property>
@@ -8494,7 +8494,7 @@ QDoubleSpinBox::down-button {
                           </widget>
                          </item>
                          <item>
-                          <widget class="QDoubleSpinBox" name="point_line_width_spin_21">
+                          <widget class="QDoubleSpinBox" name="linestring_d_angle_spin">
                            <property name="focusPolicy">
                             <enum>Qt::ClickFocus</enum>
                            </property>
@@ -8534,7 +8534,7 @@ QDoubleSpinBox::down-button {
                         </layout>
                        </item>
                        <item>
-                        <widget class="QSlider" name="point_line_width_slider_21">
+                        <widget class="QSlider" name="linestring_d_angle_slider">
                          <property name="focusPolicy">
                           <enum>Qt::NoFocus</enum>
                          </property>
@@ -8551,7 +8551,7 @@ QDoubleSpinBox::down-button {
                     </layout>
                    </item>
                    <item>
-                    <widget class="QCheckBox" name="checkBox_6">
+                    <widget class="QCheckBox" name="linestring_loop">
                      <property name="text">
                       <string>Self-Loop</string>
                      </property>
@@ -8999,15 +8999,15 @@ QDoubleSpinBox::down-button {
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>-99</y>
+                <y>-105</y>
                 <width>309</width>
-                <height>371</height>
+                <height>377</height>
                </rect>
               </property>
               <attribute name="label">
                <string>Border</string>
               </attribute>
-              <layout class="QVBoxLayout" name="verticalLayout_167">
+              <layout class="QVBoxLayout" name="verticalLayout_107">
                <item>
                 <widget class="QGroupBox" name="groupBox_30">
                  <property name="focusPolicy">
@@ -9397,6 +9397,22 @@ QDoubleSpinBox::down-button {
                 </widget>
                </item>
                <item>
+                <spacer name="verticalSpacer_24">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Ignored</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>23</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
                 <layout class="QHBoxLayout" name="horizontalLayout_185">
                  <item>
                   <widget class="QLabel" name="label_182">
@@ -9440,7 +9456,7 @@ QDoubleSpinBox::down-button {
               <attribute name="label">
                <string>Origin Arrow</string>
               </attribute>
-              <layout class="QVBoxLayout" name="verticalLayout_149">
+              <layout class="QVBoxLayout" name="verticalLayout_105">
                <item>
                 <widget class="QGroupBox" name="groupBox_27">
                  <property name="title">
@@ -9853,6 +9869,22 @@ QDoubleSpinBox::down-button {
                  </layout>
                 </widget>
                </item>
+               <item>
+                <spacer name="verticalSpacer_22">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Ignored</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
               </layout>
              </widget>
              <widget class="QWidget" name="page_28">
@@ -9867,7 +9899,7 @@ QDoubleSpinBox::down-button {
               <attribute name="label">
                <string>Destination Arrow</string>
               </attribute>
-              <layout class="QVBoxLayout" name="verticalLayout_153">
+              <layout class="QVBoxLayout" name="verticalLayout_106">
                <item>
                 <widget class="QGroupBox" name="groupBox_28">
                  <property name="title">
@@ -10279,6 +10311,22 @@ QDoubleSpinBox::down-button {
                   </item>
                  </layout>
                 </widget>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_23">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Ignored</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                </spacer>
                </item>
               </layout>
              </widget>

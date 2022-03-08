@@ -6,11 +6,12 @@ from Tikzifyables.DashPatternable import DashPatternable
 from Tikzifyables.Colourable.LineColourable import LineColourable
 from Tikzifyables.Fillable import Fillable
 from Tikzifyables.Decorationable import Decorationable
+from Tikzifyables.CurveStrategyable import CurveStrategyable
 import Constant as c
 from GeometryMath import point_segment_dist_sqr
 
 
-class Linestring(Item, DashPatternable, LineColourable, Decorationable, Arrowable):
+class Linestring(Item, DashPatternable, LineColourable, Decorationable, Arrowable, CurveStrategyable):
     def __init__(self, item):
         Item.__init__(self, item)
         if item is None:
@@ -19,17 +20,20 @@ class Linestring(Item, DashPatternable, LineColourable, Decorationable, Arrowabl
         LineColourable.__init__(self, self.item)
         Decorationable.__init__(self, self.item)
         Arrowable.__init__(self, self.item)
+        CurveStrategyable.__init__(self, self.item)
 
     def tikzify(self):
+        strategy_options, strategy_coordinates = self.tikzify_strategy()
         options = [
             '' if self.item["line"]["line_width"] == c.Segment.Default.LINE_WIDTH else f'line width={self.item["line"]["line_width"]}',
             self.tikzify_dash(),
             'draw=' + self.tikzify_line_colour(),
             self.tikzify_arrows(),
-            self.tikzify_decoration()
+            self.tikzify_decoration(),
+            strategy_options
         ]
         options = filter(bool, options)
-        return "\\draw[%s](%s.center);" % (', '.join(options), '.center)--('.join(self.item["definition"]))
+        return "\\draw[%s] %s;" % (', '.join(options), strategy_coordinates)
 
     def __str__(self): # TODO modify this too, this is now an error
         return "Segment from (%s) to (%s)" % (self.item["definition"]["A"], self.item["definition"]["B"])
