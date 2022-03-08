@@ -16,6 +16,7 @@ from Polygon import Polygon
 from Linestring import Linestring
 from KeyBank import KeyState
 
+
 class ColorMapping:
     FREE_POINT = QtGui.QColor(213, 4, 2, 150)
     FREE_POINT_FOCUS = FREE_POINT.darker(130)
@@ -37,10 +38,49 @@ class ColorMapping:
     SELECT_ITEM_FOCUS_FILL = SELECT_ITEM_FOCUS.lighter(150)
     SELECT_ITEM_FOCUS_FILL.setAlpha(60)
 
+
 def clear(scene):
     scene.clear()
 
+
 def add_all_items(scene):
+    def draw_aspect_ratio(scene):
+        """
+        SUMMARY
+            draws two lines onto the canvas where the given aspect ratio crops the canvas
+        PARAMETERS
+            scene: GraphicsScene
+            colour: colour of the two lines
+        RETURNS
+            None
+        """
+        colour = QtGui.QColor(0, 0, 0, 150)
+        aspect_ratio = 16/9 # eval(scene.aspect_ratio)
+        width, height = scene.width(), scene.height()
+        # window_aspect = width / height
+        # aspect_ratio < 1 means we draw vertical lines
+        if aspect_ratio < width / height:
+            x_from, y_from, x_to, y_to = (
+            (width - height * aspect_ratio) / 2, 0, (width - height * aspect_ratio) / 2, height)
+            graphics_line_1 = QtWidgets.QGraphicsLineItem(x_from, y_from, x_to, y_to)
+            x_from, y_from, x_to, y_to = (
+            width - (width - height * aspect_ratio) / 2, 0, width - (width - height * aspect_ratio) / 2, height)
+            graphics_line_2 = QtWidgets.QGraphicsLineItem(x_from, y_from, x_to, y_to)
+        # aspect_ratio > 1 means we draw horizontal lines
+        else:
+            x_from, y_from, x_to, y_to = (
+            0, (height - width / aspect_ratio) / 2, width, (height - width / aspect_ratio) / 2)
+            graphics_line_1 = QtWidgets.QGraphicsLineItem(x_from, y_from, x_to, y_to)
+            x_from, y_from, x_to, y_to = (
+            0, height - (height - width / aspect_ratio) / 2, width, height - (height - width / aspect_ratio) / 2)
+            graphics_line_2 = QtWidgets.QGraphicsLineItem(x_from, y_from, x_to, y_to)
+        # if aspect ratio is 1 we don't draw at all
+        if aspect_ratio != width / height:
+            graphics_line_1.setPen(QtGui.QPen(QtGui.QBrush(colour), 2))
+            graphics_line_2.setPen(QtGui.QPen(QtGui.QBrush(colour), 2))
+            scene.addItem(graphics_line_1)
+            scene.addItem(graphics_line_2)
+
     def add_pdf(scene):
         pixmap = QtGui.QPixmap("try-1.png")
         if not scene.show_pdf:
@@ -126,6 +166,8 @@ def add_all_items(scene):
 
     if scene.show_pdf:
         add_pdf(scene)
+    if scene.is_aspect_ratio:
+        draw_aspect_ratio(scene)
     if scene.show_canvas_items or scene.key_bank.move_point.state == KeyState.DOWN or scene.key_bank.move_canvas.state == KeyState.DOWN:
         add_polygons(scene)
         add_segments(scene)

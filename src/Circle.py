@@ -35,6 +35,7 @@ class Circle(Item, Arrowable, DashPatternable, Doubleable, LineColourable, Filla
             'draw=' + self.tikzify_line_colour(),
             '' if self.item["line"]["line_width"] == c.Point.Default.LINE_WIDTH else f'line width={self.item["line"]["line_width"]}',
             self.tikzify_fill_pattern(),
+            self.tikzify_double()
         ]
         options = filter(bool, options)
         return ', '.join(options)

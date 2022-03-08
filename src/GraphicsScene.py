@@ -33,6 +33,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.ui = ui
         self.mouse = Mouse()
         self.project_data = Items()
+        self.is_aspect_ratio = False
         self.current_tab_idx = self.ui.tabWidget.currentIndex()
         self.list_focus_ids = []
         self.select_mode = SelectMode()

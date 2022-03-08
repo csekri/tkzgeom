@@ -1,6 +1,7 @@
 from copy import deepcopy
 import json
 from PyQt5 import QtCore, QtWidgets, QtGui
+from PIL import Image
 
 from Factory import Factory
 from Items import Items
@@ -91,6 +92,8 @@ class EditManagement:
 
     def perform_new(self, scene, *kwargs):
         if not self.unsaved_msg_box_cancelled(scene):
+            img = Image.new("RGB", (int(scene.width()), int(scene.height())), (255, 255, 255))
+            img.save("try-1.png", "PNG")
             scene.project_data = Items()
             fill_listWidget_with_data(scene.project_data, scene.ui.listWidget, scene.current_tab_idx)
             set_selected_id_in_listWidget(scene, 0)

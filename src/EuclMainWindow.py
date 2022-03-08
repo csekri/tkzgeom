@@ -3,6 +3,7 @@ import json
 from collections import namedtuple
 from copy import deepcopy
 import os
+from PIL import Image
 
 import Resources
 from Save import EditManagement
@@ -67,6 +68,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.ui.actionSave_As.triggered.connect(lambda x: self.scene.edit.save_as(self.scene, x))
         self.ui.actionCopy_tikzpicture.triggered.connect(self.copy_tikzpicture_func)
         self.ui.actionCopy_document.triggered.connect(self.copy_tikzdoc_func)
+        self.ui.actionShow_Aspect_Ratio.triggered.connect(self.aspect_ratio_func)
 
         self.ui.point_radio.clicked.connect(lambda x: connect_mode.point_radio_func(self))
         self.ui.segment_radio.clicked.connect(lambda x: connect_mode.segment_radio_func(self))
@@ -98,6 +100,8 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         connect_polygon(self.scene)
         connect_colour(self.scene)
 
+        img = Image.new("RGB", (self.width(), self.height()), (255, 255, 255))
+        img.save("try-1.png", "PNG")
 
     def resizeEvent(self, event):
         self.scene.current_canvas_dims = [self.ui.graphicsView.width(), self.ui.graphicsView.height()]
@@ -175,6 +179,11 @@ class EuclMainWindow(QtWidgets.QMainWindow):
 
     def show_canvas_items_func(self, state):
         self.scene.show_canvas_items = state
+        cr.clear(self.scene)
+        cr.add_all_items(self.scene)
+
+    def aspect_ratio_func(self, state):
+        self.scene.is_aspect_ratio = state
         cr.clear(self.scene)
         cr.add_all_items(self.scene)
 

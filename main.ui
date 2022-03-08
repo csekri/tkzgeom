@@ -432,7 +432,7 @@
 }</string>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <property name="iconSize">
           <size>
@@ -458,7 +458,7 @@
               <enum>Qt::NoFocus</enum>
              </property>
              <property name="currentIndex">
-              <number>0</number>
+              <number>3</number>
              </property>
              <widget class="QWidget" name="page">
               <property name="geometry">
@@ -560,7 +560,7 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>196</width>
+                <width>309</width>
                 <height>543</height>
                </rect>
               </property>
@@ -1195,8 +1195,8 @@ QSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>93</width>
-                <height>118</height>
+                <width>326</width>
+                <height>272</height>
                </rect>
               </property>
               <attribute name="label">
@@ -1220,7 +1220,7 @@ QSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>204</width>
+                <width>309</width>
                 <height>349</height>
                </rect>
               </property>
@@ -1639,8 +1639,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>142</width>
-                <height>148</height>
+                <width>326</width>
+                <height>272</height>
                </rect>
               </property>
               <attribute name="label">
@@ -4078,8 +4078,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>326</width>
-                <height>272</height>
+                <width>125</width>
+                <height>74</height>
                </rect>
               </property>
               <attribute name="label">
@@ -4137,7 +4137,7 @@ QDoubleSpinBox::down-button {
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>-346</y>
+                <y>-134</y>
                 <width>309</width>
                 <height>618</height>
                </rect>
@@ -4808,7 +4808,7 @@ QSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>309</width>
+                <width>272</width>
                 <height>470</height>
                </rect>
               </property>
@@ -5476,8 +5476,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>223</width>
-                <height>203</height>
+                <width>326</width>
+                <height>272</height>
                </rect>
               </property>
               <attribute name="label">
@@ -5896,6 +5896,19 @@ QDoubleSpinBox::down-button {
                  </layout>
                 </widget>
                </item>
+               <item>
+                <spacer name="verticalSpacer_15">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
               </layout>
              </widget>
              <widget class="QWidget" name="page_14">
@@ -5903,8 +5916,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>223</width>
-                <height>203</height>
+                <width>326</width>
+                <height>272</height>
                </rect>
               </property>
               <attribute name="label">
@@ -6322,6 +6335,19 @@ QDoubleSpinBox::down-button {
                   </item>
                  </layout>
                 </widget>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_16">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
                </item>
               </layout>
              </widget>
@@ -10600,7 +10626,7 @@ p, li { white-space: pre-wrap; }
     <bool>true</bool>
    </property>
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="text">
     <string>Show Aspect Ratio</string>

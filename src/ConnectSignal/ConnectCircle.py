@@ -10,13 +10,24 @@ from ConnectSignal.Lambda import (
     connect_lineedit_abstract
 )
 
-from ConnectSignal.ConnectMacros import connect_colour, connect_fill_pattern, connect_dash
+from ConnectSignal.ConnectMacros import (
+    connect_colour,
+    connect_fill_pattern,
+    connect_dash,
+    connect_o_arrow,
+    connect_d_arrow
+)
 from ConnectSignal.Lambda import connect_def_str_lineedit_abstract
 
 
 def connect_circle(scene):
     scene.ui.circle_def_str.editingFinished.connect(
         lambda : connect_def_str_lineedit_abstract(scene, scene.ui.circle_def_str))
+
+    scene.ui.circle_line_width_slider.sliderMoved.connect(
+        lambda x: connect_slider_moved_abstract(x, scene, ['line'], 'line_width', lambda x: x/10.0, scene.ui.circle_line_width_spin))
+    scene.ui.circle_line_width_slider.sliderReleased.connect(
+        lambda : connect_slider_released_abstract(scene))
 
     scene.ui.circle_double_distance_slider.sliderMoved.connect(
         lambda x: connect_slider_moved_abstract(x, scene, ['line', 'double'], 'distance', lambda x: x/10.0, scene.ui.circle_double_distance_spin))
@@ -59,5 +70,23 @@ def connect_circle(scene):
         scene.ui.circle_double_colour_mixratio_slider,
         scene.ui.circle_double_colour_strength_spin,
         scene.ui.circle_double_colour_strength_slider)
+
+    connect_o_arrow(scene,
+        scene.ui.circle_o_tip,
+        scene.ui.circle_o_side,
+        scene.ui.circle_o_reversed,
+        scene.ui.circle_o_length_spin,
+        scene.ui.circle_o_length_slider,
+        scene.ui.circle_o_width_spin,
+        scene.ui.circle_o_width_slider)
+
+    connect_d_arrow(scene,
+        scene.ui.circle_d_tip,
+        scene.ui.circle_d_side,
+        scene.ui.circle_d_reversed,
+        scene.ui.circle_d_length_spin,
+        scene.ui.circle_d_length_slider,
+        scene.ui.circle_d_width_spin,
+        scene.ui.circle_d_width_slider)
 
     connect_dash(scene, ['line' 'dash'], scene.ui.circle_line_stroke, scene.ui.circle_custom_dash)
