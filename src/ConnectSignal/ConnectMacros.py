@@ -146,26 +146,79 @@ def connect_dash(scene, attributes, ui_dash, ui_custom_stroke):
 
 
 def connect_strategy(
-        scene, attributes, ui_tabWidget, ui_segment_radio, ui_vfst_radio, ui_hfst_radio,
+        scene, attributes, ui_tabWidget, ui_connect_link,
         ui_rounded_corners_spin, ui_rounded_corners_slider,
-        ui_in_angle_spin, ui_in_angle_slider,
         ui_out_angle_spin, ui_out_angle_slider,
-        ui_bended_left_radio, ui_bended_right_radio,
+        ui_in_angle_spin, ui_in_angle_slider, ui_loop,
+        ui_bend_direction,
         ui_bend_angle_spin, ui_bend_angle_slider,
         ui_smooth_tension_spin, ui_smooth_tension_slider):
     def tabWidget_func(index, scene):
-        ids = scene.list_focus_ids
-        if not ids:
-            return
-        for id in ids:
-            final_property = scene.project_data.items[id].item
-            for prop in attributes:
-                final_property = final_property[prop]
-            if index < 3:
-                final_property["type"] = c.attribute_values(c.StrategyType)[0]
-            else:
-                final_property["type"] = c.attribute_values(c.StrategyType)[index+2]
+        if not scene.skip_combobox_changes:
+            ids = scene.list_focus_ids
+            if not ids:
+                return
+            for id in ids:
+                final_property = scene.project_data.items[id].item
+                for prop in attributes:
+                    final_property = final_property[prop]
+                if index == 0:
+                    final_property["type"] = c.attribute_values(c.StrategyType)[ui_connect_link.currentIndex()]
+                elif index == 1:
+                    final_property["type"] = c.StrategyType.IO_ANGLE
+                elif index == 2:
+                    final_property["type"] = c.StrategyType.BENDED_LEFT
+                else:
+                    final_property["type"] = c.StrategyType.SMOOTH
+            scene.edit.add_undo_item(scene)
+
+    def connect_bend_direction(index, scene):
+        if not scene.skip_combobox_changes:
+            ids = scene.list_focus_ids
+            if not ids:
+                return
+            for id in ids:
+                final_property = scene.project_data.items[id].item
+                for prop in attributes:
+                    final_property = final_property[prop]
+                final_property["type"] = c.attribute_values(c.StrategyType)[index+4]
+            scene.edit.add_undo_item(scene)
 
     ui_tabWidget.currentChanged.connect(lambda x: tabWidget_func(x, scene))
+
+    ui_connect_link.currentIndexChanged.connect(
+        lambda x: connect_combobox_abstract(x, scene, attributes, 'type', c.attribute_values(c.StrategyType), True))
+
+    ui_bend_direction.currentIndexChanged.connect(
+        lambda x: connect_bend_direction(x, scene))
+
+    ui_loop.stateChanged.connect(
+        lambda x: connect_checkbox_abstract(x, scene, ['line', 'strategy'], 'loop'))
+
+
+    ui_in_angle_slider.sliderMoved.connect(
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'in_angle', lambda x: x*3.6, ui_in_angle_spin))
+    ui_in_angle_slider.sliderReleased.connect(
+        lambda : connect_slider_released_abstract(scene))
+
+    ui_out_angle_slider.sliderMoved.connect(
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'out_angle', lambda x: x*3.6, ui_out_angle_spin))
+    ui_out_angle_slider.sliderReleased.connect(
+        lambda : connect_slider_released_abstract(scene))
+
+    ui_rounded_corners_slider.sliderMoved.connect(
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'rounded_corners', lambda x: x/4.0, ui_rounded_corners_spin))
+    ui_rounded_corners_slider.sliderReleased.connect(
+        lambda : connect_slider_released_abstract(scene))
+
+    ui_bend_angle_slider.sliderMoved.connect(
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'bend_angle', lambda x: x*3.6, ui_bend_angle_spin))
+    ui_bend_angle_slider.sliderReleased.connect(
+        lambda : connect_slider_released_abstract(scene))
+
+    ui_smooth_tension_slider.sliderMoved.connect(
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'smooth_tension', lambda x: x/50.0+0.2, ui_smooth_tension_spin))
+    ui_smooth_tension_slider.sliderReleased.connect(
+        lambda : connect_slider_released_abstract(scene))
 
 #

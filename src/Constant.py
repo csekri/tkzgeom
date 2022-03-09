@@ -97,13 +97,14 @@ class StrategyType:
     SEGMENTS = 'segments'
     VERTHOZ = 'vert-hoz'
     HOZVERT = 'hoz-vert'
-    BENDED_LEFT = 'bended-left'
-    BENDED_RIGHT = 'bended-right'
+    IO_ANGLE = 'io_angle'
+    BENDED_LEFT = 'bended_left'
+    BENDED_RIGHT = 'bended_right'
     SMOOTH = 'smooth'
 
 
 class StrategyDefault:
-    def __init__(self, type=StrategyType.SEGMENTS, rounded_corners=0.0, bend_angle=30, in_angle=90, out_angle=0, smooth_tension=0.55, loop_size=0):
+    def __init__(self, type=StrategyType.SEGMENTS, rounded_corners=0.0, bend_angle=30, in_angle=90, out_angle=0, smooth_tension=0.55, loop_size=1.0):
         self.TYPE = type
         self.ROUNDED_CORNERS = rounded_corners
         self.BEND_ANGLE = bend_angle
@@ -267,6 +268,7 @@ class LineConnectTo:
     NODE_BOUNDARY = 'boundary'
     NODE_CENTRE = 'centre'
 
+
 class Mode(): # TODO good idea but not sure if actually used.
     POINT = 0
     SEGMENT = 1
@@ -392,7 +394,7 @@ class Linestring: # TODO don't forget arrow bending, it is important
         Line_Junction = LineJunctionType.MITER
         LINE_DASH_STROKE = Line_Stroke.SOLID
         LINE_DASH_CUSTOM = [5, 2]
-        LINE_CONNECT_TO = LineConnectTo.NODE_BOUNDARY
+        LINE_CONNECT_TO = LineConnectTo.NODE_CENTRE
 
 
 # List of the default packages.
@@ -402,7 +404,7 @@ PackagesDefault = [
     "\\usepackage[T1]{fontenc}",
     "\\usepackage[rgb]{xcolor} % xcolor must be loaded before everything tikz",
     "\\usepackage{tikz, tkz-euclide,tkz-fct}",
-    "\\usetikzlibrary{arrows.meta, bending, patterns.meta, hobby, ducks}",
+    "\\usetikzlibrary{arrows.meta, bending, patterns.meta, ducks}",
     "\\usetikzlibrary{shapes, backgrounds, decorations.pathmorphing, calc}"
 ]
 

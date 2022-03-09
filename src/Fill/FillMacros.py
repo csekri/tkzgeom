@@ -107,3 +107,44 @@ def fill_dash(scene, item, ui_dash, ui_custom):
     scene.skip_combobox_changes = False
     ui_custom.setText(' '.join(map(str, item["custom_pattern"])))
 
+
+def fill_strategy(
+        scene, item, ui_tabWidget, ui_connect_link,
+        ui_rounded_corners_spin, ui_rounded_corners_slider,
+        ui_out_angle_spin, ui_out_angle_slider,
+        ui_in_angle_spin, ui_in_angle_slider, ui_loop,
+        ui_bend_direction,
+        ui_bend_angle_spin, ui_bend_angle_slider,
+        ui_smooth_tension_spin, ui_smooth_tension_slider):
+    index = c.attribute_values(c.StrategyType).index(item["line"]["strategy"]["type"])
+
+    scene.skip_combobox_changes = True
+    if index < 3:
+        ui_tabWidget.setCurrentIndex(0)
+        ui_connect_link.setCurrentIndex(index)
+    elif index == 3:
+        ui_tabWidget.setCurrentIndex(1)
+    elif index in [4, 5]:
+        ui_tabWidget.setCurrentIndex(2)
+    else:
+        ui_tabWidget.setCurrentIndex(3)
+    ui_bend_direction.setCurrentIndex(item["line"]["strategy"]["type"] != c.StrategyType.BENDED_LEFT)
+    scene.skip_combobox_changes = False
+
+    ui_loop.setChecked(item["line"]["strategy"]["loop"])
+
+    ui_out_angle_slider.setValue(1.0/3.6*item["line"]["strategy"]["out_angle"])
+    ui_out_angle_spin.setValue(item["line"]["strategy"]["out_angle"])
+
+    ui_in_angle_slider.setValue(1.0/3.6*item["line"]["strategy"]["in_angle"])
+    ui_in_angle_spin.setValue(item["line"]["strategy"]["in_angle"])
+
+    ui_rounded_corners_slider.setValue(4.0*item["line"]["strategy"]["rounded_corners"])
+    ui_rounded_corners_spin.setValue(item["line"]["strategy"]["rounded_corners"])
+
+    ui_bend_angle_slider.setValue(1.0/3.6*item["line"]["strategy"]["bend_angle"])
+    ui_bend_angle_spin.setValue(item["line"]["strategy"]["bend_angle"])
+
+    ui_smooth_tension_slider.setValue(-10+50.0*item["line"]["strategy"]["smooth_tension"])
+    ui_smooth_tension_spin.setValue(item["line"]["strategy"]["smooth_tension"])
+

@@ -6,7 +6,8 @@ from Fill.FillMacros import (
     fill_decoration,
     fill_dash,
     fill_o_arrow,
-    fill_d_arrow
+    fill_d_arrow,
+    fill_strategy
 )
 
 
@@ -24,6 +25,10 @@ def fill_linestring_fields(scene):
 
     scene.ui.linestring_line_width_slider.setValue(10.0 * linestring["line"]["line_width"])
     scene.ui.linestring_line_width_spin.setValue(linestring["line"]["line_width"])
+
+    scene.skip_combobox_changes = True
+    scene.ui.linestring_connect_to.setCurrentIndex(c.attribute_values(c.LineConnectTo).index(linestring["line"]["connect_to"]))
+    scene.skip_combobox_changes = False
 
     fill_dash(scene, linestring["line"]["dash"], scene.ui.linestring_line_stroke, scene.ui.linestring_custom_dash)
 
@@ -58,3 +63,16 @@ def fill_linestring_fields(scene):
         scene.ui.linestring_d_length_slider,
         scene.ui.linestring_d_width_spin,
         scene.ui.linestring_d_width_slider)
+
+    fill_strategy(scene, linestring,
+        scene.ui.linestring_tabWidget,
+        scene.ui.linestring_connect_link,
+        scene.ui.linestring_rounded_corners_spin, scene.ui.linestring_rounded_corners_slider,
+        scene.ui.linestring_o_angle_spin, scene.ui.linestring_o_angle_slider,
+        scene.ui.linestring_d_angle_spin, scene.ui.linestring_d_angle_slider, scene.ui.linestring_loop,
+        scene.ui.linestring_bend_direction,
+        scene.ui.linestring_bend_angle_spin, scene.ui.linestring_bend_angle_slider,
+        scene.ui.linestring_smooth_tension_spin, scene.ui.linestring_smooth_tension_slider)
+
+    scene.ui.linestring_loop_size_slider.setValue(10.0 * linestring["line"]["strategy"]["loop_size"])
+    scene.ui.linestring_loop_size_spin.setValue(linestring["line"]["strategy"]["loop_size"])

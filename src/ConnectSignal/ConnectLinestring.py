@@ -28,6 +28,10 @@ def connect_linestring(scene):
     scene.ui.linestring_line_width_slider.sliderReleased.connect(
         lambda : connect_slider_released_abstract(scene))
 
+    scene.ui.linestring_connect_to.currentIndexChanged.connect(
+        lambda x: connect_combobox_abstract(x, scene, ['line'], 'connect_to', c.attribute_values(c.LineConnectTo)))
+
+
     connect_dash(scene, ['line' 'dash'], scene.ui.linestring_line_stroke, scene.ui.linestring_custom_dash)
 
     connect_decoration(scene, ["line", "decoration"],
@@ -64,15 +68,18 @@ def connect_linestring(scene):
 
     connect_strategy(scene, ['line', 'strategy'],
         scene.ui.linestring_tabWidget,
-        scene.ui.linestring_segment_radio,
-        scene.ui.linestring_vfst_radio,
-        scene.ui.linestring_hfst_radio,
-        scene.ui.linestring_segment_radio,
+        scene.ui.linestring_connect_link,
         scene.ui.linestring_rounded_corners_spin, scene.ui.linestring_rounded_corners_slider,
         scene.ui.linestring_o_angle_spin, scene.ui.linestring_o_angle_slider,
-        scene.ui.linestring_d_angle_spin, scene.ui.linestring_d_angle_slider,
-        None, None, None, None, None
-                     )
+        scene.ui.linestring_d_angle_spin, scene.ui.linestring_d_angle_slider, scene.ui.linestring_loop,
+        scene.ui.linestring_bend_direction,
+        scene.ui.linestring_bend_angle_spin, scene.ui.linestring_bend_angle_slider,
+        scene.ui.linestring_smooth_tension_spin, scene.ui.linestring_smooth_tension_slider)
+
+    scene.ui.linestring_loop_size_slider.sliderMoved.connect(
+        lambda x: connect_slider_moved_abstract(x, scene, ['line', 'strategy'], 'loop_size', lambda x: x/10.0, scene.ui.linestring_loop_size_spin))
+    scene.ui.linestring_loop_size_slider.sliderReleased.connect(
+        lambda : connect_slider_released_abstract(scene))
 
     scene.ui.linestring_def_str.editingFinished.connect(
         lambda : connect_def_str_lineedit_abstract(scene, scene.ui.linestring_def_str))

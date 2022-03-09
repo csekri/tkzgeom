@@ -65,6 +65,8 @@ def point_segment_dist_sqr(A, B, P):
     x1, y1 = A
     x2, y2 = B
     x3, y3 = P
+    if A == B:
+        return dist_sqr(A, P)
     px = x2 - x1
     py = y2 - y1
     norm = px * px + py * py

@@ -23,7 +23,7 @@ class Linestring(Item, DashPatternable, LineColourable, Decorationable, Arrowabl
         CurveStrategyable.__init__(self, self.item)
 
     def tikzify(self):
-        strategy_options, strategy_coordinates = self.tikzify_strategy()
+        strategy_options, strategy_coordinates = self.tikzify_strategy(True)
         options = [
             '' if self.item["line"]["line_width"] == c.Segment.Default.LINE_WIDTH else f'line width={self.item["line"]["line_width"]}',
             self.tikzify_dash(),
@@ -109,7 +109,6 @@ class Linestring(Item, DashPatternable, LineColourable, Decorationable, Arrowabl
             return None
         return self.definition_builder(arguments+['mock item'])
 
-
     def dictionary_builder(self, definition, id, sub_type=None): # TODO create Linestring class in Constant.py and modify entries here
         dictionary = {}
         dictionary["id"] = id
@@ -146,11 +145,9 @@ class Linestring(Item, DashPatternable, LineColourable, Decorationable, Arrowabl
         dictionary["line"]["strategy"]["in_angle"] = c.Linestring.Default.Strategy.IN_ANGLE
         dictionary["line"]["strategy"]["out_angle"] = c.Linestring.Default.Strategy.OUT_ANGLE
         dictionary["line"]["strategy"]["smooth_tension"] = c.Linestring.Default.Strategy.SMOOTH_TENSION
+        dictionary["line"]["strategy"]["loop"] = False
         dictionary["line"]["strategy"]["loop_size"] = c.Linestring.Default.Strategy.LOOP_SIZE
-        # dictionary["line"]["o_extension"] = 0.0
-        # dictionary["line"]["d_extension"] = 1.0
-        dictionary["line"]["o_connect_to"] = c.Linestring.Default.LINE_CONNECT_TO
-        dictionary["line"]["d_connect_to"] = c.Linestring.Default.LINE_CONNECT_TO
+        dictionary["line"]["connect_to"] = c.Linestring.Default.LINE_CONNECT_TO
         dictionary["o_arrow"] = {}
         dictionary["o_arrow"]["width"] = c.Linestring.Default.O_Arrow.WIDTH
         dictionary["o_arrow"]["length"] = c.Linestring.Default.O_Arrow.LENGTH
