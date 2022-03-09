@@ -83,5 +83,11 @@ def connect_linestring(scene):
     scene.ui.linestring_loop.stateChanged.connect(
         lambda x: connect_checkbox_abstract(x, scene, ['line', 'strategy'], 'loop'))
 
+    scene.ui.linestring_o_arrow_bending.stateChanged.connect(
+        lambda x: connect_checkbox_abstract(x, scene, ['o_arrow'], 'bending'))
+
+    scene.ui.linestring_d_arrow_bending.stateChanged.connect(
+        lambda x: connect_checkbox_abstract(x, scene, ['d_arrow'], 'bending'))
+
     scene.ui.linestring_def_str.editingFinished.connect(
         lambda : connect_def_str_lineedit_abstract(scene, scene.ui.linestring_def_str))

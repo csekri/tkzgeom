@@ -155,6 +155,7 @@ class Linestring(Item, DashPatternable, LineColourable, Decorationable, Arrowabl
         dictionary["o_arrow"]["bending"] = c.Linestring.Default.O_Arrow.BENDING
         dictionary["o_arrow"]["side"] = c.Linestring.Default.O_Arrow.SIDE
         dictionary["o_arrow"]["reversed"] = c.Linestring.Default.O_Arrow.REVERSED
+        dictionary["o_arrow"]["bending"] = c.Linestring.Default.O_ARROW_BENDING
         dictionary["d_arrow"] = {}
         dictionary["d_arrow"]["width"] = c.Linestring.Default.D_Arrow.WIDTH
         dictionary["d_arrow"]["length"] = c.Linestring.Default.D_Arrow.LENGTH
@@ -162,5 +163,6 @@ class Linestring(Item, DashPatternable, LineColourable, Decorationable, Arrowabl
         dictionary["d_arrow"]["bending"] = c.Linestring.Default.D_Arrow.BENDING
         dictionary["d_arrow"]["side"] = c.Linestring.Default.D_Arrow.SIDE
         dictionary["d_arrow"]["reversed"] = c.Linestring.Default.D_Arrow.REVERSED
+        dictionary["d_arrow"]["bending"] = c.Linestring.Default.D_ARROW_BENDING
 
         self.item = dictionary

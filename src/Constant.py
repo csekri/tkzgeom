@@ -392,6 +392,8 @@ class Linestring: # TODO don't forget arrow bending, it is important
         Strategy = StrategyDefault()
         O_Arrow = ArrowDefault()
         D_Arrow = ArrowDefault()
+        O_ARROW_BENDING = False
+        D_ARROW_BENDING = False
         Line_Junction = LineJunctionType.MITER
         LINE_DASH_STROKE = Line_Stroke.SOLID
         LINE_DASH_CUSTOM = [5, 2]

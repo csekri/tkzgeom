@@ -76,4 +76,9 @@ def fill_linestring_fields(scene):
 
     scene.ui.linestring_loop_size_slider.setValue(10.0 * linestring["line"]["strategy"]["loop_size"])
     scene.ui.linestring_loop_size_spin.setValue(linestring["line"]["strategy"]["loop_size"])
+
+    scene.skip_checkox_changes = True
     scene.ui.linestring_loop.setChecked(linestring["line"]["strategy"]["loop"])
+    scene.ui.linestring_o_arrow_bending.setChecked(linestring["o_arrow"]["bending"])
+    scene.ui.linestring_d_arrow_bending.setChecked(linestring["d_arrow"]["bending"])
+    scene.skip_checkox_changes = False

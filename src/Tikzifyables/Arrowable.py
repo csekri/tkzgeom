@@ -38,6 +38,8 @@ class Arrowable:
         options.append(arrow["side"])
         if arrow["reversed"]:
             options.append('reversed')
+        if 'bending' in arrow and arrow["bending"]:
+            options.append('bend')
         options = list(filter(bool, options))
         if not options:
             return arrow_tip
