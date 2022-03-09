@@ -69,10 +69,11 @@ def fill_linestring_fields(scene):
         scene.ui.linestring_connect_link,
         scene.ui.linestring_rounded_corners_spin, scene.ui.linestring_rounded_corners_slider,
         scene.ui.linestring_o_angle_spin, scene.ui.linestring_o_angle_slider,
-        scene.ui.linestring_d_angle_spin, scene.ui.linestring_d_angle_slider, scene.ui.linestring_loop,
+        scene.ui.linestring_d_angle_spin, scene.ui.linestring_d_angle_slider,
         scene.ui.linestring_bend_direction,
         scene.ui.linestring_bend_angle_spin, scene.ui.linestring_bend_angle_slider,
         scene.ui.linestring_smooth_tension_spin, scene.ui.linestring_smooth_tension_slider)
 
     scene.ui.linestring_loop_size_slider.setValue(10.0 * linestring["line"]["strategy"]["loop_size"])
     scene.ui.linestring_loop_size_spin.setValue(linestring["line"]["strategy"]["loop_size"])
+    scene.ui.linestring_loop.setChecked(linestring["line"]["strategy"]["loop"])

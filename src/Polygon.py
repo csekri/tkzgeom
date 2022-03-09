@@ -8,10 +8,11 @@ from Tikzifyables.DashPatternable import DashPatternable
 from Tikzifyables.Colourable.LineColourable import LineColourable
 from Tikzifyables.Fillable import Fillable
 from Tikzifyables.Decorationable import Decorationable
+from Tikzifyables.CurveStrategyable import CurveStrategyable
 import Constant as c
 
 
-class Polygon(Item, DashPatternable, LineColourable, Fillable, Decorationable):
+class Polygon(Item, DashPatternable, LineColourable, Fillable, Decorationable, CurveStrategyable):
     def __init__(self, item):
         Item.__init__(self, item)
         if item is None:
@@ -20,17 +21,20 @@ class Polygon(Item, DashPatternable, LineColourable, Fillable, Decorationable):
         LineColourable.__init__(self, self.item)
         Fillable.__init__(self, self.item)
         Decorationable.__init__(self, self.item)
+        CurveStrategyable.__init__(self, self.item)
 
     def tikzify(self):
+        strategy_options, strategy_coordinates = self.tikzify_strategy(False)
         options = [
             self.tikzify_dash(),
             'draw=' + self.tikzify_line_colour(),
             '' if self.item["line"]["line_width"] == c.Point.Default.LINE_WIDTH else f'line width={self.item["line"]["line_width"]}',
             self.tikzify_fill_pattern(),
-            self.tikzify_decoration()
+            self.tikzify_decoration(),
+            strategy_options
         ]
         options = filter(bool, options)
-        return "\\fill[%s](%s.center)--cycle;" % ( ', '.join(options) , '.center)--('.join(self.item["definition"]))
+        return "\\draw[%s] %s;" % (', '.join(options), strategy_coordinates)
 
     def __str__(self):
         return "Segment from (%s) to (%s)" % (self.item["definition"]["A"], self.item["definition"]["B"])
@@ -122,6 +126,13 @@ class Polygon(Item, DashPatternable, LineColourable, Fillable, Decorationable):
         dictionary["line"]["decoration"]["amplitude"] = c.Polygon.Default.Decoration.AMPLITUDE
         dictionary["line"]["decoration"]["wavelength"] = c.Polygon.Default.Decoration.WAVELENGTH
         dictionary["line"]["decoration"]["text"] = c.Polygon.Default.Decoration.TEXT
+        dictionary["line"]["strategy"] = {}
+        dictionary["line"]["strategy"]["type"] = c.Polygon.Default.Strategy.TYPE
+        dictionary["line"]["strategy"]["rounded_corners"] = c.Polygon.Default.Strategy.ROUNDED_CORNERS
+        dictionary["line"]["strategy"]["bend_angle"] = c.Polygon.Default.Strategy.BEND_ANGLE
+        dictionary["line"]["strategy"]["in_angle"] = c.Polygon.Default.Strategy.IN_ANGLE
+        dictionary["line"]["strategy"]["out_angle"] = c.Polygon.Default.Strategy.OUT_ANGLE
+        dictionary["line"]["strategy"]["smooth_tension"] = c.Polygon.Default.Strategy.SMOOTH_TENSION
         dictionary["fill"] = {}
         dictionary["fill"]["colour"] = {}
         dictionary["fill"]["colour"]["name"] = c.Polygon.Default.Fill_Colour.NAME

@@ -15,7 +15,8 @@ from ConnectSignal.ConnectMacros import (
     connect_colour,
     connect_fill_pattern,
     connect_decoration,
-    connect_dash
+    connect_dash,
+    connect_strategy
 )
 
 
@@ -61,6 +62,16 @@ def connect_polygon(scene):
         scene.ui.polygon_border_colour_mixratio_slider,
         scene.ui.polygon_border_colour_strength_spin,
         scene.ui.polygon_border_colour_strength_slider)
+
+    connect_strategy(scene, ['line', 'strategy'],
+        scene.ui.polygon_tabWidget,
+        scene.ui.polygon_connect_link,
+        scene.ui.polygon_rounded_corners_spin, scene.ui.polygon_rounded_corners_slider,
+        scene.ui.polygon_o_angle_spin, scene.ui.polygon_o_angle_slider,
+        scene.ui.polygon_d_angle_spin, scene.ui.polygon_d_angle_slider,
+        scene.ui.polygon_bend_direction,
+        scene.ui.polygon_bend_angle_spin, scene.ui.polygon_bend_angle_slider,
+        scene.ui.polygon_smooth_tension_spin, scene.ui.polygon_smooth_tension_slider)
 
     scene.ui.polygon_def_str.editingFinished.connect(
         lambda : connect_def_str_lineedit_abstract(scene, scene.ui.polygon_def_str))

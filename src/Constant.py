@@ -377,6 +377,7 @@ class Polygon:
         # Double_Line = DoubleDefault()
         Fill_Pattern = FillPatternDefault()
         Decoration = DecorationDefault()
+        Strategy = StrategyDefault()
         LINE_DASH_STROKE = Line_Stroke.SOLID
         LINE_DASH_CUSTOM = [5, 2]
 

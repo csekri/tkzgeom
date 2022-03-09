@@ -453,6 +453,7 @@
         {
             "id": "Item_Point",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "Item",
@@ -465,7 +466,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -521,6 +522,7 @@
         {
             "id": "Item_Segment",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "Item",
@@ -533,7 +535,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -589,6 +591,7 @@
         {
             "id": "Item_Circle",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "Item",
@@ -601,7 +604,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -657,6 +660,7 @@
         {
             "id": "Item_Polygon",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "Item",
@@ -669,7 +673,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -725,6 +729,7 @@
         {
             "id": "Arrowable_Segment",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "Arrowable",
@@ -737,7 +742,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -793,6 +798,7 @@
         {
             "id": "LineColourable_Point",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "LineColourable",
@@ -805,7 +811,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -861,6 +867,7 @@
         {
             "id": "FillColourable_Point",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "FillColourable",
@@ -873,7 +880,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -929,6 +936,7 @@
         {
             "id": "Colourable_LineColourable",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "Colourable",
@@ -941,7 +949,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -997,6 +1005,7 @@
         {
             "id": "Colourable_FillColourable",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "Colourable",
@@ -1009,7 +1018,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -1315,6 +1324,7 @@
         {
             "id": "Point_FreePoint",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "Point",
@@ -1327,7 +1337,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -1383,6 +1393,7 @@
         {
             "id": "Point_Midpoint",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "Point",
@@ -1395,7 +1406,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -1451,6 +1462,7 @@
         {
             "id": "Point_OnLine",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "Point",
@@ -1463,7 +1475,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -1519,6 +1531,7 @@
         {
             "id": "DashPatternable_Point",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "DashPatternable",
@@ -1531,7 +1544,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -1587,6 +1600,7 @@
         {
             "id": "DashPatternable_Segment",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "DashPatternable",
@@ -1599,7 +1613,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -1655,6 +1669,7 @@
         {
             "id": "DashPatternable_Polygon",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "DashPatternable",
@@ -1667,7 +1682,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -1723,6 +1738,7 @@
         {
             "id": "Labelable_Point",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "Labelable",
@@ -1735,7 +1751,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -1841,6 +1857,7 @@
         {
             "id": "Arrowable_Linestring",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "Arrowable",
@@ -1853,7 +1870,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -1909,6 +1926,7 @@
         {
             "id": "LineColourable_Segment",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "LineColourable",
@@ -1921,7 +1939,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -1977,6 +1995,7 @@
         {
             "id": "FillColourable_Polygon",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "FillColourable",
@@ -1989,7 +2008,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -2045,6 +2064,7 @@
         {
             "id": "Item_Linestring",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "Item",
@@ -2057,7 +2077,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -2163,6 +2183,7 @@
         {
             "id": "Item_Colour",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "Item",
@@ -2175,7 +2196,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -2281,6 +2302,7 @@
         {
             "id": "Point_Projection",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "Point",
@@ -2293,7 +2315,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -2390,7 +2412,7 @@
                 }
             },
             "label": {
-                "show": true,
+                "show": false,
                 "text": "$A$",
                 "anchor": "below right",
                 "offset": 0.0
@@ -2399,6 +2421,7 @@
         {
             "id": "Point_Translation",
             "type": "segment",
+            "sub_type": null,
             "show": true,
             "definition": {
                 "A": "Point",
@@ -2411,7 +2434,7 @@
                 "offset": 0.0
             },
             "line": {
-                "line_width": 3.0,
+                "line_width": 0.4,
                 "colour": {
                     "name": "black",
                     "mix_with": "black",
@@ -2448,9 +2471,9 @@
                 "reversed": false
             },
             "d_arrow": {
-                "width": 1.0,
-                "length": 1.0,
-                "tip": "None",
+                "width": 1.5,
+                "length": 1.5,
+                "tip": "Stealth",
                 "bending": false,
                 "side": "",
                 "reversed": false

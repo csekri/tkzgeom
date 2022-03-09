@@ -149,7 +149,7 @@ def connect_strategy(
         scene, attributes, ui_tabWidget, ui_connect_link,
         ui_rounded_corners_spin, ui_rounded_corners_slider,
         ui_out_angle_spin, ui_out_angle_slider,
-        ui_in_angle_spin, ui_in_angle_slider, ui_loop,
+        ui_in_angle_spin, ui_in_angle_slider,
         ui_bend_direction,
         ui_bend_angle_spin, ui_bend_angle_slider,
         ui_smooth_tension_spin, ui_smooth_tension_slider):
@@ -191,10 +191,6 @@ def connect_strategy(
 
     ui_bend_direction.currentIndexChanged.connect(
         lambda x: connect_bend_direction(x, scene))
-
-    ui_loop.stateChanged.connect(
-        lambda x: connect_checkbox_abstract(x, scene, ['line', 'strategy'], 'loop'))
-
 
     ui_in_angle_slider.sliderMoved.connect(
         lambda x: connect_slider_moved_abstract(x, scene, attributes, 'in_angle', lambda x: x*3.6, ui_in_angle_spin))

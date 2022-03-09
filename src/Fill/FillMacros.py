@@ -112,7 +112,7 @@ def fill_strategy(
         scene, item, ui_tabWidget, ui_connect_link,
         ui_rounded_corners_spin, ui_rounded_corners_slider,
         ui_out_angle_spin, ui_out_angle_slider,
-        ui_in_angle_spin, ui_in_angle_slider, ui_loop,
+        ui_in_angle_spin, ui_in_angle_slider,
         ui_bend_direction,
         ui_bend_angle_spin, ui_bend_angle_slider,
         ui_smooth_tension_spin, ui_smooth_tension_slider):
@@ -130,8 +130,6 @@ def fill_strategy(
         ui_tabWidget.setCurrentIndex(3)
     ui_bend_direction.setCurrentIndex(item["line"]["strategy"]["type"] != c.StrategyType.BENDED_LEFT)
     scene.skip_combobox_changes = False
-
-    ui_loop.setChecked(item["line"]["strategy"]["loop"])
 
     ui_out_angle_slider.setValue(1.0/3.6*item["line"]["strategy"]["out_angle"])
     ui_out_angle_spin.setValue(item["line"]["strategy"]["out_angle"])

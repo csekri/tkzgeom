@@ -4,7 +4,8 @@ from Fill.FillMacros import (
     fill_colour,
     fill_fill_pattern,
     fill_decoration,
-    fill_dash
+    fill_dash,
+    fill_strategy
 )
 
 
@@ -59,3 +60,13 @@ def fill_polygon_fields(scene):
         scene.ui.polygon_amplitude_spin, scene.ui.polygon_amplitude_slider,
         scene.ui.polygon_wavelength_spin, scene.ui.polygon_wavelength_slider,
         scene.ui.polygon_decoration_text)
+
+    fill_strategy(scene, polygon,
+        scene.ui.polygon_tabWidget,
+        scene.ui.polygon_connect_link,
+        scene.ui.polygon_rounded_corners_spin, scene.ui.polygon_rounded_corners_slider,
+        scene.ui.polygon_o_angle_spin, scene.ui.polygon_o_angle_slider,
+        scene.ui.polygon_d_angle_spin, scene.ui.polygon_d_angle_slider,
+        scene.ui.polygon_bend_direction,
+        scene.ui.polygon_bend_angle_spin, scene.ui.polygon_bend_angle_slider,
+        scene.ui.polygon_smooth_tension_spin, scene.ui.polygon_smooth_tension_slider)
