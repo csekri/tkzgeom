@@ -5,6 +5,7 @@ from PointClasses.Intersection import Intersection
 from PointClasses.Translation import Translation
 from PointClasses.Projection import Projection
 from PointClasses.Rotation import Rotation
+from PointClasses.Bisector import Bisector
 from Point import Point
 from Segment import Segment
 from Polygon import Polygon
@@ -35,6 +36,8 @@ class Factory:
                 return Projection(item)
             if item["sub_type"] == c.Point.Definition.ROTATION:
                 return Rotation(item)
+            if item["sub_type"] == c.Point.Definition.BISECTOR:
+                return Bisector(item)
         if item["type"] == 'circle':
             if item["sub_type"] == c.Circle.Definition.WITH_CENTRE:
                 return CircleWithCentre(item)
@@ -66,6 +69,8 @@ class Factory:
                 return Projection(None)
             if sub_type == c.Point.Definition.ROTATION:
                 return Rotation(None)
+            if sub_type == c.Point.Definition.BISECTOR:
+                return Bisector(None)
         if type == 'circle':
             if sub_type == c.Circle.Definition.WITH_CENTRE:
                 return CircleWithCentre(None)

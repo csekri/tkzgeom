@@ -29,6 +29,10 @@ def dist(X, Y):
     return dist_sqr(X, Y) ** 0.5
 
 
+def scalar_mul(c, X):
+    return [c*X[0], c*X[1]]
+
+
 def ortho_proj(A, B, P):
     # x = np.linalg.norm(P_ - A_) * (P_ - A_).dot(B_ - A_) / (np.linalg.norm(P_ - A_) * np.linalg.norm(B_ - A_))
     x = dot(sub(P, A), sub(B, A)) / dist_sqr(B, A)
@@ -111,3 +115,26 @@ def circumcentre(A, B, C):
     K_y = (K_y_A + K_y_B + K_y_C) / D
 
     return K_x, K_y
+
+
+def bisector_point(A,B,C):
+    """
+    SUMMARY
+        computes a point which lies on the bisector of the angle
+        In order to get the exact distance from the angle point we follow the
+        construction method of tkz-euclide.
+        1. copy the first segment (A,B) on the second segment (B,C) to get (P)
+        the result is the third coordinate of the equilateral triangle formed by AP.
+    PARAMETERS
+        A: point
+        B: point where the angle is
+        P: third point
+    RETURNS
+        [float, float]
+    """
+    scalar = dist(B, A) / dist(C, B)
+    P = add(B, scalar_mul(scalar, sub(C, B)))
+    cossixty, sinsixty = math.cos(math.radians(60)), math.sin(math.radians(60))
+    rot = (P[0]-A[0])*cossixty - (P[1]-A[1])*sinsixty, (P[0]-A[0])*sinsixty + (P[1]-A[1])*cossixty
+    Q = add(A, rot)
+    return Q
