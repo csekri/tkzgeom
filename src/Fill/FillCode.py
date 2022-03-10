@@ -13,3 +13,8 @@ def fill_code_fields(scene):
         if i > 6:
             item.setFlags(item.flags() | QtCore.Qt.ItemIsEditable)
         scene.ui.packages_listWidget.addItem(item)
+
+    scene.skip_plaintextedit_changes = True
+    scene.ui.code_before_text.setPlainText(scene.project_data.code_before)
+    scene.ui.code_after_text.setPlainText(scene.project_data.code_after)
+    scene.skip_plaintextedit_changes = False

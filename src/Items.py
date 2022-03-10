@@ -125,6 +125,7 @@ class Items:
             tikzified_linestrings_draw = '% DRAW LINESTRINGS\n' + tikzified_linestrings_draw
 
         object_blocks = [
+            self.code_before,
             tikzified_colours,
             init_crop,
             tikzified_points_def,
@@ -134,6 +135,7 @@ class Items:
             tikzified_linestrings_draw,
             tikzified_nodes_repeat,
             tikzified_points_label,
+            self.code_after
         ]
         string = '\n\n'.join(filter(bool, object_blocks))
 
@@ -141,7 +143,7 @@ class Items:
 
     def doc_surround_tikzify(self, current_width, current_height, init_width, init_height):
         string = '\documentclass{standalone}\n'
-        string += '\n'.join(self.packages)
+        string += '\n'.join(self.packages) + '\n'
         string += '\n' + '\\begin{document}' + '\n'
         string += self.tikzify(current_width, current_height, init_width, init_height)
         string += '\n' + '\\end{document}' + '\n'

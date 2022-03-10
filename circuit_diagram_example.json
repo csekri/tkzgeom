@@ -1,0 +1,610 @@
+{
+    "items": [
+        {
+            "id": "A",
+            "type": "point",
+            "sub_type": "free",
+            "show": true,
+            "definition": {
+                "x": -2.4816983894582725,
+                "y": 2.408491947291362
+            },
+            "marker": {
+                "size": 3,
+                "shape": "circle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 0.0,
+                "rounded_corners": 0.0,
+                "text": "",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": true,
+                "text": "$A$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "B",
+            "type": "point",
+            "sub_type": "free",
+            "show": true,
+            "definition": {
+                "x": -2.540263543191801,
+                "y": -0.7540263543191807
+            },
+            "marker": {
+                "size": 3,
+                "shape": "circle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 0.0,
+                "rounded_corners": 0.0,
+                "text": "",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": true,
+                "text": "$B$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "C",
+            "type": "point",
+            "sub_type": "free",
+            "show": true,
+            "definition": {
+                "x": 1.793557833089312,
+                "y": 2.364568081991215
+            },
+            "marker": {
+                "size": 3,
+                "shape": "circle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 0.0,
+                "rounded_corners": 0.0,
+                "text": "",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": true,
+                "text": "$C$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "D",
+            "type": "point",
+            "sub_type": "translation",
+            "show": true,
+            "definition": {
+                "A": "A",
+                "B": "C",
+                "P": "B"
+            },
+            "marker": {
+                "size": 3,
+                "shape": "circle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 0.0,
+                "rounded_corners": 0.0,
+                "text": "",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": true,
+                "text": "$D$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "A_C",
+            "type": "segment",
+            "sub_type": null,
+            "show": true,
+            "definition": {
+                "A": "A",
+                "B": "C"
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "boundary",
+                "d_connect_to": "boundary"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {}
+        },
+        {
+            "id": "A_B",
+            "type": "segment",
+            "sub_type": null,
+            "show": true,
+            "definition": {
+                "A": "A",
+                "B": "B"
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "boundary",
+                "d_connect_to": "boundary"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {}
+        },
+        {
+            "id": "B_D",
+            "type": "segment",
+            "sub_type": null,
+            "show": true,
+            "definition": {
+                "A": "B",
+                "B": "D"
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "boundary",
+                "d_connect_to": "boundary"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {}
+        },
+        {
+            "id": "D_C",
+            "type": "segment",
+            "sub_type": null,
+            "show": true,
+            "definition": {
+                "A": "D",
+                "B": "C"
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "boundary",
+                "d_connect_to": "boundary"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {}
+        },
+        {
+            "id": "E",
+            "type": "point",
+            "sub_type": "on_line",
+            "show": true,
+            "definition": {
+                "A": "A",
+                "B": "C",
+                "ratio": 0.5443245778611634
+            },
+            "marker": {
+                "size": 3,
+                "shape": "circle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 0.0,
+                "rounded_corners": 0.0,
+                "text": "",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": true,
+                "text": "$E$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "F",
+            "type": "point",
+            "sub_type": "translation",
+            "show": true,
+            "definition": {
+                "A": "A",
+                "B": "E",
+                "P": "B"
+            },
+            "marker": {
+                "size": 3,
+                "shape": "circle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 0.0,
+                "rounded_corners": 0.0,
+                "text": "",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": true,
+                "text": "$F$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "E_F",
+            "type": "segment",
+            "sub_type": null,
+            "show": true,
+            "definition": {
+                "A": "E",
+                "B": "F"
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "boundary",
+                "d_connect_to": "boundary"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {}
+        }
+    ],
+    "window": {
+        "left": -5.0,
+        "top": 5.0,
+        "scale": 1.0
+    },
+    "bg_colour": {
+        "name": "black",
+        "mix_with": "black",
+        "mix_percent": 0,
+        "strength": 0
+    },
+    "code_before": "",
+    "code_after": "\\begin{scope}[circuit ee IEC]\n  \\draw (E) to[inductor] (F);\n  \\draw (A) to[resistor] (B);\n\\end{scope}",
+    "packages": [
+        "\\usepackage{amsmath,amssymb}",
+        "\\usepackage[utf8]{inputenc}",
+        "\\usepackage[T1]{fontenc}",
+        "\\usepackage[rgb]{xcolor} % xcolor must be loaded before everything tikz",
+        "\\usepackage{tikz, tkz-euclide,tkz-fct}",
+        "\\usetikzlibrary{arrows.meta, bending, patterns.meta, ducks}",
+        "\\usetikzlibrary{shapes, backgrounds, decorations.pathmorphing, calc}",
+        "\\usetikzlibrary{circuits.ee.IEC}"
+    ]
+}
