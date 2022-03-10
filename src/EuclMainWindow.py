@@ -28,6 +28,7 @@ from ConnectSignal.ConnectSegment import connect_segment
 from ConnectSignal.ConnectCircle import connect_circle
 from ConnectSignal.ConnectPolygon import connect_polygon
 from ConnectSignal.ConnectLinestring import connect_linestring
+from ConnectSignal.ConnectCode import connect_code
 from Fill.ListWidget import fill_listWidget_with_data, set_selected_id_in_listWidget
 from Fill.FillAll import fill_all_fields
 
@@ -105,6 +106,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         connect_polygon(self.scene)
         connect_linestring(self.scene)
         connect_colour(self.scene)
+        connect_code(self.scene)
 
         img = Image.new("RGB", (self.width(), self.height()), (255, 255, 255))
         img.save("try-1.png", "PNG")
@@ -209,15 +211,6 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.clipboard.setText(text, mode=self.clipboard.Clipboard)
 
     def zoom_slider_move_func(self, value):
-        """
-        SUMMARY
-            called when the zoom slider is moves, draws the changed positions of
-            the objects
-        PARAMETERS
-            value: passed from the slider
-        RETURNS
-            None
-        """
         slider_size = 200
         value_transform = lambda x: -4 * x * (x / slider_size) if x < 0 else x
         # if value < 0:

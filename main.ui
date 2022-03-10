@@ -470,7 +470,7 @@
 }</string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>7</number>
          </property>
          <property name="iconSize">
           <size>
@@ -598,7 +598,7 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>309</width>
+                <width>196</width>
                 <height>543</height>
                </rect>
               </property>
@@ -1233,8 +1233,8 @@ QSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>326</width>
-                <height>290</height>
+                <width>93</width>
+                <height>118</height>
                </rect>
               </property>
               <attribute name="label">
@@ -1258,7 +1258,7 @@ QSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>309</width>
+                <width>204</width>
                 <height>349</height>
                </rect>
               </property>
@@ -1677,8 +1677,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>326</width>
-                <height>290</height>
+                <width>142</width>
+                <height>148</height>
                </rect>
               </property>
               <attribute name="label">
@@ -10944,12 +10944,25 @@ QDoubleSpinBox::down-button {
                  <property name="alternatingRowColors">
                   <bool>true</bool>
                  </property>
+                 <property name="isWrapping" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
                 </widget>
                </item>
                <item>
                 <widget class="QPushButton" name="packages_add_new">
                  <property name="text">
                   <string>+ Add New Package</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="packages_delete">
+                 <property name="text">
+                  <string>- Delete Package</string>
                  </property>
                 </widget>
                </item>

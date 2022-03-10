@@ -10,6 +10,6 @@ def fill_code_fields(scene):
     scene.ui.packages_listWidget.clear()
     for i, package in enumerate(scene.project_data.packages):
         item = QtWidgets.QListWidgetItem(package)
-        if i > 5:
+        if i > 6:
             item.setFlags(item.flags() | QtCore.Qt.ItemIsEditable)
         scene.ui.packages_listWidget.addItem(item)
