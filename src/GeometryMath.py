@@ -117,7 +117,7 @@ def circumcentre(A, B, C):
     return K_x, K_y
 
 
-def bisector_point(A,B,C):
+def bisector_point(A, B, C):
     """
     SUMMARY
         computes a point which lies on the bisector of the angle

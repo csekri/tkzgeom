@@ -168,7 +168,10 @@ def add_all_items(scene):
         add_pdf(scene)
     if scene.is_aspect_ratio:
         draw_aspect_ratio(scene)
-    if scene.show_canvas_items or scene.key_bank.move_point.state == KeyState.DOWN or scene.key_bank.move_canvas.state == KeyState.DOWN:
+    if scene.show_canvas_items\
+    or scene.key_bank.move_point.state == KeyState.DOWN\
+    or scene.key_bank.move_canvas.state == KeyState.DOWN\
+    or scene.zoom_old_saved:
         add_polygons(scene)
         add_segments(scene)
         add_circles(scene)
@@ -177,6 +180,9 @@ def add_all_items(scene):
     add_half_ready_circle(scene)
     add_half_ready_linestring(scene)
     add_half_ready_polygon(scene)
-    if scene.show_canvas_items or scene.key_bank.move_point.state == KeyState.DOWN or scene.key_bank.move_canvas.state == KeyState.DOWN:
+    if scene.show_canvas_items\
+    or scene.key_bank.move_point.state == KeyState.DOWN\
+    or scene.key_bank.move_canvas.state == KeyState.DOWN\
+    or scene.zoom_old_saved:
         add_points(scene)
     add_item_in_focus(scene)

@@ -55,6 +55,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.skip_combobox_changes = False
         self.skip_checkox_changes = False
         self.item_to_be = None
+        self.zoom_old_saved = None
 
     def mousePressEvent(self, event):
         self.mouse.set_xy(int(event.scenePos().x()), int(event.scenePos().y()))

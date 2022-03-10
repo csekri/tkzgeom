@@ -532,4 +532,4 @@ PATTERN_EXTRAS = set([PatternType.LINES, PatternType.HATCH, PatternType.DOTS_EXT
 CIRCLE_PATTERN_LENGTH = {Tool.CIRCLE_WITH_CENTRE: 2, Tool.CIRCUM_CIRCLE: 3}
 
 # List of types in items as it appears in the tabWidget.
-TYPES = ['point', 'segment', 'circle', 'polygon', 'linestring', 'function', 'colour', 'number']
+TYPES = ['point', 'segment', 'circle', 'polygon', 'linestring', 'function', 'colour', 'code']

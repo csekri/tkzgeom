@@ -6,8 +6,8 @@
             "sub_type": "free",
             "show": true,
             "definition": {
-                "x": 4.819004524886877,
-                "y": 4.66817496229261
+                "x": 3.571581658138573,
+                "y": 4.829122261517733
             },
             "marker": {
                 "size": 3,
@@ -256,8 +256,8 @@
             "sub_type": "free",
             "show": true,
             "definition": {
-                "x": -4.42684766214178,
-                "y": 4.577677224736048
+                "x": -4.811207659368845,
+                "y": 4.710427899499929
             },
             "marker": {
                 "size": 3,
@@ -306,8 +306,8 @@
             "sub_type": "free",
             "show": true,
             "definition": {
-                "x": -4.638009049773755,
-                "y": 3.6726998491704377
+                "x": -4.707350092603267,
+                "y": 3.2119115790251516
             },
             "marker": {
                 "size": 3,
@@ -356,8 +356,8 @@
             "sub_type": "free",
             "show": true,
             "definition": {
-                "x": -1.6214177978883857,
-                "y": 3.6425339366515828
+                "x": -1.9625429709415458,
+                "y": 3.167401193268475
             },
             "marker": {
                 "size": 3,
@@ -406,8 +406,8 @@
             "sub_type": "free",
             "show": true,
             "definition": {
-                "x": 1.244343891402715,
-                "y": 4.592760180995475
+                "x": -0.9091305080335337,
+                "y": 4.60657033273435
             },
             "marker": {
                 "size": 3,
@@ -1077,8 +1077,8 @@
             "sub_type": "free",
             "show": true,
             "definition": {
-                "x": 7.277526395173456,
-                "y": 4.668174962292607
+                "x": 5.811937741224627,
+                "y": 4.962653418787763
             },
             "marker": {
                 "size": 3,
@@ -1127,8 +1127,8 @@
             "sub_type": "free",
             "show": true,
             "definition": {
-                "x": 11.621417797888387,
-                "y": 4.502262443438914
+                "x": 12.117575723420472,
+                "y": 4.60657033273435
             },
             "marker": {
                 "size": 3,
@@ -1277,8 +1277,8 @@
             "sub_type": "free",
             "show": true,
             "definition": {
-                "x": -2.2096530920060333,
-                "y": -0.806938159879337
+                "x": -2.6747091430483714,
+                "y": -1.3874949491647595
             },
             "marker": {
                 "size": 3,
@@ -2255,8 +2255,8 @@
             "sub_type": "free",
             "show": true,
             "definition": {
-                "x": -0.36360131452088496,
-                "y": -0.7733863081978267
+                "x": -1.3393975703480745,
+                "y": -0.5566344150401301
             },
             "marker": {
                 "size": 3,
@@ -2374,8 +2374,8 @@
             "sub_type": "free",
             "show": true,
             "definition": {
-                "x": 1.8765158157865827,
-                "y": -0.8173101734979733
+                "x": 0.8564481269813022,
+                "y": -1.194616610885828
             },
             "marker": {
                 "size": 3,
@@ -2486,6 +2486,1034 @@
                     "strength": 100
                 }
             }
+        },
+        {
+            "id": "Bisector",
+            "type": "point",
+            "sub_type": "free",
+            "show": true,
+            "definition": {
+                "x": 1.346062370304745,
+                "y": -0.3785928720134235
+            },
+            "marker": {
+                "size": 3,
+                "shape": "rectangle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 2,
+                "rounded_corners": 0.0,
+                "text": "Bisector",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "white",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": false,
+                "text": "$Bisector$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "Point_Bisector",
+            "type": "segment",
+            "sub_type": null,
+            "show": true,
+            "definition": {
+                "A": "Point",
+                "B": "Bisector"
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "boundary",
+                "d_connect_to": "boundary"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {}
+        },
+        {
+            "id": "WithCentre",
+            "type": "point",
+            "sub_type": "free",
+            "show": true,
+            "definition": {
+                "x": 4.07603269671424,
+                "y": -0.927554296345769
+            },
+            "marker": {
+                "size": 3,
+                "shape": "rectangle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 2,
+                "rounded_corners": 0.0,
+                "text": "WithCentre",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "white",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": false,
+                "text": "$WithCentre$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "Circum",
+            "type": "point",
+            "sub_type": "free",
+            "show": true,
+            "definition": {
+                "x": 7.191759699681599,
+                "y": -1.0462486583635728
+            },
+            "marker": {
+                "size": 3,
+                "shape": "rectangle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 2,
+                "rounded_corners": 0.0,
+                "text": "Circum",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "white",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": false,
+                "text": "$Circum$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "Circle_WithCentre",
+            "type": "segment",
+            "sub_type": null,
+            "show": true,
+            "definition": {
+                "A": "Circle",
+                "B": "WithCentre"
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "boundary",
+                "d_connect_to": "boundary"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {}
+        },
+        {
+            "id": "Circle_Circum",
+            "type": "segment",
+            "sub_type": null,
+            "show": true,
+            "definition": {
+                "A": "Circle",
+                "B": "Circum"
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "boundary",
+                "d_connect_to": "boundary"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {}
+        },
+        {
+            "id": "Strategyable",
+            "type": "point",
+            "sub_type": "free",
+            "show": true,
+            "definition": {
+                "x": 8.734786405913054,
+                "y": 5.2593893238322735
+            },
+            "marker": {
+                "size": 3,
+                "shape": "rectangle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 2,
+                "rounded_corners": 0.0,
+                "text": "Strategyable",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "white",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": false,
+                "text": "$Strategyable$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "Strategyable_Polygon",
+            "type": "segment",
+            "sub_type": null,
+            "show": true,
+            "definition": {
+                "A": "Strategyable",
+                "B": "Polygon"
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "boundary",
+                "d_connect_to": "boundary"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {}
+        },
+        {
+            "id": "Strategyable_Linestring",
+            "type": "segment",
+            "sub_type": null,
+            "show": true,
+            "definition": {
+                "A": "Strategyable",
+                "B": "Linestring"
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "boundary",
+                "d_connect_to": "boundary"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {}
+        },
+        {
+            "id": "Decorationable",
+            "type": "point",
+            "sub_type": "free",
+            "show": true,
+            "definition": {
+                "x": 11.346062370304743,
+                "y": 5.378083685850077
+            },
+            "marker": {
+                "size": 3,
+                "shape": "rectangle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 2,
+                "rounded_corners": 0.0,
+                "text": "Decorationable",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "white",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": false,
+                "text": "$Decorationable$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "Decorationable_Linestring",
+            "type": "segment",
+            "sub_type": null,
+            "show": true,
+            "definition": {
+                "A": "Decorationable",
+                "B": "Linestring"
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "boundary",
+                "d_connect_to": "boundary"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {}
+        },
+        {
+            "id": "Decorationable_Polygon",
+            "type": "segment",
+            "sub_type": null,
+            "show": true,
+            "definition": {
+                "A": "Decorationable",
+                "B": "Polygon"
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "boundary",
+                "d_connect_to": "boundary"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {}
+        },
+        {
+            "id": "Doubleable",
+            "type": "point",
+            "sub_type": "free",
+            "show": true,
+            "definition": {
+                "x": 0.811937741224626,
+                "y": 5.200042142823371
+            },
+            "marker": {
+                "size": 3,
+                "shape": "rectangle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 2,
+                "rounded_corners": 0.0,
+                "text": "Doubleable",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "white",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": false,
+                "text": "$Doubleable$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "Doubleable_Segment",
+            "type": "segment",
+            "sub_type": null,
+            "show": true,
+            "definition": {
+                "A": "Doubleable",
+                "B": "Segment"
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "boundary",
+                "d_connect_to": "boundary"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {}
+        },
+        {
+            "id": "Doubleable_Linestring",
+            "type": "segment",
+            "sub_type": null,
+            "show": true,
+            "definition": {
+                "A": "Doubleable",
+                "B": "Linestring"
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "boundary",
+                "d_connect_to": "boundary"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {}
+        },
+        {
+            "id": "Arrowable_Circle",
+            "type": "segment",
+            "sub_type": null,
+            "show": true,
+            "definition": {
+                "A": "Arrowable",
+                "B": "Circle"
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "boundary",
+                "d_connect_to": "boundary"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {}
+        },
+        {
+            "id": "DashPatternable_Linestring",
+            "type": "segment",
+            "sub_type": null,
+            "show": true,
+            "definition": {
+                "A": "DashPatternable",
+                "B": "Linestring"
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "boundary",
+                "d_connect_to": "boundary"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {}
+        },
+        {
+            "id": "Doubleable_Circle",
+            "type": "segment",
+            "sub_type": null,
+            "show": true,
+            "definition": {
+                "A": "Doubleable",
+                "B": "Circle"
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "boundary",
+                "d_connect_to": "boundary"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {}
+        },
+        {
+            "id": "DashPatternable_Circle",
+            "type": "segment",
+            "sub_type": null,
+            "show": true,
+            "definition": {
+                "A": "DashPatternable",
+                "B": "Circle"
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "boundary",
+                "d_connect_to": "boundary"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "fill": {}
         }
     ],
     "window": {

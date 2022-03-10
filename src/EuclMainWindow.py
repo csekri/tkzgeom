@@ -95,6 +95,10 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.ui.actionShow_Canvas_Labels.toggled.connect(self.show_canvas_labels_func)
         self.ui.actionShow_Canvas_Items.toggled.connect(self.show_canvas_items_func)
 
+        self.ui.zoom_slider.sliderMoved.connect(self.zoom_slider_move_func)
+        self.ui.zoom_slider.sliderPressed.connect(self.zoom_slider_pressed_func)
+        self.ui.zoom_slider.sliderReleased.connect(self.zoom_slider_release_func)
+
         connect_point(self.scene)
         connect_segment(self.scene)
         connect_circle(self.scene)
@@ -200,7 +204,71 @@ class EuclMainWindow(QtWidgets.QMainWindow):
 
     def copy_tikzdoc_func(self):
         print('copieren')
-        text = self.scene.project_data.doc_surround_tikzify()
+        text = self.scene.project_data.doc_surround_tikzify(self.scene.width(), self.scene.height(), *self.scene.init_canvas_dims)
         self.clipboard.clear(mode=self.clipboard.Clipboard)
         self.clipboard.setText(text, mode=self.clipboard.Clipboard)
-#
+
+    def zoom_slider_move_func(self, value):
+        """
+        SUMMARY
+            called when the zoom slider is moves, draws the changed positions of
+            the objects
+        PARAMETERS
+            value: passed from the slider
+        RETURNS
+            None
+        """
+        slider_size = 200
+        value_transform = lambda x: -4 * x * (x / slider_size) if x < 0 else x
+        # if value < 0:
+        #     value *= 4
+        value = value_transform(value)
+        self.scene.project_data.set_window(
+            scale=self.scene.zoom_old_saved.scale * (-value + slider_size + 10) / slider_size,
+            left=self.scene.project_data.window.left,
+            top=self.scene.project_data.window.top
+        )
+        self.scene.project_data.set_window(
+            scale=self.scene.project_data.window.scale,
+            left=self.scene.zoom_old_saved.left - 5 * (self.scene.project_data.window.scale - self.scene.zoom_old_saved.scale),
+            top=self.scene.zoom_old_saved.top + 5 * (self.scene.project_data.window.scale - self.scene.zoom_old_saved.scale)
+        )
+        self.scene.project_data.recompute_canvas(self.scene.width(), self.scene.height())
+        cr.clear(self.scene)
+        cr.add_all_items(self.scene)
+
+        # self.scene.eucl["window"]["scale"] = old_scale * (value + 512 + 0.5) / 512
+        # scale = self.scene.eucl["window"]["scale"]
+        # self.scene.eucl["window"]["left"] = old_left - 5 * (scale - old_scale)
+        # self.scene.eucl["window"]["bottom"] = old_bottom - 5 * (scale - old_scale)
+        # self.scene.compute_mapped_points()
+        # cd.always_on_drawing_plan(self.scene)
+        # cd.always_off_drawing_plan(self.scene)
+        # self.scene.selected_objects.clear()
+        # cd.add_all_items_to_scene(self.scene, QtCore.Qt.darkMagenta)
+
+    def zoom_slider_pressed_func(self):
+        """
+        SUMMARY
+            called when the zoom slider gets pressed on, saves the original position of
+            the window
+        PARAMETERS
+            nothing
+        RETURNS
+            None
+        """
+        self.scene.zoom_old_saved = self.scene.project_data.window
+
+    def zoom_slider_release_func(self):
+        """
+        SUMMARY
+            called when the zoom slider is released, compiles displays change
+        PARAMETERS
+            value: passed from the slider
+        RETURNS
+            None
+        """
+        self.zoom_slider.setValue(0)
+        self.scene.zoom_old_saved = None
+        self.scene.project_data.recompute_canvas(self.scene.width(), self.scene.height())
+        self.scene.edit.add_undo_item(self.scene)
