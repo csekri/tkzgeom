@@ -312,7 +312,7 @@
             <item>
              <widget class="QRadioButton" name="angle_radio">
               <property name="enabled">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
               <property name="focusPolicy">
                <enum>Qt::NoFocus</enum>
@@ -325,7 +325,7 @@
             <item>
              <widget class="QRadioButton" name="right_angle_radio">
               <property name="enabled">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
               <property name="focusPolicy">
                <enum>Qt::NoFocus</enum>
@@ -470,7 +470,7 @@
 }</string>
          </property>
          <property name="currentIndex">
-          <number>7</number>
+          <number>0</number>
          </property>
          <property name="iconSize">
           <size>
@@ -598,7 +598,7 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>196</width>
+                <width>309</width>
                 <height>543</height>
                </rect>
               </property>
@@ -1233,8 +1233,8 @@ QSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>93</width>
-                <height>118</height>
+                <width>326</width>
+                <height>290</height>
                </rect>
               </property>
               <attribute name="label">
@@ -1258,7 +1258,7 @@ QSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>204</width>
+                <width>309</width>
                 <height>349</height>
                </rect>
               </property>
@@ -1677,8 +1677,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>142</width>
-                <height>148</height>
+                <width>326</width>
+                <height>290</height>
                </rect>
               </property>
               <attribute name="label">
@@ -10756,6 +10756,22 @@ QDoubleSpinBox::down-button {
           <attribute name="title">
            <string/>
           </attribute>
+          <widget class="QLabel" name="label_14">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>20</y>
+             <width>261</width>
+             <height>121</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Trying to figure out how to do this best, and if we need it at all&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
          </widget>
          <widget class="QWidget" name="tab_6">
           <attribute name="icon">
@@ -10924,7 +10940,7 @@ QDoubleSpinBox::down-button {
            <item>
             <widget class="QToolBox" name="toolBox_6">
              <property name="currentIndex">
-              <number>0</number>
+              <number>1</number>
              </property>
              <widget class="QWidget" name="page_20">
               <property name="geometry">
@@ -10973,8 +10989,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>98</width>
-                <height>118</height>
+                <width>326</width>
+                <height>344</height>
                </rect>
               </property>
               <attribute name="label">
@@ -11119,8 +11135,8 @@ p, li { white-space: pre-wrap; }
      <string>View</string>
     </property>
     <addaction name="actionShow_PDF"/>
-    <addaction name="actionShow_Canvas_Labels"/>
     <addaction name="actionShow_Canvas_Items"/>
+    <addaction name="actionShow_Canvas_Labels"/>
     <addaction name="actionShow_Aspect_Ratio"/>
    </widget>
    <widget class="QMenu" name="menuSettings">
