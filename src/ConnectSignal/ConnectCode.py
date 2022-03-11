@@ -1,15 +1,5 @@
 from PyQt5 import QtCore, QtWidgets
 
-from Fill.FillAll import fill_all_fields
-from Fill.ListWidget import fill_listWidget_with_data, listWidget_set_current_row
-from ConnectSignal.Lambda import (
-    connect_lineedit_abstract,
-    connect_plain_text_edit_abstract,
-    connect_text_edit_pushbutton_apply_abstract
-)
-from Colour import Colour
-from Factory import Factory
-
 
 def package_list_updated(scene):
     for i in range(scene.ui.packages_listWidget.count()):
@@ -17,7 +7,7 @@ def package_list_updated(scene):
 
 
 def add_new_package(scene):
-    selector = scene.ui.packages_listWidget # alias for the listWidget
+    selector = scene.ui.packages_listWidget  # alias for the listWidget
     if selector.item(selector.count() - 1).text() != '':
         item = QtWidgets.QListWidgetItem('')
         item.setFlags(item.flags() | QtCore.Qt.ItemIsEditable)
@@ -47,16 +37,16 @@ def connect_code_text_edit_pushbutton_apply(scene):
 
 
 def connect_code(scene):
-    scene.ui.packages_listWidget.itemChanged.connect(lambda : package_list_updated(scene))
-    scene.ui.packages_add_new.clicked.connect(lambda : add_new_package(scene))
-    scene.ui.packages_delete.clicked.connect(lambda : delete_package(scene))
+    scene.ui.packages_listWidget.itemChanged.connect(lambda: package_list_updated(scene))
+    scene.ui.packages_add_new.clicked.connect(lambda: add_new_package(scene))
+    scene.ui.packages_delete.clicked.connect(lambda: delete_package(scene))
 
     scene.ui.code_before_text.textChanged.connect(
-        lambda : connect_code_plain_text_edit(scene, scene.ui.code_before_text, True))
+        lambda: connect_code_plain_text_edit(scene, scene.ui.code_before_text, True))
     scene.ui.code_before_apply.clicked.connect(
-        lambda : connect_code_text_edit_pushbutton_apply(scene))
+        lambda: connect_code_text_edit_pushbutton_apply(scene))
 
     scene.ui.code_after_text.textChanged.connect(
-        lambda : connect_code_plain_text_edit(scene, scene.ui.code_after_text, False))
+        lambda: connect_code_plain_text_edit(scene, scene.ui.code_after_text, False))
     scene.ui.code_after_apply.clicked.connect(
-        lambda : connect_code_text_edit_pushbutton_apply(scene))
+        lambda: connect_code_text_edit_pushbutton_apply(scene))

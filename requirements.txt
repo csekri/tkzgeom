@@ -1,5 +1,5 @@
 numpy==1.20.0
 Pillow==9.0.1
 Pygments==2.11.2
-PyQt5==5.15.6
+PyQt5==5.15.2
 Shapely==1.8.1.post1

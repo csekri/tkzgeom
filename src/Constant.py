@@ -1,16 +1,17 @@
 """Collection of constants"""
 
+
 def attribute_values(class_input):
     """Turn class attribute values into a list."""
-    return [m for v, m in vars(class_input).items() if not (v.startswith('_')  or callable(m))]
+    return [m for v, m in vars(class_input).items() if not (v.startswith('_') or callable(m))]
 
 
-class MouseState: # TODO check if this is actually used anywhere, if so delete
+class MouseState:  # TODO check if this is actually used anywhere, if so delete
     UP = 0
     DOWN = 1
 
 
-class MouseButton: # TODO check if this is actually used anywhere, if so delete
+class MouseButton:  # TODO check if this is actually used anywhere, if so delete
     LEFT = 0
     RIGHT = 1
 
@@ -104,8 +105,9 @@ class StrategyType:
 
 
 class StrategyDefault:
-    def __init__(self, type=StrategyType.SEGMENTS, rounded_corners=0.0, bend_angle=30, in_angle=90, out_angle=0, smooth_tension=0.55, loop_size=1.0):
-        self.TYPE = type
+    def __init__(self, type_=StrategyType.SEGMENTS, rounded_corners=0.0, bend_angle=30, in_angle=90, out_angle=0,
+                 smooth_tension=0.55, loop_size=1.0):
+        self.TYPE = type_
         self.ROUNDED_CORNERS = rounded_corners
         self.BEND_ANGLE = bend_angle
         self.IN_ANGLE = in_angle
@@ -154,19 +156,20 @@ class DoubleDefault:
 
 # Parameters that define an arrow.
 class ArrowDefault:
-    def __init__(self, tip=ArrowTip.NONE, side=ArrowSide.BOTH, width=1.0, length=1.0, reversed=False, bending=False):
+    def __init__(self, tip=ArrowTip.NONE, side=ArrowSide.BOTH, width=1.0, length=1.0, reversed_=False, bending=False):
         self.TIP = tip
         self.WIDTH = width
         self.LENGTH = length
         self.BENDING = bending
         self.SIDE = side
-        self.REVERSED = reversed
+        self.REVERSED = reversed_
 
 
 # Parameters that define a pattern.
 class FillPatternDefault:
-    def __init__(self, type=PatternType.SOLID, distance=5.0, size=0.5, rotation=0.0, rotatio=0.0, xshift=0.0, yshift=0.0):
-        self.TYPE = type
+    def __init__(self, type_=PatternType.SOLID, distance=5.0, size=0.5, rotation=0.0, xshift=0.0,
+                 yshift=0.0):
+        self.TYPE = type_
         self.DISTANCE = distance
         self.SIZE = size
         self.ROTATION = rotation
@@ -181,7 +184,7 @@ class LineJunctionType:
 
 
 # Node/marker shapes supported by TkzGeom
-class Marker_Shape:
+class MarkerShape:
     CIRCLE = 'circle'
     RECTANGE = 'rectangle'
     REGULAR_POLYGON = 'regular polygon'
@@ -191,13 +194,14 @@ class Marker_Shape:
 
 # Parameters that define a node/marker.
 class MarkerDefault:
-    def __init__(self, size=3, shape=Marker_Shape.CIRCLE, shape_number=5, ratio=2.25, inner_sep=0.0, rounded_corners=0.0, text='', text_width=0.0):
-        self.SIZE = 3
+    def __init__(self, size=3, shape=MarkerShape.CIRCLE, shape_number=5, ratio=2.25, inner_sep=0.0,
+                 rounded_corners=0.0, text='', text_width=0.0):
+        self.SIZE = size
         self.SHAPE = shape
         self.SHAPE_NUMBER = shape_number
         self.RATIO = ratio
         self.INNER_SEP = inner_sep
-        self.ROUNDED_CORNERS = 0.0
+        self.ROUNDED_CORNERS = rounded_corners
         self.TEXT = text
         self.TEXT_WIDTH = text_width
 
@@ -223,14 +227,14 @@ class DecorationType:
     SAW = 'saw'
     RANDOM_STEPS = 'random steps'
     BUMPS = 'bumps'
-    COIL= 'coil'
+    COIL = 'coil'
     SNAKE = 'snake'
 
 
 # Parameters that make up a decoration.
 class DecorationDefault:
-    def __init__(self, type=DecorationType.NONE, amplitude=3.0, wavelength=3.0, text=''):
-        self.TYPE = type
+    def __init__(self, type_=DecorationType.NONE, amplitude=3.0, wavelength=3.0, text=''):
+        self.TYPE = type_
         self.AMPLITUDE = amplitude
         self.WAVELENGTH = wavelength
         self.TEXT = text
@@ -246,7 +250,7 @@ class LabelDefault:
 
 
 # Line strokes supported by tikz.
-class Line_Stroke:
+class LineStroke:
     SOLID = 'solid'
     LOOSELY_DASHED = 'loosely dashed'
     DASHED = 'dashed'
@@ -269,7 +273,7 @@ class LineConnectTo:
     NODE_CENTRE = 'centre'
 
 
-class Mode(): # TODO good idea but not sure if actually used.
+class Mode:  # TODO good idea but not sure if actually used.
     POINT = 0
     SEGMENT = 1
     CIRCLE = 2
@@ -277,7 +281,7 @@ class Mode(): # TODO good idea but not sure if actually used.
     DECORATOR = 4
 
 
-class Canvas: # TODO not entirely used now.
+class Canvas:  # TODO not entirely used now.
     POINT_RADIUS = 7
     LINE_THICKNESS = 3
     CIRCLE_THICKNESS = 3
@@ -294,7 +298,7 @@ class Point:
         Line_Colour = ColourDefault()
         Marker = MarkerDefault()
         Label = LabelDefault()
-        LINE_DASH_STROKE = Line_Stroke.SOLID
+        LINE_DASH_STROKE = LineStroke.SOLID
         LINE_DASH_CUSTOM = [5, 2]
 
     class Definition:
@@ -324,9 +328,10 @@ class Point:
         Definition.ROTATION: "The point defined as the rotation of #1, by angle #2 around centre #3."
     }
 
+
 # Contains the default values for a point plus the definition subtypes.
 class Circle:
-    class Default: # TODO change this
+    class Default:  # TODO change this
         LINE_WIDTH = 0.4
         Fill_Colour = ColourDefault(strength=10)
         Fill_Pattern = FillPatternDefault()
@@ -334,7 +339,7 @@ class Circle:
         O_Arrow = ArrowDefault()
         D_Arrow = ArrowDefault()
         Double_Line = DoubleDefault()
-        LINE_DASH_STROKE = Line_Stroke.SOLID
+        LINE_DASH_STROKE = LineStroke.SOLID
         LINE_DASH_CUSTOM = [5, 2]
 
     class Definition:
@@ -363,7 +368,7 @@ class Segment:
         Double_Line = DoubleDefault()
         O_Arrow = ArrowDefault()
         D_Arrow = ArrowDefault()
-        LINE_DASH_STROKE = Line_Stroke.SOLID
+        LINE_DASH_STROKE = LineStroke.SOLID
         LINE_DASH_CUSTOM = [5, 2]
         LINE_CONNECT_TO = LineConnectTo.NODE_BOUNDARY
 
@@ -378,12 +383,12 @@ class Polygon:
         Fill_Pattern = FillPatternDefault()
         Decoration = DecorationDefault()
         Strategy = StrategyDefault()
-        LINE_DASH_STROKE = Line_Stroke.SOLID
+        LINE_DASH_STROKE = LineStroke.SOLID
         LINE_DASH_CUSTOM = [5, 2]
 
 
 # Contains the default values for a linestring.
-class Linestring: # TODO don't forget arrow bending, it is important
+class Linestring:  # TODO don't forget arrow bending, it is important
     class Default:
         LINE_WIDTH = 0.4
         Line_Colour = ColourDefault()
@@ -395,7 +400,7 @@ class Linestring: # TODO don't forget arrow bending, it is important
         O_ARROW_BENDING = False
         D_ARROW_BENDING = False
         Line_Junction = LineJunctionType.MITER
-        LINE_DASH_STROKE = Line_Stroke.SOLID
+        LINE_DASH_STROKE = LineStroke.SOLID
         LINE_DASH_CUSTOM = [5, 2]
         LINE_CONNECT_TO = LineConnectTo.NODE_CENTRE
 
@@ -411,14 +416,12 @@ PackagesDefault = [
     "\\usetikzlibrary{shapes, backgrounds, decorations.pathmorphing, calc}"
 ]
 
-
-BackGroundColourDefault = { # TODO investigate and delete.
+BackGroundColourDefault = {  # TODO investigate and delete.
     "name": "black",
     "mix_with": "black",
     "mix_percent": 0,
     "strength": 0
 }
-
 
 # The default dimensions of the window
 WindowDefault = {
@@ -525,9 +528,9 @@ PARSE_TO_TYPE_MAP = {
     TOOL_TO_PARSE_MAP[Tool.REGULAR_POLYGON]: ('cloud', None)
 }
 
-
 # The patterns that has extra tuning possibilities.
-PATTERN_EXTRAS = set([PatternType.LINES, PatternType.HATCH, PatternType.DOTS_EXTRA, PatternType.FIVEPOINTED_STARS, PatternType.SIXPOINTED_STARS])
+PATTERN_EXTRAS = {PatternType.LINES, PatternType.HATCH, PatternType.DOTS_EXTRA, PatternType.FIVEPOINTED_STARS,
+                  PatternType.SIXPOINTED_STARS}
 
 CIRCLE_PATTERN_LENGTH = {Tool.CIRCLE_WITH_CENTRE: 2, Tool.CIRCUM_CIRCLE: 3}
 

@@ -1,7 +1,6 @@
 from Point import Point
-from Item import Item
 import Constant as c
-import re
+
 
 class FreePoint(Point):
     def __init__(self, item):

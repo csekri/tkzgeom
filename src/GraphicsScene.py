@@ -1,16 +1,11 @@
 # standard and pip imports
-import sys, os, json
-import numpy as np
-import json
-from PyQt5 import QtCore, QtWidgets, QtGui
-from copy import deepcopy
+from PyQt5 import QtWidgets
 
 from Mouse import Mouse
 from Factory import Factory
 from Items import Items
 from Save import EditManagement
 from PointClasses.FreePoint import FreePoint
-from Tikzifyables.Labelable import Labelable
 import Constant as c
 from SelectPattern import SelectMode, ItemAccumulator
 from HighlightItem import item_in_focus
@@ -19,7 +14,6 @@ from KeyBank import KeyBank, KeyState
 from Fill.ListWidget import fill_listWidget_with_data, set_selected_id_in_listWidget
 from SyntaxHighlight import syntax_highlight
 from Tikzifyables.Labelable import Labelable
-from Segment import Segment
 from GeometryMath import dist, ortho_proj
 from PointCloudHandler import select_point_cloud
 
@@ -88,8 +82,8 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
                 self.select_history.reset_history()
                 return
             self.select_history.add_to_history(focus, self.project_data.items[focus].item["type"])
-            type, sub_type = c.PARSE_TO_TYPE_MAP[c.TOOL_TO_PARSE_MAP[self.select_mode.get_type()]]
-            self.item_to_be = Factory.create_empty_item(type, sub_type)
+            type_, sub_type = c.PARSE_TO_TYPE_MAP[c.TOOL_TO_PARSE_MAP[self.select_mode.get_type()]]
+            self.item_to_be = Factory.create_empty_item(type_, sub_type)
 
             if ids := self.select_history.match_pattern(self.item_to_be.patterns()):
                 if self.select_mode.get_type() == c.Tool.POLYGON:
@@ -119,7 +113,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
                 self.project_data.add(self.item_to_be)
                 self.project_data.recompute_canvas(*self.init_canvas_dims)
                 self.edit.add_undo_item(self)
-                self.ui.tabWidget.setCurrentIndex(c.TYPES.index(type))
+                self.ui.tabWidget.setCurrentIndex(c.TYPES.index(type_))
                 fill_listWidget_with_data(self.project_data, self.ui.listWidget, self.current_tab_idx)
                 set_selected_id_in_listWidget(self, -1)
         cr.clear(self)

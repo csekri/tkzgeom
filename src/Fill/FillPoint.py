@@ -5,8 +5,8 @@ from Fill.FillMacros import fill_colour, fill_dash
 
 def fill_point_fields(scene):
     ids = scene.list_focus_ids
-    colours = c.attribute_values(c.Colour)\
-        + [i.get_id() for i in scene.project_data.items.values() if isinstance(i, Colour)]
+    colours = c.attribute_values(c.Colour) \
+              + [i.get_id() for i in scene.project_data.items.values() if isinstance(i, Colour)]
     if not ids:
         return
     if c.TYPES[scene.current_tab_idx] != 'point':
@@ -18,7 +18,7 @@ def fill_point_fields(scene):
     scene.ui.plainTextEdit.setPlainText(point["marker"]["text"])
     scene.skip_plaintextedit_changes = False
     scene.skip_combobox_changes = True
-    scene.ui.point_marker_shape.setCurrentIndex(c.attribute_values(c.Marker_Shape).index(point["marker"]["shape"]))
+    scene.ui.point_marker_shape.setCurrentIndex(c.attribute_values(c.MarkerShape).index(point["marker"]["shape"]))
     scene.ui.point_anchor.setCurrentIndex(c.attribute_values(c.Direction).index(point["label"]["anchor"]))
     scene.skip_combobox_changes = False
     scene.skip_checkox_changes = True
@@ -34,7 +34,7 @@ def fill_point_fields(scene):
     scene.ui.point_inner_sep_slider.setValue(point["marker"]["inner_sep"])
     scene.ui.point_inner_sep_spin.setValue(point["marker"]["inner_sep"])
 
-    scene.ui.point_ratio_slider.setValue(-10+20*point["marker"]["ratio"])
+    scene.ui.point_ratio_slider.setValue(-10 + 20 * point["marker"]["ratio"])
     scene.ui.point_ratio_spin.setValue(point["marker"]["ratio"])
 
     scene.ui.point_text_width_slider.setValue(point["marker"]["text_width"])
@@ -45,27 +45,26 @@ def fill_point_fields(scene):
 
     scene.ui.point_label_text.setText(point["label"]["text"])
 
-    scene.ui.point_offset_slider.setValue(10+point["label"]["offset"])
+    scene.ui.point_offset_slider.setValue(10 + point["label"]["offset"])
     scene.ui.point_offset_spin.setValue(point["label"]["offset"])
 
-    scene.ui.point_rounded_corners_slider.setValue(4*point["marker"]["rounded_corners"])
+    scene.ui.point_rounded_corners_slider.setValue(4 * point["marker"]["rounded_corners"])
     scene.ui.point_rounded_corners_spin.setValue(point["marker"]["rounded_corners"])
 
     fill_colour(scene, point["fill"]["colour"], colours,
-        scene.ui.point_marker_colour_name,
-        scene.ui.point_marker_colour_mix_name,
-        scene.ui.point_marker_colour_mixratio_spin,
-        scene.ui.point_marker_colour_mixratio_slider,
-        scene.ui.point_marker_colour_strength_spin,
-        scene.ui.point_marker_colour_strength_slider)
+                scene.ui.point_marker_colour_name,
+                scene.ui.point_marker_colour_mix_name,
+                scene.ui.point_marker_colour_mixratio_spin,
+                scene.ui.point_marker_colour_mixratio_slider,
+                scene.ui.point_marker_colour_strength_spin,
+                scene.ui.point_marker_colour_strength_slider)
 
     fill_dash(scene, point["line"]["dash"], scene.ui.point_line_stroke, scene.ui.point_custom_dash)
 
     fill_colour(scene, point["line"]["colour"], colours,
-        scene.ui.point_border_colour_name,
-        scene.ui.point_border_colour_mix_name,
-        scene.ui.point_border_colour_mixratio_spin,
-        scene.ui.point_border_colour_mixratio_slider,
-        scene.ui.point_border_colour_strength_spin,
-        scene.ui.point_border_colour_strength_slider)
-
+                scene.ui.point_border_colour_name,
+                scene.ui.point_border_colour_mix_name,
+                scene.ui.point_border_colour_mixratio_spin,
+                scene.ui.point_border_colour_mixratio_slider,
+                scene.ui.point_border_colour_strength_spin,
+                scene.ui.point_border_colour_strength_slider)

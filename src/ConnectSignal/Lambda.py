@@ -46,7 +46,9 @@ def listWidget_text_changed_func(item, main_window):
             for ditem in (data["items"]):
                 main_window.scene.project_data.add(Factory.create_item(ditem))
             main_window.scene.list_focus_ids = [item.text()]
-        fill_listWidget_with_data(main_window.scene.project_data, main_window.scene.ui.listWidget, main_window.scene.current_tab_idx)
+        fill_listWidget_with_data(main_window.scene.project_data,
+                                  main_window.scene.ui.listWidget,
+                                  main_window.scene.current_tab_idx)
         set_selected_id_in_listWidget(main_window.scene, main_window.ui.scene.ui.listWidget.currentRow())
         main_window.scene.edit.add_undo_item(main_window.scene)
         cr.clear(main_window.scene)
@@ -66,8 +68,8 @@ def connect_plain_text_edit_abstract(scene, properties_list, dict_key, plain_tex
         return
     if not ids:
         return
-    for id in ids:
-        final_property = scene.project_data.items[id].item
+    for id_ in ids:
+        final_property = scene.project_data.items[id_].item
         for prop in properties_list:
             final_property = final_property[prop]
         final_property[dict_key] = plain_text_edit_widget.toPlainText()
@@ -85,8 +87,8 @@ def connect_combobox_abstract(value, scene, properties_list, dict_key, value_lis
     ids = scene.list_focus_ids
     if not ids:
         return
-    for id in ids:
-        final_property = scene.project_data.items[id].item
+    for id_ in ids:
+        final_property = scene.project_data.items[id_].item
         for prop in properties_list:
             final_property = final_property[prop]
         new_value = value_list[value]
@@ -100,8 +102,8 @@ def connect_checkbox_abstract(state, scene, properties_list, dict_key):
     ids = scene.list_focus_ids
     if not ids:
         return
-    for id in ids:
-        final_property = scene.project_data.items[id].item
+    for id_ in ids:
+        final_property = scene.project_data.items[id_].item
         for prop in properties_list:
             final_property = final_property[prop]
         final_property[dict_key] = bool(state)
@@ -112,8 +114,9 @@ def connect_slider_moved_abstract(value, scene, properties_list, dict_key, linea
     ids = scene.list_focus_ids
     if not ids:
         return
-    for id in ids:
-        final_property = scene.project_data.items[id].item
+    new_value = 0.0
+    for id_ in ids:
+        final_property = scene.project_data.items[id_].item
         for prop in properties_list:
             final_property = final_property[prop]
         new_value = linear_map(value)
@@ -129,17 +132,17 @@ def connect_dash_lineedit_abstract(scene, properties_list, dict_key, lineedit):
     ids = scene.list_focus_ids
     if not lineedit.hasFocus():
         do_edit = True
-        for id in ids:
-            final_property = scene.project_data.items[id].item
+        for id_ in ids:
+            final_property = scene.project_data.items[id_].item
             for prop in properties_list:
                 final_property = final_property[prop]
             try:
                 lengths = list(map(int, lineedit.text().split(' ')))
                 if len(lengths) % 2 != 0:
-                    throw_error = 1/0
+                    throw_error = 1 / 0
                 final_property[dict_key] = lengths
                 do_edit = True
-            except:
+            except ZeroDivisionError:
                 lengths_str = ''
                 for num in final_property[dict_key]:
                     lengths_str += "%s " % str(num)
@@ -155,8 +158,8 @@ def connect_dash_lineedit_abstract(scene, properties_list, dict_key, lineedit):
 def connect_lineedit_abstract(scene, properties_list, dict_key, lineedit):
     ids = scene.list_focus_ids
     if not lineedit.hasFocus():
-        for id in ids:
-            final_property = scene.project_data.items[id].item
+        for id_ in ids:
+            final_property = scene.project_data.items[id_].item
             for prop in properties_list:
                 final_property = final_property[prop]
             final_property[dict_key] = lineedit.text()
@@ -171,31 +174,30 @@ def connect_def_str_lineedit_abstract(scene, lineedit):
     ids = scene.list_focus_ids
     if not ids:
         return None
-    id = ids[0]
+    id_ = ids[0]
     if not lineedit.hasFocus():
-        do_edit = True
         try:
             parse_step1 = parse_def(lineedit.text(), c.PARSE_TO_TYPE_MAP)
             if not parse_step1:
                 throw_error = 1/0
             type, sub_type = c.PARSE_TO_TYPE_MAP[parse_step1[0]]
-            if type != scene.project_data.items[id].item["type"]:
+            if type != scene.project_data.items[id_].item["type"]:
                 throw_error = 1/0
             item = Factory.create_empty_item(type, sub_type)
-            item.item["id"] = id
+            item.item["id"] = id_
             parse_step2 = item.parse_into_definition(parse_step1[1], scene.project_data.items)
             if not parse_step2:
                 throw_error = 1/0
-            item_dict = deepcopy(scene.project_data.items[id].item)
+            item_dict = deepcopy(scene.project_data.items[id_].item)
             item_dict["definition"] = parse_step2
             item_dict["type"] = type
             item_dict["sub_type"] = sub_type
 
-            scene.project_data.items[id] = Factory.create_item(item_dict)
+            scene.project_data.items[id_] = Factory.create_item(item_dict)
             lineedit.setText(lineedit.text().replace(' ', ''))
             do_edit = True
         except ZeroDivisionError:
-            lineedit.setText(scene.project_data.items[id].definition_string())
+            lineedit.setText(scene.project_data.items[id_].definition_string())
             do_edit = False
         if do_edit:
             scene.project_data.recompute_canvas(*scene.init_canvas_dims)

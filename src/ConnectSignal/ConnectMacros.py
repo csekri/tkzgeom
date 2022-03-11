@@ -142,7 +142,7 @@ def connect_dash(scene, attributes, ui_dash, ui_custom_stroke):
         lambda : connect_dash_lineedit_abstract(scene, ['line', 'dash'], 'custom_pattern', ui_custom_stroke))
 
     ui_dash.currentIndexChanged.connect(
-        lambda x: connect_combobox_abstract(x, scene, ['line', 'dash'], 'stroke', c.attribute_values(c.Line_Stroke)))
+        lambda x: connect_combobox_abstract(x, scene, ['line', 'dash'], 'stroke', c.attribute_values(c.LineStroke)))
 
 
 def connect_strategy(
