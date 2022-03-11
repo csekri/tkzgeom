@@ -1,9 +1,9 @@
 from PyQt5 import QtWidgets, uic
 
 from Factory import Factory
-from PointClasses.FreePoint import FreePoint
-import Constant as c
+from Dialogs.DialogMacros import turn_into_free_point, free_point_checkbox
 from Fill.ListWidget import fill_listWidget_with_data, set_selected_id_in_listWidget
+import Constant as c
 
 
 class MakeGridDialog(QtWidgets.QDialog):
@@ -21,7 +21,7 @@ class MakeGridDialog(QtWidgets.QDialog):
         self.ui.cols_slider.valueChanged.connect(self.hslider_col_func)
         self.ui.rows_slider.valueChanged.connect(self.hslider_row_func)
 
-        self.ui.checkBox.stateChanged.connect(self.checkbox_free_point)
+        self.ui.checkBox.stateChanged.connect(lambda x: free_point_checkbox(self, x))
 
     def hslider_col_func(self, value):
         self.cols = value
@@ -30,9 +30,6 @@ class MakeGridDialog(QtWidgets.QDialog):
     def hslider_row_func(self, value):
         self.rows = value
         self.ui.rows_spin.setValue(value)
-
-    def checkbox_free_point(self, state):
-        self.free_point = bool(state)
 
     def accepted(self):
         origin, right, bottom = self.data
@@ -45,24 +42,13 @@ class MakeGridDialog(QtWidgets.QDialog):
             for i in range(self.cols-1):
                 if j == i == 0:
                     continue
-                item = Factory.create_empty_item('point', 'translation')
+                item = Factory.create_empty_item('point', c.Point.Definition.TRANSLATION)
                 definition = {'A': origin, 'B': right, 'P': x}
                 id_ = Factory.next_id(item, definition, self.scene.project_data.items)
                 item.item["id"] = id_
                 item.item["definition"] = definition
                 if self.free_point:
-                    item.recompute_canvas(self.scene.project_data.items,
-                                          self.scene.project_data.window,
-                                          *self.scene.init_canvas_dims)
-                    canvas_coords = item.get_canvas_coordinates()
-                    tikz_coords = FreePoint.phi_inverse(self.scene.project_data.window,
-                                                        *item.get_canvas_coordinates(),
-                                                        *self.scene.init_canvas_dims)
-                    item = Factory.create_empty_item('point', c.Point.Definition.FREE)
-                    definition = dict(zip(['x', 'y'], tikz_coords))
-                    item.item["id"] = id_
-                    item.item["definition"] = definition
-                    item.set_canvas_coordinates(*canvas_coords)
+                    item = turn_into_free_point(item, self.scene)
                 self.scene.project_data.add(item)
                 x = item.item["id"]
                 if j == 0:
@@ -73,24 +59,13 @@ class MakeGridDialog(QtWidgets.QDialog):
             right_accumulator.append(x)
 
             if (j != self.rows - 1) and (j != 0):
-                item = Factory.create_empty_item('point', 'translation')
+                item = Factory.create_empty_item('point', c.Point.Definition.TRANSLATION)
                 definition = {'A': origin, 'B': bottom, 'P': y}
                 id_ = Factory.next_id(item, definition, self.scene.project_data.items)
                 item.item["id"] = id_
                 item.item["definition"] = definition
                 if self.free_point:
-                    item.recompute_canvas(self.scene.project_data.items,
-                                          self.scene.project_data.window,
-                                          *self.scene.init_canvas_dims)
-                    canvas_coords = item.get_canvas_coordinates()
-                    tikz_coords = FreePoint.phi_inverse(self.scene.project_data.window,
-                                                        *item.get_canvas_coordinates(),
-                                                        *self.scene.init_canvas_dims)
-                    item = Factory.create_empty_item('point', c.Point.Definition.FREE)
-                    definition = dict(zip(['x', 'y'], tikz_coords))
-                    item.item["id"] = id_
-                    item.item["definition"] = definition
-                    item.set_canvas_coordinates(*canvas_coords)
+                    item = turn_into_free_point(item, self.scene)
                 self.scene.project_data.add(item)
                 y = item.item["id"]
                 if j == self.rows - 2:

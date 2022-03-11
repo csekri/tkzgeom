@@ -2,6 +2,7 @@ from PyQt5 import QtWidgets, uic
 
 from Factory import Factory
 from PointClasses.FreePoint import FreePoint
+from Dialogs.DialogMacros import turn_into_free_point, free_point_checkbox
 from Fill.ListWidget import fill_listWidget_with_data, set_selected_id_in_listWidget
 import Constant as c
 
@@ -19,14 +20,11 @@ class CompleteGraphDialog(QtWidgets.QDialog):
 
         self.ui.sides_slider.valueChanged.connect(self.hslider_sides_func)
 
-        self.ui.checkBox.stateChanged.connect(self.checkbox_free_point)
+        self.ui.checkBox.stateChanged.connect(lambda x: free_point_checkbox(self, x))
 
     def hslider_sides_func(self, value):
         self.sides = value
         self.ui.sides_spin.setValue(value)
-
-    def checkbox_free_point(self, state):
-        self.free_point = bool(state)
 
     def accepted(self):
         A, B = self.data
@@ -40,18 +38,7 @@ class CompleteGraphDialog(QtWidgets.QDialog):
             item.item["id"] = id_
             item.item["definition"] = definition
             if self.free_point:
-                item.recompute_canvas(self.scene.project_data.items,
-                                      self.scene.project_data.window,
-                                      *self.scene.init_canvas_dims)
-                canvas_coords = item.get_canvas_coordinates()
-                tikz_coords = FreePoint.phi_inverse(self.scene.project_data.window,
-                                       *item.get_canvas_coordinates(),
-                                       *self.scene.init_canvas_dims)
-                item = Factory.create_empty_item('point', c.Point.Definition.FREE)
-                definition = dict(zip(['x', 'y'], tikz_coords))
-                item.item["id"] = id_
-                item.item["definition"] = definition
-                item.set_canvas_coordinates(*canvas_coords)
+                item = turn_into_free_point(item, self.scene)
             self.scene.project_data.add(item)
             A = B
             B = id_
