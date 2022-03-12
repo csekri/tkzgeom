@@ -62,6 +62,11 @@ class Item(object):
         pattern = r"""^([a-zA-Z0-9]+'*[_-]?)+$"""
         return re.search(pattern, argument)
 
+    @staticmethod
+    def name_pattern_static(argument):
+        pattern = r"""^([a-zA-Z0-9]+'*[_-]?)+$"""
+        return re.search(pattern, argument)
+
     def definition_builder(self, data, items=None):
         return NotImplementedError
 

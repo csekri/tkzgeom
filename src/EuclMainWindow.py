@@ -88,7 +88,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.ui.cloud_combo.currentIndexChanged.connect(lambda x: connect_mode.cloud_combo_func(x, self))
 
         self.ui.tabWidget.currentChanged.connect(lambda x: tabWidget_func(x, self))
-        self.ui.listWidget.itemDoubleClicked.connect(lambda x: listWidget_double_func(x, self))
+        self.ui.listWidget.itemDoubleClicked.connect(lambda x: listWidget_double_func(self))
         self.ui.listWidget.itemChanged.connect(lambda x: listWidget_text_changed_func(x, self))
         self.ui.listWidget.itemSelectionChanged.connect(lambda : listWidget_current_row_changed_func(self))
 

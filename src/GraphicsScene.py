@@ -48,6 +48,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.skip_plaintextedit_changes = False
         self.skip_combobox_changes = False
         self.skip_checkox_changes = False
+        self.skip_item_changes = False
         self.item_to_be = None
         self.zoom_old_saved = None
 

@@ -1,14 +1,15 @@
 import json
+from copy import deepcopy
 
 from Fill.ListWidget import fill_listWidget_with_data, set_selected_id_in_listWidget
 from Fill.FillAll import fill_all_fields
 from Colour import Colour
 from Items import Items
+from Item import Item
 from Factory import Factory
 import CanvasRendering as cr
 import Constant as c
 from DefinitionParser import parse_def
-from copy import deepcopy
 
 
 def tabWidget_func(value, main_window):
@@ -17,18 +18,20 @@ def tabWidget_func(value, main_window):
     set_selected_id_in_listWidget(main_window.scene, 0)
 
 
-def listWidget_double_func(item, main_window):
+def listWidget_double_func(main_window):
     main_window.listWidget_edit_row = main_window.listWidget.currentItem().text()
 
 
 def listWidget_text_changed_func(item, main_window):
-    # TODO check validity of new id
+    if main_window.scene.skip_item_changes:
+        return
+    if not Item.name_pattern_static(item.text()):
+        main_window.scene.skip_item_changes = True
+        item.setText(main_window.listWidget_edit_row)
+        main_window.scene.skip_item_changes = False
+        return
     if main_window.listWidget_edit_row:
         old_id = main_window.listWidget_edit_row
-        # type = main_window.scene.project_data.items[old_id].item["type"]
-        # if old_id in main_window.scene.project_data.items:
-        #     main_window.scene.project_data.items[old_id].item["id"] = item.text()
-        #     main_window.scene.project_data.items[item.text()] = main_window.scene.project_data.items.pop(old_id)
         main_window.listWidget_edit_row = None
 
         main_window.scene.project_data.change_id(old_id, item.text())
@@ -205,8 +208,3 @@ def connect_def_str_lineedit_abstract(scene, lineedit):
     else:
         scene.ui.listWidget.setFocus(True)
 
-
-
-
-
-#
