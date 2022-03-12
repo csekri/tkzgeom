@@ -31,14 +31,14 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.current_tab_idx = self.ui.tabWidget.currentIndex()
         self.list_focus_ids = []
         self.select_mode = SelectMode()
-        self.title = title # function from main window to set window title
+        self.title = title  # function from main window to set window title
         self.auto_compile = False
         self.show_pdf = False
         self.show_canvas_labels = True
         self.show_canvas_items = True
         self.select_history = ItemAccumulator()
-        self.init_canvas_dims = [1, 1] # will be updated after mainWindow show() is run
-        self.current_canvas_dims = [1, 1] # will be updated after mainWindow show() is run
+        self.init_canvas_dims = [1, 1]  # will be updated after mainWindow show() is run
+        self.current_canvas_dims = [1, 1]  # will be updated after mainWindow show() is run
         self.edit = EditManagement()
         self.edit.add_undo_item(self)
         self.key_bank = KeyBank()
@@ -47,7 +47,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.canvas_moved = False
         self.skip_plaintextedit_changes = False
         self.skip_combobox_changes = False
-        self.skip_checkox_changes = False
+        self.skip_checkbox_changes = False
         self.skip_item_changes = False
         self.item_to_be = None
         self.zoom_old_saved = None

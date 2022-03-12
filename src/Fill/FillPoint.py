@@ -21,9 +21,9 @@ def fill_point_fields(scene):
     scene.ui.point_marker_shape.setCurrentIndex(c.attribute_values(c.MarkerShape).index(point["marker"]["shape"]))
     scene.ui.point_anchor.setCurrentIndex(c.attribute_values(c.Direction).index(point["label"]["anchor"]))
     scene.skip_combobox_changes = False
-    scene.skip_checkox_changes = True
+    scene.skip_checkbox_changes = True
     scene.ui.point_show_label.setChecked(point["label"]["show"])
-    scene.skip_checkox_changes = False
+    scene.skip_checkbox_changes = False
 
     scene.ui.point_size_slider.setValue(point["marker"]["size"])
     scene.ui.point_size_spin.setValue(point["marker"]["size"])

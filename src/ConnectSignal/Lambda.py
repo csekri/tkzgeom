@@ -100,7 +100,7 @@ def connect_combobox_abstract(value, scene, properties_list, dict_key, value_lis
 
 
 def connect_checkbox_abstract(state, scene, properties_list, dict_key):
-    if scene.skip_checkox_changes:
+    if scene.skip_checkbox_changes:
         return
     ids = scene.list_focus_ids
     if not ids:

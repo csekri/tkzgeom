@@ -15,9 +15,9 @@ def fill_o_arrow(
     ui_width_slider.setValue(10.0 * item["o_arrow"]["width"])
     ui_width_spin.setValue(item["o_arrow"]["width"])
 
-    scene.skip_checkox_changes = True
+    scene.skip_checkbox_changes = True
     scene.ui.segment_o_reversed.setChecked(item["o_arrow"]["reversed"])
-    scene.skip_checkox_changes = False
+    scene.skip_checkbox_changes = False
 
 def fill_d_arrow(
         scene, item, ui_tip, ui_side, ui_reversed,
@@ -34,9 +34,9 @@ def fill_d_arrow(
     ui_width_slider.setValue(10.0 * item["d_arrow"]["width"])
     ui_width_spin.setValue(item["d_arrow"]["width"])
 
-    scene.skip_checkox_changes = True
+    scene.skip_checkbox_changes = True
     scene.ui.segment_o_reversed.setChecked(item["d_arrow"]["reversed"])
-    scene.skip_checkox_changes = False
+    scene.skip_checkbox_changes = False
 
 def fill_colour(
         scene, item, colours, ui_name, ui_mix_with,
