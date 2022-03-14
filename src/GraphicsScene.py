@@ -1,5 +1,6 @@
 # standard and pip imports
 from PyQt5 import QtWidgets
+from math import floor, log2
 
 from Mouse import Mouse
 from Factory import Factory
@@ -14,8 +15,14 @@ from KeyBank import KeyBank, KeyState
 from Fill.ListWidget import fill_listWidget_with_data, set_selected_id_in_listWidget
 from SyntaxHighlight import syntax_highlight
 from Tikzifyables.Labelable import Labelable
-from GeometryMath import dist, ortho_proj
+from GeometryMath import dist, ortho_proj, sub
 from PointCloudHandler import select_point_cloud
+
+
+def binary_floor(x):
+    if x == 1:
+        return 1
+    return 1 / 2 ** (floor(log2(1 / x)) + 1)
 
 
 # class for the graphics scene (canvas)
@@ -36,6 +43,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.show_pdf = False
         self.show_canvas_labels = True
         self.show_canvas_items = True
+        self.snap_to_grid = True
         self.select_history = ItemAccumulator()
         self.init_canvas_dims = [1, 1]  # will be updated after mainWindow show() is run
         self.current_canvas_dims = [1, 1]  # will be updated after mainWindow show() is run
@@ -60,6 +68,26 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
             if not select_point_cloud(self):
                 return
         elif self.select_mode.get_type() == c.Tool.FREE:
+            if self.snap_to_grid:
+                tkz_dx = tkz_dy = 0.5 * binary_floor(
+                    (1.0 + log2(1 / self.project_data.window.scale) % 1) * self.project_data.window.scale)
+                anchor = FreePoint.phi(self.project_data.window, self.project_data.window.left - self.project_data.window.left % tkz_dx, self.project_data.window.top - self.project_data.window.top % tkz_dy, *self.init_canvas_dims)
+                origin = FreePoint.phi(self.project_data.window, 0, 0, *self.init_canvas_dims)
+                dx, dy = sub(FreePoint.phi(self.project_data.window, tkz_dx, tkz_dy, *self.init_canvas_dims), origin)
+                dy = -dy
+
+                diff = sub(self.mouse.get_xy(), anchor)
+                print(dx, dy)
+                if (diff[0] % dx < 0.15*dx or diff[0] % dx > 0.85*dx)\
+                and (diff[1] % dy < 0.15*dy or diff[1] % dy > 0.85*dy):
+                    i_idx, j_idx = diff[0] // dx, diff[1] // dy
+                    points = [(anchor[0]+i_idx*dx,    anchor[1]+j_idx*dy),
+                              (anchor[0]+i_idx*dx+dx, anchor[1]+j_idx*dy),
+                              (anchor[0]+i_idx*dx,    anchor[1]+j_idx*dy+dy),
+                              (anchor[0]+i_idx*dx+dx, anchor[1]+j_idx*dy+dy)]
+                    min_point = min(points, key=lambda x: dist(self.mouse.get_xy(), x))
+                    self.mouse.set_xy(*min_point)
+
             self.item_to_be = Factory.create_empty_item("point", c.Point.Definition.FREE)
             print('match',self.item_to_be.name_pattern('Open_21'))
             print(self.init_canvas_dims)
@@ -130,6 +158,26 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
             self.mouse.set_xy(*self.project_data.items[focus].get_canvas_coordinates())
 
         if self.key_bank.move_point.state == KeyState.DOWN and self.focus_id:
+            if self.snap_to_grid:
+                tkz_dx = tkz_dy = 0.5 * binary_floor(
+                    (1.0 + log2(1 / self.project_data.window.scale) % 1) * self.project_data.window.scale)
+                anchor = FreePoint.phi(self.project_data.window, self.project_data.window.left - self.project_data.window.left % tkz_dx, self.project_data.window.top - self.project_data.window.top % tkz_dy, *self.init_canvas_dims)
+                origin = FreePoint.phi(self.project_data.window, 0, 0, *self.init_canvas_dims)
+                dx, dy = sub(FreePoint.phi(self.project_data.window, tkz_dx, tkz_dy, *self.init_canvas_dims), origin)
+                dy = -dy
+
+                diff = sub(self.mouse.get_xy(), anchor)
+                print(dx, dy)
+                if (diff[0] % dx < 0.15*dx or diff[0] % dx > 0.85*dx)\
+                and (diff[1] % dy < 0.15*dy or diff[1] % dy > 0.85*dy):
+                    i_idx, j_idx = diff[0] // dx, diff[1] // dy
+                    points = [(anchor[0]+i_idx*dx,    anchor[1]+j_idx*dy),
+                              (anchor[0]+i_idx*dx+dx, anchor[1]+j_idx*dy),
+                              (anchor[0]+i_idx*dx,    anchor[1]+j_idx*dy+dy),
+                              (anchor[0]+i_idx*dx+dx, anchor[1]+j_idx*dy+dy)]
+                    min_point = min(points, key=lambda x: dist(self.mouse.get_xy(), x))
+                    self.mouse.set_xy(*min_point)
+
             focus_subtype = self.project_data.items[self.focus_id].item["sub_type"]
             if focus_subtype == c.Point.Definition.FREE:
                 definition = self.project_data.items[self.focus_id].definition_builder(

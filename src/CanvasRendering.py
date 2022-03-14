@@ -6,7 +6,7 @@ the graphicsScene class.
 """
 
 from PyQt5 import QtGui, QtWidgets
-import numpy as np
+from math import log2, floor
 
 from HighlightItem import item_in_focus
 import Constant as c
@@ -15,6 +15,7 @@ from Circle import Circle
 from Polygon import Polygon
 from Linestring import Linestring
 from KeyBank import KeyState
+from PointClasses.FreePoint import FreePoint
 
 
 class ColorMapping:
@@ -43,6 +44,12 @@ def clear(scene):
     scene.clear()
 
 
+def binary_floor(x):
+    if x == 1:
+        return 1
+    return 1 / 2 ** (floor(log2(1/x)) + 1)
+
+
 def add_all_items(scene):
     def draw_aspect_ratio(scene):
         """
@@ -55,24 +62,22 @@ def add_all_items(scene):
             None
         """
         colour = QtGui.QColor(0, 0, 0, 150)
-        aspect_ratio = 16/9 # eval(scene.aspect_ratio)
+        aspect_ratio = 16/9  # eval(scene.aspect_ratio)
         width, height = scene.width(), scene.height()
-        # window_aspect = width / height
-        # aspect_ratio < 1 means we draw vertical lines
         if aspect_ratio < width / height:
             x_from, y_from, x_to, y_to = (
-            (width - height * aspect_ratio) / 2, 0, (width - height * aspect_ratio) / 2, height)
+                (width - height * aspect_ratio) / 2, 0, (width - height * aspect_ratio) / 2, height)
             graphics_line_1 = QtWidgets.QGraphicsLineItem(x_from, y_from, x_to, y_to)
             x_from, y_from, x_to, y_to = (
-            width - (width - height * aspect_ratio) / 2, 0, width - (width - height * aspect_ratio) / 2, height)
+                width - (width - height * aspect_ratio) / 2, 0, width - (width - height * aspect_ratio) / 2, height)
             graphics_line_2 = QtWidgets.QGraphicsLineItem(x_from, y_from, x_to, y_to)
         # aspect_ratio > 1 means we draw horizontal lines
         else:
             x_from, y_from, x_to, y_to = (
-            0, (height - width / aspect_ratio) / 2, width, (height - width / aspect_ratio) / 2)
+                0, (height - width / aspect_ratio) / 2, width, (height - width / aspect_ratio) / 2)
             graphics_line_1 = QtWidgets.QGraphicsLineItem(x_from, y_from, x_to, y_to)
             x_from, y_from, x_to, y_to = (
-            0, height - (height - width / aspect_ratio) / 2, width, height - (height - width / aspect_ratio) / 2)
+                0, height - (height - width / aspect_ratio) / 2, width, height - (height - width / aspect_ratio) / 2)
             graphics_line_2 = QtWidgets.QGraphicsLineItem(x_from, y_from, x_to, y_to)
         # if aspect ratio is 1 we don't draw at all
         if aspect_ratio != width / height:
@@ -87,6 +92,58 @@ def add_all_items(scene):
             pixmap.fill()
         tkz_img = QtWidgets.QGraphicsPixmapItem(pixmap)
         scene.addItem(tkz_img)
+
+    def add_snap_grid(scene):
+        if scene.width() == 0.0:
+            return
+        tkz_dx = tkz_dy = 0.5 * binary_floor(
+            (1.0 + log2(1 / scene.project_data.window.scale) % 1) * scene.project_data.window.scale)
+        tkz_xs = [scene.project_data.window.left - scene.project_data.window.left % tkz_dx + i * tkz_dx for i in
+                  range(50)]
+        tkz_ys = [scene.project_data.window.top - scene.project_data.window.top % tkz_dy - i * tkz_dy for i in
+                  range(50)]
+
+        colour = QtGui.QColor(0, 0, 0, 30)
+        xs, ys = list(zip(*[FreePoint.phi(scene.project_data.window, x, y, *scene.init_canvas_dims) for x, y in
+                            zip(tkz_xs, tkz_ys)]))
+
+        for i, x in enumerate(xs):
+            thickness = 1
+            graphics_line = QtWidgets.QGraphicsLineItem(
+                x, 0,
+                x, scene.height()
+            )
+            graphics_line.setPen(QtGui.QPen(QtGui.QBrush(colour), thickness))
+            scene.addItem(graphics_line)
+
+            text = QtWidgets.QGraphicsTextItem('%g' % tkz_xs[i] if tkz_xs[i] != floor(tkz_xs[i]) else '%d' % tkz_xs[i])
+            text.setPos(x, 3)
+            text.setDefaultTextColor(colour)
+            font = text.font()
+            font.setPointSize(8)
+            font.setWeight(600)
+            text.setFont(font)
+            # text.setTextWidth(400)
+            scene.addItem(text)
+
+        for i, y in enumerate(ys):
+            thickness = 1
+            graphics_line = QtWidgets.QGraphicsLineItem(
+                0, y,
+                scene.width(), y
+            )
+            graphics_line.setPen(QtGui.QPen(QtGui.QBrush(colour), thickness))
+            scene.addItem(graphics_line)
+
+            text = QtWidgets.QGraphicsTextItem('%g' % tkz_ys[i] if tkz_ys[i] != floor(tkz_ys[i]) else '%d' % tkz_ys[i])
+            text.setPos(4, y)
+            text.setDefaultTextColor(colour)
+            font = text.font()
+            font.setPointSize(8)
+            font.setWeight(600)
+            text.setFont(font)
+            # text.setTextWidth(400)
+            scene.addItem(text)
 
     def add_polygons(scene):
         for item in scene.project_data.items.values():
@@ -166,6 +223,8 @@ def add_all_items(scene):
 
     if scene.show_pdf:
         add_pdf(scene)
+    if scene.snap_to_grid:
+        add_snap_grid(scene)
     if scene.is_aspect_ratio:
         draw_aspect_ratio(scene)
     if scene.show_canvas_items\

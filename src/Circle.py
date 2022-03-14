@@ -1,7 +1,6 @@
 from PyQt5 import QtCore, QtWidgets, QtGui
 
 from Item import Item
-from Point import Point
 from Tikzifyables.Arrowable import Arrowable
 from Tikzifyables.DashPatternable import DashPatternable
 from Tikzifyables.Doubleable import Doubleable
@@ -9,7 +8,6 @@ from Tikzifyables.Colourable.LineColourable import LineColourable
 from Tikzifyables.Fillable import Fillable
 import Constant as c
 import GeometryMath as gmath
-from math import sin, cos, pi, radians
 
 
 class Circle(Item, Arrowable, DashPatternable, Doubleable, LineColourable, Fillable):

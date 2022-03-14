@@ -6,7 +6,7 @@ from GraphicsScene import GraphicsScene  # implementation of QGraphicsScene
 import ConnectSignal.SelectModeRadioAndCombo as connect_mode  # class for object selection mode (point, segment, ...)
 from KeyBank import KeyState  # class for tracking keyboard key states
 from HighlightItem import item_in_focus  # determines which item is in focus given mouse position
-import Constant as c  # all vaious constants
+import Constant as c  # all various constants
 from ConnectSignal.Lambda import (
     tabWidget_func,
     listWidget_text_changed_func,
@@ -68,6 +68,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.ui.actionShow_PDF.toggled.connect(self.show_pdf_checked_func)
         self.ui.actionShow_Canvas_Labels.toggled.connect(self.show_canvas_labels_func)
         self.ui.actionShow_Canvas_Items.toggled.connect(self.show_canvas_items_func)
+        self.ui.actionSnap_To_Grid.toggled.connect(self.snap_to_grid_func)
 
         # Radio button connections
         self.ui.point_radio.clicked.connect(lambda x: connect_mode.point_radio_func(self))
@@ -91,7 +92,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.ui.tabWidget.currentChanged.connect(lambda x: tabWidget_func(x, self))
         self.ui.listWidget.itemDoubleClicked.connect(lambda x: listWidget_double_func(self))
         self.ui.listWidget.itemChanged.connect(lambda x: listWidget_text_changed_func(x, self))
-        self.ui.listWidget.itemSelectionChanged.connect(lambda : listWidget_current_row_changed_func(self))
+        self.ui.listWidget.itemSelectionChanged.connect(lambda: listWidget_current_row_changed_func(self))
 
         # zoom slider connections
         self.ui.zoom_slider.sliderMoved.connect(self.zoom_slider_move_func)
@@ -110,6 +111,8 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         # from PIL we create a blank white PNG image with the given dimensions
         img = Image.new("RGB", (self.width(), self.height()), (255, 255, 255))
         img.save("try-1.png", "PNG")  # TODO rename to tmp-1.png
+        cr.clear(self.scene)
+        cr.add_all_items(self.scene)
 
     def resizeEvent(self, event):
         self.scene.current_canvas_dims = [self.ui.graphicsView.width(), self.ui.graphicsView.height()]
@@ -124,7 +127,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
             if self.scene.edit.unsaved_msg_box_cancelled(self.scene):
                 event.ignore()
 
-    def keyPressEvent(self,event):
+    def keyPressEvent(self, event):
         if event.isAutoRepeat():
             return None
         if event.key() == self.scene.key_bank.move_point.key:
@@ -160,7 +163,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
             set_selected_id_in_listWidget(self.scene, min(current_row_old, self.scene.ui.listWidget.count()-1))
             self.scene.edit.add_undo_item(self.scene)
 
-    def keyReleaseEvent(self,event):
+    def keyReleaseEvent(self, event):
         if event.isAutoRepeat():
             return None
         if event.key() == self.scene.key_bank.move_point.key:
@@ -214,6 +217,11 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.clipboard.clear(mode=self.clipboard.Clipboard)
         self.clipboard.setText(text, mode=self.clipboard.Clipboard)
 
+    def snap_to_grid_func(self, state):
+        self.scene.snap_to_grid = state
+        cr.clear(self.scene)
+        cr.add_all_items(self.scene)
+
     def zoom_slider_move_func(self, value):
         slider_size = 200  # the range of the zoom slider (defined in Qt Designer) / 2
         # this function normalises the zoom magnitude
@@ -226,10 +234,10 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         )
         self.scene.project_data.set_window(
             scale=self.scene.project_data.window.scale,
-            left=self.scene.zoom_old_saved.left - 5 * (self.scene.project_data.window.scale - self.scene.zoom_old_saved.scale),
-            top=self.scene.zoom_old_saved.top + 5 * (self.scene.project_data.window.scale - self.scene.zoom_old_saved.scale)
+            left=self.scene.zoom_old_saved.left - 5 * (self.scene.width() / self.scene.init_canvas_dims[0]) * (self.scene.project_data.window.scale - self.scene.zoom_old_saved.scale),
+            top=self.scene.zoom_old_saved.top + 5 * (self.scene.height() / self.scene.init_canvas_dims[1]) * (self.scene.project_data.window.scale - self.scene.zoom_old_saved.scale)
         )
-        self.scene.project_data.recompute_canvas(self.scene.width(), self.scene.height())
+        self.scene.project_data.recompute_canvas(*self.scene.init_canvas_dims)
         cr.clear(self.scene)
         cr.add_all_items(self.scene)
 
@@ -256,5 +264,5 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         """
         self.zoom_slider.setValue(0)
         self.scene.zoom_old_saved = None
-        self.scene.project_data.recompute_canvas(self.scene.width(), self.scene.height())
+        self.scene.project_data.recompute_canvas(*self.scene.init_canvas_dims)
         self.scene.edit.add_undo_item(self.scene)

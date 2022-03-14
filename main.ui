@@ -10947,8 +10947,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>326</width>
-                <height>344</height>
+                <width>123</width>
+                <height>149</height>
                </rect>
               </property>
               <attribute name="label">
@@ -11138,6 +11138,7 @@ p, li { white-space: pre-wrap; }
     <addaction name="actionShow_Canvas_Items"/>
     <addaction name="actionShow_Canvas_Labels"/>
     <addaction name="actionShow_Aspect_Ratio"/>
+    <addaction name="actionSnap_To_Grid"/>
    </widget>
    <widget class="QMenu" name="menuSettings">
     <property name="title">
@@ -11267,6 +11268,17 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="text">
     <string>Show Aspect Ratio</string>
+   </property>
+  </action>
+  <action name="actionSnap_To_Grid">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Snap To Grid</string>
    </property>
   </action>
  </widget>
