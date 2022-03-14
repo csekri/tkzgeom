@@ -2,16 +2,6 @@
 ![icon](icon/ico_big.png)
 # TkzGeom
 
-*This is a rewrite of the original software from the ground up.
-It is in early stages of development, hence expect missing features and bugs.
-You find the working original version in the GitHub branch named "old_version".*
-
-*The reason of the rewriting is to redesign the program in OOP style,
-reducing the repetitive codebase and allowing for easier future scalability.
-Having developed the original program gives the best insight for
-engineering/design improvement possibilities in this new version.*
-
-
 TkzGeom is a perfect GUI tool for the creation of publication quality figures
 including but not limited to the following domains:
 
@@ -209,4 +199,5 @@ predetermined, there is no built in way to change this.
 <a href="https://mega.nz/file/Ys9V1aSZ#B21VUB__qZu1P33JiwOEu75nR9twWnf3cXWaqcaOPmA">tkzgeom_2022_03_04_snapshot.zip</a>
 \
 <a href="https://mega.nz/file/FocGTDLS#YyH114B-yFUwfValRW7DgLzkKvGXvWgq8CiH8v_aFi8">tkzgeom_2022_03_09_snapshot.zip</a>
-  
+\
+<a href="https://mega.nz/file/ppVWWCzA#qMstD6LoLtXnBwpunYJXhlaVA-sRJkv-WSb0amFOzcs">tkzgeom_2022_03_14_snapshot.zip</a>

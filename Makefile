@@ -3,6 +3,6 @@ main:
 resources:
 	pyrcc5 ../icon/resources.qrc -o Resources.py
 binary:
-	pyinstaller --onefile --windowed --icon=icon/ico.png src/Main.py
+	pyinstaller --onefile --windowed --icon=icon/ico.ico src/Main.py
 search:
 	findstr /s setSelected .\src\*
