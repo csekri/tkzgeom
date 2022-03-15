@@ -45,6 +45,24 @@ def connect_segment(scene):
     scene.ui.segment_d_connect_to.currentIndexChanged.connect(
         lambda x: connect_combobox_abstract(x, scene, ['line'], 'd_connect_to', c.attribute_values(c.LineConnectTo)))
 
+    scene.ui.segment_marker_symbol.currentIndexChanged.connect(
+        lambda x: connect_combobox_abstract(x, scene, ['marker'], 'symbol', c.attribute_values(c.SegmentMarkerType)))
+
+    scene.ui.segment_marker_width_slider.sliderMoved.connect(
+        lambda x: connect_slider_moved_abstract(x, scene, ['marker'], 'width', lambda x: x/10.0, scene.ui.segment_marker_width_spin))
+    scene.ui.segment_marker_width_slider.sliderReleased.connect(
+        lambda : connect_slider_released_abstract(scene))
+
+    scene.ui.segment_marker_size_slider.sliderMoved.connect(
+        lambda x: connect_slider_moved_abstract(x, scene, ['marker'], 'size', lambda x: x/10.0, scene.ui.segment_marker_size_spin))
+    scene.ui.segment_marker_size_slider.sliderReleased.connect(
+        lambda : connect_slider_released_abstract(scene))
+
+    scene.ui.segment_marker_position_slider.sliderMoved.connect(
+        lambda x: connect_slider_moved_abstract(x, scene, ['marker'], 'position', lambda x: x/100.0, scene.ui.segment_marker_position_spin))
+    scene.ui.segment_marker_position_slider.sliderReleased.connect(
+        lambda : connect_slider_released_abstract(scene))
+
     connect_o_arrow(scene,
         scene.ui.segment_o_tip,
         scene.ui.segment_o_side,

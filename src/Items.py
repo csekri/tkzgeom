@@ -132,6 +132,12 @@ class Items:
         if tikzified_segments_draw:
             tikzified_segments_draw = '% DRAW SEGMENTS\n' + tikzified_segments_draw
 
+        tikzified_segment_markers_draw = '\n'.join(
+            Items.filter_sort_map(Segment, lambda x: x.item["show"], lambda x: x.tikzify_segment_marker(), lambda y: y.get_id())(
+                self.items.values()))
+        if tikzified_segment_markers_draw:
+            tikzified_segment_markers_draw = '% DRAW SEGMENT MARKERS\n' + tikzified_segment_markers_draw
+
         tikzified_circles_draw = '\n'.join(
             Items.filter_sort_map(Circle, lambda x: x.item["show"], lambda x: x.tikzify(), lambda y: y.get_id())(
                 self.items.values()))
@@ -151,6 +157,7 @@ class Items:
             tikzified_points_def,
             tikzified_polygons,
             tikzified_segments_draw,
+            tikzified_segment_markers_draw,
             tikzified_circles_draw,
             tikzified_linestrings_draw,
             tikzified_nodes_repeat,

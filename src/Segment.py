@@ -1,7 +1,6 @@
 from PyQt5 import QtCore, QtWidgets, QtGui
 
 from Item import Item
-from Point import Point
 from Tikzifyables.Arrowable import Arrowable
 from Tikzifyables.DashPatternable import DashPatternable
 from Tikzifyables.Doubleable import Doubleable
@@ -41,6 +40,19 @@ class Segment(Item, Arrowable, DashPatternable, Doubleable, LineColourable):
             destination = self.item["definition"]["B"] + '.center'
         return '\\draw[%s](%s) -- (%s);' % ( ', '.join(options) , origin, destination)
 
+    def tikzify_segment_marker(self):
+        if self.item["marker"]["symbol"] == c.SegmentMarkerType.NONE:
+            return ''
+        options = [
+            f'mark={self.item["marker"]["symbol"]}',
+            '' if self.item["marker"]["size"] == 4.0 else f'size={self.item["marker"]["size"]}',
+            '' if self.item["marker"]["position"] == 0.5 else f'pos={self.item["marker"]["position"]}'
+        ]
+        options = filter(bool, options)
+        tkzMarkSegment = '\\tkzMarkSegment[%s](%s,%s)' % (', '.join(options), self.item["definition"]["A"], self.item["definition"]["B"])
+        if self.item["marker"]["width"] != 0.4:
+            return '\\begin{scope}[%s]\n%s\n\\end{scope}' % (f'line width={self.item["marker"]["width"]}', tkzMarkSegment)
+        return tkzMarkSegment
 
     def __str__(self):
         return "Segment from (%s) to (%s)" % (self.item["definition"]["A"], self.item["definition"]["B"])
@@ -97,9 +109,9 @@ class Segment(Item, Arrowable, DashPatternable, Doubleable, LineColourable):
             return None
         return self.definition_builder(arguments)
 
-    def dictionary_builder(self, definition, id, sub_type=None):
+    def dictionary_builder(self, definition, id_, sub_type=None):
         dictionary = {}
-        dictionary["id"] = id
+        dictionary["id"] = id_
         dictionary["type"] = 'segment'
         dictionary["sub_type"] = None
         dictionary["show"] = True
@@ -140,10 +152,10 @@ class Segment(Item, Arrowable, DashPatternable, Doubleable, LineColourable):
         dictionary["d_arrow"]["side"] = c.Segment.Default.D_Arrow.SIDE
         dictionary["d_arrow"]["reversed"] = c.Segment.Default.D_Arrow.REVERSED
         dictionary["fill"] = {}
-        # dictionary["fill"]["colour"] = {}
-        # dictionary["fill"]["colour"]["name"] = c.Point.Default.Fill_Colour.NAME
-        # dictionary["fill"]["colour"]["mix_with"] = c.Point.Default.Fill_Colour.MIX_WITH
-        # dictionary["fill"]["colour"]["mix_percent"] = c.Point.Default.Fill_Colour.MIX_RATIO
-        # dictionary["fill"]["colour"]["strength"] = c.Point.Default.Fill_Colour.STRENGTH
+        dictionary["marker"] = {}
+        dictionary["marker"]["symbol"] = c.Segment.Default.Segment_Marker.SYMBOL
+        dictionary["marker"]["width"] = c.Segment.Default.Segment_Marker.WIDTH
+        dictionary["marker"]["size"] = c.Segment.Default.Segment_Marker.SIZE
+        dictionary["marker"]["position"] = c.Segment.Default.Segment_Marker.POSITION
 
         self.item = dictionary

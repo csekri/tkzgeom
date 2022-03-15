@@ -240,6 +240,54 @@ class DecorationDefault:
         self.TEXT = text
 
 
+class SegmentMarkerType:
+    NONE = 'none'
+    VERT = '|'
+    VVERT = '||'
+    VVVERT = '|||'
+    SVERT = 's|'
+    SVVERT = 's||'
+    ZED = 'z'
+    MULTIPLICATION = '*'
+    EX = 'x'
+    PLUS = '+'
+    MINUS = '-'
+    OH = 'o'
+    OHOH = 'oo'
+    ASTERISK = 'asterisk'
+    STAR = 'star'
+    TEN_POINTED_STAR = '10-pointed star'
+    OPLUS = 'oplus'
+    OPLUS_STAR = 'oplus*'
+    OTIMES = 'otimes'
+    OTIMES_STAR = 'otimes*'
+    SQUARE = 'square'
+    SQUARE_STAR = 'square*'
+    TRIANGLE = 'triangle'
+    TRIANGLE_STAR = 'triangle*'
+    DIAMOND = 'diamond'
+    DIAMOND_STAR = 'diamond*'
+    HALF_DIAMOND_STAR = 'halfdiamond*'
+    HALF_SQUARE_STAR = 'halfsquare*'
+    HALF_SQUARE_RIGHT_STAR = 'halfsquare right*'
+    HALF_SQUARE_left_STAR = 'halfsquare left*'
+    PENTAGON = 'pentagon'
+    PENTAGON_STAR = 'pentagon*'
+    MERCEDES_STAR = 'Mercedes star'
+    MERCEDES_STAR_FLIPPED = 'Mercedes star flipped'
+    HALF_CIRCLE = 'halfcircle'
+    HALF_CIRCLE_STAR = 'halfcircle*'
+    HEART = 'heart'
+
+
+class SegmentMarkerDefault:
+    def __init__(self, symbol=SegmentMarkerType.NONE, width=0.4, size=4.0, position=0.5):
+        self.SYMBOL = symbol
+        self.WIDTH = width
+        self.SIZE = size
+        self.POSITION = position
+
+
 # Parameters that define a label.
 class LabelDefault:
     def __init__(self, show=True, text='', anchor=Direction.SOUTH_EAST, offset=0.0):
@@ -371,6 +419,7 @@ class Segment:
         LINE_DASH_STROKE = LineStroke.SOLID
         LINE_DASH_CUSTOM = [5, 2]
         LINE_CONNECT_TO = LineConnectTo.NODE_BOUNDARY
+        Segment_Marker = SegmentMarkerDefault()
 
 
 # Contains the default values for a polygon.

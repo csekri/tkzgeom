@@ -25,6 +25,7 @@ def fill_segment_fields(scene):
     scene.skip_combobox_changes = True
     scene.ui.segment_o_connect_to.setCurrentIndex(c.attribute_values(c.LineConnectTo).index(segment["line"]["o_connect_to"]))
     scene.ui.segment_d_connect_to.setCurrentIndex(c.attribute_values(c.LineConnectTo).index(segment["line"]["d_connect_to"]))
+    scene.ui.segment_marker_symbol.setCurrentIndex(c.attribute_values(c.SegmentMarkerType).index(segment["marker"]["symbol"]))
     scene.skip_combobox_changes = False
 
     scene.ui.segment_double_distance_slider.setValue(10.0 * segment["line"]["double"]["distance"])
@@ -35,6 +36,15 @@ def fill_segment_fields(scene):
 
     scene.ui.segment_d_extension_slider.setValue(33.3*segment["line"]["d_extension"])
     scene.ui.segment_d_extension_spin.setValue(segment["line"]["d_extension"])
+
+    scene.ui.segment_marker_width_slider.setValue(10.0*segment["marker"]["width"])
+    scene.ui.segment_marker_width_spin.setValue(segment["marker"]["width"])
+
+    scene.ui.segment_marker_size_slider.setValue(10.0*segment["marker"]["size"])
+    scene.ui.segment_marker_size_spin.setValue(segment["marker"]["size"])
+
+    scene.ui.segment_marker_position_slider.setValue(100.0*segment["marker"]["position"])
+    scene.ui.segment_marker_position_spin.setValue(segment["marker"]["position"])
 
     fill_o_arrow(scene, segment,
         scene.ui.segment_o_tip,
