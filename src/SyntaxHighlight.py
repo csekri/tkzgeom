@@ -5,9 +5,15 @@ syntax highlighted TikZ code
 
 
 import re
+try:
+    from pygments import highlight, lexers
+    from pygments.styles import get_style_by_name
+    from pygments.formatters import HtmlFormatter
+except:
+    pass
 
 
-def pygments_syntax_highlight(text):
+def pygments_syntax_highlight(method, text):
     """
     SUMMARY
         returns CSS/HTML syntax highlighted TikZ code using pygments
@@ -19,7 +25,8 @@ def pygments_syntax_highlight(text):
     RETURNS
         str: CSS/HTML syntax highlighted tikz code
     """
-    style = get_style_by_name('colorful')
+    print(method)
+    style = get_style_by_name(method)
     formatter = HtmlFormatter(full=True, noclasses=True, style=style)
     lex = lexers.get_lexer_by_name("latex")
     return highlight(text, lex, formatter)
@@ -42,7 +49,7 @@ def alternative_syntax_highlight(text):
     HELPER FUNCTION
         replaces pivot spaces with "&nbsp;", needed for HTML
     """
-    def replace_pivot_spaces(text):
+    def replace_pivot_spaces(text):  # TODO replace whole function with a regular expression substitution
         exit_condition = True
         while exit_condition:
             exit_condition = False
@@ -54,20 +61,8 @@ def alternative_syntax_highlight(text):
                     text = text[:i+1] + numspace*'&nbsp;' + text[i+1+numspace:]
                     exit_condition = True
         return text
-    """
-    HELPER FUNCTION
-        Syntax highlights the entire line, if "%" is preceded by "\n"
-    """
-    def highlight_comments(text):
-        text = text.split('\n')
-        for i in range(len(text)):
-            if len(text[i]) > 0 and text[i][0] == "%":
-                text[i] = '<span style="color:blue;font-weight:bold">' + text[i] + '</span>'
-        return '\n'.join(text)
 
-    # text = highlight_comments(text)
     match = re.findall(r'[^\\](%.*)\n', text)
-    # print(match)
     does_not_contain_this_word = ''
     for i in range(5, 10000):
         if text.find(i * 'a') == -1:
@@ -91,13 +86,10 @@ def alternative_syntax_highlight(text):
     return text
 
 
-# check for pygments
-syntax_highlight = lambda x: None
-try:
-    from pygments import highlight, lexers
-    from pygments.styles import get_style_by_name
-    from pygments.formatters import HtmlFormatter
-    syntax_highlight = pygments_syntax_highlight
-    print(1/0)  # TODO delete this when there will be an option to choose
-except:
-    syntax_highlight = alternative_syntax_highlight
+def syntax_highlight(method, text):
+    if not method:
+        return alternative_syntax_highlight(text)
+    try:
+        return pygments_syntax_highlight(method, text)
+    except:
+        return alternative_syntax_highlight(text)

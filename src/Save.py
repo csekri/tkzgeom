@@ -1,13 +1,10 @@
 from copy import deepcopy
 import json
-from PyQt5 import QtCore, QtWidgets, QtGui
+from PyQt5 import QtWidgets
 from PIL import Image
 
 from Factory import Factory
 from Items import Items
-from Point import Point
-from PointClasses.FreePoint import FreePoint
-from Segment import Segment
 from Compile import compile_latex
 from SyntaxHighlight import syntax_highlight
 import CanvasRendering as cr
@@ -41,7 +38,7 @@ class EditManagement:
         scene.ui.actionSave.setEnabled(bool(self.unsaved_progress))
         scene.title(self.window_name())
         compile_latex(scene, True)
-        browser_text = syntax_highlight(scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
+        browser_text = syntax_highlight(scene.syntax, scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
         scene.ui.textBrowser.setText(browser_text)
         fill_all_fields(scene)
         cr.clear(scene)
@@ -60,7 +57,7 @@ class EditManagement:
         scene.ui.actionSave.setEnabled(bool(self.unsaved_progress))
 
         compile_latex(scene, True)
-        browser_text = syntax_highlight(scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
+        browser_text = syntax_highlight(scene.syntax, scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
         scene.ui.textBrowser.setText(browser_text)
         current_row_old = scene.ui.listWidget.currentRow()
         fill_listWidget_with_data(scene.project_data, scene.ui.listWidget, scene.current_tab_idx)
@@ -80,7 +77,7 @@ class EditManagement:
         self.unsaved_progress += 1
         scene.ui.actionSave.setEnabled(bool(self.unsaved_progress))
         compile_latex(scene, True)
-        browser_text = syntax_highlight(scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
+        browser_text = syntax_highlight(scene.syntax, scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
         scene.ui.textBrowser.setText(browser_text)
         current_row_old = scene.ui.listWidget.currentRow()
         fill_listWidget_with_data(scene.project_data, scene.ui.listWidget, scene.current_tab_idx)
@@ -100,7 +97,7 @@ class EditManagement:
             self.add_undo_item(scene)
             self.unsaved_progress = 0
             # compile_latex(scene, True)
-            browser_text = syntax_highlight(scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
+            browser_text = syntax_highlight(scene.syntax, scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
             scene.ui.textBrowser.setText(browser_text)
             fill_all_fields(scene)
             cr.clear(scene)
@@ -129,7 +126,7 @@ class EditManagement:
                 scene.edit.add_undo_item(scene)
                 self.unsaved_progress = 0
                 # compile_latex(scene, True)
-                browser_text = syntax_highlight(scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
+                browser_text = syntax_highlight(scene.syntax, scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
                 scene.ui.textBrowser.setText(browser_text)
                 # fill_all_fields(scene)
                 # cr.clear(scene)

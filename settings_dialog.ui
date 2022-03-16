@@ -6,121 +6,352 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>503</width>
-    <height>334</height>
+    <width>529</width>
+    <height>221</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Properties</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <property name="windowIcon">
+   <iconset resource="icon/resources.qrc">
+    <normaloff>:/images/ico.png</normaloff>:/images/ico.png</iconset>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_4">
    <item>
-    <widget class="QTabWidget" name="tabWidget">
-     <property name="currentIndex">
-      <number>0</number>
-     </property>
-     <widget class="QWidget" name="tab">
-      <attribute name="title">
-       <string>General</string>
-      </attribute>
-      <widget class="QWidget" name="">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>461</width>
-         <height>82</height>
-        </rect>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QGroupBox" name="groupBox">
+       <property name="title">
+        <string>Syntax Highlighting</string>
        </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QGroupBox" name="groupBox">
-          <property name="title">
-           <string>Syntax Highlighting</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_2">
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout">
-             <item>
-              <widget class="QRadioButton" name="radioButton">
-               <property name="text">
-                <string>Use Built-in</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QRadioButton" name="radioButton_2">
-               <property name="text">
-                <string>Use Pygments</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_2">
-             <item>
-              <widget class="QLabel" name="label">
-               <property name="text">
-                <string>Pygments Style</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QComboBox" name="comboBox"/>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QRadioButton" name="syntax_radio1">
+            <property name="text">
+             <string>Use Built-in</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="syntax_radio2">
+            <property name="text">
+             <string>Use Pygments</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QGroupBox" name="groupBox_2">
-          <property name="title">
-           <string>Aspect Ratio Indicator</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_3">
-           <item>
-            <widget class="QCheckBox" name="checkBox">
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Pygments Style</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="pygments_style">
+            <item>
              <property name="text">
-              <string>Show</string>
+              <string>default</string>
              </property>
-            </widget>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_3">
-             <item>
-              <widget class="QLabel" name="label_2">
-               <property name="text">
-                <string>Target sreen ratio</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="lineEdit"/>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </widget>
+            </item>
+            <item>
+             <property name="text">
+              <string>emacs</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>friendly</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>friendly_grayscale</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>colorful</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>autumn</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>murphy</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>manni</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>material</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>monokai</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>perldoc</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>pastie</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>borland</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>trac</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>native</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>fruity</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>bw</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>vim</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>vs</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>tango</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>rrt</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>xcode</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>igor</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>paraiso-light</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>paraiso-dark</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>lovelace</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>algol</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>algol_nu</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>arduino</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>rainbow_dash</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>abap</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>solarized-dark</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>solarized-light</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>sas</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>stata</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>stata-light</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>stata-dark</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>inkpot</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>zenburn</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>gruvbox-dark</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>gruvbox-light</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>dracula</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>one-dark</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>lilypond</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
-     </widget>
-     <widget class="QWidget" name="tab_2">
-      <attribute name="title">
-       <string>System Commands</string>
-      </attribute>
-     </widget>
-     <widget class="QWidget" name="tab_3">
-      <attribute name="title">
-       <string>Canvas</string>
-      </attribute>
-     </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupBox_2">
+       <property name="title">
+        <string>Aspect Ratio Indicator</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QCheckBox" name="aspect_ratio_show">
+          <property name="text">
+           <string>Show</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="pdflatex_edit">
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Target Sreen Ratio</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="aspect_ratio_ratio"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Pdflatex</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit_2"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>PDF to PNG Converter</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="image_converter_edit"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Ok</set>
+     </property>
     </widget>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="icon/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

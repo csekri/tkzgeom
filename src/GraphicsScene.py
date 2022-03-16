@@ -44,6 +44,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.show_canvas_labels = True
         self.show_canvas_items = True
         self.snap_to_grid = True
+        self.syntax = '$'
         self.select_history = ItemAccumulator()
         self.init_canvas_dims = [1, 1]  # will be updated after mainWindow show() is run
         self.current_canvas_dims = [1, 1]  # will be updated after mainWindow show() is run
@@ -211,5 +212,5 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
 
     def mouseReleaseEvent(self, event):
         self.mouse.set_xy(int(event.scenePos().x()), int(event.scenePos().y()))
-        browser_text = syntax_highlight(self.project_data.tikzify(*self.current_canvas_dims, *self.init_canvas_dims))
+        browser_text = syntax_highlight(self.syntax, self.project_data.tikzify(*self.current_canvas_dims, *self.init_canvas_dims))
         self.ui.textBrowser.setText(browser_text)

@@ -27,6 +27,7 @@ from ConnectSignal.ConnectLinestring import connect_linestring
 from ConnectSignal.ConnectCode import connect_code
 
 from Fill.ListWidget import fill_listWidget_with_data, set_selected_id_in_listWidget  # updates the listWidget
+from Dialogs.SettingsDialog import SettingsDialog
 
 
 class EuclMainWindow(QtWidgets.QMainWindow):
@@ -69,6 +70,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.ui.actionShow_Canvas_Labels.toggled.connect(self.show_canvas_labels_func)
         self.ui.actionShow_Canvas_Items.toggled.connect(self.show_canvas_items_func)
         self.ui.actionSnap_To_Grid.toggled.connect(self.snap_to_grid_func)
+        self.ui.actionPreferences.triggered.connect(self.preferences_func)
 
         # Radio button connections
         self.ui.point_radio.clicked.connect(lambda x: connect_mode.point_radio_func(self))
@@ -179,7 +181,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         if self.scene.focus_id:
             self.scene.edit.add_undo_item(self.scene)
         self.scene.focus_id = ''
-        browser_text = syntax_highlight(self.scene.project_data.tikzify(*self.scene.current_canvas_dims, *self.scene.init_canvas_dims))
+        browser_text = syntax_highlight(self.scene.syntax, self.scene.project_data.tikzify(*self.scene.current_canvas_dims, *self.scene.init_canvas_dims))
         self.scene.ui.textBrowser.setText(browser_text)
 
     def show_pdf_checked_func(self, state):
@@ -266,3 +268,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.scene.zoom_old_saved = None
         self.scene.project_data.recompute_canvas(*self.scene.init_canvas_dims)
         self.scene.edit.add_undo_item(self.scene)
+
+    def preferences_func(self):
+        dialog = SettingsDialog(self.scene)
+        dialog.exec_()

@@ -18,7 +18,7 @@ class FreePoint(Point):
             window.top - y / height * window.scale*10.0
 
     def tikzify(self):
-        return "\\tkzDefPoint(%s, %s){%s}" % (self.item["definition"]["x"], self.item["definition"]["y"], self.item["id"])
+        return "\\tkzDefPoint(%.6f, %.6f){%s}" % (self.item["definition"]["x"], self.item["definition"]["y"], self.item["id"])
 
     def depends_on(self):
         return []
