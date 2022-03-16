@@ -108,7 +108,7 @@ class Items:
             Items.filter_sort_map(Point, None, lambda x: x.tikzify() + '\n' + x.tikzify_node(), None)(
                 self.items.values()))
         if tikzified_points_def:
-            tikzified_points_def = '% POINT DEFINTIONS\n' + tikzified_points_def
+            tikzified_points_def = '% POINT DEFINITIONS\n' + tikzified_points_def
 
         tikzified_polygons = '\n'.join(
             Items.filter_sort_map(Polygon, lambda x: x.item["show"], lambda x: x.tikzify(), lambda y: y.get_id())(

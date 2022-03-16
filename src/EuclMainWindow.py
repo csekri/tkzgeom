@@ -207,7 +207,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
 
     def copy_tikzpicture_func(self):
         print('copieren')
-        text = self.scene.project_data.tikzify()
+        text = self.scene.project_data.tikzify(self.scene.width(), self.scene.height(), *self.scene.init_canvas_dims)
         self.clipboard.clear(mode=self.clipboard.Clipboard)
         self.clipboard.setText(text, mode=self.clipboard.Clipboard)
 

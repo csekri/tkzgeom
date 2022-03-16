@@ -3,6 +3,10 @@ defines syntax_function which turns str into CSS/HTML formatted
 syntax highlighted TikZ code
 """
 
+
+import re
+
+
 def pygments_syntax_highlight(text):
     """
     SUMMARY
@@ -61,12 +65,31 @@ def alternative_syntax_highlight(text):
                 text[i] = '<span style="color:blue;font-weight:bold">' + text[i] + '</span>'
         return '\n'.join(text)
 
+    # text = highlight_comments(text)
+    match = re.findall(r'[^\\](%.*)\n', text)
+    # print(match)
+    does_not_contain_this_word = ''
+    for i in range(5, 10000):
+        if text.find(i * 'a') == -1:
+            does_not_contain_this_word = i * 'a'
+            break
+
+    for i, result in enumerate(match):
+        text = text.replace(result, str(i) + does_not_contain_this_word)
+
+    text = re.sub(r'(\\begin{.+}|\\end{.*})', r'<span style="color:DarkCyan;font-weight:bold">\1</span>', text)
+    text = re.sub(r'(?!\\begin|\\end)(\\\w+)', r'<span style="color:brown;font-weight:bold">\1</span>', text)
+    text = re.sub(r'(\\%|\\\\|\\#)', r'<span style="color:brown;font-weight:bold">\1</span>', text)
+    text = re.sub(r'(\W)(\d*\.?\d+)(\W)', r'\1<span style="color:green">\2</span>\3', text)
     text = replace_pivot_spaces(text)
-    text = highlight_comments(text)
-    text = text.replace('\\begin', '<span style="color:brown;font-weight:bold">\\begin</span>')
-    text = text.replace('\\end', '<span style="color:brown;font-weight:bold">\\end</span>')
+
     text = text.replace('\n', '<br>')
+
+    for i, result in enumerate(match):
+        text = text.replace(str(i) + does_not_contain_this_word, f'<span style="color:blue;font-weight:bold">{result}</span>')
+
     return text
+
 
 # check for pygments
 syntax_highlight = lambda x: None
@@ -75,5 +98,6 @@ try:
     from pygments.styles import get_style_by_name
     from pygments.formatters import HtmlFormatter
     syntax_highlight = pygments_syntax_highlight
+    print(1/0)  # TODO delete this when there will be an option to choose
 except:
     syntax_highlight = alternative_syntax_highlight
