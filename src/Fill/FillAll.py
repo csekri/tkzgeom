@@ -8,6 +8,7 @@ from Fill.FillCode import fill_code_fields
 
 
 def fill_all_fields(scene):
+    """Fill all widgets in the tabWidget."""
     fill_point_fields(scene)
     fill_segment_fields(scene)
     fill_circle_fields(scene)

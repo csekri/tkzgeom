@@ -1,13 +1,12 @@
 from Point import Point
-from Item import Item
 import Constant as c
 
 
 class Midpoint(Point):
     def __init__(self, item):
+        """Construct MidPoint."""
         Point.__init__(self, item)
         self.item["sub_type"] = c.Point.Definition.SEGMENT_MIDPOINT
-
 
     def tikzify(self):
         return "\\tkzDefMidPoint(%s,%s)\\tkzGetPoint{%s}" % (self.item["definition"]["A"], self.item["definition"]["B"], self.item["id"])

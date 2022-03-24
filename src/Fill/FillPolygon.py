@@ -10,6 +10,7 @@ from Fill.FillMacros import (
 
 
 def fill_polygon_fields(scene):
+    """Fill all widgets in the polygon tab."""
     colours = c.attribute_values(c.Colour)\
         + [i.get_id() for i in scene.project_data.items.values() if isinstance(i, Colour)]
     ids = scene.list_focus_ids

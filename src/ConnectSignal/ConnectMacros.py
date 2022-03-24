@@ -13,6 +13,7 @@ def connect_o_arrow(
         scene, ui_tip, ui_side, ui_reversed,
         ui_length_spin, ui_length_slider,
         ui_width_spin, ui_width_slider):
+    """Connect origin arrow."""
 
     ui_tip.currentIndexChanged.connect(
         lambda x: connect_combobox_abstract(x, scene, ['o_arrow'], 'tip', c.attribute_values(c.ArrowTip)))
@@ -38,6 +39,7 @@ def connect_d_arrow(
         scene, ui_tip, ui_side, ui_reversed,
         ui_length_spin, ui_length_slider,
         ui_width_spin, ui_width_slider):
+    """Connect destination arrow."""
 
     ui_tip.currentIndexChanged.connect(
         lambda x: connect_combobox_abstract(x, scene, ['d_arrow'], 'tip', c.attribute_values(c.ArrowTip)))
@@ -62,6 +64,7 @@ def connect_d_arrow(
 def connect_colour(scene, attributes, ui_name, ui_mix_with,
         ui_mix_spin, ui_mix_slider,
         ui_strength_spin, ui_strength_slider):
+    """Connect colour."""
     ui_name.currentIndexChanged.connect(
         lambda x: connect_combobox_abstract(x, scene, attributes, 'name', c.attribute_values(c.Colour), True))
     ui_mix_with.currentIndexChanged.connect(
@@ -85,7 +88,7 @@ def connect_fill_pattern(
         ui_rotation_spin, ui_rotation_slider,
         ui_xshift_spin, ui_xshift_slider,
         ui_yshift_spin, ui_yshift_slider):
-
+    """Connect fill pattern."""
     ui_type.currentIndexChanged.connect(
         lambda x: connect_combobox_abstract(x, scene, attributes, 'type', c.attribute_values(c.PatternType), True))
 
@@ -120,6 +123,7 @@ def connect_decoration(
         ui_amplitude_spin, ui_amplitude_slider,
         ui_wavelength_spin, ui_wavelength_slider,
         ui_text):
+    """Connect decoration pattern."""
     ui_type.currentIndexChanged.connect(
         lambda x: connect_combobox_abstract(x, scene, attributes, 'type', c.attribute_values(c.DecorationType), True))
 
@@ -137,7 +141,9 @@ def connect_decoration(
         lambda : connect_lineedit_abstract(scene, attributes, 'text', ui_text))
 
 
-def connect_dash(scene, attributes, ui_dash, ui_custom_stroke):
+def connect_dash(scene, attributes, ui_dash, ui_custom_stroke):  # TODO change ['line', 'dash'] to attributes
+    """Connect dash pattern."""
+
     ui_custom_stroke.editingFinished.connect(
         lambda : connect_dash_lineedit_abstract(scene, ['line', 'dash'], 'custom_pattern', ui_custom_stroke))
 
@@ -153,7 +159,10 @@ def connect_strategy(
         ui_bend_direction,
         ui_bend_angle_spin, ui_bend_angle_slider,
         ui_smooth_tension_spin, ui_smooth_tension_slider):
+    """Connect curve strategy."""
+
     def tabWidget_func(index, scene):
+        """Connect strategy tabWidget."""
         if not scene.skip_combobox_changes:
             ids = scene.list_focus_ids
             if not ids:
@@ -172,7 +181,8 @@ def connect_strategy(
                     final_property["type"] = c.StrategyType.SMOOTH
             scene.edit.add_undo_item(scene)
 
-    def connect_bend_direction(index, scene):
+    def connect_bend_direction_func(index, scene):
+        """Connect bend direction."""
         if not scene.skip_combobox_changes:
             ids = scene.list_focus_ids
             if not ids:
@@ -190,7 +200,7 @@ def connect_strategy(
         lambda x: connect_combobox_abstract(x, scene, attributes, 'type', c.attribute_values(c.StrategyType), True))
 
     ui_bend_direction.currentIndexChanged.connect(
-        lambda x: connect_bend_direction(x, scene))
+        lambda x: connect_bend_direction_func(x, scene))
 
     ui_in_angle_slider.sliderMoved.connect(
         lambda x: connect_slider_moved_abstract(x, scene, attributes, 'in_angle', lambda x: x*3.6, ui_in_angle_spin))
@@ -216,5 +226,3 @@ def connect_strategy(
         lambda x: connect_slider_moved_abstract(x, scene, attributes, 'smooth_tension', lambda x: x/50.0+0.2, ui_smooth_tension_spin))
     ui_smooth_tension_slider.sliderReleased.connect(
         lambda : connect_slider_released_abstract(scene))
-
-#

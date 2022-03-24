@@ -1,11 +1,11 @@
 from Point import Point
-from Item import Item
 import Constant as c
 from GeometryMath import ortho_proj
 
 
 class Projection(Point):
     def __init__(self, item):
+        """Construct Projection."""
         Point.__init__(self, item)
         self.item["sub_type"] = c.Point.Definition.PROJECTION
 

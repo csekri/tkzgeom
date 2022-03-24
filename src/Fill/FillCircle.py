@@ -2,7 +2,6 @@ import Constant as c
 from Colour import Colour
 from Fill.FillMacros import (
     fill_fill_pattern,
-    fill_d_arrow,
     fill_colour,
     fill_dash,
     fill_o_arrow,
@@ -11,6 +10,7 @@ from Fill.FillMacros import (
 
 
 def fill_circle_fields(scene):
+    """Fill all widgets in the circle tab."""
     colours = c.attribute_values(c.Colour)\
         + [i.get_id() for i in scene.project_data.items.values() if isinstance(i, Colour)]
     ids = scene.list_focus_ids

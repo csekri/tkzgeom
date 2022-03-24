@@ -1,8 +1,10 @@
 class Arrowable:
     def __init__(self, item):
+        """Construct Arrowable."""
         self.item = item
 
     def tikzify_arrows(self):
+        """Turn origin and destination arrows into tikz code."""
         o_str = Arrowable.tikzify_arrow(self.item["o_arrow"])
         d_str = Arrowable.tikzify_arrow(self.item["d_arrow"])
         if not (o_str or d_str):
@@ -11,6 +13,7 @@ class Arrowable:
 
     @staticmethod
     def arrow_tip_splitter(tip_str):
+        """Parse arrow string to determine if open/rounded/none."""
         splitted = tip_str.split('^')
         if len(splitted) == 2:
             if splitted[1] == 'o':
@@ -20,10 +23,11 @@ class Arrowable:
             if splitted[1] == 'or':
                 return splitted[0], 'open, round'
         else:
-            return splitted[0] ,''
+            return splitted[0], ''
 
     @staticmethod
     def tikzify_arrow(arrow):
+        """Turn arrow into tikz code."""
         if arrow["tip"] == 'None':
             return ''
         options = []

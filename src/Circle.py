@@ -12,6 +12,7 @@ import GeometryMath as gmath
 
 class Circle(Item, Arrowable, DashPatternable, Doubleable, LineColourable, Fillable):
     def __init__(self, item):
+        """Construct Circle."""
         Item.__init__(self, item)
         if item is None:
             self.dictionary_builder(None, "", "")
@@ -98,9 +99,9 @@ class Circle(Item, Arrowable, DashPatternable, Doubleable, LineColourable, Filla
     def next_id_func(self, definition, iter_counter):
         return 'Circle_' + chr(ord('A') + iter_counter % 26) + (iter_counter // 26) * '\''
 
-    def dictionary_builder(self, definition, id, sub_type=None):  # TODO to be updated
+    def dictionary_builder(self, definition, id_, sub_type=None):  # TODO to be updated
         dictionary = {}
-        dictionary["id"] = id
+        dictionary["id"] = id_
         dictionary["type"] = 'circle'
         dictionary["sub_type"] = sub_type
         dictionary["show"] = True

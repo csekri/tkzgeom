@@ -4,10 +4,12 @@ from Factory import Factory
 
 
 def free_point_checkbox(dialog, state):
+    """Set free-point boolean to checkbox boolean."""
     dialog.free_point = bool(state)
 
 
 def turn_into_free_point(item, scene):
+    """Convert any point to free-point."""
     id_ = item.item["id"]
     item.recompute_canvas(scene.project_data.items,
                           scene.project_data.window,

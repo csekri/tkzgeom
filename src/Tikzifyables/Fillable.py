@@ -1,10 +1,14 @@
 from Tikzifyables.Colourable.FillColourable import FillColourable
 import Constant as c
+
+
 class Fillable(FillColourable):
     def __init__(self, item):
+        """Construct Fillable."""
         FillColourable.__init__(self, self.item)
 
     def tikzify_fill_pattern(self):
+        """Turn fill pattern into tikz code."""
         stars = [c.PatternType.FIVEPOINTED_STARS, c.PatternType.SIXPOINTED_STARS]
         with_area = stars + [c.PatternType.DOTS_EXTRA]
         pattern_colour = '' if not self.tikzify_fill_colour() else 'pattern color=' + self.tikzify_fill_colour()

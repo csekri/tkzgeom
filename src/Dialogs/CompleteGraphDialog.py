@@ -1,7 +1,6 @@
 from PyQt5 import QtWidgets, uic
 
 from Factory import Factory
-from PointClasses.FreePoint import FreePoint
 from Dialogs.DialogMacros import turn_into_free_point, free_point_checkbox
 from Fill.ListWidget import fill_listWidget_with_data, set_selected_id_in_listWidget
 import Constant as c
@@ -9,6 +8,7 @@ import Constant as c
 
 class CompleteGraphDialog(QtWidgets.QDialog):
     def __init__(self, scene, data):
+        """Construct CompleteGraphDialog."""
         super(CompleteGraphDialog, self).__init__()
         self.ui = uic.loadUi('regularpolygon.ui', self)
         self.scene = scene
@@ -23,10 +23,12 @@ class CompleteGraphDialog(QtWidgets.QDialog):
         self.ui.checkBox.stateChanged.connect(lambda x: free_point_checkbox(self, x))
 
     def hslider_sides_func(self, value):
+        """Be slider callback function to set sides."""
         self.sides = value
         self.ui.sides_spin.setValue(value)
 
     def accepted(self):
+        """Create new complete graph with settings."""
         A, B = self.data
         angle = -(self.sides - 2) * 180 / self.sides
         polygon = [A, B]
@@ -59,4 +61,5 @@ class CompleteGraphDialog(QtWidgets.QDialog):
         self.scene.edit.add_undo_item(self.scene)
 
     def rejected(self):
+        """Add no new complete graph."""
         pass

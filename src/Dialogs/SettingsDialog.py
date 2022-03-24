@@ -2,12 +2,9 @@ from PyQt5 import QtWidgets, uic
 from SyntaxHighlight import syntax_highlight
 
 
-def to_method(syntax):
-    return '' if syntax[0] == '$' else syntax[1:]
-
-
 class SettingsDialog(QtWidgets.QDialog):
     def __init__(self, scene):
+        """Construct SettingsDialog."""
         super(SettingsDialog, self).__init__()
         self.ui = uic.loadUi('settings_dialog.ui', self)
         self.scene = scene
@@ -22,17 +19,23 @@ class SettingsDialog(QtWidgets.QDialog):
         self.ui.pygments_style.currentIndexChanged.connect(self.pygments_style_func)
 
     def syntax_radio1_func(self):
+        """Set syntax highlighting to default."""
         self.scene.syntax = '$' + self.scene.syntax[1:]
-        browser_text = syntax_highlight(to_method(self.scene.syntax), self.scene.project_data.tikzify(*self.scene.current_canvas_dims, *self.scene.init_canvas_dims))
+        text = self.scene.project_data.tikzify(*self.scene.current_canvas_dims, *self.scene.init_canvas_dims)
+        browser_text = syntax_highlight(self.scene.syntax, text)
         self.scene.ui.textBrowser.setText(browser_text)
 
     def syntax_radio2_func(self):
+        """Set syntax highlighting to pygments."""
         self.scene.syntax = '^' + self.ui.pygments_style.currentText()
-        browser_text = syntax_highlight(to_method(self.scene.syntax), self.scene.project_data.tikzify(*self.scene.current_canvas_dims, *self.scene.init_canvas_dims))
+        text = self.scene.project_data.tikzify(*self.scene.current_canvas_dims, *self.scene.init_canvas_dims)
+        browser_text = syntax_highlight(self.scene.syntax, text)
         self.scene.ui.textBrowser.setText(browser_text)
 
     def pygments_style_func(self):
+        """Set pygments style."""
         self.scene.syntax = self.scene.syntax[0] + self.ui.pygments_style.currentText()
-        browser_text = syntax_highlight(to_method(self.scene.syntax), self.scene.project_data.tikzify(*self.scene.current_canvas_dims, *self.scene.init_canvas_dims))
+        text = self.scene.project_data.tikzify(*self.scene.current_canvas_dims, *self.scene.init_canvas_dims)
+        browser_text = syntax_highlight(self.scene.syntax, text)
         self.scene.ui.textBrowser.setText(browser_text)
 

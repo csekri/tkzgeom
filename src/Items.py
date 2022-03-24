@@ -35,6 +35,7 @@ class Items:
                 bg_colour=c.BackGroundColourDefault,  # TODO this should change
                 code_before='',
                 code_after=''):
+        """Construct Items."""
         self.items = OrderedDict()
         self.window = Window(left=window["left"], top=window["top"], scale=window["scale"])
         self.packages = packages
@@ -43,15 +44,19 @@ class Items:
         self.code_after = code_after
 
     def set_window(self, left, top, scale):
+        """Set tikz window domain parameters."""
         self.window = Window(left=left, top=top, scale=scale)
 
     def set_window_translate(self, dx, dy):
+        """Translate tikz window domain."""
         self.window = Window(self.window.left - dx, self.window.top - dy, self.window.scale)
 
     def add(self, item):
+        """Add new item."""
         self.items[item.get_id()] = item
 
     def __str__(self):
+        """Create string for debugging purposes."""
         if not self.items:
             return '[]'
         string = '[\n'
@@ -61,6 +66,7 @@ class Items:
         return string
 
     def recompute_canvas(self, width, height):
+        """Recalculate the position of all items."""
         num_points = len(list(filter(lambda x: isinstance(x, Point) or isinstance(x, Circle), self.items.values())))
         recomputed_ids = set()
         for item in self.items.values():
@@ -77,6 +83,7 @@ class Items:
 
     @staticmethod
     def filter_sort_map(class_of, item_filter, tikzify_function, sort_key):
+        """Apply class filter, general filter, tikzify map, and sorting to a list."""
         if sort_key is None and item_filter is None:
             return lambda items: map(tikzify_function,
                                      filter(lambda x: isinstance(x, class_of), items))
@@ -91,6 +98,7 @@ class Items:
                                         key=sort_key))
 
     def tikzify(self, current_width, current_height, init_width, init_height):
+        """Turn whole Items world into TikZ code."""
         xmin, xmax = self.window.left, self.window.left + 10 * self.window.scale * current_width / init_height
         ymin, ymax = self.window.top - 10 * self.window.scale * current_height / init_height, self.window.top
         xstep, ystep = 2 * [self.window.scale]
@@ -169,6 +177,7 @@ class Items:
         return '\\begin{tikzpicture}\n%s\n\\end{tikzpicture}' % string
 
     def doc_surround_tikzify(self, current_width, current_height, init_width, init_height):
+        """Turn Items world into full LaTeX document."""
         string = '\documentclass{standalone}\n'
         string += '\n'.join(self.packages) + '\n'
         string += '\n' + '\\begin{document}' + '\n'
@@ -177,6 +186,7 @@ class Items:
         return string
 
     def change_id(self, from_id, to_id):
+        """Change existing id to a new one."""
         print(from_id, to_id)
         self.items[to_id] = self.items.pop(from_id)
         if isinstance(self.items[to_id], Point) and self.items[to_id].item["label"]["text"] == f'${from_id}$':
@@ -185,6 +195,7 @@ class Items:
             item.change_id(from_id, to_id)
 
     def state_dict(self):
+        """Convert full project into one dictionary."""
         dictionary = {'items': []}
         for item in self.items.values():
             dictionary["items"].append(item.item)

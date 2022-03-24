@@ -3,7 +3,6 @@ from shapely.geometry import Point as ShapelyPoint
 from shapely.geometry.polygon import Polygon as ShapelyPolygon
 
 from Item import Item
-from Tikzifyables.Arrowable import Arrowable
 from Tikzifyables.DashPatternable import DashPatternable
 from Tikzifyables.Colourable.LineColourable import LineColourable
 from Tikzifyables.Fillable import Fillable
@@ -14,6 +13,7 @@ import Constant as c
 
 class Polygon(Item, DashPatternable, LineColourable, Fillable, Decorationable, CurveStrategyable):
     def __init__(self, item):
+        """Construct Polygon."""
         Item.__init__(self, item)
         if item is None:
             self.dictionary_builder(None, "")
@@ -104,9 +104,9 @@ class Polygon(Item, DashPatternable, LineColourable, Fillable, Decorationable, C
             return None
         return self.definition_builder(arguments+['mock item'])
 
-    def dictionary_builder(self, definition, id, sub_type=None):
+    def dictionary_builder(self, definition, id_, sub_type=None):
         dictionary = {}
-        dictionary["id"] = id
+        dictionary["id"] = id_
         dictionary["type"] = 'polygon'
         dictionary["sub_type"] = None
         dictionary["show"] = True

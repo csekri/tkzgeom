@@ -1,11 +1,11 @@
 from Point import Point
-from Item import Item
 import Constant as c
-from GeometryMath import ortho_proj, bisector_point
+from GeometryMath import bisector_point
 
 
 class Bisector(Point):
     def __init__(self, item):
+        """Construct Bisector."""
         Point.__init__(self, item)
         self.item["sub_type"] = c.Point.Definition.BISECTOR
 

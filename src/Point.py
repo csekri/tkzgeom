@@ -10,6 +10,7 @@ from Tikzifyables.Colourable.FillColourable import FillColourable
 
 class Point(Item, Labelable, DashPatternable, LineColourable, FillColourable):
     def __init__(self, item):
+        """Construct Point."""
         Item.__init__(self, item)
         if item is None:
             self.dictionary_builder(None, "", "")
@@ -83,9 +84,9 @@ class Point(Item, Labelable, DashPatternable, LineColourable, FillColourable):
     def next_id_func(self, definition, iter_counter):
         return chr(ord('A') + iter_counter % 26) + (iter_counter // 26) * '\''
 
-    def dictionary_builder(self, definition, id, sub_type=None):
+    def dictionary_builder(self, definition, id_, sub_type=None):
         dictionary = {}
-        dictionary["id"] = id
+        dictionary["id"] = id_
         dictionary["type"] = 'point'
         dictionary["sub_type"] = sub_type
         dictionary["show"] = True
@@ -117,7 +118,7 @@ class Point(Item, Labelable, DashPatternable, LineColourable, FillColourable):
         dictionary["fill"]["colour"]["strength"] = c.Point.Default.Fill_Colour.STRENGTH
         dictionary["label"] = {}
         dictionary["label"]["show"] = c.Point.Default.Label.SHOW
-        dictionary["label"]["text"] = f'${id}$'
+        dictionary["label"]["text"] = f'${id_}$'
         dictionary["label"]["text"] = c.Point.Default.Label.TEXT
         dictionary["label"]["anchor"] = c.Point.Default.Label.ANCHOR
         dictionary["label"]["offset"] = c.Point.Default.Label.OFFSET

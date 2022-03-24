@@ -1,9 +1,11 @@
 import Constant as c
 
+
 def fill_o_arrow(
         scene, item, ui_tip, ui_side, ui_reversed,
         ui_length_spin, ui_length_slider,
         ui_width_spin, ui_width_slider):
+    """Fill input widgets with o_arrow data."""
     scene.skip_combobox_changes = True
     ui_tip.setCurrentIndex(c.attribute_values(c.ArrowTip).index(item["o_arrow"]["tip"]))
     ui_side.setCurrentIndex(c.attribute_values(c.ArrowSide).index(item["o_arrow"]["side"]))
@@ -16,13 +18,15 @@ def fill_o_arrow(
     ui_width_spin.setValue(item["o_arrow"]["width"])
 
     scene.skip_checkbox_changes = True
-    scene.ui.segment_o_reversed.setChecked(item["o_arrow"]["reversed"])
+    ui_reversed.setChecked(item["o_arrow"]["reversed"])
     scene.skip_checkbox_changes = False
+
 
 def fill_d_arrow(
         scene, item, ui_tip, ui_side, ui_reversed,
         ui_length_spin, ui_length_slider,
         ui_width_spin, ui_width_slider):
+    """Fill input widgets with d_arrow data."""
     scene.skip_combobox_changes = True
     ui_tip.setCurrentIndex(c.attribute_values(c.ArrowTip).index(item["d_arrow"]["tip"]))
     ui_side.setCurrentIndex(c.attribute_values(c.ArrowSide).index(item["d_arrow"]["side"]))
@@ -35,13 +39,14 @@ def fill_d_arrow(
     ui_width_spin.setValue(item["d_arrow"]["width"])
 
     scene.skip_checkbox_changes = True
-    scene.ui.segment_o_reversed.setChecked(item["d_arrow"]["reversed"])
+    ui_reversed.setChecked(item["d_arrow"]["reversed"])
     scene.skip_checkbox_changes = False
 
 def fill_colour(
         scene, item, colours, ui_name, ui_mix_with,
         ui_mix_spin, ui_mix_slider,
         ui_strength_spin, ui_strength_slider):
+    """Fill input widgets with colour data."""
     scene.skip_combobox_changes = True
     ui_name.clear()
     ui_name.addItems(colours)
@@ -64,6 +69,7 @@ def fill_fill_pattern(
         ui_rotation_spin, ui_rotation_slider,
         ui_xshift_spin, ui_xshift_slider,
         ui_yshift_spin, ui_yshift_slider):
+    """Fill input widgets with fill pattern data."""
     scene.skip_combobox_changes = True
     ui_type.setCurrentIndex(c.attribute_values(c.PatternType).index(item["type"]))
     scene.skip_combobox_changes = False
@@ -88,6 +94,7 @@ def fill_decoration(
         ui_amplitude_spin, ui_amplitude_slider,
         ui_wavelength_spin, ui_wavelength_slider,
         ui_text):
+    """Fill input widgets with curve decoration data."""
     scene.skip_combobox_changes = True
     ui_type.setCurrentIndex(c.attribute_values(c.DecorationType).index(item["type"]))
     scene.skip_combobox_changes = False
@@ -102,6 +109,7 @@ def fill_decoration(
 
 
 def fill_dash(scene, item, ui_dash, ui_custom):
+    """Fill input widgets dash pattern data."""
     scene.skip_combobox_changes = True
     ui_dash.setCurrentIndex(c.attribute_values(c.LineStroke).index(item["stroke"]))
     scene.skip_combobox_changes = False
@@ -116,6 +124,7 @@ def fill_strategy(
         ui_bend_direction,
         ui_bend_angle_spin, ui_bend_angle_slider,
         ui_smooth_tension_spin, ui_smooth_tension_slider):
+    """Fill input widgets with curve strategy data."""
     index = c.attribute_values(c.StrategyType).index(item["line"]["strategy"]["type"])
 
     scene.skip_combobox_changes = True

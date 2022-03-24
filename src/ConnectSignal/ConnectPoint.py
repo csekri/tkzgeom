@@ -15,6 +15,7 @@ from ConnectSignal.Lambda import connect_def_str_lineedit_abstract
 
 
 def connect_point(scene):
+    """Connect signals in the point tab."""
     scene.ui.plainTextEdit.textChanged.connect(
         lambda: connect_plain_text_edit_abstract(scene, ['marker'], 'text', scene.ui.plainTextEdit))
     scene.ui.point_apply_text_change.clicked.connect(

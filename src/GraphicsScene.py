@@ -62,6 +62,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.zoom_old_saved = None
 
     def mousePressEvent(self, event):
+        """Determine what to do when mouse is pressed."""
         self.mouse.set_xy(int(event.scenePos().x()), int(event.scenePos().y()))
         self.mouse.set_pressed_xy(int(event.scenePos().x()), int(event.scenePos().y()))
 
@@ -150,6 +151,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         cr.add_all_items(self)
 
     def mouseMoveEvent(self, event):
+        """Determine what to do when mouse is moved."""
         old_x, old_y = self.mouse.get_xy()
         self.mouse.set_xy(int(event.scenePos().x()), int(event.scenePos().y()))
 
@@ -211,6 +213,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         cr.add_all_items(self)
 
     def mouseReleaseEvent(self, event):
+        """Determine what to do when mouse is released."""
         self.mouse.set_xy(int(event.scenePos().x()), int(event.scenePos().y()))
         browser_text = syntax_highlight(self.syntax, self.project_data.tikzify(*self.current_canvas_dims, *self.init_canvas_dims))
         self.ui.textBrowser.setText(browser_text)

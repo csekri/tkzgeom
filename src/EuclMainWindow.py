@@ -35,16 +35,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
     class defining the main window inheriting QtWidgets.QMainWindow
     """
     def __init__(self):
-        """
-        SUMMARY
-            contructor for graphicsScene
-
-        PARAMETERS
-            nothing
-
-        RETURNS
-            None
-        """
+        """Construct EuclMainWindow."""
         super(EuclMainWindow, self).__init__()
         self.ui = uic.loadUi('main.ui', self)
         self.scene = GraphicsScene(self.ui, self.setWindowTitle)
@@ -117,6 +108,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         cr.add_all_items(self.scene)
 
     def resizeEvent(self, event):
+        """Capture new window size, recompute canvas."""
         self.scene.current_canvas_dims = [self.ui.graphicsView.width(), self.ui.graphicsView.height()]
         self.scene.setSceneRect(0, 0, self.scene.current_canvas_dims[0], self.scene.current_canvas_dims[1])
         self.ui.graphicsView.fitInView(self.scene.sceneRect(), QtCore.Qt.AspectRatioMode.KeepAspectRatio)
@@ -125,11 +117,13 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         cr.add_all_items(self.scene)
 
     def closeEvent(self, event):
+        """Manage save when exit is triggered."""
         if self.scene.edit.unsaved_progress:
             if self.scene.edit.unsaved_msg_box_cancelled(self.scene):
                 event.ignore()
 
     def keyPressEvent(self, event):
+        """Determine what to do with the keypress."""
         if event.isAutoRepeat():
             return None
         if event.key() == self.scene.key_bank.move_point.key:
@@ -166,6 +160,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
             self.scene.edit.add_undo_item(self.scene)
 
     def keyReleaseEvent(self, event):
+        """Determine what to do with the keyrelease."""
         if event.isAutoRepeat():
             return None
         if event.key() == self.scene.key_bank.move_point.key:
@@ -185,46 +180,55 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.scene.ui.textBrowser.setText(browser_text)
 
     def show_pdf_checked_func(self, state):
+        """Set show pdf boolean."""
         self.scene.show_pdf = state
         cr.clear(self.scene)
         cr.add_all_items(self.scene)
 
     def show_canvas_labels_func(self, state):
+        """Set show canvas labels boolean."""
         self.scene.show_canvas_labels = state
         cr.clear(self.scene)
         cr.add_all_items(self.scene)
 
     def show_canvas_items_func(self, state):
+        """Set show canvas items boolean."""
         self.scene.show_canvas_items = state
         cr.clear(self.scene)
         cr.add_all_items(self.scene)
 
     def aspect_ratio_func(self, state):
+        """Set aspect ratio boolean."""
         self.scene.is_aspect_ratio = state
         cr.clear(self.scene)
         cr.add_all_items(self.scene)
 
     def auto_compile_func(self, state):
+        """Set auto-compile boolean."""
         self.scene.auto_compile = bool(state)
 
     def copy_tikzpicture_func(self):
+        """Copy tikzpicture."""
         print('copieren')
         text = self.scene.project_data.tikzify(self.scene.width(), self.scene.height(), *self.scene.init_canvas_dims)
         self.clipboard.clear(mode=self.clipboard.Clipboard)
         self.clipboard.setText(text, mode=self.clipboard.Clipboard)
 
     def copy_tikzdoc_func(self):
+        """Copy LaTeX document."""
         print('copieren')
         text = self.scene.project_data.doc_surround_tikzify(self.scene.width(), self.scene.height(), *self.scene.init_canvas_dims)
         self.clipboard.clear(mode=self.clipboard.Clipboard)
         self.clipboard.setText(text, mode=self.clipboard.Clipboard)
 
     def snap_to_grid_func(self, state):
+        """Set snap to grid boolean."""
         self.scene.snap_to_grid = state
         cr.clear(self.scene)
         cr.add_all_items(self.scene)
 
     def zoom_slider_move_func(self, value):
+        """Set window according to the zoom."""
         slider_size = 200  # the range of the zoom slider (defined in Qt Designer) / 2
         # this function normalises the zoom magnitude
         value_transform = lambda x: -4 * x * (x / slider_size) if x < 0 else x
@@ -244,31 +248,17 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         cr.add_all_items(self.scene)
 
     def zoom_slider_pressed_func(self):
-        """
-        SUMMARY
-            called when the zoom slider gets pressed on, saves the original position of
-            the window
-        PARAMETERS
-            nothing
-        RETURNS
-            None
-        """
+        """Save the original window."""
         self.scene.zoom_old_saved = self.scene.project_data.window
 
     def zoom_slider_release_func(self):
-        """
-        SUMMARY
-            called when the zoom slider is released, compiles displays change
-        PARAMETERS
-            value: passed from the slider
-        RETURNS
-            None
-        """
+        """Apply zoom."""
         self.zoom_slider.setValue(0)
         self.scene.zoom_old_saved = None
         self.scene.project_data.recompute_canvas(*self.scene.init_canvas_dims)
         self.scene.edit.add_undo_item(self.scene)
 
     def preferences_func(self):
+        """Create and open settings dialog."""
         dialog = SettingsDialog(self.scene)
         dialog.exec_()

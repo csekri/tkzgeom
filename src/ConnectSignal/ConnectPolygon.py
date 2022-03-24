@@ -1,13 +1,6 @@
-import Constant as c
 from ConnectSignal.Lambda import (
-    connect_plain_text_edit_abstract,
-    connect_text_edit_pushbutton_apply_abstract,
-    connect_combobox_abstract,
-    connect_checkbox_abstract,
     connect_slider_moved_abstract,
     connect_slider_released_abstract,
-    connect_dash_lineedit_abstract,
-    connect_lineedit_abstract,
     connect_def_str_lineedit_abstract
 )
 
@@ -21,6 +14,7 @@ from ConnectSignal.ConnectMacros import (
 
 
 def connect_polygon(scene):
+    """Connect signals in the polygon tab."""
     scene.ui.polygon_line_width_slider.sliderMoved.connect(
         lambda x: connect_slider_moved_abstract(x, scene, ['line'], 'line_width', lambda x: x/10.0, scene.ui.polygon_line_width_spin))
     scene.ui.polygon_line_width_slider.sliderReleased.connect(

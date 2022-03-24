@@ -6,6 +6,7 @@ import GeometryMath as gmath
 
 class CircumCircle(Circle):
     def __init__(self, item):
+        """Construct CircumCircle."""
         Circle.__init__(self, item)
         self.item["sub_type"] = c.Circle.Definition.CIRCUM
 

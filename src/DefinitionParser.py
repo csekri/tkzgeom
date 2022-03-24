@@ -2,6 +2,7 @@ import re
 
 
 def parse_def(string, function_names):
+    """Parse definition into item type and arguments."""
     pattern = r"\s*([A-Z]\w+)\s*\(\s*(.+)\s*\)\s*"
     match = re.search(pattern, string)
     if match is None:

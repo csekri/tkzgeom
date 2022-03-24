@@ -6,7 +6,9 @@ from Linestring import Linestring
 from collections import OrderedDict
 from operator import itemgetter
 
+
 def item_in_focus(project_data, mouse, engagement_distance=20):
+    """Find item in focus."""
     eng_dist_sqr = engagement_distance * engagement_distance
     distances = {}
     for item in project_data.items.values():

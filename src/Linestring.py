@@ -4,7 +4,6 @@ from Item import Item
 from Tikzifyables.Arrowable import Arrowable
 from Tikzifyables.DashPatternable import DashPatternable
 from Tikzifyables.Colourable.LineColourable import LineColourable
-from Tikzifyables.Fillable import Fillable
 from Tikzifyables.Decorationable import Decorationable
 from Tikzifyables.CurveStrategyable import CurveStrategyable
 import Constant as c
@@ -13,6 +12,7 @@ from GeometryMath import point_segment_dist_sqr
 
 class Linestring(Item, DashPatternable, LineColourable, Decorationable, Arrowable, CurveStrategyable):
     def __init__(self, item):
+        """Create Linestring."""
         Item.__init__(self, item)
         if item is None:
             self.dictionary_builder(None, "")
@@ -109,9 +109,9 @@ class Linestring(Item, DashPatternable, LineColourable, Decorationable, Arrowabl
             return None
         return self.definition_builder(arguments+['mock item'])
 
-    def dictionary_builder(self, definition, id, sub_type=None): # TODO create Linestring class in Constant.py and modify entries here
+    def dictionary_builder(self, definition, id_, sub_type=None): # TODO create Linestring class in Constant.py and modify entries here
         dictionary = {}
-        dictionary["id"] = id
+        dictionary["id"] = id_
         dictionary["type"] = 'linestring'
         dictionary["sub_type"] = None
         dictionary["show"] = True

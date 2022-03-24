@@ -8,6 +8,7 @@ import Constant as c
 
 class RegularPolygonDialog(QtWidgets.QDialog):
     def __init__(self, scene, data):
+        """Construct RegularPolygonDialog."""
         super(RegularPolygonDialog, self).__init__()
         self.ui = uic.loadUi('regularpolygon.ui', self)
         self.scene = scene
@@ -22,10 +23,12 @@ class RegularPolygonDialog(QtWidgets.QDialog):
         self.ui.checkBox.stateChanged.connect(lambda x: free_point_checkbox(self, x))
 
     def hslider_sides_func(self, value):
+        """Be slider callback function to set sides."""
         self.sides = value
         self.ui.sides_spin.setValue(value)
 
     def accepted(self):
+        """Create new regular polygon with settings."""
         A, B = self.data
         angle = -(self.sides - 2) * 180 / self.sides
         polygon = [A, B]
@@ -56,4 +59,5 @@ class RegularPolygonDialog(QtWidgets.QDialog):
         self.scene.edit.add_undo_item(self.scene)
 
     def rejected(self):
+        """Add no new regular polygon."""
         pass

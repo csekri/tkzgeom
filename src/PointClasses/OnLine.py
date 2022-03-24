@@ -1,12 +1,12 @@
 from Point import Point
-from Item import Item
 import Constant as c
+
 
 class OnLine(Point):
     def __init__(self, item):
+        """Construct OnLine."""
         Point.__init__(self, item)
         self.item["sub_type"] = c.Point.Definition.ON_LINE
-
 
     def tikzify(self):
         return "\\tkzDefPointBy[homothety=center %s ratio %s](%s) \\tkzGetPoint{%s}" % (self.item["definition"]["A"], self.item["definition"]["ratio"], self.item["definition"]["B"], self.get_id())

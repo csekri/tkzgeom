@@ -8,6 +8,7 @@ import Constant as c
 
 class MakeGridDialog(QtWidgets.QDialog):
     def __init__(self, scene, data):
+        """Construct MakeGridDialog."""
         super(MakeGridDialog, self).__init__()
         self.ui = uic.loadUi('makegrid.ui', self)
         self.scene = scene
@@ -24,14 +25,17 @@ class MakeGridDialog(QtWidgets.QDialog):
         self.ui.checkBox.stateChanged.connect(lambda x: free_point_checkbox(self, x))
 
     def hslider_col_func(self, value):
+        """Be slider callback function to set columns."""
         self.cols = value
         self.ui.cols_spin.setValue(value)
 
     def hslider_row_func(self, value):
+        """Be slider callback function to set rows."""
         self.rows = value
         self.ui.rows_spin.setValue(value)
 
     def accepted(self):
+        """Create new grid with settings."""
         origin, right, bottom = self.data
         top_accumulator = [origin, right]
         left_accumulator = [origin, bottom]
@@ -100,4 +104,5 @@ class MakeGridDialog(QtWidgets.QDialog):
         self.scene.edit.add_undo_item(self.scene)
 
     def rejected(self):
+        """Add no new grid graph."""
         pass

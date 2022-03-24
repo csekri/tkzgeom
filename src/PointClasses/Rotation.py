@@ -1,14 +1,14 @@
 from Point import Point
-from Item import Item
 import Constant as c
 import GeometryMath as gmath
 from math import cos, sin, radians
 
+
 class Rotation(Point):
     def __init__(self, item):
+        """Construct Rotation."""
         Point.__init__(self, item)
         self.item["sub_type"] = c.Point.Definition.ROTATION
-
 
     def tikzify(self):
         return "\\tkzDefPointBy[rotation=center %s angle %s](%s)\\tkzGetPoint{%s}" % (self.item["definition"]["B"], self.item["definition"]["angle"], self.item["definition"]["A"], self.get_id())

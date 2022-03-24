@@ -2,56 +2,53 @@ import math
 
 
 def dot(X, Y):
+    """Dot product two vectors."""
     return X[0]*Y[0] + X[1]*Y[1]
 
 
 def sub(X, Y):
+    """From the difference of two vectors."""
     return X[0]-Y[0], X[1]-Y[1]
 
 
 def add(X, Y):
+    """Add two vectors."""
     return X[0]+Y[0], X[1]+Y[1]
 
 
 def norm_sqr(X):
+    """Compute the square of the norm."""
     return dot(X, X)
 
 
 def norm(X):
+    """Compute the norm."""
     return norm_sqr(X) ** 0.5
 
 
 def dist_sqr(X, Y):
+    """Compute the square of the distance between two vectors."""
     return norm_sqr(sub(X, Y))
 
 
 def dist(X, Y):
+    """Compute the distance between two vectors."""
     return dist_sqr(X, Y) ** 0.5
 
 
 def scalar_mul(c, X):
+    """Multiply vector by scalar."""
     return [c*X[0], c*X[1]]
 
 
 def ortho_proj(A, B, P):
-    # x = np.linalg.norm(P_ - A_) * (P_ - A_).dot(B_ - A_) / (np.linalg.norm(P_ - A_) * np.linalg.norm(B_ - A_))
+    """Compute orthogonal projection of point onto a line """
     x = dot(sub(P, A), sub(B, A)) / dist_sqr(B, A)
     return A[0] + (B[0] - A[0]) * x, A[1] + (B[1] - A[1]) * x
 
 
 def ll_intersection(A, B, P, Q):
-    """
-    SUMMARY
-        computes the coordinates of the intersection of segment AB and segment PQ,
-        (beware: when the segments are parallel the denominators are 0)
-    PARAMETERS
-        A: coordinates of vertex A
-        B: coordinates of vertex B
-        P: coordinates of vertex P
-        Q: coordinates of vertex Q
-    RETURNS
-        ([float, float], float)
-    """
+    """Compute intersection of two segments formed by four points."""
     denominator = (A[0]-B[0]) * (P[1]-Q[1]) - (A[1]-B[1]) * (P[0]-Q[0])
     if denominator == 0:
         return 0.0, 0.0
@@ -62,10 +59,12 @@ def ll_intersection(A, B, P, Q):
 
 
 def translation(A, B, P):
+    """Translate point by vector."""
     return add(sub(B, A), P)
 
 
 def point_segment_dist_sqr(A, B, P):
+    """Compute distance square of a point to a segment."""
     x1, y1 = A
     x2, y2 = B
     x3, y3 = P
@@ -93,14 +92,17 @@ def point_segment_dist_sqr(A, B, P):
 
 
 def pt_circle_dist_sqr(O, r, P):
+    """Compute the square of the distance from a point to a circle."""
     return abs(norm(sub(O, P)) - r) ** 2
 
 
 def circumradius(A, centre):
+    """Compute the radius of the circumscribed circle."""
     return norm(sub(A, centre))
 
 
 def circumcentre(A, B, C):
+    """Compute the centre of the circumscribed circle."""
     D = 2 * (A[0]*(B[1]-C[1]) + B[0]*(C[1]-A[1]) + C[0]*(A[1]-B[1]))
     if D == 0:
         return None
@@ -118,20 +120,7 @@ def circumcentre(A, B, C):
 
 
 def bisector_point(A, B, C):
-    """
-    SUMMARY
-        computes a point which lies on the bisector of the angle
-        In order to get the exact distance from the angle point we follow the
-        construction method of tkz-euclide.
-        1. copy the first segment (A,B) on the second segment (B,C) to get (P)
-        the result is the third coordinate of the equilateral triangle formed by AP.
-    PARAMETERS
-        A: point
-        B: point where the angle is
-        P: third point
-    RETURNS
-        [float, float]
-    """
+    """Compute a point on the bisector. """
     scalar = dist(B, A) / dist(C, B)
     P = add(B, scalar_mul(scalar, sub(C, B)))
     cossixty, sinsixty = math.cos(math.radians(60)), math.sin(math.radians(60))

@@ -4,6 +4,7 @@ import Constant as c
 
 
 def fill_code_fields(scene):
+    """Fill all widgets in the code tab."""
     if c.TYPES[scene.current_tab_idx] != 'code':
         return
 

@@ -6,6 +6,7 @@ from GeometryMath import sub, norm
 
 class CircleWithCentre(Circle):
     def __init__(self, item):
+        """Construct CircleWithCentre."""
         Circle.__init__(self, item)
         self.item["sub_type"] = c.Circle.Definition.WITH_CENTRE
 

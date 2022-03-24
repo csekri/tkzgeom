@@ -13,16 +13,19 @@ from DefinitionParser import parse_def
 
 
 def tabWidget_func(value, main_window):
+    """Connect main tabWidget."""
     main_window.scene.current_tab_idx = value
     fill_listWidget_with_data(main_window.scene.project_data, main_window.listWidget, value)
     set_selected_id_in_listWidget(main_window.scene, 0)
 
 
 def listWidget_double_func(main_window):
+    """Connect listWidget double click."""
     main_window.listWidget_edit_row = main_window.listWidget.currentItem().text()
 
 
 def listWidget_text_changed_func(item, main_window):
+    """Connect listWidget item text changed."""
     if main_window.scene.skip_item_changes:
         return
     if not Item.name_pattern_static(item.text()):
@@ -57,15 +60,14 @@ def listWidget_text_changed_func(item, main_window):
         cr.clear(main_window.scene)
         cr.add_all_items(main_window.scene)
 
-
 def listWidget_current_row_changed_func(main_window):
-    # TODO fill widget fields with relevant data
+    """Connect listWidget current row changed."""
     main_window.scene.list_focus_ids = [item.text() for item in main_window.listWidget.selectedItems()]
-    print(main_window.scene.list_focus_ids)
     fill_all_fields(main_window.scene)
 
 
 def connect_plain_text_edit_abstract(scene, properties_list, dict_key, plain_text_edit_widget):
+    """Be an abstract plainTextEdit callback function."""
     ids = scene.list_focus_ids
     if scene.skip_plaintextedit_changes:
         return
@@ -79,10 +81,12 @@ def connect_plain_text_edit_abstract(scene, properties_list, dict_key, plain_tex
 
 
 def connect_text_edit_pushbutton_apply_abstract(scene):
+    """Be an abstract pushButton callback function for applying text edit."""
     scene.edit.add_undo_item(scene)
 
 
 def connect_combobox_abstract(value, scene, properties_list, dict_key, value_list, is_colour=False):
+    """Be an abstract comboBox callback function."""
     if is_colour:
         value_list = value_list + [i.get_id() for i in scene.project_data.items.values() if isinstance(i, Colour)]
     if scene.skip_combobox_changes:
@@ -100,6 +104,7 @@ def connect_combobox_abstract(value, scene, properties_list, dict_key, value_lis
 
 
 def connect_checkbox_abstract(state, scene, properties_list, dict_key):
+    """Be an abstract checkBox callback function."""
     if scene.skip_checkbox_changes:
         return
     ids = scene.list_focus_ids
@@ -114,6 +119,7 @@ def connect_checkbox_abstract(state, scene, properties_list, dict_key):
 
 
 def connect_slider_moved_abstract(value, scene, properties_list, dict_key, linear_map, spinbox):
+    """Be an abstract slider moved callback function."""
     ids = scene.list_focus_ids
     if not ids:
         return
@@ -128,10 +134,12 @@ def connect_slider_moved_abstract(value, scene, properties_list, dict_key, linea
 
 
 def connect_slider_released_abstract(scene):
+    """Be an abstract slider released callback function."""
     scene.edit.add_undo_item(scene)
 
 
 def connect_dash_lineedit_abstract(scene, properties_list, dict_key, lineedit):
+    """Be an abstract lineEdit callback function for dash pattern."""
     ids = scene.list_focus_ids
     if not lineedit.hasFocus():
         do_edit = True
@@ -159,6 +167,7 @@ def connect_dash_lineedit_abstract(scene, properties_list, dict_key, lineedit):
 
 
 def connect_lineedit_abstract(scene, properties_list, dict_key, lineedit):
+    """Be an abstract lineEdit callback function."""
     ids = scene.list_focus_ids
     if not lineedit.hasFocus():
         for id_ in ids:
@@ -172,6 +181,7 @@ def connect_lineedit_abstract(scene, properties_list, dict_key, lineedit):
 
 
 def connect_def_str_lineedit_abstract(scene, lineedit):
+    """Be an abstract lineEdit callback function for definition."""
     # TODO extra code needed to prevent cross dependency of two objects
     # e.g. A -> B and B -> A should not happen simultaneously
     ids = scene.list_focus_ids
@@ -182,15 +192,15 @@ def connect_def_str_lineedit_abstract(scene, lineedit):
         try:
             parse_step1 = parse_def(lineedit.text(), c.PARSE_TO_TYPE_MAP)
             if not parse_step1:
-                throw_error = 1/0
+                print(1 / 0)
             type, sub_type = c.PARSE_TO_TYPE_MAP[parse_step1[0]]
             if type != scene.project_data.items[id_].item["type"]:
-                throw_error = 1/0
+                print(1 / 0)
             item = Factory.create_empty_item(type, sub_type)
             item.item["id"] = id_
             parse_step2 = item.parse_into_definition(parse_step1[1], scene.project_data.items)
             if not parse_step2:
-                throw_error = 1/0
+                print(1 / 0)
             item_dict = deepcopy(scene.project_data.items[id_].item)
             item_dict["definition"] = parse_step2
             item_dict["type"] = type

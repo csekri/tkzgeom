@@ -1,9 +1,9 @@
 from Constant import TYPES
 from PyQt5 import QtCore, QtWidgets
-from Colour import Colour
 
 
 def fill_listWidget_with_data(project_data, listWidget, tab_index):
+    """Remove and add all items to listWidget"""
     listWidget.clear()
     for item in project_data.items.values():
         if item.item["type"] == TYPES[tab_index]:
@@ -12,12 +12,15 @@ def fill_listWidget_with_data(project_data, listWidget, tab_index):
             listWidget.addItem(item)
 
 
+# TODO explore if needed
 def listWidget_set_current_row(listWidget, id):
+    """Find id in listWidget and set current row to that."""
     items = listWidget.findItems(id, QtCore.Qt.MatchExactly)
     listWidget.setCurrentRow(listWidget.row(items[0]))
 
 
 def set_selected_id_in_listWidget(scene, index):
+    """Set index in listWidget selected."""
     length = scene.ui.listWidget.count()
     if length == 0:
         scene.list_focus_ids = []

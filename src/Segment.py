@@ -11,6 +11,7 @@ from GeometryMath import point_segment_dist_sqr
 
 class Segment(Item, Arrowable, DashPatternable, Doubleable, LineColourable):
     def __init__(self, item):
+        """Construct Segment."""
         Item.__init__(self, item)
         if item is None:
             self.dictionary_builder(None, "")

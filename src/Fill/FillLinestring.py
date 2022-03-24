@@ -2,7 +2,6 @@ import Constant as c
 from Colour import Colour
 from Fill.FillMacros import (
     fill_colour,
-    fill_fill_pattern,
     fill_decoration,
     fill_dash,
     fill_o_arrow,
@@ -12,6 +11,7 @@ from Fill.FillMacros import (
 
 
 def fill_linestring_fields(scene):
+    """Fill all widgets in the linestring tab."""
     colours = c.attribute_values(c.Colour)\
         + [i.get_id() for i in scene.project_data.items.values() if isinstance(i, Colour)]
     ids = scene.list_focus_ids

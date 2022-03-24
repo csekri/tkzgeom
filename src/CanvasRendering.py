@@ -41,26 +41,21 @@ class ColorMapping:
 
 
 def clear(scene):
+    """Clear the scene."""
     scene.clear()
 
 
 def binary_floor(x):
+    """Return greatest power of two less than a number."""
     if x == 1:
         return 1
     return 1 / 2 ** (floor(log2(1/x)) + 1)
 
 
 def add_all_items(scene):
+    """Add all items/objects to the canvas"""
     def draw_aspect_ratio(scene):
-        """
-        SUMMARY
-            draws two lines onto the canvas where the given aspect ratio crops the canvas
-        PARAMETERS
-            scene: GraphicsScene
-            colour: colour of the two lines
-        RETURNS
-            None
-        """
+        """Draw two lines onto the canvas where the given aspect ratio crops the canvas."""
         colour = QtGui.QColor(0, 0, 0, 150)
         aspect_ratio = 16/9  # eval(scene.aspect_ratio)
         width, height = scene.width(), scene.height()
@@ -87,6 +82,7 @@ def add_all_items(scene):
             scene.addItem(graphics_line_2)
 
     def add_pdf(scene):
+        """Add png from compilation to the canvas."""
         pixmap = QtGui.QPixmap("try-1.png")
         if not scene.show_pdf:
             pixmap.fill()
@@ -94,6 +90,7 @@ def add_all_items(scene):
         scene.addItem(tkz_img)
 
     def add_snap_grid(scene):
+        """Add grid to the canvas."""
         if scene.width() == 0.0:
             return
         tkz_dx = tkz_dy = 0.5 * binary_floor(
@@ -146,26 +143,31 @@ def add_all_items(scene):
             scene.addItem(text)
 
     def add_polygons(scene):
+        """Add polygons the canvas."""
         for item in scene.project_data.items.values():
             if item.item["type"] == 'polygon':
                 item.draw_on_canvas(scene.project_data.items, scene, ColorMapping.OTHER_ITEM_FILL)
 
     def add_segments(scene):
+        """Add segments to the canvas."""
         for item in scene.project_data.items.values():
             if item.item["type"] in ['segment']:
                 item.draw_on_canvas(scene.project_data.items, scene, ColorMapping.OTHER_ITEM)
 
     def add_circles(scene):
+        """Add circles to the canvas."""
         for item in scene.project_data.items.values():
             if item.item["type"] in ['circle']:
                 item.draw_on_canvas(scene.project_data.items, scene, ColorMapping.OTHER_ITEM)
 
     def add_linestrings(scene):
+        """Add linestrings to the canvas."""
         for item in scene.project_data.items.values():
             if item.item["type"] in ['linestring']:
                 item.draw_on_canvas(scene.project_data.items, scene, ColorMapping.OTHER_ITEM)
 
     def add_half_ready_segment(scene):
+        """Add half ready segments to the canvas."""
         if scene.select_mode.get_type() == c.Tool.SEGMENT_THROUGH\
         and len(scene.select_history.type_history) == 1:
             Segment.draw_on_canvas_static(
@@ -175,6 +177,7 @@ def add_all_items(scene):
                 ColorMapping.OTHER_ITEM)
 
     def add_half_ready_circle(scene):
+        """Add half ready circles to the canvas."""
         if scene.select_mode.get_type() in [c.Tool.CIRCUM_CIRCLE, c.Tool.CIRCLE_WITH_CENTRE]\
         and len(scene.select_history.type_history) + 1 == c.CIRCLE_PATTERN_LENGTH[scene.select_mode.get_type()]:
             centre, radius = scene.item_to_be.recompute_canvas_with_mouse(scene, *scene.mouse.get_xy())
@@ -183,6 +186,7 @@ def add_all_items(scene):
                 ColorMapping.OTHER_ITEM)
 
     def add_half_ready_linestring(scene):
+        """Add half ready linestrings to the canvas."""
         if scene.select_mode.get_type() == c.Tool.LINESTRING\
         and scene.select_history.type_history:
             Linestring.draw_on_canvas_static(
@@ -192,6 +196,7 @@ def add_all_items(scene):
                 ColorMapping.OTHER_ITEM_FILL)
 
     def add_half_ready_polygon(scene):
+        """Add half ready polygons to the canvas."""
         if scene.select_mode.get_type() == c.Tool.POLYGON\
         and scene.select_history.type_history:
             Polygon.draw_on_canvas_static(
@@ -201,6 +206,7 @@ def add_all_items(scene):
                 ColorMapping.OTHER_ITEM_FILL)
 
     def add_points(scene):
+        """Add points to the canvas."""
         for item in scene.project_data.items.values():
             if item.item["type"] == 'point':
                 if item.item["sub_type"] in [c.Point.Definition.FREE, c.Point.Definition.ON_LINE]:
@@ -209,6 +215,7 @@ def add_all_items(scene):
                     item.draw_on_canvas(scene.project_data.items, scene, ColorMapping.OTHER_ITEM)
 
     def add_item_in_focus(scene):
+        """Add item in focus to the canvas."""
         focus = item_in_focus(scene.project_data, scene.mouse)
         if focus:
             if scene.project_data.items[focus].item["type"] == 'point' and\

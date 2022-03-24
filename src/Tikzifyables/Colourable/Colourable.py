@@ -1,6 +1,7 @@
 class Colourable:
     @staticmethod
     def tikzify_colour(colour):
+        """Turn colour into tikz Code"""
         if colour["name"] == colour["mix_with"] or colour["mix_percent"] == 0:
             if colour["strength"] == 100:
                 return colour["name"]

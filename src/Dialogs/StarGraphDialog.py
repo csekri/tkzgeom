@@ -8,6 +8,7 @@ import Constant as c
 
 class StarGraphDialog(QtWidgets.QDialog):
     def __init__(self, scene, data):
+        """Construct StarGraphDialog"""
         super(StarGraphDialog, self).__init__()
         self.ui = uic.loadUi('regularpolygon.ui', self)
         self.scene = scene
@@ -22,10 +23,12 @@ class StarGraphDialog(QtWidgets.QDialog):
         self.ui.checkBox.stateChanged.connect(lambda x: free_point_checkbox(self, x))
 
     def hslider_sides_func(self, value):
+        """Be slider callback function to set sides."""
         self.sides = value
         self.ui.sides_spin.setValue(value)
 
     def accepted(self):
+        """Create new star graph with settings."""
         middle, P = self.data
         angle = 360 / self.sides
         polygon = [P]
@@ -57,4 +60,5 @@ class StarGraphDialog(QtWidgets.QDialog):
         self.scene.edit.add_undo_item(self.scene)
 
     def rejected(self):
+        """Add no new star graph."""
         pass

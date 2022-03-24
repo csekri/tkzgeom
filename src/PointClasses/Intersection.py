@@ -1,16 +1,20 @@
 from Point import Point
-from Item import Item
 import Constant as c
 from GeometryMath import ll_intersection
 
+
 class Intersection(Point):
     def __init__(self, item):
+        """Construct Intersection."""
         Point.__init__(self, item)
         self.item["sub_type"] = c.Point.Definition.INTERSECTION
 
-
     def tikzify(self):
-        return "\\tkzInterLL(%s,%s)(%s,%s)\\tkzGetPoint{%s}" % (self.depends_on()[0], self.depends_on()[1], self.depends_on()[2], self.depends_on()[3], self.get_id())
+        return "\\tkzInterLL(%s,%s)(%s,%s)\\tkzGetPoint{%s}" % (self.depends_on()[0],
+                                                                self.depends_on()[1],
+                                                                self.depends_on()[2],
+                                                                self.depends_on()[3],
+                                                                self.get_id())
 
     def recompute_canvas(self, items, window, width, height):
         A = items[self.item["definition"]["A"]].get_canvas_coordinates()

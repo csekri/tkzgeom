@@ -2,9 +2,11 @@ import Constant as c
 
 class Decorationable:
     def __init__(self, item):
+        """Construct Decorationable."""
         self.item = item
 
     def tikzify_decoration(self):
+        """Turn curve decoration into tikz code."""
         if self.item["line"]["decoration"]["type"] == c.DecorationType.NONE:
             return ''
         if self.item["line"]["decoration"]["type"] == c.DecorationType.TEXT_ALONG_CURVE:

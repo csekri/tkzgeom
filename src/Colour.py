@@ -3,6 +3,7 @@ from Item import Item
 
 class Colour(Item):
     def __init__(self, item):
+        """Construct Colour."""
         Item.__init__(self, item)
         if item is None:
             self.dictionary_builder(None, "")

@@ -1,8 +1,10 @@
 class DashPatternable:
     def __init__(self, item):
+        """Construct DashPatternable."""
         self.item = item
 
     def tikzify_dash(self):
+        """Turn dash pattern into tikz code."""
         if self.item["line"]["dash"]["stroke"] == 'solid':
             return ''
         if self.item["line"]["dash"]["stroke"] == 'custom':

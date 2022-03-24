@@ -3,9 +3,11 @@ import Constant as c
 
 class CurveStrategyable():
     def __init__(self, item):
+        """Construct CurveStrategyable."""
         self.item = item
 
     def tikzify_strategy(self, is_linestring):
+        """Turn curve strategy into tikz code."""
         is_loop = self.item["line"]["strategy"]["loop"] if is_linestring else False
         connect_to = '.center' if (not is_linestring) or self.item["line"]["connect_to"] == c.LineConnectTo.NODE_CENTRE else ''
         if is_linestring:

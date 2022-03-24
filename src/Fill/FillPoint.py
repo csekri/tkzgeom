@@ -4,6 +4,7 @@ from Fill.FillMacros import fill_colour, fill_dash
 
 
 def fill_point_fields(scene):
+    """Fill all widgets in the point tab."""
     ids = scene.list_focus_ids
     colours = c.attribute_values(c.Colour) \
               + [i.get_id() for i in scene.project_data.items.values() if isinstance(i, Colour)]

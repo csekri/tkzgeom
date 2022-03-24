@@ -2,6 +2,8 @@ import Constant as c
 
 class Mouse:
     def __init__(self):
+        """Construct Mouse."""
+
         self.__left_button_state = c.MouseState.UP
         self.__right_button_state = c.MouseState.UP
         self.__x = 0
@@ -64,6 +66,7 @@ class Mouse:
 
     def get_right_button_state(self):
         """return the state of the right mouse button."""
+
         return self.__right_button_state
 
     def set_right_button_state(self, state):

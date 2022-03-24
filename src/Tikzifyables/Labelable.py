@@ -3,6 +3,7 @@ class Labelable:
         self.item = item
 
     def tikzify_label(self):
+        """Turn label into tikz code."""
         if not self.item["label"]["show"]:
             return ''
         option = ''

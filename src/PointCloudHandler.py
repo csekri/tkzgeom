@@ -7,6 +7,7 @@ from Dialogs.StarGraphDialog import StarGraphDialog
 
 
 def select_point_cloud(scene):
+    """Select point cloud."""
     focus = item_in_focus(scene.project_data, scene.mouse)
     if not bool(focus):
         scene.select_history.reset_history()

@@ -14,12 +14,14 @@ from Fill.ListWidget import fill_listWidget_with_data, set_selected_id_in_listWi
 
 class EditManagement:
     def __init__(self):
+        """Construct EditManagement."""
         self.unsaved_progress = -1
         self.opened_file = ''
         self.undo_history = []
         self.redo_history = []
 
     def window_name(self):
+        """Return window name."""
         name = 'TkzGeom | '
         if self.opened_file == '':
             name += 'untitled'
@@ -30,6 +32,7 @@ class EditManagement:
         return name
 
     def add_undo_item(self, scene):
+        """Add new undo point after edit."""
         self.undo_history.append(deepcopy(scene.project_data))
         self.redo_history.clear()
         self.unsaved_progress += 1
@@ -45,6 +48,7 @@ class EditManagement:
         cr.add_all_items(scene)
 
     def perform_undo(self, scene, *kwargs):
+        """Do undo."""
         if len(self.undo_history) < 2:
             return None
         scene.project_data = deepcopy(self.undo_history[-2])
@@ -68,6 +72,7 @@ class EditManagement:
         scene.title(self.window_name())
 
     def perform_redo(self, scene, *kwargs):
+        """Do redo."""
         if not self.redo_history:
             return None
         scene.project_data = deepcopy(self.redo_history[-1])
@@ -88,6 +93,7 @@ class EditManagement:
         scene.title(self.window_name())
 
     def perform_new(self, scene, *kwargs):
+        """Do new."""
         if not self.unsaved_msg_box_cancelled(scene):
             img = Image.new("RGB", (int(scene.width()), int(scene.height())), (255, 255, 255))
             img.save("try-1.png", "PNG")
@@ -105,6 +111,7 @@ class EditManagement:
         scene.title(self.window_name())
 
     def open_file(self, scene, *kwargs):
+        """Open file."""
         if not self.unsaved_msg_box_cancelled(scene):
             fname = QtWidgets.QFileDialog.getOpenFileName(caption="Open a file", filter="JavaScript Object Notation / .json (*.json *.JSON)")
             if fname[0] != '':
@@ -135,6 +142,7 @@ class EditManagement:
         scene.title(self.window_name())
 
     def save(self, scene, *kwargs):
+        """Save file."""
         print('before save', self.unsaved_progress)
         if self.opened_file != '' and self.unsaved_progress != 0:
             with open(self.opened_file, 'w') as f:
@@ -148,6 +156,7 @@ class EditManagement:
         print('after save', self.unsaved_progress)
 
     def save_as(self, scene, *kwargs):
+        """Save as."""
         """
         SUMMARY
             equivalent to "Save As", brings up save popup window in any case
@@ -168,6 +177,7 @@ class EditManagement:
         scene.key_bank.set_move_canvas_up()
 
     def unsaved_msg_box_cancelled(self, scene):
+        """Make save messagebox."""
         print(self.unsaved_progress)
         if self.unsaved_progress == 0:
             return False
@@ -184,5 +194,3 @@ class EditManagement:
             return True
         return False
 
-
-#
