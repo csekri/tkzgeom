@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>529</width>
-    <height>221</height>
+    <width>516</width>
+    <height>240</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -300,12 +300,237 @@
           <item>
            <widget class="QLabel" name="label_2">
             <property name="text">
-             <string>Target Sreen Ratio</string>
+             <string>Target Screen Ratio</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="aspect_ratio_ratio"/>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QComboBox" name="aspect_ratio_over">
+            <item>
+             <property name="text">
+              <string>1</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>4</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>5</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>6</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>7</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>8</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>9</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>10</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>11</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>12</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>13</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>14</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>15</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>16</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>17</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>18</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>19</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>20</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="aspect_ratio_under">
+            <item>
+             <property name="text">
+              <string>1</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>4</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>5</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>6</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>7</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>8</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>9</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>10</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>11</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>12</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>13</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>14</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>15</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>16</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>17</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>18</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>19</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>20</string>
+             </property>
+            </item>
+           </widget>
           </item>
          </layout>
         </item>
@@ -324,7 +549,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit_2"/>
+      <widget class="QLineEdit" name="pdflatex"/>
      </item>
      <item>
       <widget class="QLabel" name="label_4">
@@ -334,7 +559,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="image_converter_edit"/>
+      <widget class="QLineEdit" name="pdf2png"/>
      </item>
     </layout>
    </item>

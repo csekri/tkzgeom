@@ -57,7 +57,7 @@ def add_all_items(scene):
     def draw_aspect_ratio(scene):
         """Draw two lines onto the canvas where the given aspect ratio crops the canvas."""
         colour = QtGui.QColor(0, 0, 0, 150)
-        aspect_ratio = 16/9  # eval(scene.aspect_ratio)
+        aspect_ratio = scene.aspect_ratio[0] / scene.aspect_ratio[1]  # eval(scene.aspect_ratio)
         width, height = scene.width(), scene.height()
         if aspect_ratio < width / height:
             x_from, y_from, x_to, y_to = (
