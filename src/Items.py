@@ -115,6 +115,8 @@ class Items:
         tikzified_points_def = '\n'.join(
             Items.filter_sort_map(Point, None, lambda x: x.tikzify() + '\n' + x.tikzify_node(), None)(
                 self.items.values()))
+        tikzified_points_def = '\n'.join(
+            [self.items[point_id].tikzify() + '\n' + self.items[point_id].tikzify_node() for point_id in self.point_stable_order()])
         if tikzified_points_def:
             tikzified_points_def = '% POINT DEFINITIONS\n' + tikzified_points_def
 
@@ -193,6 +195,23 @@ class Items:
             self.items[to_id].item["label"]["text"] = f'${to_id}$'
         for item in self.items.values():
             item.change_id(from_id, to_id)
+
+    def point_stable_order(self):
+        num_points = len(list(filter(lambda x: isinstance(x, Point), self.items.values())))
+        print(num_points)
+        count = 0
+        ids_list = []
+        ids_set = set()
+        while count < num_points:
+            for item in self.items.values():
+                if isinstance(item, Point)\
+                and item.get_id() not in ids_list\
+                and set(item.depends_on()).issubset(ids_set):
+                    ids_list.append(item.get_id())
+                    ids_set.add(item.get_id())
+                    count += 1
+                    break
+        return ids_list
 
     def state_dict(self):
         """Convert full project into one dictionary."""

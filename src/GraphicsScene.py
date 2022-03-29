@@ -66,6 +66,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
 
     def mousePressEvent(self, event):
         """Determine what to do when mouse is pressed."""
+        print(self.project_data.point_stable_order())
         self.mouse.set_xy(int(event.scenePos().x()), int(event.scenePos().y()))
         self.mouse.set_pressed_xy(int(event.scenePos().x()), int(event.scenePos().y()))
 
