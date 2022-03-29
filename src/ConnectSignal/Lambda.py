@@ -60,6 +60,7 @@ def listWidget_text_changed_func(item, main_window):
         cr.clear(main_window.scene)
         cr.add_all_items(main_window.scene)
 
+
 def listWidget_current_row_changed_func(main_window):
     """Connect listWidget current row changed."""
     main_window.scene.list_focus_ids = [item.text() for item in main_window.listWidget.selectedItems()]

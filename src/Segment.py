@@ -152,7 +152,6 @@ class Segment(Item, Arrowable, DashPatternable, Doubleable, LineColourable):
         dictionary["d_arrow"]["bending"] = c.Segment.Default.D_Arrow.BENDING
         dictionary["d_arrow"]["side"] = c.Segment.Default.D_Arrow.SIDE
         dictionary["d_arrow"]["reversed"] = c.Segment.Default.D_Arrow.REVERSED
-        dictionary["fill"] = {}
         dictionary["marker"] = {}
         dictionary["marker"]["symbol"] = c.Segment.Default.Segment_Marker.SYMBOL
         dictionary["marker"]["width"] = c.Segment.Default.Segment_Marker.WIDTH

@@ -113,7 +113,9 @@ class EditManagement:
     def open_file(self, scene, *kwargs):
         """Open file."""
         if not self.unsaved_msg_box_cancelled(scene):
-            fname = QtWidgets.QFileDialog.getOpenFileName(caption="Open a file", filter="JavaScript Object Notation / .json (*.json *.JSON)")
+            fname = QtWidgets.QFileDialog.getOpenFileName(
+                caption='Open a file',
+                filter='TikzGeom Project File / .tgeo (*.tgeo *.TGEO)')
             if fname[0] != '':
                 with open(fname[0]) as f:
                     dictionary = json.load(f)
@@ -167,7 +169,7 @@ class EditManagement:
         """
         fname = QtWidgets.QFileDialog.getSaveFileName(
             caption='Save file',
-            filter='JavaScript Object Notation / .json (*.json *.JSON)')
+            filter='TikzGeom Project File / .tgeo (*.tgeo *.TGEO)')
         if fname[0] != '':
             with open(fname[0], 'w') as f:
                 json.dump(scene.project_data.state_dict(), f, indent=4)

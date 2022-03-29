@@ -255,7 +255,7 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {}
+            "marker": {"symbol": "|", "width": 0.4, "size": 1.0, "position": 0.5}
         },
         {
             "id": "A_B",
@@ -311,7 +311,7 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {}
+            "marker": {"symbol": "|", "width": 0.4, "size": 1.0, "position": 0.5}
         },
         {
             "id": "B_D",
@@ -367,7 +367,7 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {}
+            "marker": {"symbol": "|", "width": 0.4, "size": 1.0, "position": 0.5}
         },
         {
             "id": "D_C",
@@ -423,7 +423,7 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {}
+            "marker": {"symbol": "|", "width": 0.4, "size": 1.0, "position": 0.5}
         },
         {
             "id": "E",
@@ -581,7 +581,7 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {}
+            "marker": {"symbol": "|", "width": 0.4, "size": 1.0, "position": 0.5}
         }
     ],
     "window": {

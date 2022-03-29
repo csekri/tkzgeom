@@ -29,12 +29,12 @@ colours=[
 
 class Items:
     def __init__(
-                self: Items,
-                window=c.WindowDefault,
-                packages=c.PackagesDefault,
-                bg_colour=c.BackGroundColourDefault,  # TODO this should change
-                code_before='',
-                code_after=''):
+            self: Items,
+            window=c.WindowDefault,
+            packages=c.PackagesDefault,
+            bg_colour=c.BackGroundColourDefault,  # TODO this should change
+            code_before='',
+            code_after=''):
         """Construct Items."""
         self.items = OrderedDict()
         self.window = Window(left=window["left"], top=window["top"], scale=window["scale"])
@@ -116,7 +116,8 @@ class Items:
             Items.filter_sort_map(Point, None, lambda x: x.tikzify() + '\n' + x.tikzify_node(), None)(
                 self.items.values()))
         tikzified_points_def = '\n'.join(
-            [self.items[point_id].tikzify() + '\n' + self.items[point_id].tikzify_node() for point_id in self.point_stable_order()])
+            [self.items[point_id].tikzify() + '\n' + self.items[point_id].tikzify_node() for point_id in
+             self.point_stable_order()])
         if tikzified_points_def:
             tikzified_points_def = '% POINT DEFINITIONS\n' + tikzified_points_def
 
@@ -143,7 +144,8 @@ class Items:
             tikzified_segments_draw = '% DRAW SEGMENTS\n' + tikzified_segments_draw
 
         tikzified_segment_markers_draw = '\n'.join(
-            Items.filter_sort_map(Segment, lambda x: x.item["show"], lambda x: x.tikzify_segment_marker(), lambda y: y.get_id())(
+            Items.filter_sort_map(Segment, lambda x: x.item["show"], lambda x: x.tikzify_segment_marker(),
+                                  lambda y: y.get_id())(
                 self.items.values()))
         if tikzified_segment_markers_draw:
             tikzified_segment_markers_draw = '% DRAW SEGMENT MARKERS\n' + tikzified_segment_markers_draw
@@ -204,9 +206,9 @@ class Items:
         ids_set = set()
         while count < num_points:
             for item in self.items.values():
-                if isinstance(item, Point)\
-                and item.get_id() not in ids_list\
-                and set(item.depends_on()).issubset(ids_set):
+                if isinstance(item, Point) \
+                        and item.get_id() not in ids_list \
+                        and set(item.depends_on()).issubset(ids_set):
                     ids_list.append(item.get_id())
                     ids_set.add(item.get_id())
                     count += 1

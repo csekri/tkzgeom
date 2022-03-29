@@ -510,13 +510,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -579,13 +577,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -648,13 +644,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -717,13 +711,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -786,13 +778,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -855,13 +845,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -924,13 +912,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -993,13 +979,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -1062,13 +1046,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -1381,13 +1363,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -1450,13 +1430,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -1519,13 +1497,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -1588,13 +1564,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -1657,13 +1631,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -1726,13 +1698,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -1795,13 +1765,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -1914,13 +1882,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -1983,13 +1949,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -2052,13 +2016,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -2121,13 +2083,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -2240,13 +2200,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -2359,13 +2317,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -2478,13 +2434,11 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {
-                "colour": {
-                    "name": "black",
-                    "mix_with": "black",
-                    "mix_percent": 0,
-                    "strength": 100
-                }
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
             }
         },
         {
@@ -2591,7 +2545,12 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {}
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
+            }
         },
         {
             "id": "WithCentre",
@@ -2747,7 +2706,12 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {}
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
+            }
         },
         {
             "id": "Circle_Circum",
@@ -2803,7 +2767,12 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {}
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
+            }
         },
         {
             "id": "Strategyable",
@@ -2909,7 +2878,12 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {}
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
+            }
         },
         {
             "id": "Strategyable_Linestring",
@@ -2965,7 +2939,12 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {}
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
+            }
         },
         {
             "id": "Decorationable",
@@ -3071,7 +3050,12 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {}
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
+            }
         },
         {
             "id": "Decorationable_Polygon",
@@ -3127,7 +3111,12 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {}
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
+            }
         },
         {
             "id": "Doubleable",
@@ -3233,7 +3222,12 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {}
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
+            }
         },
         {
             "id": "Doubleable_Linestring",
@@ -3289,7 +3283,12 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {}
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
+            }
         },
         {
             "id": "Arrowable_Circle",
@@ -3345,7 +3344,12 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {}
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
+            }
         },
         {
             "id": "DashPatternable_Linestring",
@@ -3401,7 +3405,12 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {}
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
+            }
         },
         {
             "id": "Doubleable_Circle",
@@ -3457,7 +3466,12 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {}
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
+            }
         },
         {
             "id": "DashPatternable_Circle",
@@ -3513,12 +3527,17 @@
                 "side": "",
                 "reversed": false
             },
-            "fill": {}
+            "marker": {
+                "symbol": "|",
+                "width": 0.4,
+                "size": 1.0,
+                "position": 0.5
+            }
         }
     ],
     "window": {
-        "left": -6.176192822573594,
-        "top": 6.3276385819925105,
+        "left": -5.707671592705365,
+        "top": 6.459410177892949,
         "scale": 1.0
     },
     "bg_colour": {
