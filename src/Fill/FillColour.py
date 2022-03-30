@@ -16,7 +16,7 @@ def fill_colour_fields(scene):
     if c.TYPES[scene.current_tab_idx] != 'colour':
         return
 
-    hex = ''
+    scene.ui.colour_name.setText(scene.project_data.items[ids[0]].get_id())
     hex = scene.project_data.items[ids[0]].item["definition"]
     scene.ui.colour_visualise_pushbutton.setStyleSheet(
         '''QTextBrowser {

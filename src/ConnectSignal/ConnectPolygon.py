@@ -1,7 +1,8 @@
 from ConnectSignal.Lambda import (
     connect_slider_moved_abstract,
     connect_slider_released_abstract,
-    connect_def_str_lineedit_abstract
+    connect_def_str_lineedit_abstract,
+    connect_name_change_abstract
 )
 
 from ConnectSignal.ConnectMacros import (
@@ -68,4 +69,6 @@ def connect_polygon(scene):
         scene.ui.polygon_smooth_tension_spin, scene.ui.polygon_smooth_tension_slider)
 
     scene.ui.polygon_def_str.editingFinished.connect(
-        lambda : connect_def_str_lineedit_abstract(scene, scene.ui.polygon_def_str))
+        lambda: connect_def_str_lineedit_abstract(scene, scene.ui.polygon_def_str))
+    scene.ui.polygon_name.editingFinished.connect(
+        lambda: connect_name_change_abstract(scene.ui.polygon_name, scene))

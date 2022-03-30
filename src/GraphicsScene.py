@@ -63,6 +63,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.pdflatex_command = r'pdflatex -synctex=1 -interaction=batchmode --shell-escape -halt-on-error try.tex'
         self.pdf2png_command = 'pdftocairo -png -scale-to-x #1 -scale-to-y #2 try.pdf'
         self.aspect_ratio = [16, 9]
+        self.listWidget_edit_row = None  # Need it for listWidget renaming, holds the old value
 
     def mousePressEvent(self, event):
         """Determine what to do when mouse is pressed."""

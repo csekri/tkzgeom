@@ -20,6 +20,7 @@ def fill_segment_fields(scene):
     segment = scene.project_data.items[ids[0]].item
 
     scene.ui.segment_def_str.setText(scene.project_data.items[ids[0]].definition_string())
+    scene.ui.segment_name.setText(segment["id"])
     scene.ui.segment_line_width_slider.setValue(10.0 * segment["line"]["line_width"])
     scene.ui.segment_line_width_spin.setValue(segment["line"]["line_width"])
 

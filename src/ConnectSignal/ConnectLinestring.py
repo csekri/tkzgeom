@@ -4,7 +4,8 @@ from ConnectSignal.Lambda import (
     connect_checkbox_abstract,
     connect_slider_moved_abstract,
     connect_slider_released_abstract,
-    connect_def_str_lineedit_abstract
+    connect_def_str_lineedit_abstract,
+    connect_name_change_abstract
 )
 
 from ConnectSignal.ConnectMacros import (
@@ -74,7 +75,7 @@ def connect_linestring(scene):
     scene.ui.linestring_loop_size_slider.sliderMoved.connect(
         lambda x: connect_slider_moved_abstract(x, scene, ['line', 'strategy'], 'loop_size', lambda x: x/10.0, scene.ui.linestring_loop_size_spin))
     scene.ui.linestring_loop_size_slider.sliderReleased.connect(
-        lambda : connect_slider_released_abstract(scene))
+        lambda: connect_slider_released_abstract(scene))
 
     scene.ui.linestring_loop.stateChanged.connect(
         lambda x: connect_checkbox_abstract(x, scene, ['line', 'strategy'], 'loop'))
@@ -86,4 +87,6 @@ def connect_linestring(scene):
         lambda x: connect_checkbox_abstract(x, scene, ['d_arrow'], 'bending'))
 
     scene.ui.linestring_def_str.editingFinished.connect(
-        lambda : connect_def_str_lineedit_abstract(scene, scene.ui.linestring_def_str))
+        lambda: connect_def_str_lineedit_abstract(scene, scene.ui.linestring_def_str))
+    scene.ui.linestring_name.editingFinished.connect(
+        lambda: connect_name_change_abstract(scene.ui.linestring_name, scene))

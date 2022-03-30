@@ -15,6 +15,7 @@ def fill_point_fields(scene):
     point = scene.project_data.items[ids[0]].item
 
     scene.ui.point_def_str.setText(scene.project_data.items[ids[0]].definition_string())
+    scene.ui.point_name.setText(point["id"])
     scene.skip_plaintextedit_changes = True
     scene.ui.plainTextEdit.setPlainText(point["marker"]["text"])
     scene.skip_plaintextedit_changes = False

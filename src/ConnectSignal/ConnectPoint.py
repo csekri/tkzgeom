@@ -7,7 +7,8 @@ from ConnectSignal.Lambda import (
     connect_slider_moved_abstract,
     connect_slider_released_abstract,
     connect_dash_lineedit_abstract,
-    connect_lineedit_abstract
+    connect_lineedit_abstract,
+    connect_name_change_abstract
 )
 
 from ConnectSignal.ConnectMacros import connect_colour, connect_dash
@@ -16,6 +17,8 @@ from ConnectSignal.Lambda import connect_def_str_lineedit_abstract
 
 def connect_point(scene):
     """Connect signals in the point tab."""
+    scene.ui.point_name.editingFinished.connect(
+        lambda: connect_name_change_abstract(scene.ui.point_name, scene))
     scene.ui.plainTextEdit.textChanged.connect(
         lambda: connect_plain_text_edit_abstract(scene, ['marker'], 'text', scene.ui.plainTextEdit))
     scene.ui.point_apply_text_change.clicked.connect(

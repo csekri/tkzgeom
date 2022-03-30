@@ -21,7 +21,8 @@ def fill_circle_fields(scene):
     circle = scene.project_data.items[ids[0]].item
 
     scene.ui.circle_def_str.setText(scene.project_data.items[ids[0]].definition_string())
-    
+    scene.ui.circle_name.setText(circle["id"])
+
     scene.ui.circle_line_width_slider.setValue(10.0 * circle["line"]["line_width"])
     scene.ui.circle_line_width_spin.setValue(circle["line"]["line_width"])
 

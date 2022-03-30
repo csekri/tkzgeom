@@ -21,6 +21,7 @@ def fill_polygon_fields(scene):
     polygon = scene.project_data.items[ids[0]].item
 
     scene.ui.polygon_def_str.setText(scene.project_data.items[ids[0]].definition_string())
+    scene.ui.polygon_name.setText(polygon["id"])
 
     scene.ui.polygon_line_width_slider.setValue(10.0 * polygon["line"]["line_width"])
     scene.ui.polygon_line_width_spin.setValue(polygon["line"]["line_width"])

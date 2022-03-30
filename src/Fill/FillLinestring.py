@@ -22,6 +22,7 @@ def fill_linestring_fields(scene):
     linestring = scene.project_data.items[ids[0]].item
 
     scene.ui.linestring_def_str.setText(scene.project_data.items[ids[0]].definition_string())
+    scene.ui.linestring_name.setText(linestring["id"])
 
     scene.ui.linestring_line_width_slider.setValue(10.0 * linestring["line"]["line_width"])
     scene.ui.linestring_line_width_spin.setValue(linestring["line"]["line_width"])

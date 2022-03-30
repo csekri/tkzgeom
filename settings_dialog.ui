@@ -290,6 +290,9 @@
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
          <widget class="QCheckBox" name="aspect_ratio_show">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>Show</string>
           </property>

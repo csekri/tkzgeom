@@ -1,7 +1,8 @@
 from ConnectSignal.Lambda import (
     connect_slider_moved_abstract,
     connect_slider_released_abstract,
-    connect_def_str_lineedit_abstract
+    connect_def_str_lineedit_abstract,
+    connect_name_change_abstract
 )
 
 from ConnectSignal.ConnectMacros import (
@@ -17,6 +18,8 @@ def connect_circle(scene):
     """Connect signals in the circle tab."""
     scene.ui.circle_def_str.editingFinished.connect(
         lambda: connect_def_str_lineedit_abstract(scene, scene.ui.circle_def_str))
+    scene.ui.circle_name.editingFinished.connect(
+        lambda: connect_name_change_abstract(scene.ui.circle_name, scene))
 
     scene.ui.circle_line_width_slider.sliderMoved.connect(
         lambda x: connect_slider_moved_abstract(x, scene, ['line'], 'line_width', lambda x: x / 10.0,

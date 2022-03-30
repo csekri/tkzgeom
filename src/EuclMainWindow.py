@@ -45,8 +45,6 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.scene.init_canvas_dims = [self.scene.ui.graphicsView.width(), self.scene.ui.graphicsView.height()]
         self.clipboard = QtWidgets.QApplication.clipboard()
 
-        self.listWidget_edit_row = None  # Need it for listWidget renaming, holds the old value
-
         # Menu action signal connections
         self.ui.actionOpen.triggered.connect(lambda x: self.scene.edit.open_file(self.scene, x))
         self.ui.actionUndo.triggered.connect(lambda x: self.scene.edit.perform_undo(self.scene, x))
@@ -83,8 +81,8 @@ class EuclMainWindow(QtWidgets.QMainWindow):
 
         # tabWidget and listWidget connections
         self.ui.tabWidget.currentChanged.connect(lambda x: tabWidget_func(x, self))
-        self.ui.listWidget.itemDoubleClicked.connect(lambda x: listWidget_double_func(self))
-        self.ui.listWidget.itemChanged.connect(lambda x: listWidget_text_changed_func(x, self))
+        self.ui.listWidget.itemDoubleClicked.connect(lambda x: listWidget_double_func(self.scene))
+        self.ui.listWidget.itemChanged.connect(lambda x: listWidget_text_changed_func(x, self.scene))
         self.ui.listWidget.itemSelectionChanged.connect(lambda: listWidget_current_row_changed_func(self))
 
         # zoom slider connections

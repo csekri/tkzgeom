@@ -19,46 +19,85 @@ def tabWidget_func(value, main_window):
     set_selected_id_in_listWidget(main_window.scene, 0)
 
 
-def listWidget_double_func(main_window):
+def listWidget_double_func(scene):
     """Connect listWidget double click."""
-    main_window.listWidget_edit_row = main_window.listWidget.currentItem().text()
+    scene.listWidget_edit_row = scene.ui.listWidget.currentItem().text()
 
 
-def listWidget_text_changed_func(item, main_window):
+def listWidget_text_changed_func(item, scene):
     """Connect listWidget item text changed."""
-    if main_window.scene.skip_item_changes:
+    scene.ui.listWidget.setFocus()
+    if scene.skip_item_changes:
         return
-    if not Item.name_pattern_static(item.text()):
-        main_window.scene.skip_item_changes = True
-        item.setText(main_window.listWidget_edit_row)
-        main_window.scene.skip_item_changes = False
+    if not Item.name_pattern_static(item.text()) or item.text() in scene.project_data.items:
+        scene.skip_item_changes = True
+        item.setText(scene.listWidget_edit_row)
+        scene.skip_item_changes = False
         return
-    if main_window.listWidget_edit_row:
-        old_id = main_window.listWidget_edit_row
-        main_window.listWidget_edit_row = None
+    if scene.listWidget_edit_row:
+        old_id = scene.listWidget_edit_row
+        scene.listWidget_edit_row = None
 
-        main_window.scene.project_data.change_id(old_id, item.text())
+        scene.project_data.change_id(old_id, item.text())
 
         # that is if the colour name is changed we replace all
         # occurances of the colour
-        if type == 'colour':
-            state_dict = main_window.scene.project_data.state_dict()
+        if c.TYPES[scene.current_tab_idx] == 'colour':
+            print(type)
+            state_dict = scene.project_data.state_dict()
             string = json.dumps(state_dict)
             string = string.replace(f': \"{old_id}\"', f': \"{item.text()}\"')
             data = json.loads(string)
             print(data)
-            main_window.scene.project_data\
+            scene.project_data\
                 = Items(data["window"], data["packages"], data["bg_colour"], data["code_before"], data["code_after"])
             for ditem in (data["items"]):
-                main_window.scene.project_data.add(Factory.create_item(ditem))
-            main_window.scene.list_focus_ids = [item.text()]
-        fill_listWidget_with_data(main_window.scene.project_data,
-                                  main_window.scene.ui.listWidget,
-                                  main_window.scene.current_tab_idx)
-        set_selected_id_in_listWidget(main_window.scene, main_window.ui.scene.ui.listWidget.currentRow())
-        main_window.scene.edit.add_undo_item(main_window.scene)
-        cr.clear(main_window.scene)
-        cr.add_all_items(main_window.scene)
+                scene.project_data.add(Factory.create_item(ditem))
+            scene.list_focus_ids = [item.text()]
+        fill_listWidget_with_data(scene.project_data,
+                                  scene.ui.listWidget,
+                                  scene.current_tab_idx)
+        set_selected_id_in_listWidget(scene, scene.ui.listWidget.currentRow())
+        scene.edit.add_undo_item(scene)
+        cr.clear(scene)
+        cr.add_all_items(scene)
+
+
+def connect_name_change_abstract(ui_name, scene):
+    """Connect listWidget item text changed."""
+    scene.ui.listWidget.setFocus()
+    old_id = scene.ui.listWidget.currentItem().text()
+    if scene.skip_item_changes:
+        return
+    if not Item.name_pattern_static(ui_name.text()) or ui_name.text() in scene.project_data.items:
+        scene.skip_item_changes = True
+        ui_name.setText(old_id)
+        scene.skip_item_changes = False
+        return
+
+    scene.project_data.change_id(old_id, ui_name.text())
+
+    # that is if the colour name is changed we replace all
+    # occurances of the colour
+    if c.TYPES[scene.current_tab_idx] == 'colour':
+        print(type)
+        state_dict = scene.project_data.state_dict()
+        string = json.dumps(state_dict)
+        string = string.replace(f': \"{old_id}\"', f': \"{ui_name.text()}\"')
+        data = json.loads(string)
+        print(data)
+        scene.project_data\
+            = Items(data["window"], data["packages"], data["bg_colour"], data["code_before"], data["code_after"])
+        for ditem in (data["items"]):
+            scene.project_data.add(Factory.create_item(ditem))
+        scene.list_focus_ids = [ui_name.text()]
+    fill_listWidget_with_data(scene.project_data,
+                              scene.ui.listWidget,
+                              scene.current_tab_idx)
+    set_selected_id_in_listWidget(scene, scene.ui.listWidget.currentRow())
+    scene.edit.add_undo_item(scene)
+    cr.clear(scene)
+    cr.add_all_items(scene)
 
 
 def listWidget_current_row_changed_func(main_window):
