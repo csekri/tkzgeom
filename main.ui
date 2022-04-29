@@ -148,11 +148,6 @@
               </item>
               <item>
                <property name="text">
-                <string>By centre and radius</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
                 <string>Inscribed</string>
                </property>
               </item>
@@ -503,8 +498,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>326</width>
-                <height>290</height>
+                <width>125</width>
+                <height>123</height>
                </rect>
               </property>
               <attribute name="label">
@@ -598,7 +593,7 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>309</width>
+                <width>196</width>
                 <height>543</height>
                </rect>
               </property>
@@ -1233,8 +1228,8 @@ QSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>326</width>
-                <height>290</height>
+                <width>93</width>
+                <height>118</height>
                </rect>
               </property>
               <attribute name="label">
@@ -1258,7 +1253,7 @@ QSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>309</width>
+                <width>204</width>
                 <height>349</height>
                </rect>
               </property>
@@ -1677,8 +1672,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>326</width>
-                <height>290</height>
+                <width>142</width>
+                <height>148</height>
                </rect>
               </property>
               <attribute name="label">
@@ -4116,8 +4111,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>326</width>
-                <height>290</height>
+                <width>125</width>
+                <height>74</height>
                </rect>
               </property>
               <attribute name="label">
@@ -4176,7 +4171,7 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>309</width>
+                <width>216</width>
                 <height>618</height>
                </rect>
               </property>
@@ -6412,8 +6407,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>326</width>
-                <height>317</height>
+                <width>125</width>
+                <height>97</height>
                </rect>
               </property>
               <attribute name="label">
@@ -7150,7 +7145,7 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>309</width>
+                <width>286</width>
                 <height>360</height>
                </rect>
               </property>
@@ -8453,8 +8448,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>326</width>
-                <height>290</height>
+                <width>181</width>
+                <height>125</height>
                </rect>
               </property>
               <attribute name="label">
@@ -8548,7 +8543,7 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>309</width>
+                <width>286</width>
                 <height>360</height>
                </rect>
               </property>
@@ -10989,8 +10984,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>326</width>
-                <height>344</height>
+                <width>98</width>
+                <height>118</height>
                </rect>
               </property>
               <attribute name="label">

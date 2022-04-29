@@ -178,7 +178,7 @@ def add_all_items(scene):
 
     def add_half_ready_circle(scene):
         """Add half ready circles to the canvas."""
-        if scene.select_mode.get_type() in [c.Tool.CIRCUM_CIRCLE, c.Tool.CIRCLE_WITH_CENTRE]\
+        if scene.select_mode.get_type() in [c.Tool.CIRCUM_CIRCLE, c.Tool.CIRCLE_WITH_CENTRE, c.Tool.INSCRIBED_CIRCLE]\
         and len(scene.select_history.type_history) + 1 == c.CIRCLE_PATTERN_LENGTH[scene.select_mode.get_type()]:
             centre, radius = scene.item_to_be.recompute_canvas_with_mouse(scene, *scene.mouse.get_xy())
             Circle.draw_on_canvas_static(

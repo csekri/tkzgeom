@@ -503,9 +503,9 @@ class Tool:
     # 200-299
     CIRCLE_WITH_CENTRE = 200
     CIRCUM_CIRCLE = 201
-    ARC = 202
-    SECTOR = 203
-    INSCRIBED_CIRCLE = 204
+    INSCRIBED_CIRCLE = 202
+    ARC = 203
+    SECTOR = 204
 
     # 300-399
     # MOVE_POINT = 300
@@ -548,6 +548,7 @@ TOOL_TO_PARSE_MAP = {
 
     Tool.CIRCLE_WITH_CENTRE: 'WithCentre',
     Tool.CIRCUM_CIRCLE: 'Circum',
+    Tool.INSCRIBED_CIRCLE: 'InCircle',
 
     Tool.MAKEGRID: 'MakeGrid',
     Tool.REGULAR_POLYGON: 'RegularPolygon'
@@ -572,6 +573,7 @@ PARSE_TO_TYPE_MAP = {
 
     TOOL_TO_PARSE_MAP[Tool.CIRCLE_WITH_CENTRE]: ('circle', 'with_centre'),
     TOOL_TO_PARSE_MAP[Tool.CIRCUM_CIRCLE]: ('circle', 'circum'),
+    TOOL_TO_PARSE_MAP[Tool.INSCRIBED_CIRCLE]: ('circle', 'inscribed'),
 
     TOOL_TO_PARSE_MAP[Tool.MAKEGRID]: ('cloud', None),
     TOOL_TO_PARSE_MAP[Tool.REGULAR_POLYGON]: ('cloud', None)
@@ -581,7 +583,7 @@ PARSE_TO_TYPE_MAP = {
 PATTERN_EXTRAS = {PatternType.LINES, PatternType.HATCH, PatternType.DOTS_EXTRA, PatternType.FIVEPOINTED_STARS,
                   PatternType.SIXPOINTED_STARS}
 
-CIRCLE_PATTERN_LENGTH = {Tool.CIRCLE_WITH_CENTRE: 2, Tool.CIRCUM_CIRCLE: 3}
+CIRCLE_PATTERN_LENGTH = {Tool.CIRCLE_WITH_CENTRE: 2, Tool.CIRCUM_CIRCLE: 3, Tool.INSCRIBED_CIRCLE: 3}
 
 # List of types in items as it appears in the tabWidget.
 TYPES = ['point', 'segment', 'circle', 'polygon', 'linestring', 'function', 'colour', 'code']

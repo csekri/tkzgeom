@@ -13,6 +13,7 @@ from Linestring import Linestring
 from Colour import Colour
 from CircleClasses.CircleWithCentre import CircleWithCentre
 from CircleClasses.CircumCircle import CircumCircle
+from CircleClasses.InscribedCircle import InscribedCircle
 import Constant as c
 
 
@@ -44,6 +45,8 @@ class Factory:
                 return CircleWithCentre(item)
             if item["sub_type"] == c.Circle.Definition.CIRCUM:
                 return CircumCircle(item)
+            if item["sub_type"] == c.Circle.Definition.INSCRIBED:
+                return InscribedCircle(item)
         if item['type'] == 'polygon':
             return Polygon(item)
         if item['type'] == 'linestring':
@@ -78,6 +81,8 @@ class Factory:
                 return CircleWithCentre(None)
             if sub_type == c.Circle.Definition.CIRCUM:
                 return CircumCircle(None)
+            if sub_type == c.Circle.Definition.INSCRIBED:
+                return InscribedCircle(None)
         if type == 'polygon':
             return Polygon(None)
         if type == 'linestring':

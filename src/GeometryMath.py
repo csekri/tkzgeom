@@ -119,6 +119,26 @@ def circumcentre(A, B, C):
     return K_x, K_y
 
 
+def incentre(A, B, C):
+    """Computes the centre of the inscribed circle of a triangle."""
+    a = dist(C, B)
+    b = dist(A, C)
+    c = dist(B, A)
+
+    I_x = (a*A[0]+b*B[0]+c*C[0]) / (a+b+c)
+    I_y = (a*A[1]+b*B[1]+c*C[1]) / (a+b+c)
+    return I_x, I_y
+
+
+def inradius(A, B, C):
+    """Computes the radius of the circumscribed circle (uses Heron's formula)."""
+    a = dist(C, B)
+    b = dist(A, C)
+    c = dist(B, A)
+    s = (a + b + c) / 2
+    return math.sqrt(s * (s-a) * (s-b) * (s-c)) / s
+
+
 def bisector_point(A, B, C):
     """Compute a point on the bisector. """
     scalar = dist(B, A) / dist(C, B)
