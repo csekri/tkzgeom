@@ -10,7 +10,7 @@ class CircumCircle(Circle):
         Circle.__init__(self, item)
         self.item["sub_type"] = c.Circle.Definition.CIRCUM
 
-    def tikzify(self):
+    def tikzify(self, items=None):
         return '\\tkzDefCircle[circum](%s,%s,%s)\\tkzDrawCircle[%s](tkzPointResult,%s)'\
         % (self.item["definition"]["A"], self.item["definition"]["B"], self.item["definition"]["C"], self.tikzify_options(), self.item["definition"]["C"])
 

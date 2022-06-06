@@ -67,7 +67,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
 
     def mousePressEvent(self, event):
         """Determine what to do when mouse is pressed."""
-        print(self.project_data.point_stable_order())
+        print(self.project_data.point_and_circle_stable_order())
         self.mouse.set_xy(int(event.scenePos().x()), int(event.scenePos().y()))
         self.mouse.set_pressed_xy(int(event.scenePos().x()), int(event.scenePos().y()))
 
@@ -96,7 +96,6 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
                     self.mouse.set_xy(*min_point)
 
             self.item_to_be = Factory.create_empty_item("point", c.Point.Definition.FREE)
-            print('match',self.item_to_be.name_pattern('Open_21'))
             print(self.init_canvas_dims)
             definition = self.item_to_be.definition_builder(
                 FreePoint.phi_inverse(self.project_data.window, *self.mouse.get_xy(), *self.init_canvas_dims), None)

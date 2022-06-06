@@ -9,7 +9,7 @@ class Intersection(Point):
         Point.__init__(self, item)
         self.item["sub_type"] = c.Point.Definition.INTERSECTION
 
-    def tikzify(self):
+    def tikzify(self, items=None):
         return "\\tkzInterLL(%s,%s)(%s,%s)\\tkzGetPoint{%s}" % (self.depends_on()[0],
                                                                 self.depends_on()[1],
                                                                 self.depends_on()[2],

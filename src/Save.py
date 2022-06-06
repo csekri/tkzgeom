@@ -41,9 +41,11 @@ class EditManagement:
         scene.ui.actionSave.setEnabled(bool(self.unsaved_progress))
         scene.title(self.window_name())
         compile_latex(scene, True)
-        browser_text = syntax_highlight(scene.syntax, scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
+        browser_text = syntax_highlight(scene.syntax,
+                                        scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
         scene.ui.textBrowser.setText(browser_text)
         fill_all_fields(scene)
+
         cr.clear(scene)
         cr.add_all_items(scene)
 
@@ -61,11 +63,12 @@ class EditManagement:
         scene.ui.actionSave.setEnabled(bool(self.unsaved_progress))
 
         compile_latex(scene, True)
-        browser_text = syntax_highlight(scene.syntax, scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
+        browser_text = syntax_highlight(scene.syntax, scene.project_data.tikzify(*scene.current_canvas_dims,
+                                                                                 *scene.init_canvas_dims))
         scene.ui.textBrowser.setText(browser_text)
         current_row_old = scene.ui.listWidget.currentRow()
         fill_listWidget_with_data(scene.project_data, scene.ui.listWidget, scene.current_tab_idx)
-        set_selected_id_in_listWidget(scene, min(current_row_old, scene.ui.listWidget.count()-1))
+        set_selected_id_in_listWidget(scene, min(current_row_old, scene.ui.listWidget.count() - 1))
         fill_all_fields(scene)
         cr.clear(scene)
         cr.add_all_items(scene)
@@ -82,11 +85,12 @@ class EditManagement:
         self.unsaved_progress += 1
         scene.ui.actionSave.setEnabled(bool(self.unsaved_progress))
         compile_latex(scene, True)
-        browser_text = syntax_highlight(scene.syntax, scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
+        browser_text = syntax_highlight(scene.syntax, scene.project_data.tikzify(*scene.current_canvas_dims,
+                                                                                 *scene.init_canvas_dims))
         scene.ui.textBrowser.setText(browser_text)
         current_row_old = scene.ui.listWidget.currentRow()
         fill_listWidget_with_data(scene.project_data, scene.ui.listWidget, scene.current_tab_idx)
-        set_selected_id_in_listWidget(scene, min(current_row_old, scene.ui.listWidget.count()-1))
+        set_selected_id_in_listWidget(scene, min(current_row_old, scene.ui.listWidget.count() - 1))
         fill_all_fields(scene)
         cr.clear(scene)
         cr.add_all_items(scene)
@@ -103,7 +107,8 @@ class EditManagement:
             self.add_undo_item(scene)
             self.unsaved_progress = 0
             # compile_latex(scene, True)
-            browser_text = syntax_highlight(scene.syntax, scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
+            browser_text = syntax_highlight(scene.syntax, scene.project_data.tikzify(*scene.current_canvas_dims,
+                                                                                     *scene.init_canvas_dims))
             scene.ui.textBrowser.setText(browser_text)
             fill_all_fields(scene)
             cr.clear(scene)
@@ -135,7 +140,8 @@ class EditManagement:
                 scene.edit.add_undo_item(scene)
                 self.unsaved_progress = 0
                 # compile_latex(scene, True)
-                browser_text = syntax_highlight(scene.syntax, scene.project_data.tikzify(*scene.current_canvas_dims, *scene.init_canvas_dims))
+                browser_text = syntax_highlight(scene.syntax, scene.project_data.tikzify(*scene.current_canvas_dims,
+                                                                                         *scene.init_canvas_dims))
                 scene.ui.textBrowser.setText(browser_text)
                 # fill_all_fields(scene)
                 # cr.clear(scene)
@@ -148,7 +154,7 @@ class EditManagement:
         print('before save', self.unsaved_progress)
         if self.opened_file != '' and self.unsaved_progress != 0:
             with open(self.opened_file, 'w') as f:
-                    json.dump(scene.project_data.state_dict(), f, indent=4)
+                json.dump(scene.project_data.state_dict(), f, indent=4)
             self.unsaved_progress = 0
             scene.ui.actionSave.setEnabled(False)
         else:
@@ -186,7 +192,8 @@ class EditManagement:
         msgBox = QtWidgets.QMessageBox()
         msgBox.setText('The document has been modified.')
         msgBox.setInformativeText("Do you want to save your changes?")
-        msgBox.setStandardButtons(QtWidgets.QMessageBox.Save | QtWidgets.QMessageBox.Discard | QtWidgets.QMessageBox.Cancel)
+        msgBox.setStandardButtons(
+            QtWidgets.QMessageBox.Save | QtWidgets.QMessageBox.Discard | QtWidgets.QMessageBox.Cancel)
         msgBox.setDefaultButton(QtWidgets.QMessageBox.Save)
         ret = msgBox.exec_()
         if ret == QtWidgets.QMessageBox.Save:
@@ -195,4 +202,3 @@ class EditManagement:
         if ret == QtWidgets.QMessageBox.Cancel:
             return True
         return False
-

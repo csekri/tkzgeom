@@ -59,7 +59,7 @@ class Point(Item, Labelable, DashPatternable, LineColourable, FillColourable):
         options = filter(bool, options)
         return '\\node[%s] (%s) at (%s) {%s};' % (', '.join(options), self.get_id(), self.get_id(), self.item["marker"]["text"])
 
-    def tikzify(self):
+    def tikzify(self, items=None):
         raise NotImplementedError
 
     def draw_on_canvas(self, items, scene, colour=QtCore.Qt.darkMagenta):

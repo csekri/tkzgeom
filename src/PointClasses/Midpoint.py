@@ -8,7 +8,7 @@ class Midpoint(Point):
         Point.__init__(self, item)
         self.item["sub_type"] = c.Point.Definition.SEGMENT_MIDPOINT
 
-    def tikzify(self):
+    def tikzify(self, items=None):
         return "\\tkzDefMidPoint(%s,%s)\\tkzGetPoint{%s}" % (self.item["definition"]["A"], self.item["definition"]["B"], self.item["id"])
 
     def recompute_canvas(self, items, window, width, height):

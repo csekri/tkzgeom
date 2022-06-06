@@ -14,6 +14,7 @@ from Colour import Colour
 from CircleClasses.CircleWithCentre import CircleWithCentre
 from CircleClasses.CircumCircle import CircumCircle
 from CircleClasses.InscribedCircle import InscribedCircle
+from PointClasses.CircleCentre import CircleCentre
 import Constant as c
 
 
@@ -40,6 +41,8 @@ class Factory:
                 return Rotation(item)
             if item["sub_type"] == c.Point.Definition.BISECTOR:
                 return Bisector(item)
+            if item["sub_type"] == c.Point.Definition.CIRCLE_CENTRE:
+                return CircleCentre(item)
         if item["type"] == 'circle':
             if item["sub_type"] == c.Circle.Definition.WITH_CENTRE:
                 return CircleWithCentre(item)
@@ -76,6 +79,8 @@ class Factory:
                 return Rotation(None)
             if sub_type == c.Point.Definition.BISECTOR:
                 return Bisector(None)
+            if sub_type == c.Point.Definition.CIRCLE_CENTRE:
+                return CircleCentre(None)
         if type == 'circle':
             if sub_type == c.Circle.Definition.WITH_CENTRE:
                 return CircleWithCentre(None)

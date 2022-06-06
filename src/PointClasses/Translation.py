@@ -9,7 +9,7 @@ class Translation(Point):
         Point.__init__(self, item)
         self.item["sub_type"] = c.Point.Definition.TRANSLATION
 
-    def tikzify(self):
+    def tikzify(self, items=None):
         return '\\tkzDefPointWith[colinear=at %s](%s,%s)\\tkzGetPoint{%s}\n' % (
             self.item["definition"]["P"],
             self.item["definition"]["A"],

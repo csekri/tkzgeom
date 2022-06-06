@@ -9,7 +9,7 @@ class Projection(Point):
         Point.__init__(self, item)
         self.item["sub_type"] = c.Point.Definition.PROJECTION
 
-    def tikzify(self):
+    def tikzify(self, items=None):
         return '\\tkzDefPointBy[projection=onto %s--%s](%s)\\tkzGetPoint{%s}\n' % (
             self.item["definition"]["A"],
             self.item["definition"]["B"],

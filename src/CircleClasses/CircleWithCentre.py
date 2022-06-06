@@ -10,7 +10,7 @@ class CircleWithCentre(Circle):
         Circle.__init__(self, item)
         self.item["sub_type"] = c.Circle.Definition.WITH_CENTRE
 
-    def tikzify(self):
+    def tikzify(self, items=None):
         return '\\tkzDrawCircle[%s](%s,%s)' % (self.tikzify_options(), self.item["definition"]["O"], self.item["definition"]["P"])
 
     def recompute_canvas(self, items, window, width, height):

@@ -53,11 +53,16 @@ class Item(object):
             self.item["id"] = to_id
             return # return because there is no self reference
         if from_id in self.depends_on():
-            for key, value in self.item["definition"].items():
-                if value == from_id and value in self.depends_on():
-                    self.item["definition"][key] = to_id
+            if isinstance(self.item["definition"], list):  # polygons and linestrings are lists
+                for i, value in enumerate(self.item["definition"]):
+                    if value == from_id and value in self.depends_on():
+                        self.item["definition"][i] = to_id
+            else:
+                for key, value in self.item["definition"].items():
+                    if value == from_id and value in self.depends_on():
+                        self.item["definition"][key] = to_id
 
-    def tikzify(self):
+    def tikzify(self, items=None):
         """Convert Item to tikz code."""
         raise NotImplementedError
 
@@ -84,7 +89,10 @@ class Item(object):
         """Convert Item definition into human-readable string."""
         type, sub_type = self.item["type"], self.item["sub_type"]
         parse_name = list(c.PARSE_TO_TYPE_MAP.keys())[list(c.PARSE_TO_TYPE_MAP.values()).index((type, sub_type))]
-        def_str = [('{0:.6g}'.format(i) if isinstance(i, float) else i) for i in self.item["definition"].values()]
+        if isinstance(self.item["definition"], list):
+            def_str = [('{0:.6g}'.format(i) if isinstance(i, float) else i) for i in self.item["definition"]]
+        else:
+            def_str = [('{0:.6g}'.format(i) if isinstance(i, float) else i) for i in self.item["definition"].values()]
         return '%s(%s)' % (parse_name, ', '.join(def_str))
 
     def dictionary_builder(self, definition, id_, sub_type=None):

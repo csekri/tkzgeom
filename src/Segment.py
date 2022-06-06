@@ -20,7 +20,7 @@ class Segment(Item, Arrowable, DashPatternable, Doubleable, LineColourable):
         Doubleable.__init__(self, self.item)
         LineColourable.__init__(self, self.item)
 
-    def tikzify(self):
+    def tikzify(self, items=None):
         options = [
             '' if self.item["line"]["line_width"] == c.Segment.Default.LINE_WIDTH else f'line width={self.item["line"]["line_width"]}',
             self.tikzify_arrows(),

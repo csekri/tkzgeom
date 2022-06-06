@@ -10,9 +10,12 @@ class InscribedCircle(Circle):
         Circle.__init__(self, item)
         self.item["sub_type"] = c.Circle.Definition.INSCRIBED
 
-    def tikzify(self):
+    def tikzify(self, items=None):
         return '\\tkzDefCircle[in](%s,%s,%s)\\tkzDrawCircle[%s](tkzPointResult,\\tkzLengthResult)'\
-        % (self.item["definition"]["A"], self.item["definition"]["B"], self.item["definition"]["C"], ', '.join(['R',self.tikzify_options()]))
+        % (self.item["definition"]["A"],
+           self.item["definition"]["B"],
+           self.item["definition"]["C"],
+           ', '.join(['R', self.tikzify_options()]))
 
     def recompute_canvas(self, items, window, width, height):
         A = items[self.depends_on()[0]].get_canvas_coordinates()

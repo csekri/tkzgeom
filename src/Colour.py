@@ -11,7 +11,7 @@ class Colour(Item):
     def depends_on(self):
         return []
 
-    def tikzify(self):
+    def tikzify(self, items=None):
         return '\\definecolor{%s}{HTML}{%s}' % (self.item["id"], self.item["definition"][1:])
 
     def next_id_func(self, definition, iter_counter):

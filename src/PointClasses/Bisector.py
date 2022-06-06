@@ -9,7 +9,7 @@ class Bisector(Point):
         Point.__init__(self, item)
         self.item["sub_type"] = c.Point.Definition.BISECTOR
 
-    def tikzify(self):
+    def tikzify(self, items=None):
         return '\\tkzDefLine[bisector](%s,%s,%s)\\tkzGetPoint{%s}' % (self.item["definition"]["A"],
                                                                       self.item["definition"]["B"],
                                                                       self.item["definition"]["C"],

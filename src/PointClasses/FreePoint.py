@@ -20,7 +20,7 @@ class FreePoint(Point):
         return window.left + x / height * window.scale*10.0,\
             window.top - y / height * window.scale*10.0
 
-    def tikzify(self):
+    def tikzify(self, items=None):
         return "\\tkzDefPoint(%.6f, %.6f){%s}" % (self.item["definition"]["x"],
                                                   self.item["definition"]["y"],
                                                   self.item["id"])

@@ -10,7 +10,7 @@ class Rotation(Point):
         Point.__init__(self, item)
         self.item["sub_type"] = c.Point.Definition.ROTATION
 
-    def tikzify(self):
+    def tikzify(self, items=None):
         return "\\tkzDefPointBy[rotation=center %s angle %s](%s)\\tkzGetPoint{%s}" % (self.item["definition"]["B"], self.item["definition"]["angle"], self.item["definition"]["A"], self.get_id())
 
     def recompute_canvas(self, items, window, width, height):

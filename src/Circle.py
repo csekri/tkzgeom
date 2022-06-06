@@ -25,7 +25,7 @@ class Circle(Item, Arrowable, DashPatternable, Doubleable, LineColourable, Filla
         self.__canvas_centre_y = 0
         self.__canvas_radius = 0
 
-    def tikzify(self):
+    def tikzify(self, items=None):
         return NotImplementedError
 
     def tikzify_options(self):

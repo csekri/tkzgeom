@@ -112,12 +112,10 @@ class Items:
         if tikzified_colours:
             tikzified_colours = '% COLOURS\n' + tikzified_colours
 
+        print(self.point_and_circle_stable_order())
         tikzified_points_def = '\n'.join(
-            Items.filter_sort_map(Point, None, lambda x: x.tikzify() + '\n' + x.tikzify_node(), None)(
-                self.items.values()))
-        tikzified_points_def = '\n'.join(
-            [self.items[point_id].tikzify() + '\n' + self.items[point_id].tikzify_node() for point_id in
-             self.point_stable_order()])
+            [self.items[point_id].tikzify(self.items) + '\n' + self.items[point_id].tikzify_node() for point_id in
+             self.point_and_circle_stable_order() if isinstance(self.items[point_id], Point)])
         if tikzified_points_def:
             tikzified_points_def = '% POINT DEFINITIONS\n' + tikzified_points_def
 
@@ -130,6 +128,8 @@ class Items:
         tikzified_nodes_repeat = '\n'.join(
             Items.filter_sort_map(Point, lambda x: x.item["show"], lambda x: x.tikzify_node(), lambda y: y.get_id())(
                 self.items.values()))
+        if tikzified_nodes_repeat:
+            tikzified_nodes_repeat = '% NODES REPEAT\n' + tikzified_nodes_repeat
 
         tikzified_points_label = '\n'.join(
             Items.filter_sort_map(Point, lambda x: x.item["label"]["show"], lambda x: x.tikzify_label(),
@@ -144,9 +144,15 @@ class Items:
             tikzified_segments_draw = '% DRAW SEGMENTS\n' + tikzified_segments_draw
 
         tikzified_segment_markers_draw = '\n'.join(
-            Items.filter_sort_map(Segment, lambda x: x.item["show"], lambda x: x.tikzify_segment_marker(),
-                                  lambda y: y.get_id())(
-                self.items.values()))
+            Items.filter_sort_map(
+                Segment,
+                lambda x: x.item["show"] and x.item["marker"]["symbol"] != c.SegmentMarkerType.NONE,
+                lambda x: x.tikzify_segment_marker(),
+                lambda y: y.get_id()
+            )(
+                self.items.values()
+            )
+        )
         if tikzified_segment_markers_draw:
             tikzified_segment_markers_draw = '% DRAW SEGMENT MARKERS\n' + tikzified_segment_markers_draw
 
@@ -198,15 +204,16 @@ class Items:
         for item in self.items.values():
             item.change_id(from_id, to_id)
 
-    def point_stable_order(self):
-        num_points = len(list(filter(lambda x: isinstance(x, Point), self.items.values())))
-        print(num_points)
+    def point_and_circle_stable_order(self):
+        num_points_and_circles = len(list(filter(lambda x: isinstance(x, Point), self.items.values())))\
+                               + len(list(filter(lambda x: isinstance(x, Circle), self.items.values())))
+
         count = 0
         ids_list = []
         ids_set = set()
-        while count < num_points:
+        while count < num_points_and_circles:
             for item in self.items.values():
-                if isinstance(item, Point) \
+                if (isinstance(item, Point) or isinstance(item, Circle)) \
                         and item.get_id() not in ids_list \
                         and set(item.depends_on()).issubset(ids_set):
                     ids_list.append(item.get_id())

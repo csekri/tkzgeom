@@ -23,7 +23,7 @@ class Polygon(Item, DashPatternable, LineColourable, Fillable, Decorationable, C
         Decorationable.__init__(self, self.item)
         CurveStrategyable.__init__(self, self.item)
 
-    def tikzify(self):
+    def tikzify(self, items=None):
         strategy_options, strategy_coordinates = self.tikzify_strategy(False)
         options = [
             self.tikzify_dash(),

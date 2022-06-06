@@ -174,7 +174,9 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         if self.scene.focus_id:
             self.scene.edit.add_undo_item(self.scene)
         self.scene.focus_id = ''
-        browser_text = syntax_highlight(self.scene.syntax, self.scene.project_data.tikzify(*self.scene.current_canvas_dims, *self.scene.init_canvas_dims))
+        browser_text = syntax_highlight(self.scene.syntax,
+                                        self.scene.project_data.tikzify(*self.scene.current_canvas_dims,
+                                                                        *self.scene.init_canvas_dims))
         self.scene.ui.textBrowser.setText(browser_text)
 
     def show_pdf_checked_func(self, state):
@@ -208,7 +210,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
     def copy_tikzpicture_func(self):
         """Copy tikzpicture."""
         print('copieren')
-        text = self.scene.project_data.tikzify(self.scene.width(), self.scene.height(), *self.scene.init_canvas_dims)
+        text = self.scene.project_data.tikzify(*self.scene.current_canvas_dims, *self.scene.init_canvas_dims)
         self.clipboard.clear(mode=self.clipboard.Clipboard)
         self.clipboard.setText(text, mode=self.clipboard.Clipboard)
 

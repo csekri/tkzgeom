@@ -22,7 +22,7 @@ class Linestring(Item, DashPatternable, LineColourable, Decorationable, Arrowabl
         Arrowable.__init__(self, self.item)
         CurveStrategyable.__init__(self, self.item)
 
-    def tikzify(self):
+    def tikzify(self, items=None):
         strategy_options, strategy_coordinates = self.tikzify_strategy(True)
         options = [
             '' if self.item["line"]["line_width"] == c.Segment.Default.LINE_WIDTH else f'line width={self.item["line"]["line_width"]}',

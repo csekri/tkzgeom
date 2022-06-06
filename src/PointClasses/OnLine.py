@@ -8,7 +8,7 @@ class OnLine(Point):
         Point.__init__(self, item)
         self.item["sub_type"] = c.Point.Definition.ON_LINE
 
-    def tikzify(self):
+    def tikzify(self, items=None):
         return "\\tkzDefPointBy[homothety=center %s ratio %s](%s) \\tkzGetPoint{%s}" % (self.item["definition"]["A"], self.item["definition"]["ratio"], self.item["definition"]["B"], self.get_id())
 
     def recompute_canvas(self, items, window, width, height):
