@@ -460,7 +460,7 @@ PackagesDefault = [
     "\\usepackage[utf8]{inputenc}",
     "\\usepackage[T1]{fontenc}",
     "\\usepackage[rgb]{xcolor} % xcolor must be loaded before everything tikz",
-    "\\usepackage{tikz, tkz-euclide,tkz-fct}",
+    "\\usepackage{tikz, tkz-euclide}",
     "\\usetikzlibrary{arrows.meta, bending, patterns.meta, ducks}",
     "\\usetikzlibrary{shapes, backgrounds, decorations.pathmorphing, calc}"
 ]

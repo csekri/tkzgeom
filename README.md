@@ -201,3 +201,5 @@ predetermined, there is no built in way to change this.
 <a href="https://mega.nz/file/FocGTDLS#YyH114B-yFUwfValRW7DgLzkKvGXvWgq8CiH8v_aFi8">tkzgeom_2022_03_09_snapshot.zip</a>
 \
 <a href="https://mega.nz/file/ppVWWCzA#qMstD6LoLtXnBwpunYJXhlaVA-sRJkv-WSb0amFOzcs">tkzgeom_2022_03_14_snapshot.zip</a>
+\
+<a href="https://mega.nz/file/d9Ul0bqY#zx42pDJsE8gSEDkS-bgq-U3gxz53ZMJNxBXv9cxGBw4">tkzgeom_2022_06_08_snapshot.zip</a>
