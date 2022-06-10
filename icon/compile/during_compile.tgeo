@@ -1,0 +1,192 @@
+{
+    "items": [
+        {
+            "id": "A",
+            "type": "point",
+            "sub_type": "free",
+            "show": true,
+            "definition": {
+                "x": -0.08,
+                "y": 1.01198
+            },
+            "marker": {
+                "size": 0,
+                "shape": "circle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 0.0,
+                "rounded_corners": 0.0,
+                "text": "",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": false,
+                "text": "$A$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "B",
+            "type": "point",
+            "sub_type": "free",
+            "show": true,
+            "definition": {
+                "x": 0.4999999999999982,
+                "y": 1.0000000000000013
+            },
+            "marker": {
+                "size": 0,
+                "shape": "circle",
+                "shape_number": 5,
+                "ratio": 2.25,
+                "inner_sep": 0.0,
+                "rounded_corners": 0.0,
+                "text": "",
+                "text_width": 0.0
+            },
+            "line": {
+                "line_width": 0.4,
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                }
+            },
+            "fill": {
+                "colour": {
+                    "name": "black",
+                    "mix_with": "black",
+                    "mix_percent": 0,
+                    "strength": 100
+                }
+            },
+            "label": {
+                "show": false,
+                "text": "$B$",
+                "anchor": "below right",
+                "offset": 0.0
+            }
+        },
+        {
+            "id": "A_B",
+            "type": "segment",
+            "sub_type": null,
+            "show": true,
+            "definition": {
+                "A": "A",
+                "B": "B"
+            },
+            "line": {
+                "line_width": 9.9,
+                "colour": {
+                    "name": "arrow_colour",
+                    "mix_with": "cyan",
+                    "mix_percent": 0,
+                    "strength": 100
+                },
+                "dash": {
+                    "stroke": "solid",
+                    "custom_pattern": [
+                        5,
+                        2
+                    ]
+                },
+                "double": {
+                    "distance": 0.0,
+                    "colour": {
+                        "name": "white",
+                        "mix_with": "black",
+                        "mix_percent": 0,
+                        "strength": 100
+                    }
+                },
+                "o_extension": 0.0,
+                "d_extension": 1.0,
+                "o_connect_to": "boundary",
+                "d_connect_to": "boundary"
+            },
+            "o_arrow": {
+                "width": 1.0,
+                "length": 1.0,
+                "tip": "None",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "d_arrow": {
+                "width": 0.5,
+                "length": 0.4,
+                "tip": "Triangle",
+                "bending": false,
+                "side": "",
+                "reversed": false
+            },
+            "marker": {
+                "symbol": "none",
+                "width": 0.4,
+                "size": 4.0,
+                "position": 0.5
+            }
+        },
+        {
+            "id": "arrow_colour",
+            "type": "colour",
+            "definition": "#ff3333"
+        }
+    ],
+    "window": {
+        "left": -4.19972031414,
+        "top": 4.19972031414,
+        "scale": 0.839944062828
+    },
+    "bg_colour": {
+        "name": "black",
+        "mix_with": "black",
+        "mix_percent": 0,
+        "strength": 0
+    },
+    "code_before": "",
+    "code_after": "",
+    "packages": [
+        "\\usepackage{amsmath,amssymb}",
+        "\\usepackage[utf8]{inputenc}",
+        "\\usepackage[T1]{fontenc}",
+        "\\usepackage[rgb]{xcolor} % xcolor must be loaded before everything tikz",
+        "\\usepackage{tikz, tkz-euclide}",
+        "\\usetikzlibrary{arrows.meta, bending, patterns.meta, ducks}",
+        "\\usetikzlibrary{shapes, backgrounds, decorations.pathmorphing, calc}"
+    ]
+}

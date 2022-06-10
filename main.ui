@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1272</width>
+    <width>1317</width>
     <height>737</height>
    </rect>
   </property>
@@ -305,28 +305,28 @@
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_85">
             <item>
-             <widget class="QRadioButton" name="angle_radio">
-              <property name="enabled">
-               <bool>false</bool>
+             <widget class="QPushButton" name="compile_pushButton">
+              <property name="maximumSize">
+               <size>
+                <width>24</width>
+                <height>24</height>
+               </size>
               </property>
-              <property name="focusPolicy">
-               <enum>Qt::NoFocus</enum>
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Compile (F5)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
-              <property name="text">
-               <string>Angle</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QRadioButton" name="right_angle_radio">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="focusPolicy">
-               <enum>Qt::NoFocus</enum>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+qproperty-iconSize: 20px; 
+padding: 0px;
+}</string>
               </property>
               <property name="text">
-               <string>Right Angle</string>
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="icon/resources.qrc">
+                <normaloff>:/images/compile/lets_compile.png</normaloff>:/images/compile/lets_compile.png</iconset>
               </property>
              </widget>
             </item>
@@ -334,19 +334,6 @@
           </item>
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_86">
-            <item>
-             <widget class="QPushButton" name="pushButton">
-              <property name="enabled">
-               <bool>true</bool>
-              </property>
-              <property name="focusPolicy">
-               <enum>Qt::NoFocus</enum>
-              </property>
-              <property name="text">
-               <string>Function</string>
-              </property>
-             </widget>
-            </item>
             <item>
              <widget class="QCheckBox" name="auto_compile_checkbox">
               <property name="text">
@@ -465,7 +452,7 @@
 }</string>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <property name="iconSize">
           <size>
@@ -498,8 +485,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>125</width>
-                <height>123</height>
+                <width>330</width>
+                <height>294</height>
                </rect>
               </property>
               <attribute name="label">
@@ -593,8 +580,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>196</width>
-                <height>543</height>
+                <width>309</width>
+                <height>614</height>
                </rect>
               </property>
               <attribute name="label">
@@ -1228,8 +1215,8 @@ QSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>93</width>
-                <height>118</height>
+                <width>330</width>
+                <height>294</height>
                </rect>
               </property>
               <attribute name="label">
@@ -1253,8 +1240,8 @@ QSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>204</width>
-                <height>349</height>
+                <width>309</width>
+                <height>421</height>
                </rect>
               </property>
               <attribute name="label">
@@ -1672,8 +1659,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>142</width>
-                <height>148</height>
+                <width>330</width>
+                <height>294</height>
                </rect>
               </property>
               <attribute name="label">
@@ -1865,8 +1852,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>326</width>
-                <height>290</height>
+                <width>330</width>
+                <height>294</height>
                </rect>
               </property>
               <attribute name="label">
@@ -1935,8 +1922,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>216</width>
-                <height>618</height>
+                <width>309</width>
+                <height>744</height>
                </rect>
               </property>
               <attribute name="label">
@@ -2602,8 +2589,8 @@ QSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>223</width>
-                <height>288</height>
+                <width>309</width>
+                <height>339</height>
                </rect>
               </property>
               <attribute name="label">
@@ -3145,8 +3132,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>248</width>
-                <height>288</height>
+                <width>309</width>
+                <height>339</height>
                </rect>
               </property>
               <attribute name="label">
@@ -3682,8 +3669,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>189</width>
-                <height>199</height>
+                <width>330</width>
+                <height>294</height>
                </rect>
               </property>
               <attribute name="label">
@@ -4111,8 +4098,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>125</width>
-                <height>74</height>
+                <width>330</width>
+                <height>294</height>
                </rect>
               </property>
               <attribute name="label">
@@ -4171,8 +4158,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>216</width>
-                <height>618</height>
+                <width>240</width>
+                <height>744</height>
                </rect>
               </property>
               <attribute name="label">
@@ -4841,8 +4828,8 @@ QSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>272</width>
-                <height>470</height>
+                <width>298</width>
+                <height>542</height>
                </rect>
               </property>
               <attribute name="label">
@@ -5509,8 +5496,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>223</width>
-                <height>209</height>
+                <width>271</width>
+                <height>244</height>
                </rect>
               </property>
               <attribute name="label">
@@ -5949,8 +5936,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>223</width>
-                <height>209</height>
+                <width>271</width>
+                <height>244</height>
                </rect>
               </property>
               <attribute name="label">
@@ -6407,8 +6394,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>125</width>
-                <height>97</height>
+                <width>330</width>
+                <height>326</height>
                </rect>
               </property>
               <attribute name="label">
@@ -6477,8 +6464,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>272</width>
-                <height>470</height>
+                <width>298</width>
+                <height>542</height>
                </rect>
               </property>
               <attribute name="label">
@@ -7145,8 +7132,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>286</width>
-                <height>360</height>
+                <width>316</width>
+                <height>406</height>
                </rect>
               </property>
               <attribute name="label">
@@ -7997,8 +7984,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>204</width>
-                <height>371</height>
+                <width>240</width>
+                <height>455</height>
                </rect>
               </property>
               <attribute name="label">
@@ -8448,8 +8435,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>181</width>
-                <height>125</height>
+                <width>330</width>
+                <height>294</height>
                </rect>
               </property>
               <attribute name="label">
@@ -8543,8 +8530,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>286</width>
-                <height>360</height>
+                <width>316</width>
+                <height>406</height>
                </rect>
               </property>
               <attribute name="label">
@@ -9395,8 +9382,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>204</width>
-                <height>377</height>
+                <width>240</width>
+                <height>461</height>
                </rect>
               </property>
               <attribute name="label">
@@ -9844,8 +9831,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>223</width>
-                <height>232</height>
+                <width>271</width>
+                <height>272</height>
                </rect>
               </property>
               <attribute name="label">
@@ -10294,8 +10281,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>223</width>
-                <height>232</height>
+                <width>271</width>
+                <height>272</height>
                </rect>
               </property>
               <attribute name="label">
@@ -10942,8 +10929,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>123</width>
-                <height>149</height>
+                <width>148</width>
+                <height>179</height>
                </rect>
               </property>
               <attribute name="label">
@@ -10984,8 +10971,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>98</width>
-                <height>118</height>
+                <width>330</width>
+                <height>358</height>
                </rect>
               </property>
               <attribute name="label">
@@ -11009,8 +10996,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>98</width>
-                <height>118</height>
+                <width>119</width>
+                <height>139</height>
                </rect>
               </property>
               <attribute name="label">
@@ -11045,8 +11032,8 @@ QDoubleSpinBox::down-button {
           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Noto Sans'; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Noto Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </widget>
@@ -11099,8 +11086,8 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1272</width>
-     <height>21</height>
+     <width>1317</width>
+     <height>30</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -11216,6 +11203,9 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionShow_PDF">
    <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
     <bool>true</bool>
    </property>
    <property name="text">

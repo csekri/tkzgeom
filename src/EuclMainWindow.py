@@ -45,6 +45,8 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.scene.init_canvas_dims = [self.scene.ui.graphicsView.width(), self.scene.ui.graphicsView.height()]
         self.clipboard = QtWidgets.QApplication.clipboard()
 
+        self.ui.compile_pushButton.clicked.connect(self.changeIcon)
+
         # Menu action signal connections
         self.ui.actionOpen.triggered.connect(lambda x: self.scene.edit.open_file(self.scene, x))
         self.ui.actionUndo.triggered.connect(lambda x: self.scene.edit.perform_undo(self.scene, x))
@@ -67,8 +69,8 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.ui.circle_radio.clicked.connect(lambda x: connect_mode.circle_radio_func(self))
         self.ui.polygon_radio.clicked.connect(lambda x: connect_mode.polygon_radio_func(self))
         self.ui.linestring_radio.clicked.connect(lambda x: connect_mode.linestring_radio_func(self))
-        self.ui.angle_radio.clicked.connect(lambda x: connect_mode.angle_radio_func(self))
-        self.ui.right_angle_radio.clicked.connect(lambda x: connect_mode.right_angle_radio_func(self))
+        # self.ui.angle_radio.clicked.connect(lambda x: connect_mode.angle_radio_func(self))
+        # self.ui.right_angle_radio.clicked.connect(lambda x: connect_mode.right_angle_radio_func(self))
         self.ui.cloud_radio.clicked.connect(lambda x: connect_mode.cloud_radio_func(self))
 
         # auto-compile connection
@@ -262,3 +264,8 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         """Create and open settings dialog."""
         dialog = SettingsDialog(self.scene)
         dialog.exec_()
+
+    def changeIcon(self):
+        compile_latex(self.scene, False)
+        cr.clear(self.scene)
+        cr.add_all_items(self.scene)

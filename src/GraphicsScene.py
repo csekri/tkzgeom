@@ -1,5 +1,5 @@
 # standard and pip imports
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtGui
 from math import floor, log2
 
 from Mouse import Mouse
@@ -40,7 +40,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.select_mode = SelectMode()
         self.title = title  # function from main window to set window title
         self.auto_compile = False
-        self.show_pdf = False
+        self.show_pdf = self.ui.actionShow_PDF.isChecked()
         self.show_canvas_labels = True
         self.show_canvas_items = True
         self.snap_to_grid = True
@@ -64,6 +64,7 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.pdf2png_command = 'pdftocairo -png -scale-to-x #1 -scale-to-y #2 try.pdf'
         self.aspect_ratio = [16, 9]
         self.listWidget_edit_row = None  # Need it for listWidget renaming, holds the old value
+
 
     def mousePressEvent(self, event):
         """Determine what to do when mouse is pressed."""

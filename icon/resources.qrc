@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="images">
+    <file>compile/lets_compile.png</file>
+    <file>compile/during_compile.png</file>
     <file>ico.png</file>
     <file>tabwidget/code.png</file>
     <file>tabwidget/angle.png</file>

@@ -587,3 +587,10 @@ CIRCLE_PATTERN_LENGTH = {Tool.CIRCLE_WITH_CENTRE: 2, Tool.CIRCUM_CIRCLE: 3, Tool
 
 # List of types in items as it appears in the tabWidget.
 TYPES = ['point', 'segment', 'circle', 'polygon', 'linestring', 'function', 'colour', 'code']
+
+Default_Settings_Dict = {
+    'PDF_LATEX_COMMAND': r'pdflatex -synctex=1 -interaction=batchmode --shell-escape -halt-on-error try.tex',
+    'PDF2PNG': 'pdftocairo -png -scale-to-x #1 -scale-to-y #2 try.pdf',
+    'SYNTAX': '$default',
+    'ASPECT_RATIO': [16, 9]
+}
