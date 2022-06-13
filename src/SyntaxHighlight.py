@@ -56,7 +56,7 @@ def alternative_syntax_highlight(text):
     text = re.sub(r'(\W)(\d*\.?\d+)(\W)', r'\1<span style="color:green">\2</span>\3', text)
     text = replace_pivot_spaces(text)
 
-    text = text.replace('\n', '<br>')
+    text = text.replace('\n', '<br>').replace('\n', '<br>')
 
     for i, result in enumerate(match):  # load back the inline comments and add syntax highlight
         text = text.replace(str(i) + does_not_contain_this_word,

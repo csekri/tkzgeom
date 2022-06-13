@@ -5,8 +5,10 @@ import Constant as c
 
 def fill_code_fields(scene):
     """Fill all widgets in the code tab."""
-    if c.TYPES[scene.current_tab_idx] != 'code':
-        return
+    # if c.TYPES[scene.current_tab_idx] != 'code':
+    #     return
+
+    print("here")
 
     scene.ui.packages_listWidget.clear()
     for i, package in enumerate(scene.project_data.packages):

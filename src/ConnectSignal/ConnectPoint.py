@@ -24,6 +24,9 @@ def connect_point(scene):
     scene.ui.point_apply_text_change.clicked.connect(
         lambda: connect_text_edit_pushbutton_apply_abstract(scene))
 
+    scene.ui.point_show.stateChanged.connect(
+        lambda x: connect_checkbox_abstract(x, scene, [], 'show'))
+
     scene.ui.point_marker_shape.currentIndexChanged.connect(
         lambda x: connect_combobox_abstract(x, scene, ['marker'], 'shape', c.attribute_values(c.MarkerShape)))
 

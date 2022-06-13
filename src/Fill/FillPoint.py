@@ -25,6 +25,7 @@ def fill_point_fields(scene):
     scene.skip_combobox_changes = False
     scene.skip_checkbox_changes = True
     scene.ui.point_show_label.setChecked(point["label"]["show"])
+    scene.ui.point_show.setChecked(point["show"])
     scene.skip_checkbox_changes = False
 
     scene.ui.point_size_slider.setValue(point["marker"]["size"])

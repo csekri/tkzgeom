@@ -30,6 +30,10 @@ def fill_segment_fields(scene):
     scene.ui.segment_marker_symbol.setCurrentIndex(c.attribute_values(c.SegmentMarkerType).index(segment["marker"]["symbol"]))
     scene.skip_combobox_changes = False
 
+    scene.skip_checkbox_changes = True
+    scene.ui.segment_show.setChecked(segment["show"])
+    scene.skip_checkbox_changes = False
+
     scene.ui.segment_double_distance_slider.setValue(10.0 * segment["line"]["double"]["distance"])
     scene.ui.segment_double_distance_spin.setValue(segment["line"]["double"]["distance"])
 

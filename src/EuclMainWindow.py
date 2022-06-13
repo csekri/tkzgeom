@@ -27,6 +27,7 @@ from ConnectSignal.ConnectLinestring import connect_linestring
 from ConnectSignal.ConnectCode import connect_code
 
 from Fill.ListWidget import fill_listWidget_with_data, set_selected_id_in_listWidget  # updates the listWidget
+from Fill.FillAll import fill_all_fields
 from Dialogs.SettingsDialog import SettingsDialog
 
 
@@ -62,6 +63,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         self.ui.actionShow_Canvas_Items.toggled.connect(self.show_canvas_items_func)
         self.ui.actionSnap_To_Grid.toggled.connect(self.snap_to_grid_func)
         self.ui.actionPreferences.triggered.connect(self.preferences_func)
+        self.ui.actionShow_Help.triggered.connect(self.show_help_func)
 
         # Radio button connections
         self.ui.point_radio.clicked.connect(lambda x: connect_mode.point_radio_func(self))
@@ -75,6 +77,9 @@ class EuclMainWindow(QtWidgets.QMainWindow):
 
         # auto-compile connection
         self.ui.auto_compile_checkbox.stateChanged.connect(self.auto_compile_func)
+
+        # open compile log
+        self.ui.compile_log_pushButton.clicked.connect(self.compile_log_clicked_func)
 
         # combobox connections
         self.ui.point_combo.currentIndexChanged.connect(lambda x: connect_mode.point_combo_func(x, self))
@@ -101,9 +106,12 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         connect_colour(self.scene)
         connect_code(self.scene)
 
+        fill_all_fields(self.scene)
+
         # from PIL we create a blank white PNG image with the given dimensions
         img = Image.new("RGB", (self.width(), self.height()), (255, 255, 255))
         img.save("try-1.png", "PNG")  # TODO rename to tmp-1.png
+        open('try.log', 'w').close()
         cr.clear(self.scene)
         cr.add_all_items(self.scene)
 
@@ -269,3 +277,20 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         compile_latex(self.scene, False)
         cr.clear(self.scene)
         cr.add_all_items(self.scene)
+
+    def show_help_func(self):
+        from webbrowser import open_new
+        open_new('https://github.com/csekri/tkzgeom')
+
+    def compile_log_clicked_func(self):
+        with open('try.log', 'r') as f:
+            dialog = QtWidgets.QDialog()
+            dialog.ui = uic.loadUi('compile_log.ui', dialog)
+            string = f.read().replace(' ', '&nbsp;')\
+                .replace('\n!', '\n' + f'<span style="color:red;font-weight:bold">!!!!!!!!</span>')\
+                .replace('\n', '<br>')
+            dialog.ui.textBrowser.setText(string)
+            textCursor = dialog.ui.textBrowser.textCursor()
+            textCursor.movePosition(QtGui.QTextCursor.End, QtGui.QTextCursor.MoveAnchor, 1)
+            dialog.ui.textBrowser.setTextCursor(textCursor)
+            dialog.exec_()

@@ -341,6 +341,13 @@ padding: 0px;
               </property>
              </widget>
             </item>
+            <item>
+             <widget class="QPushButton" name="compile_log_pushButton">
+              <property name="text">
+               <string>Compile Log</string>
+              </property>
+             </widget>
+            </item>
            </layout>
           </item>
          </layout>
@@ -452,7 +459,7 @@ padding: 0px;
 }</string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <property name="iconSize">
           <size>
@@ -553,7 +560,7 @@ padding: 0px;
                <item>
                 <widget class="QCheckBox" name="point_show">
                  <property name="enabled">
-                  <bool>false</bool>
+                  <bool>true</bool>
                  </property>
                  <property name="text">
                   <string>Show</string>
@@ -1893,9 +1900,9 @@ QDoubleSpinBox::down-button {
                 </layout>
                </item>
                <item>
-                <widget class="QCheckBox" name="point_show_2">
+                <widget class="QCheckBox" name="segment_show">
                  <property name="enabled">
-                  <bool>false</bool>
+                  <bool>true</bool>
                  </property>
                  <property name="text">
                   <string>Show</string>
@@ -1922,7 +1929,7 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>309</width>
+                <width>240</width>
                 <height>744</height>
                </rect>
               </property>
@@ -2589,7 +2596,7 @@ QSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>309</width>
+                <width>271</width>
                 <height>339</height>
                </rect>
               </property>
@@ -3132,7 +3139,7 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>309</width>
+                <width>292</width>
                 <height>339</height>
                </rect>
               </property>
@@ -3669,8 +3676,8 @@ QDoubleSpinBox::down-button {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>330</width>
-                <height>294</height>
+                <width>231</width>
+                <height>217</height>
                </rect>
               </property>
               <attribute name="label">

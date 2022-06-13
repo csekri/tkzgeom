@@ -65,7 +65,6 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.aspect_ratio = [16, 9]
         self.listWidget_edit_row = None  # Need it for listWidget renaming, holds the old value
 
-
     def mousePressEvent(self, event):
         """Determine what to do when mouse is pressed."""
         print(self.project_data.point_and_circle_stable_order())

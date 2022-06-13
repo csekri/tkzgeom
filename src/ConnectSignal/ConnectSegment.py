@@ -4,7 +4,8 @@ from ConnectSignal.Lambda import (
     connect_slider_moved_abstract,
     connect_slider_released_abstract,
     connect_def_str_lineedit_abstract,
-    connect_name_change_abstract
+    connect_name_change_abstract,
+    connect_checkbox_abstract
 )
 
 from ConnectSignal.ConnectMacros import (
@@ -19,6 +20,10 @@ def connect_segment(scene):
     """Connect signals in the segment tab."""
     scene.ui.segment_name.editingFinished.connect(
         lambda: connect_name_change_abstract(scene.ui.segment_name, scene))
+
+    scene.ui.segment_show.stateChanged.connect(
+        lambda x: connect_checkbox_abstract(x, scene, [], 'show'))
+
 
     scene.ui.segment_line_width_slider.sliderMoved.connect(
         lambda x: connect_slider_moved_abstract(x, scene, ['line'], 'line_width', lambda x: x/10.0, scene.ui.segment_line_width_spin))

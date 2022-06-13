@@ -114,8 +114,9 @@ class Items:
 
         print(self.point_and_circle_stable_order())
         tikzified_points_def = '\n'.join(
-            [self.items[point_id].tikzify(self.items) + '\n' + self.items[point_id].tikzify_node() for point_id in
-             self.point_and_circle_stable_order() if isinstance(self.items[point_id], Point)])
+            [self.items[point_id].tikzify(self.items)
+                + self.items[point_id].item["show"] * ('\n' + self.items[point_id].tikzify_node())
+                for point_id in self.point_and_circle_stable_order() if isinstance(self.items[point_id], Point)])
         if tikzified_points_def:
             tikzified_points_def = '% POINT DEFINITIONS\n' + tikzified_points_def
 
