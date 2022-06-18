@@ -78,12 +78,12 @@ a new place. Release the key.
 1. instantly generated TikZ code,
 2. move points on the canvas,
 3. auto compilation into PDF for visual feedback,
-4. additional packages and libraries can be added *(not yet implemented)*,
+4. additional packages and libraries can be added,
 5. additional tikz code can be added after the generated code, so unimplemented
    features can be used on the user defined points, e.g. this can be used to
-   define electric circuits with ease *(not yet implemented)*,
+   define electric circuits with ease,
 6. additional code can be added before the image, this is useful
-e.g. for `\newcommand`s *(not yet implemented)*,
+e.g. for `\newcommand`s,
 8. projects can be saved, and loaded in the popular JSON extension.
 
 > Basic knowledge of tikz helps make the most out of this software.
@@ -193,7 +193,7 @@ predetermined, there is no built in way to change this.
 - old version for Windows 10:\
 <a href="https://mega.nz/file/58cHAQJJ#ViVTsIa1EE4nqlMXZhILufJB4re2-jTaOdPdLnbHbJU">tkzgeom_old_version.zip</a>
 
-- new version (incomplete) for Window 10:\
+- new version for Window 10:\
 <a href="https://mega.nz/file/Q1VlzDIS#_snfzzVSq1SYR1niMtmYTxf75FjQu9mkCoD36ECoqpA">tkzgeom_2022_06_18_snapshot.zip</a>
 \
 <a href="https://mega.nz/file/d9Ul0bqY#zx42pDJsE8gSEDkS-bgq-U3gxz53ZMJNxBXv9cxGBw4">tkzgeom_2022_06_08_snapshot.zip</a>
