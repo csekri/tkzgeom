@@ -47,14 +47,16 @@ class SettingsDialog(QtWidgets.QDialog):
     def syntax_radio2_func(self):
         """Set syntax highlighting to pygments."""
         self.scene.syntax = '^' + self.ui.pygments_style.currentText()
-        text = self.scene.project_data.tikzify()
+        text = self.scene.project_data.tikzify(*self.scene.current_canvas_dims,
+                                               *self.scene.init_canvas_dims)
         browser_text = syntax_highlight(self.scene.syntax, text)
         self.scene.ui.textBrowser.setText(browser_text)
 
     def pygments_style_func(self, index):
         """Set pygments style."""
         self.scene.syntax = self.scene.syntax[0] + self.ui.pygments_style.currentText()
-        text = self.scene.project_data.tikzify()
+        text = self.scene.project_data.tikzify(*self.scene.current_canvas_dims,
+                                               *self.scene.init_canvas_dims)
         browser_text = syntax_highlight(self.scene.syntax, text)
         self.scene.ui.textBrowser.setText(browser_text)
 

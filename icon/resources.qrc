@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="images">
+    <file>compile/bug_compile.png</file>
     <file>compile/lets_compile.png</file>
     <file>compile/during_compile.png</file>
     <file>ico.png</file>

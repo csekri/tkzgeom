@@ -194,12 +194,14 @@ predetermined, there is no built in way to change this.
 <a href="https://mega.nz/file/58cHAQJJ#ViVTsIa1EE4nqlMXZhILufJB4re2-jTaOdPdLnbHbJU">tkzgeom_old_version.zip</a>
 
 - new version (incomplete) for Window 10:\
-<a href="https://mega.nz/file/AgdDzSAK#jkwmAbc_CtISYdXjymspLg0GcvkljpCuoTwbWrEcpnE">tkzgeom_2022_03_01_snapshot.zip</a>
+<a href="https://mega.nz/file/Q1VlzDIS#_snfzzVSq1SYR1niMtmYTxf75FjQu9mkCoD36ECoqpA">tkzgeom_2022_06_18_snapshot.zip</a>
 \
-<a href="https://mega.nz/file/Ys9V1aSZ#B21VUB__qZu1P33JiwOEu75nR9twWnf3cXWaqcaOPmA">tkzgeom_2022_03_04_snapshot.zip</a>
-\
-<a href="https://mega.nz/file/FocGTDLS#YyH114B-yFUwfValRW7DgLzkKvGXvWgq8CiH8v_aFi8">tkzgeom_2022_03_09_snapshot.zip</a>
+<a href="https://mega.nz/file/d9Ul0bqY#zx42pDJsE8gSEDkS-bgq-U3gxz53ZMJNxBXv9cxGBw4">tkzgeom_2022_06_08_snapshot.zip</a>
 \
 <a href="https://mega.nz/file/ppVWWCzA#qMstD6LoLtXnBwpunYJXhlaVA-sRJkv-WSb0amFOzcs">tkzgeom_2022_03_14_snapshot.zip</a>
 \
-<a href="https://mega.nz/file/d9Ul0bqY#zx42pDJsE8gSEDkS-bgq-U3gxz53ZMJNxBXv9cxGBw4">tkzgeom_2022_06_08_snapshot.zip</a>
+<a href="https://mega.nz/file/FocGTDLS#YyH114B-yFUwfValRW7DgLzkKvGXvWgq8CiH8v_aFi8">tkzgeom_2022_03_09_snapshot.zip</a>
+\
+<a href="https://mega.nz/file/Ys9V1aSZ#B21VUB__qZu1P33JiwOEu75nR9twWnf3cXWaqcaOPmA">tkzgeom_2022_03_04_snapshot.zip</a>
+\
+<a href="https://mega.nz/file/AgdDzSAK#jkwmAbc_CtISYdXjymspLg0GcvkljpCuoTwbWrEcpnE">tkzgeom_2022_03_01_snapshot.zip</a>

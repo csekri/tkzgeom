@@ -29,12 +29,14 @@ from ConnectSignal.ConnectCode import connect_code
 from Fill.ListWidget import fill_listWidget_with_data, set_selected_id_in_listWidget  # updates the listWidget
 from Fill.FillAll import fill_all_fields
 from Dialogs.SettingsDialog import SettingsDialog
+from Factory import Factory
 
 
 class EuclMainWindow(QtWidgets.QMainWindow):
     """
     class defining the main window inheriting QtWidgets.QMainWindow
     """
+
     def __init__(self):
         """Construct EuclMainWindow."""
         super(EuclMainWindow, self).__init__()
@@ -80,6 +82,9 @@ class EuclMainWindow(QtWidgets.QMainWindow):
 
         # open compile log
         self.ui.compile_log_pushButton.clicked.connect(self.compile_log_clicked_func)
+
+        # cloud no-select push button
+        self.ui.cloud_no_select_pushButton.clicked.connect(self.cloud_no_select_clicked_func)
 
         # combobox connections
         self.ui.point_combo.currentIndexChanged.connect(lambda x: connect_mode.point_combo_func(x, self))
@@ -139,9 +144,10 @@ class EuclMainWindow(QtWidgets.QMainWindow):
             self.scene.select_history.reset_history()
             if self.scene.key_bank.move_point.state == KeyState.DOWN:
                 focus = item_in_focus(self.scene.project_data, self.scene.mouse)
-                if bool(focus)\
-                and self.scene.project_data.items[focus].item["type"] == 'point'\
-                and self.scene.project_data.items[focus].item["sub_type"] in [c.Point.Definition.FREE, c.Point.Definition.ON_LINE]:
+                if bool(focus) \
+                        and self.scene.project_data.items[focus].item["type"] == 'point' \
+                        and self.scene.project_data.items[focus].item["sub_type"] in [c.Point.Definition.FREE,
+                                                                                      c.Point.Definition.ON_LINE]:
                     self.scene.focus_id = focus
 
         if event.key() == self.scene.key_bank.move_canvas.key:
@@ -164,7 +170,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
                     self.scene.project_data.items[id_].delete(self.scene.project_data.items)
             current_row_old = self.scene.ui.listWidget.currentRow()
             fill_listWidget_with_data(self.scene.project_data, self.scene.ui.listWidget, self.scene.current_tab_idx)
-            set_selected_id_in_listWidget(self.scene, min(current_row_old, self.scene.ui.listWidget.count()-1))
+            set_selected_id_in_listWidget(self.scene, min(current_row_old, self.scene.ui.listWidget.count() - 1))
             self.scene.edit.add_undo_item(self.scene)
 
     def keyReleaseEvent(self, event):
@@ -227,7 +233,8 @@ class EuclMainWindow(QtWidgets.QMainWindow):
     def copy_tikzdoc_func(self):
         """Copy LaTeX document."""
         print('copieren')
-        text = self.scene.project_data.doc_surround_tikzify(self.scene.width(), self.scene.height(), *self.scene.init_canvas_dims)
+        text = self.scene.project_data.doc_surround_tikzify(self.scene.width(), self.scene.height(),
+                                                            *self.scene.init_canvas_dims)
         self.clipboard.clear(mode=self.clipboard.Clipboard)
         self.clipboard.setText(text, mode=self.clipboard.Clipboard)
 
@@ -250,8 +257,10 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         )
         self.scene.project_data.set_window(
             scale=self.scene.project_data.window.scale,
-            left=self.scene.zoom_old_saved.left - 5 * (self.scene.width() / self.scene.init_canvas_dims[0]) * (self.scene.project_data.window.scale - self.scene.zoom_old_saved.scale),
-            top=self.scene.zoom_old_saved.top + 5 * (self.scene.height() / self.scene.init_canvas_dims[1]) * (self.scene.project_data.window.scale - self.scene.zoom_old_saved.scale)
+            left=self.scene.zoom_old_saved.left - 5 * (self.scene.width() / self.scene.init_canvas_dims[0]) * (
+                        self.scene.project_data.window.scale - self.scene.zoom_old_saved.scale),
+            top=self.scene.zoom_old_saved.top + 5 * (self.scene.height() / self.scene.init_canvas_dims[1]) * (
+                        self.scene.project_data.window.scale - self.scene.zoom_old_saved.scale)
         )
         self.scene.project_data.recompute_canvas(*self.scene.init_canvas_dims)
         cr.clear(self.scene)
@@ -286,11 +295,42 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         with open('try.log', 'r') as f:
             dialog = QtWidgets.QDialog()
             dialog.ui = uic.loadUi('compile_log.ui', dialog)
-            string = f.read().replace(' ', '&nbsp;')\
-                .replace('\n!', '\n' + f'<span style="color:red;font-weight:bold">!!!!!!!!</span>')\
+            string = f.read().replace(' ', '&nbsp;') \
+                .replace('\n!', '\n' + f'<span style="color:red;font-weight:bold">!!!!!!!!</span>') \
                 .replace('\n', '<br>')
             dialog.ui.textBrowser.setText(string)
             textCursor = dialog.ui.textBrowser.textCursor()
             textCursor.movePosition(QtGui.QTextCursor.End, QtGui.QTextCursor.MoveAnchor, 1)
             dialog.ui.textBrowser.setTextCursor(textCursor)
             dialog.exec_()
+
+    def cloud_no_select_clicked_func(self):
+        if self.scene.select_mode.get_type() == c.Tool.FROM_FILE:
+            fname = QtWidgets.QFileDialog.getOpenFileName(
+                caption='Open a file',
+                filter='Comma Separated Values / .csv (*.csv *.CSV)')
+            with open(fname[0], 'r') as f:
+                linestring = []
+                for i, line in enumerate(f):
+                    x, y = line[:-1].replace(' ', '').split(',')
+                    # print(x, y)
+
+                    item = Factory.create_empty_item('point', c.Point.Definition.FREE)
+                    definition = {'x': float(x), 'y': float(y)}
+                    id_ = Factory.next_id(item, definition, self.scene.project_data.items)
+                    item.item["id"] = id_
+                    item.item["definition"] = definition
+                    self.scene.project_data.add(item)
+                    linestring.append(id_)
+
+                item = Factory.create_empty_item('linestring', None)
+                definition = linestring
+                item.item["id"] = Factory.next_id(item, definition, self.scene.project_data.items)
+                item.item["definition"] = definition
+                self.scene.project_data.add(item)
+
+                self.scene.project_data.recompute_canvas(*self.scene.init_canvas_dims)
+                current_row_old = self.scene.ui.listWidget.currentRow()
+                fill_listWidget_with_data(self.scene.project_data, self.scene.ui.listWidget, self.scene.current_tab_idx)
+                set_selected_id_in_listWidget(self.scene, current_row_old)
+                self.scene.edit.add_undo_item(self.scene)

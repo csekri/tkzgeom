@@ -33,4 +33,5 @@ def select_point_cloud(scene):
             dialog = StarGraphDialog(scene, ids)
             dialog.exec_()
             return True
+
     return False

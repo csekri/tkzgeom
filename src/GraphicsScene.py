@@ -29,7 +29,7 @@ def binary_floor(x):
 class GraphicsScene(QtWidgets.QGraphicsScene):
     def __init__ (self, ui, title):
         """Construct the graphicsScene class."""
-        super(GraphicsScene, self).__init__ ()
+        super(GraphicsScene, self).__init__()
 
         self.ui = ui
         self.mouse = Mouse()
