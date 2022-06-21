@@ -6,6 +6,7 @@ from PointClasses.Translation import Translation
 from PointClasses.Projection import Projection
 from PointClasses.Rotation import Rotation
 from PointClasses.Bisector import Bisector
+from PointClasses.Perpendicular import Perpendicular
 from Point import Point
 from Segment import Segment
 from Polygon import Polygon
@@ -43,6 +44,8 @@ class Factory:
                 return Bisector(item)
             if item["sub_type"] == c.Point.Definition.CIRCLE_CENTRE:
                 return CircleCentre(item)
+            if item["sub_type"] == c.Point.Definition.PERPENDICULAR:
+                return Perpendicular(item)
         if item["type"] == 'circle':
             if item["sub_type"] == c.Circle.Definition.WITH_CENTRE:
                 return CircleWithCentre(item)
@@ -81,6 +84,8 @@ class Factory:
                 return Bisector(None)
             if sub_type == c.Point.Definition.CIRCLE_CENTRE:
                 return CircleCentre(None)
+            if sub_type == c.Point.Definition.PERPENDICULAR:
+                return Perpendicular(None)
         if type == 'circle':
             if sub_type == c.Circle.Definition.WITH_CENTRE:
                 return CircleWithCentre(None)
