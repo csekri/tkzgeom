@@ -1,5 +1,5 @@
 # standard and pip imports
-from PyQt5 import QtWidgets, QtGui
+from PyQt5 import QtWidgets, QtGui, QtCore
 from math import floor, log2
 
 from Mouse import Mouse
@@ -67,92 +67,102 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
 
     def mousePressEvent(self, event):
         """Determine what to do when mouse is pressed."""
-        print(self.project_data.point_and_circle_stable_order())
-        self.mouse.set_xy(int(event.scenePos().x()), int(event.scenePos().y()))
-        self.mouse.set_pressed_xy(int(event.scenePos().x()), int(event.scenePos().y()))
-
-        if self.select_mode.get_type() >= c.Tool.MAKEGRID:
-            if not select_point_cloud(self):
-                return
-        elif self.select_mode.get_type() == c.Tool.FREE:
-            if self.snap_to_grid:
-                tkz_dx = tkz_dy = 0.5 * binary_floor(
-                    (1.0 + log2(1 / self.project_data.window.scale) % 1) * self.project_data.window.scale)
-                anchor = FreePoint.phi(self.project_data.window, self.project_data.window.left - self.project_data.window.left % tkz_dx, self.project_data.window.top - self.project_data.window.top % tkz_dy, *self.init_canvas_dims)
-                origin = FreePoint.phi(self.project_data.window, 0, 0, *self.init_canvas_dims)
-                dx, dy = sub(FreePoint.phi(self.project_data.window, tkz_dx, tkz_dy, *self.init_canvas_dims), origin)
-                dy = -dy
-
-                diff = sub(self.mouse.get_xy(), anchor)
-                print(dx, dy)
-                if (diff[0] % dx < 0.15*dx or diff[0] % dx > 0.85*dx)\
-                and (diff[1] % dy < 0.15*dy or diff[1] % dy > 0.85*dy):
-                    i_idx, j_idx = diff[0] // dx, diff[1] // dy
-                    points = [(anchor[0]+i_idx*dx,    anchor[1]+j_idx*dy),
-                              (anchor[0]+i_idx*dx+dx, anchor[1]+j_idx*dy),
-                              (anchor[0]+i_idx*dx,    anchor[1]+j_idx*dy+dy),
-                              (anchor[0]+i_idx*dx+dx, anchor[1]+j_idx*dy+dy)]
-                    min_point = min(points, key=lambda x: dist(self.mouse.get_xy(), x))
-                    self.mouse.set_xy(*min_point)
-
-            self.item_to_be = Factory.create_empty_item("point", c.Point.Definition.FREE)
-            print(self.init_canvas_dims)
-            definition = self.item_to_be.definition_builder(
-                FreePoint.phi_inverse(self.project_data.window, *self.mouse.get_xy(), *self.init_canvas_dims), None)
-            self.item_to_be.item["id"] = Factory.next_id(self.item_to_be, definition, self.project_data.items)
-            self.item_to_be.item["definition"] = definition
-            self.item_to_be.item["label"]["text"] = f'${self.item_to_be.item["id"]}$'
-            if isinstance(self.item_to_be, Labelable):
-                self.item_to_be.id = self.item_to_be.item["id"]
-            self.project_data.add(self.item_to_be)
-            self.project_data.recompute_canvas(*self.init_canvas_dims)
-            self.edit.add_undo_item(self)
-            self.ui.tabWidget.setCurrentIndex(c.TYPES.index('point'))
-            fill_listWidget_with_data(self.project_data, self.ui.listWidget, self.current_tab_idx)
-            set_selected_id_in_listWidget(self, -1)
-        else:
+        if event.button() == QtCore.Qt.RightButton:
             focus = item_in_focus(self.project_data, self.mouse)
-            print('focus', focus)
-            if not bool(focus):
-                self.select_history.reset_history()
-                return
-            self.select_history.add_to_history(focus, self.project_data.items[focus].item["type"])
-            type_, sub_type = c.PARSE_TO_TYPE_MAP[c.TOOL_TO_PARSE_MAP[self.select_mode.get_type()]]
-            self.item_to_be = Factory.create_empty_item(type_, sub_type)
+            if bool(focus):
+                self.ui.tabWidget.setCurrentIndex(c.TYPES.index(self.project_data.items[focus].item["type"]))
+                fill_listWidget_with_data(self.project_data, self.ui.listWidget, self.current_tab_idx)
+                index = self.ui.listWidget.indexFromItem(self.ui.listWidget.findItems(focus, QtCore.Qt.MatchExactly)[0])
+                print('index', index)
+                set_selected_id_in_listWidget(self, index.row())
 
-            if ids := self.select_history.match_pattern(self.item_to_be.patterns()):
-                if self.select_mode.get_type() == c.Tool.POLYGON:
-                    if ids[0] != ids[-1]:
-                        self.select_history.id_history = ids
-                        self.select_history.type_history = ''.join(map(lambda x: self.select_history.type_map[self.project_data.items[x].item["type"]], ids))
-                        return
-                if self.select_mode.get_type() == c.Tool.LINESTRING:
-                    if ids[-2] != ids[-1]:
-                        self.select_history.id_history = ids
-                        self.select_history.type_history = ''.join(map(lambda x: self.select_history.type_map[self.project_data.items[x].item["type"]], ids))
-                        return
-                if self.select_mode.get_type() == c.Tool.POINT_ON_LINE:
-                    A, B = self.project_data.items[ids[0]].item["definition"].values()
-                    A_coords = self.project_data.items[A].get_canvas_coordinates()
-                    B_coords = self.project_data.items[B].get_canvas_coordinates()
-                    AP = dist(A_coords, self.mouse.get_xy())
-                    PB = dist(B_coords, self.mouse.get_xy())
-                    ratio = AP / (AP + PB)
-                    ids = [A, B, ratio]
-                definition = self.item_to_be.definition_builder(ids, self.project_data.items)
-                id = Factory.next_id(self.item_to_be, definition, self.project_data.items)
+        if event.button() == QtCore.Qt.LeftButton:
+            print(self.project_data.point_and_circle_stable_order())
+            self.mouse.set_xy(int(event.scenePos().x()), int(event.scenePos().y()))
+            self.mouse.set_pressed_xy(int(event.scenePos().x()), int(event.scenePos().y()))
+
+            if self.select_mode.get_type() >= c.Tool.MAKEGRID:
+                if not select_point_cloud(self):
+                    return
+            elif self.select_mode.get_type() == c.Tool.FREE:
+                if self.snap_to_grid:
+                    tkz_dx = tkz_dy = 0.5 * binary_floor(
+                        (1.0 + log2(1 / self.project_data.window.scale) % 1) * self.project_data.window.scale)
+                    anchor = FreePoint.phi(self.project_data.window, self.project_data.window.left - self.project_data.window.left % tkz_dx, self.project_data.window.top - self.project_data.window.top % tkz_dy, *self.init_canvas_dims)
+                    origin = FreePoint.phi(self.project_data.window, 0, 0, *self.init_canvas_dims)
+                    dx, dy = sub(FreePoint.phi(self.project_data.window, tkz_dx, tkz_dy, *self.init_canvas_dims), origin)
+                    dy = -dy
+
+                    diff = sub(self.mouse.get_xy(), anchor)
+                    print(dx, dy)
+                    if (diff[0] % dx < 0.15*dx or diff[0] % dx > 0.85*dx)\
+                    and (diff[1] % dy < 0.15*dy or diff[1] % dy > 0.85*dy):
+                        i_idx, j_idx = diff[0] // dx, diff[1] // dy
+                        points = [(anchor[0]+i_idx*dx,    anchor[1]+j_idx*dy),
+                                  (anchor[0]+i_idx*dx+dx, anchor[1]+j_idx*dy),
+                                  (anchor[0]+i_idx*dx,    anchor[1]+j_idx*dy+dy),
+                                  (anchor[0]+i_idx*dx+dx, anchor[1]+j_idx*dy+dy)]
+                        min_point = min(points, key=lambda x: dist(self.mouse.get_xy(), x))
+                        self.mouse.set_xy(*min_point)
+
+                self.item_to_be = Factory.create_empty_item("point", c.Point.Definition.FREE)
+                print(self.init_canvas_dims)
+                definition = self.item_to_be.definition_builder(
+                    FreePoint.phi_inverse(self.project_data.window, *self.mouse.get_xy(), *self.init_canvas_dims), None)
+                self.item_to_be.item["id"] = Factory.next_id(self.item_to_be, definition, self.project_data.items)
                 self.item_to_be.item["definition"] = definition
-                self.item_to_be.item["id"] = id
+                self.item_to_be.item["label"]["text"] = f'${self.item_to_be.item["id"]}$'
                 if isinstance(self.item_to_be, Labelable):
-                    self.item_to_be.item["label"]["text"] = f'${self.item_to_be.item["id"]}$'
+                    self.item_to_be.id = self.item_to_be.item["id"]
                 self.project_data.add(self.item_to_be)
                 self.project_data.recompute_canvas(*self.init_canvas_dims)
                 self.edit.add_undo_item(self)
-                self.ui.tabWidget.setCurrentIndex(c.TYPES.index(type_))
+                self.ui.tabWidget.setCurrentIndex(c.TYPES.index('point'))
                 fill_listWidget_with_data(self.project_data, self.ui.listWidget, self.current_tab_idx)
                 set_selected_id_in_listWidget(self, -1)
-        cr.clear(self)
-        cr.add_all_items(self)
+            else:
+                focus = item_in_focus(self.project_data, self.mouse)
+                print('focus', focus)
+                if not bool(focus):
+                    self.select_history.reset_history()
+                    return
+                self.select_history.add_to_history(focus, self.project_data.items[focus].item["type"])
+                type_, sub_type = c.PARSE_TO_TYPE_MAP[c.TOOL_TO_PARSE_MAP[self.select_mode.get_type()]]
+                self.item_to_be = Factory.create_empty_item(type_, sub_type)
+
+                if ids := self.select_history.match_pattern(self.item_to_be.patterns()):
+                    if self.select_mode.get_type() == c.Tool.POLYGON:
+                        if ids[0] != ids[-1]:
+                            self.select_history.id_history = ids
+                            self.select_history.type_history = ''.join(map(lambda x: self.select_history.type_map[self.project_data.items[x].item["type"]], ids))
+                            return
+                    if self.select_mode.get_type() == c.Tool.LINESTRING:
+                        if ids[-2] != ids[-1]:
+                            self.select_history.id_history = ids
+                            self.select_history.type_history = ''.join(map(lambda x: self.select_history.type_map[self.project_data.items[x].item["type"]], ids))
+                            return
+                    if self.select_mode.get_type() == c.Tool.POINT_ON_LINE:
+                        A, B = self.project_data.items[ids[0]].item["definition"].values()
+                        A_coords = self.project_data.items[A].get_canvas_coordinates()
+                        B_coords = self.project_data.items[B].get_canvas_coordinates()
+                        AP = dist(A_coords, self.mouse.get_xy())
+                        PB = dist(B_coords, self.mouse.get_xy())
+                        ratio = AP / (AP + PB)
+                        ids = [A, B, ratio]
+                    definition = self.item_to_be.definition_builder(ids, self.project_data.items)
+                    id = Factory.next_id(self.item_to_be, definition, self.project_data.items)
+                    self.item_to_be.item["definition"] = definition
+                    self.item_to_be.item["id"] = id
+                    if isinstance(self.item_to_be, Labelable):
+                        self.item_to_be.item["label"]["text"] = f'${self.item_to_be.item["id"]}$'
+                    self.project_data.add(self.item_to_be)
+                    self.project_data.recompute_canvas(*self.init_canvas_dims)
+                    self.edit.add_undo_item(self)
+                    self.ui.tabWidget.setCurrentIndex(c.TYPES.index(type_))
+                    fill_listWidget_with_data(self.project_data, self.ui.listWidget, self.current_tab_idx)
+                    set_selected_id_in_listWidget(self, -1)
+            cr.clear(self)
+            cr.add_all_items(self)
 
     def mouseMoveEvent(self, event):
         """Determine what to do when mouse is moved."""
