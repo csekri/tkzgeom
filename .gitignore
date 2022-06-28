@@ -1,11 +1,11 @@
 tmp/
 **/__pycache__/
-try.pdf
-try-1.png
-try.aux
-try.log
-try.tex
-try.synctex.gz
+tmp.pdf
+tmp-1.png
+tmp.aux
+tmp.log
+tmp.tex
+tmp.synctex.gz
 texput.log
 main_2_focus.ui
 .idea/

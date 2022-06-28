@@ -60,8 +60,8 @@ class GraphicsScene(QtWidgets.QGraphicsScene):
         self.skip_item_changes = False
         self.item_to_be = None
         self.zoom_old_saved = None
-        self.pdflatex_command = r'pdflatex -synctex=1 -interaction=batchmode --shell-escape -halt-on-error try.tex'
-        self.pdf2png_command = 'pdftocairo -png -scale-to-x #1 -scale-to-y #2 try.pdf'
+        self.pdflatex_command = r'pdflatex -synctex=1 -interaction=batchmode --shell-escape -halt-on-error tmp.tex'
+        self.pdf2png_command = 'pdftocairo -png -scale-to-x #1 -scale-to-y #2 tmp.pdf'
         self.aspect_ratio = [16, 9]
         self.listWidget_edit_row = None  # Need it for listWidget renaming, holds the old value
 

@@ -84,7 +84,7 @@ def add_all_items(scene):
 
     def add_pdf(scene):
         """Add png from compilation to the canvas."""
-        pixmap = QtGui.QPixmap("try-1.png")
+        pixmap = QtGui.QPixmap("tmp-1.png")
         if not scene.show_pdf:
             pixmap.fill()
         tkz_img = QtWidgets.QGraphicsPixmapItem(pixmap)

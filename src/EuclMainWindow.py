@@ -115,8 +115,8 @@ class EuclMainWindow(QtWidgets.QMainWindow):
 
         # from PIL we create a blank white PNG image with the given dimensions
         img = Image.new("RGB", (self.width(), self.height()), (255, 255, 255))
-        img.save("try-1.png", "PNG")  # TODO rename to tmp-1.png
-        open('try.log', 'w').close()
+        img.save("tmp-1.png", "PNG")  # TODO rename to tmp-1.png
+        open('tmp.log', 'w').close()
         cr.clear(self.scene)
         cr.add_all_items(self.scene)
 
@@ -292,7 +292,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
         open_new('https://github.com/csekri/tkzgeom')
 
     def compile_log_clicked_func(self):
-        with open('try.log', 'r') as f:
+        with open('tmp.log', 'r') as f:
             dialog = QtWidgets.QDialog()
             dialog.ui = uic.loadUi('compile_log.ui', dialog)
             string = f.read().replace(' ', '&nbsp;') \
