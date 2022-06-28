@@ -15,6 +15,7 @@ from Colour import Colour
 from CircleClasses.CircleWithCentre import CircleWithCentre
 from CircleClasses.CircumCircle import CircumCircle
 from CircleClasses.InscribedCircle import InscribedCircle
+from CircleClasses.Arc import Arc
 from PointClasses.CircleCentre import CircleCentre
 import Constant as c
 
@@ -53,6 +54,8 @@ class Factory:
                 return CircumCircle(item)
             if item["sub_type"] == c.Circle.Definition.INSCRIBED:
                 return InscribedCircle(item)
+            if item["sub_type"] == c.Circle.Definition.ARC:
+                return Arc(item)
         if item['type'] == 'polygon':
             return Polygon(item)
         if item['type'] == 'linestring':
@@ -93,6 +96,10 @@ class Factory:
                 return CircumCircle(None)
             if sub_type == c.Circle.Definition.INSCRIBED:
                 return InscribedCircle(None)
+            if sub_type == c.Circle.Definition.ARC:
+                arc = Arc(None)
+                arc.item["fill"]["pattern"]["type"] = c.PatternType.NONE
+                return arc
         if type == 'polygon':
             return Polygon(None)
         if type == 'linestring':

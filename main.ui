@@ -156,11 +156,6 @@
                 <string>Arc</string>
                </property>
               </item>
-              <item>
-               <property name="text">
-                <string>Sector</string>
-               </property>
-              </item>
              </widget>
             </item>
             <item>

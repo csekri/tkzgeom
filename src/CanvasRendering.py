@@ -5,13 +5,14 @@ the graphicsScene class.
 
 """
 
-from PyQt5 import QtGui, QtWidgets
+from PyQt5 import QtGui, QtWidgets, QtCore
 from math import log2, floor
 
 from HighlightItem import item_in_focus
 import Constant as c
 from Segment import Segment
 from Circle import Circle
+from CircleClasses.Arc import Arc
 from Polygon import Polygon
 from Linestring import Linestring
 from KeyBank import KeyState
@@ -178,12 +179,23 @@ def add_all_items(scene):
 
     def add_half_ready_circle(scene):
         """Add half ready circles to the canvas."""
-        if scene.select_mode.get_type() in [c.Tool.CIRCUM_CIRCLE, c.Tool.CIRCLE_WITH_CENTRE, c.Tool.INSCRIBED_CIRCLE]\
+        if scene.select_mode.get_type() in [c.Tool.CIRCUM_CIRCLE,
+                                            c.Tool.CIRCLE_WITH_CENTRE,
+                                            c.Tool.INSCRIBED_CIRCLE,
+                                            c.Tool.ARC]\
         and len(scene.select_history.type_history) + 1 == c.CIRCLE_PATTERN_LENGTH[scene.select_mode.get_type()]:
-            centre, radius = scene.item_to_be.recompute_canvas_with_mouse(scene, *scene.mouse.get_xy())
-            Circle.draw_on_canvas_static(
-                centre, radius, scene,
-                ColorMapping.OTHER_ITEM)
+            if not scene.select_mode.get_type() == c.Tool.ARC:
+                centre, radius = scene.item_to_be.recompute_canvas_with_mouse(scene, *scene.mouse.get_xy())
+                Circle.draw_on_canvas_static(
+                    centre, radius, scene,
+                    ColorMapping.OTHER_ITEM)
+            else:
+                centre, radius, start_angle, end_angle =\
+                    scene.item_to_be.recompute_canvas_with_mouse(scene, *scene.mouse.get_xy())
+                Arc.draw_on_canvas_static_arc_version(centre, radius, start_angle, end_angle, scene,
+                                                      ColorMapping.OTHER_ITEM)
+
+
 
     def add_half_ready_linestring(scene):
         """Add half ready linestrings to the canvas."""
@@ -225,6 +237,7 @@ def add_all_items(scene):
                 scene.project_data.items[focus].draw_on_canvas(scene.project_data.items, scene, ColorMapping.OTHER_ITEM_FOCUS_FILL)
             else:
                 scene.project_data.items[focus].draw_on_canvas(scene.project_data.items, scene, ColorMapping.OTHER_ITEM_FOCUS)
+
         for item_id in scene.select_history.id_history:
             scene.project_data.items[item_id].draw_on_canvas(scene.project_data.items, scene, ColorMapping.SELECT_ITEM)
 
@@ -252,3 +265,8 @@ def add_all_items(scene):
     or scene.zoom_old_saved:
         add_points(scene)
     add_item_in_focus(scene)
+
+    # arc = QtWidgets.QGraphicsEllipseItem(100, 100, 200, 200)
+    # arc.setStartAngle(0)
+    # arc.setSpanAngle(360*16)
+    # scene.addItem(arc)

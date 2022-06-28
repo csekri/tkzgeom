@@ -309,6 +309,8 @@ class EuclMainWindow(QtWidgets.QMainWindow):
             fname = QtWidgets.QFileDialog.getOpenFileName(
                 caption='Open a file',
                 filter='Comma Separated Values / .csv (*.csv *.CSV)')
+            if not fname[0]:
+                return
             with open(fname[0], 'r') as f:
                 linestring = []
                 for i, line in enumerate(f):

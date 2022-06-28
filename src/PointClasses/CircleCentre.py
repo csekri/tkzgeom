@@ -16,7 +16,7 @@ class CircleCentre(Point):
         circle_id = self.item["definition"][0]
         circle_type = items[circle_id].item["sub_type"]
         circle_definition = items[circle_id].item["definition"]
-        if circle_type == c.Circle.Definition.CIRCUM:
+        if circle_type == c.Circle.Definition.CIRCUM or circle_type == c.Circle.Definition.ARC:
             return '\\tkzDefCircle[circum](%s,%s,%s)\\tkzGetPoint{%s}\n' \
                    % (circle_definition["A"],
                       circle_definition["B"],
@@ -40,7 +40,7 @@ class CircleCentre(Point):
         circle_id = self.item["definition"][0]
         circle_type = items[circle_id].item["sub_type"]
         circle_definition = items[circle_id].item["definition"]
-        if circle_type == c.Circle.Definition.CIRCUM:
+        if circle_type == c.Circle.Definition.CIRCUM or circle_type == c.Circle.Definition.ARC:
             A = items[circle_definition["A"]].get_canvas_coordinates()
             B = items[circle_definition["B"]].get_canvas_coordinates()
             C = items[circle_definition["C"]].get_canvas_coordinates()

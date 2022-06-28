@@ -460,7 +460,7 @@ PackagesDefault = [
     "\\usepackage[utf8]{inputenc}",
     "\\usepackage[T1]{fontenc}",
     "\\usepackage[rgb]{xcolor} % xcolor must be loaded before everything tikz",
-    "\\usepackage{tikz, tkz-euclide}",
+    "\\usepackage{tikz, tkz-euclide, etoolbox}",
     "\\usetikzlibrary{arrows.meta, bending, patterns.meta, ducks}",
     "\\usetikzlibrary{shapes, backgrounds, decorations.pathmorphing, calc}"
 ]
@@ -550,6 +550,7 @@ TOOL_TO_PARSE_MAP = {
     Tool.CIRCLE_WITH_CENTRE: 'WithCentre',
     Tool.CIRCUM_CIRCLE: 'Circum',
     Tool.INSCRIBED_CIRCLE: 'InCircle',
+    Tool.ARC: 'Arc',
 
     Tool.MAKEGRID: 'MakeGrid',
     Tool.REGULAR_POLYGON: 'RegularPolygon'
@@ -575,6 +576,7 @@ PARSE_TO_TYPE_MAP = {
     TOOL_TO_PARSE_MAP[Tool.CIRCLE_WITH_CENTRE]: ('circle', 'with_centre'),
     TOOL_TO_PARSE_MAP[Tool.CIRCUM_CIRCLE]: ('circle', 'circum'),
     TOOL_TO_PARSE_MAP[Tool.INSCRIBED_CIRCLE]: ('circle', 'inscribed'),
+    TOOL_TO_PARSE_MAP[Tool.ARC]: ('circle', 'arc'),
 
     TOOL_TO_PARSE_MAP[Tool.MAKEGRID]: ('cloud', None),
     TOOL_TO_PARSE_MAP[Tool.REGULAR_POLYGON]: ('cloud', None)
@@ -584,7 +586,10 @@ PARSE_TO_TYPE_MAP = {
 PATTERN_EXTRAS = {PatternType.LINES, PatternType.HATCH, PatternType.DOTS_EXTRA, PatternType.FIVEPOINTED_STARS,
                   PatternType.SIXPOINTED_STARS}
 
-CIRCLE_PATTERN_LENGTH = {Tool.CIRCLE_WITH_CENTRE: 2, Tool.CIRCUM_CIRCLE: 3, Tool.INSCRIBED_CIRCLE: 3}
+CIRCLE_PATTERN_LENGTH = {Tool.CIRCLE_WITH_CENTRE: 2,
+                         Tool.CIRCUM_CIRCLE: 3,
+                         Tool.INSCRIBED_CIRCLE: 3,
+                         Tool.ARC: 3}
 
 # List of types in items as it appears in the tabWidget.
 TYPES = ['point', 'segment', 'circle', 'polygon', 'linestring', 'function', 'colour', 'code']

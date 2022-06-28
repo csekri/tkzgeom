@@ -24,6 +24,8 @@ class Circle(Item, Arrowable, DashPatternable, Doubleable, LineColourable, Filla
         self.__canvas_centre_x = 0
         self.__canvas_centre_y = 0
         self.__canvas_radius = 0
+        self.start_angle = 0
+        self.end_angle = 360
 
     def tikzify(self, items=None):
         return NotImplementedError
@@ -66,6 +68,9 @@ class Circle(Item, Arrowable, DashPatternable, Doubleable, LineColourable, Filla
         brush = QtGui.QBrush()
         brush.setStyle(QtCore.Qt.NoBrush)
         graphics_point.setBrush(brush)
+        if self.item["sub_type"] == c.Circle.Definition.ARC:
+            graphics_point.setStartAngle(self.start_angle*16)
+            graphics_point.setSpanAngle(((self.end_angle - self.start_angle) % 360)*16)
         scene.addItem(graphics_point)
 
     @staticmethod
