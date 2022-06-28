@@ -556,6 +556,38 @@ TOOL_TO_PARSE_MAP = {
     Tool.REGULAR_POLYGON: 'RegularPolygon'
 }
 
+TOOL_TO_STATUSBAR_MESSAGE = {
+    Tool.FREE: 'Click anywhere on the canvas.',
+    Tool.MIDPOINT_SEGMENT: 'Select 2 points or 1 segment.',
+    Tool.INTERSECT_POINT: 'Select 4 points, or select 2 point then a segment, or select a segment then 2 points,\
+     or select 2 segments.',
+    Tool.CIRCLE_CENTRE: 'Select 1 circle.',
+    Tool.TRANSLATION: 'Select three points (start point of vector, end point of vector, point to transform).',
+    Tool.POINT_ON_LINE: 'Click 1 segment exactly where the point should divide it.',
+    Tool.POINT_ON_CIRCLE: 'Not yet implemented. Avoid it now.',
+    Tool.ORTHOGONAL_PROJECTION: 'Select 3 points (segment endpoints then the point to transform), or select 1 point\
+     and segment (ordering doesn\'t matter).',
+    Tool.PERPENDICULAR: 'Select 3 points (endpoints of a segment then the point where we\'d like to erect a\
+     perpendicular).',
+    Tool.BISECTOR: 'Select 3 points.',
+    Tool.ROTATION: 'Select 2 point (point then centre of rotation).',
+
+    Tool.SEGMENT_THROUGH: 'Select 2 points.',
+    Tool.POLYGON: 'Select >2 number of points then select the first selected point again.',
+    Tool.LINESTRING: 'Select >1 number of points then select the last point once more.',
+
+    Tool.CIRCLE_WITH_CENTRE: 'Select 2 points (centre then point on the perimeter).',
+    Tool.CIRCUM_CIRCLE: 'Select 3 points.',
+    Tool.INSCRIBED_CIRCLE: 'Select 3 points.',
+    Tool.ARC: 'Select 3 points.',
+
+    Tool.MAKEGRID: 'Select 3 points (for 1d point line, select two points and the second point again)',
+    Tool.REGULAR_POLYGON: 'Select 2 points.',
+    Tool.COMPLETE_GRAPH: 'Select 2 points.',
+    Tool.STAR_GRAPH: 'Select 2 points.',
+    Tool.FROM_FILE: 'Press button right of the "Point Clouds" radio button.',
+}
+
 PARSE_TO_TYPE_MAP = {
     TOOL_TO_PARSE_MAP[Tool.FREE]: ('point', Point.Definition.FREE),
     TOOL_TO_PARSE_MAP[Tool.MIDPOINT_SEGMENT]: ('point', Point.Definition.SEGMENT_MIDPOINT),

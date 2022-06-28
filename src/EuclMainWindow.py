@@ -50,6 +50,8 @@ class EuclMainWindow(QtWidgets.QMainWindow):
 
         self.ui.compile_pushButton.clicked.connect(self.changeIcon)
 
+        self.ui.statusBar().showMessage(c.TOOL_TO_STATUSBAR_MESSAGE[self.scene.select_mode.get_type()])
+
         # Menu action signal connections
         self.ui.actionOpen.triggered.connect(lambda x: self.scene.edit.open_file(self.scene, x))
         self.ui.actionUndo.triggered.connect(lambda x: self.scene.edit.perform_undo(self.scene, x))
