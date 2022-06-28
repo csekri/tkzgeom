@@ -3553,7 +3553,7 @@
         "\\usepackage[utf8]{inputenc}",
         "\\usepackage[T1]{fontenc}",
         "\\usepackage{xcolor}",
-        "\\usepackage{tkz-euclide}",
+        "\\usepackage{tikz, tkz-euclide, etoolbox}",
         "\\usetikzlibrary{arrows.meta, bending, patterns.meta, hobby, ducks}",
         "\\usetikzlibrary{shapes, backgrounds, decorations.pathmorphing, calc}"
     ]

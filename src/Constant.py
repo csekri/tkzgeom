@@ -559,16 +559,13 @@ TOOL_TO_PARSE_MAP = {
 TOOL_TO_STATUSBAR_MESSAGE = {
     Tool.FREE: 'Click anywhere on the canvas.',
     Tool.MIDPOINT_SEGMENT: 'Select 2 points or 1 segment.',
-    Tool.INTERSECT_POINT: 'Select 4 points, or select 2 point then a segment, or select a segment then 2 points,\
-     or select 2 segments.',
+    Tool.INTERSECT_POINT: 'Select 4 points, or select 2 point then a segment, or select a segment then 2 points, or select 2 segments.',
     Tool.CIRCLE_CENTRE: 'Select 1 circle.',
     Tool.TRANSLATION: 'Select three points (start point of vector, end point of vector, point to transform).',
     Tool.POINT_ON_LINE: 'Click 1 segment exactly where the point should divide it.',
     Tool.POINT_ON_CIRCLE: 'Not yet implemented. Avoid it now.',
-    Tool.ORTHOGONAL_PROJECTION: 'Select 3 points (segment endpoints then the point to transform), or select 1 point\
-     and segment (ordering doesn\'t matter).',
-    Tool.PERPENDICULAR: 'Select 3 points (endpoints of a segment then the point where we\'d like to erect a\
-     perpendicular).',
+    Tool.ORTHOGONAL_PROJECTION: 'Select 3 points (segment endpoints then the point to transform), or select 1 point and segment (ordering doesn\'t matter).',
+    Tool.PERPENDICULAR: 'Select 3 points (endpoints of a segment then the point where we\'d like to erect a perpendicular).',
     Tool.BISECTOR: 'Select 3 points.',
     Tool.ROTATION: 'Select 2 point (point then centre of rotation).',
 

@@ -194,6 +194,8 @@ predetermined, there is no built in way to change this.
 <a href="https://mega.nz/file/58cHAQJJ#ViVTsIa1EE4nqlMXZhILufJB4re2-jTaOdPdLnbHbJU">tkzgeom_old_version.zip</a>
 
 - new version for Window 10:\
+<a href="https://mega.nz/file/Ylc1HBqR#nisxHYzKBYSzFMT43rhQ_qpsB8McJEoWmhfrjgHS9jU">tkzgeom_2022_06_28_snapshot.zip</a>
+\
 <a href="https://mega.nz/file/Q1VlzDIS#_snfzzVSq1SYR1niMtmYTxf75FjQu9mkCoD36ECoqpA">tkzgeom_2022_06_18_snapshot.zip</a>
 \
 <a href="https://mega.nz/file/d9Ul0bqY#zx42pDJsE8gSEDkS-bgq-U3gxz53ZMJNxBXv9cxGBw4">tkzgeom_2022_06_08_snapshot.zip</a>
