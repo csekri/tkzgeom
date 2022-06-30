@@ -621,7 +621,7 @@ CIRCLE_PATTERN_LENGTH = {Tool.CIRCLE_WITH_CENTRE: 2,
                          Tool.ARC: 3}
 
 # List of types in items as it appears in the tabWidget.
-TYPES = ['point', 'segment', 'circle', 'polygon', 'linestring', 'function', 'colour', 'code']
+TYPES = ['point', 'segment', 'circle', 'polygon', 'linestring', 'colour', 'code']
 
 Default_Settings_Dict = {
     'PDF_LATEX_COMMAND': r'pdflatex -synctex=1 -interaction=batchmode --shell-escape -halt-on-error tmp.tex',

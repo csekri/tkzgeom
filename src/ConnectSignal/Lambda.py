@@ -258,3 +258,22 @@ def connect_def_str_lineedit_abstract(scene, lineedit):
     else:
         scene.ui.listWidget.setFocus(True)
 
+
+def connect_spinbox_value_changed_abstract(value, scene, properties_list, dict_key, spinbox):
+    """Be an abstract spinbox value changed callback function."""
+    ids = scene.list_focus_ids
+    if not ids:
+        return
+    new_value = 0.0
+    for id_ in ids:
+        final_property = scene.project_data.items[id_].item
+        for prop in properties_list:
+            final_property = final_property[prop]
+        new_value = value
+        final_property[dict_key] = new_value
+
+
+def connect_spinbox_editing_finished_abstract(scene):
+    """Be an abstract spinbox editing finished callback function."""
+    scene.edit.add_undo_item(scene)
+    scene.ui.listWidget.setFocus(True)

@@ -14,7 +14,9 @@ from ConnectSignal.ConnectMacros import (
     connect_dash,
     connect_o_arrow,
     connect_d_arrow,
-    connect_strategy
+    connect_strategy,
+    connect_spinbox_editing_finished_abstract,
+    connect_spinbox_value_changed_abstract
 )
 
 
@@ -23,7 +25,11 @@ def connect_linestring(scene):
     scene.ui.linestring_line_width_slider.sliderMoved.connect(
         lambda x: connect_slider_moved_abstract(x, scene, ['line'], 'line_width', lambda x: x/10.0, scene.ui.linestring_line_width_spin))
     scene.ui.linestring_line_width_slider.sliderReleased.connect(
-        lambda : connect_slider_released_abstract(scene))
+        lambda: connect_slider_released_abstract(scene))
+    scene.ui.linestring_line_width_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, ['line'], 'line_width', scene.ui.linestring_line_width_spin))
+    scene.ui.linestring_line_width_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     scene.ui.linestring_connect_to.currentIndexChanged.connect(
         lambda x: connect_combobox_abstract(x, scene, ['line'], 'connect_to', c.attribute_values(c.LineConnectTo)))
@@ -76,6 +82,10 @@ def connect_linestring(scene):
         lambda x: connect_slider_moved_abstract(x, scene, ['line', 'strategy'], 'loop_size', lambda x: x/10.0, scene.ui.linestring_loop_size_spin))
     scene.ui.linestring_loop_size_slider.sliderReleased.connect(
         lambda: connect_slider_released_abstract(scene))
+    scene.ui.linestring_loop_size_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, ['line', 'strategy'], 'loop_size', scene.ui.linestring_loop_size_spin))
+    scene.ui.linestring_loop_size_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     scene.ui.linestring_loop.stateChanged.connect(
         lambda x: connect_checkbox_abstract(x, scene, ['line', 'strategy'], 'loop'))

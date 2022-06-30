@@ -8,7 +8,9 @@ from ConnectSignal.Lambda import (
     connect_slider_released_abstract,
     connect_dash_lineedit_abstract,
     connect_lineedit_abstract,
-    connect_name_change_abstract
+    connect_name_change_abstract,
+    connect_spinbox_value_changed_abstract,
+    connect_spinbox_editing_finished_abstract
 )
 
 from ConnectSignal.ConnectMacros import connect_colour, connect_dash
@@ -37,36 +39,60 @@ def connect_point(scene):
         lambda x: connect_slider_moved_abstract(x, scene, ['marker'], 'size', lambda y: y, scene.ui.point_size_spin))
     scene.ui.point_size_slider.sliderReleased.connect(
         lambda: connect_slider_released_abstract(scene))
+    scene.ui.point_size_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, ['marker'], 'size', scene.ui.point_size_spin))
+    scene.ui.point_size_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     scene.ui.point_shape_number_slider.sliderMoved.connect(
         lambda x: connect_slider_moved_abstract(x, scene, ['marker'], 'shape_number', lambda y: y,
                                                 scene.ui.point_shape_number_spin))
     scene.ui.point_shape_number_slider.sliderReleased.connect(
         lambda: connect_slider_released_abstract(scene))
+    scene.ui.point_shape_number_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, ['marker'], 'shape_number', scene.ui.point_shape_number_spin))
+    scene.ui.point_shape_number_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     scene.ui.point_inner_sep_slider.sliderMoved.connect(
         lambda x: connect_slider_moved_abstract(x, scene, ['marker'], 'inner_sep', lambda y: y,
                                                 scene.ui.point_inner_sep_spin))
     scene.ui.point_inner_sep_slider.sliderReleased.connect(
         lambda: connect_slider_released_abstract(scene))
+    scene.ui.point_inner_sep_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, ['marker'], 'inner_sep', scene.ui.point_inner_sep_spin))
+    scene.ui.point_inner_sep_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     scene.ui.point_ratio_slider.sliderMoved.connect(
         lambda x: connect_slider_moved_abstract(x, scene, ['marker'], 'ratio', lambda y: 0.5 + y / 20,
                                                 scene.ui.point_ratio_spin))
     scene.ui.point_ratio_slider.sliderReleased.connect(
         lambda: connect_slider_released_abstract(scene))
+    scene.ui.point_ratio_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, ['marker'], 'ratio', scene.ui.point_ratio_spin))
+    scene.ui.point_ratio_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     scene.ui.point_text_width_slider.sliderMoved.connect(
         lambda x: connect_slider_moved_abstract(x, scene, ['marker'], 'text_width', lambda y: y,
                                                 scene.ui.point_text_width_spin))
     scene.ui.point_text_width_slider.sliderReleased.connect(
         lambda: connect_slider_released_abstract(scene))
+    scene.ui.point_text_width_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, ['marker'], 'text_width', scene.ui.point_text_width_spin))
+    scene.ui.point_text_width_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     scene.ui.point_line_width_slider.sliderMoved.connect(
         lambda x: connect_slider_moved_abstract(x, scene, ['line'], 'line_width', lambda y: y / 10.0,
                                                 scene.ui.point_line_width_spin))
     scene.ui.point_line_width_slider.sliderReleased.connect(
         lambda: connect_slider_released_abstract(scene))
+    scene.ui.point_line_width_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, ['line'], 'line_width', scene.ui.point_line_width_spin))
+    scene.ui.point_line_width_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     scene.ui.point_custom_dash.editingFinished.connect(
         lambda: connect_dash_lineedit_abstract(scene, ['line', 'dash'], 'custom_pattern', scene.ui.point_custom_dash))
@@ -85,12 +111,20 @@ def connect_point(scene):
                                                 scene.ui.point_offset_spin))
     scene.ui.point_offset_slider.sliderReleased.connect(
         lambda: connect_slider_released_abstract(scene))
+    scene.ui.point_offset_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, ['label'], 'offset', scene.ui.point_offset_spin))
+    scene.ui.point_offset_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     scene.ui.point_rounded_corners_slider.sliderMoved.connect(
         lambda x: connect_slider_moved_abstract(x, scene, ['marker'], 'rounded_corners', lambda y: y / 4,
                                                 scene.ui.point_rounded_corners_spin))
     scene.ui.point_rounded_corners_slider.sliderReleased.connect(
         lambda: connect_slider_released_abstract(scene))
+    scene.ui.point_rounded_corners_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, ['marker'], 'rounded_corners', scene.ui.point_rounded_corners_spin))
+    scene.ui.point_rounded_corners_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     connect_colour(scene, ['fill', 'colour'],
                    scene.ui.point_marker_colour_name,

@@ -5,7 +5,9 @@ from ConnectSignal.Lambda import (
     connect_slider_moved_abstract,
     connect_slider_released_abstract,
     connect_lineedit_abstract,
-    connect_dash_lineedit_abstract
+    connect_dash_lineedit_abstract,
+    connect_spinbox_value_changed_abstract,
+    connect_spinbox_editing_finished_abstract
 )
 
 
@@ -22,14 +24,22 @@ def connect_o_arrow(
         lambda x: connect_combobox_abstract(x, scene, ['o_arrow'], 'side', c.attribute_values(c.ArrowSide)))
 
     ui_length_slider.sliderMoved.connect(
-        lambda x: connect_slider_moved_abstract(x, scene, ['o_arrow'], 'length', lambda x: x/10.0, ui_length_spin))
+        lambda x: connect_slider_moved_abstract(x, scene, ['o_arrow'], 'length', lambda y: y/10.0, ui_length_spin))
     ui_length_slider.sliderReleased.connect(
         lambda : connect_slider_released_abstract(scene))
+    ui_length_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, ['o_arrow'], 'length', ui_length_spin))
+    ui_length_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     ui_width_slider.sliderMoved.connect(
-        lambda x: connect_slider_moved_abstract(x, scene, ['o_arrow'], 'width', lambda x: x/10.0, ui_width_spin))
+        lambda x: connect_slider_moved_abstract(x, scene, ['o_arrow'], 'width', lambda y: y/10.0, ui_width_spin))
     ui_width_slider.sliderReleased.connect(
-        lambda : connect_slider_released_abstract(scene))
+        lambda: connect_slider_released_abstract(scene))
+    ui_width_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, ['o_arrow'], 'width', ui_width_spin))
+    ui_width_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     ui_reversed.stateChanged.connect(
         lambda x: connect_checkbox_abstract(x, scene, ['o_arrow'], 'reversed'))
@@ -48,20 +58,29 @@ def connect_d_arrow(
         lambda x: connect_combobox_abstract(x, scene, ['d_arrow'], 'side', c.attribute_values(c.ArrowSide)))
 
     ui_length_slider.sliderMoved.connect(
-        lambda x: connect_slider_moved_abstract(x, scene, ['d_arrow'], 'length', lambda x: x/10.0, ui_length_spin))
+        lambda x: connect_slider_moved_abstract(x, scene, ['d_arrow'], 'length', lambda y: y/10.0, ui_length_spin))
     ui_length_slider.sliderReleased.connect(
-        lambda : connect_slider_released_abstract(scene))
+        lambda: connect_slider_released_abstract(scene))
+    ui_length_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, ['d_arrow'], 'length', ui_length_spin))
+    ui_length_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     ui_width_slider.sliderMoved.connect(
-        lambda x: connect_slider_moved_abstract(x, scene, ['d_arrow'], 'width', lambda x: x/10.0, ui_width_spin))
+        lambda x: connect_slider_moved_abstract(x, scene, ['d_arrow'], 'width', lambda y: y/10.0, ui_width_spin))
     ui_width_slider.sliderReleased.connect(
-        lambda : connect_slider_released_abstract(scene))
+        lambda: connect_slider_released_abstract(scene))
+    ui_width_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, ['d_arrow'], 'width', ui_width_spin))
+    ui_width_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     ui_reversed.stateChanged.connect(
         lambda x: connect_checkbox_abstract(x, scene, ['d_arrow'], 'reversed'))
 
 
-def connect_colour(scene, attributes, ui_name, ui_mix_with,
+def connect_colour(
+        scene, attributes, ui_name, ui_mix_with,
         ui_mix_spin, ui_mix_slider,
         ui_strength_spin, ui_strength_slider):
     """Connect colour."""
@@ -71,14 +90,22 @@ def connect_colour(scene, attributes, ui_name, ui_mix_with,
         lambda x: connect_combobox_abstract(x, scene, attributes, 'mix_with', c.attribute_values(c.Colour), True))
 
     ui_mix_slider.sliderMoved.connect(
-        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'mix_percent', lambda x: x, ui_mix_spin))
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'mix_percent', lambda y: y, ui_mix_spin))
     ui_mix_slider.sliderReleased.connect(
-        lambda : connect_slider_released_abstract(scene))
+        lambda: connect_slider_released_abstract(scene))
+    ui_mix_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, attributes, 'mix_percent', ui_mix_spin))
+    ui_mix_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     ui_strength_slider.sliderMoved.connect(
-        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'strength', lambda x: x, ui_strength_spin))
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'strength', lambda y: y, ui_strength_spin))
     ui_strength_slider.sliderReleased.connect(
-        lambda : connect_slider_released_abstract(scene))
+        lambda: connect_slider_released_abstract(scene))
+    ui_strength_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, attributes, 'strength', ui_strength_spin))
+    ui_strength_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
 
 def connect_fill_pattern(
@@ -93,29 +120,49 @@ def connect_fill_pattern(
         lambda x: connect_combobox_abstract(x, scene, attributes, 'type', c.attribute_values(c.PatternType), True))
 
     ui_distance_slider.sliderMoved.connect(
-        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'distance', lambda x: x/10.0, ui_distance_spin))
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'distance', lambda y: y/10.0, ui_distance_spin))
     ui_distance_slider.sliderReleased.connect(
-        lambda : connect_slider_released_abstract(scene))
+        lambda: connect_slider_released_abstract(scene))
+    ui_distance_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, attributes, 'distance', ui_distance_spin))
+    ui_distance_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     ui_size_slider.sliderMoved.connect(
-        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'size', lambda x: x/20.0, ui_size_spin))
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'size', lambda y: y/20.0, ui_size_spin))
     ui_size_slider.sliderReleased.connect(
-        lambda : connect_slider_released_abstract(scene))
+        lambda: connect_slider_released_abstract(scene))
+    ui_size_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, attributes, 'size', ui_size_spin))
+    ui_size_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     ui_rotation_slider.sliderMoved.connect(
-        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'rotation', lambda x: x*1.8, ui_rotation_spin))
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'rotation', lambda y: y*1.8, ui_rotation_spin))
     ui_rotation_slider.sliderReleased.connect(
-        lambda : connect_slider_released_abstract(scene))
+        lambda: connect_slider_released_abstract(scene))
+    ui_rotation_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, attributes, 'rotation', ui_rotation_spin))
+    ui_rotation_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     ui_xshift_slider.sliderMoved.connect(
-        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'xshift', lambda x: x/20.0, ui_xshift_spin))
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'xshift', lambda y: y/20.0, ui_xshift_spin))
     ui_xshift_slider.sliderReleased.connect(
-        lambda : connect_slider_released_abstract(scene))
+        lambda: connect_slider_released_abstract(scene))
+    ui_xshift_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, attributes, 'xshift', ui_xshift_spin))
+    ui_xshift_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     ui_yshift_slider.sliderMoved.connect(
-        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'yshift', lambda x: x/20.0, ui_yshift_spin))
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'yshift', lambda y: y/20.0, ui_yshift_spin))
     ui_yshift_slider.sliderReleased.connect(
-        lambda : connect_slider_released_abstract(scene))
+        lambda: connect_slider_released_abstract(scene))
+    ui_yshift_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, attributes, 'yshift', ui_yshift_spin))
+    ui_yshift_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
 
 def connect_decoration(
@@ -128,24 +175,32 @@ def connect_decoration(
         lambda x: connect_combobox_abstract(x, scene, attributes, 'type', c.attribute_values(c.DecorationType), True))
 
     ui_amplitude_slider.sliderMoved.connect(
-        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'amplitude', lambda x: x/10.0, ui_amplitude_spin))
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'amplitude', lambda y: y/10.0, ui_amplitude_spin))
     ui_amplitude_slider.sliderReleased.connect(
-        lambda : connect_slider_released_abstract(scene))
+        lambda: connect_slider_released_abstract(scene))
+    ui_amplitude_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, attributes, 'amplitude', ui_amplitude_spin))
+    ui_amplitude_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     ui_wavelength_slider.sliderMoved.connect(
-        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'wavelength', lambda x: x/10.0, ui_wavelength_spin))
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'wavelength', lambda y: y/10.0, ui_wavelength_spin))
     ui_wavelength_slider.sliderReleased.connect(
-        lambda : connect_slider_released_abstract(scene))
+        lambda: connect_slider_released_abstract(scene))
+    ui_wavelength_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, attributes, 'wavelength', ui_wavelength_spin))
+    ui_wavelength_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     ui_text.editingFinished.connect(
-        lambda : connect_lineedit_abstract(scene, attributes, 'text', ui_text))
+        lambda: connect_lineedit_abstract(scene, attributes, 'text', ui_text))
 
 
 def connect_dash(scene, attributes, ui_dash, ui_custom_stroke):  # TODO change ['line', 'dash'] to attributes
     """Connect dash pattern."""
 
     ui_custom_stroke.editingFinished.connect(
-        lambda : connect_dash_lineedit_abstract(scene, ['line', 'dash'], 'custom_pattern', ui_custom_stroke))
+        lambda: connect_dash_lineedit_abstract(scene, ['line', 'dash'], 'custom_pattern', ui_custom_stroke))
 
     ui_dash.currentIndexChanged.connect(
         lambda x: connect_combobox_abstract(x, scene, ['line', 'dash'], 'stroke', c.attribute_values(c.LineStroke)))
@@ -203,26 +258,46 @@ def connect_strategy(
         lambda x: connect_bend_direction_func(x, scene))
 
     ui_in_angle_slider.sliderMoved.connect(
-        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'in_angle', lambda x: x*3.6, ui_in_angle_spin))
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'in_angle', lambda y: y*3.6, ui_in_angle_spin))
     ui_in_angle_slider.sliderReleased.connect(
-        lambda : connect_slider_released_abstract(scene))
+        lambda: connect_slider_released_abstract(scene))
+    ui_in_angle_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, attributes, 'in_angle', ui_in_angle_spin))
+    ui_in_angle_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     ui_out_angle_slider.sliderMoved.connect(
-        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'out_angle', lambda x: x*3.6, ui_out_angle_spin))
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'out_angle', lambda y: y*3.6, ui_out_angle_spin))
     ui_out_angle_slider.sliderReleased.connect(
-        lambda : connect_slider_released_abstract(scene))
+        lambda: connect_slider_released_abstract(scene))
+    ui_out_angle_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, attributes, 'out_angle', ui_out_angle_spin))
+    ui_out_angle_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     ui_rounded_corners_slider.sliderMoved.connect(
-        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'rounded_corners', lambda x: x/4.0, ui_rounded_corners_spin))
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'rounded_corners', lambda y: y/4.0, ui_rounded_corners_spin))
     ui_rounded_corners_slider.sliderReleased.connect(
-        lambda : connect_slider_released_abstract(scene))
+        lambda: connect_slider_released_abstract(scene))
+    ui_rounded_corners_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, attributes, 'rounded_corners', ui_rounded_corners_spin))
+    ui_rounded_corners_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     ui_bend_angle_slider.sliderMoved.connect(
-        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'bend_angle', lambda x: x*3.6, ui_bend_angle_spin))
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'bend_angle', lambda y: y*3.6, ui_bend_angle_spin))
     ui_bend_angle_slider.sliderReleased.connect(
-        lambda : connect_slider_released_abstract(scene))
+        lambda: connect_slider_released_abstract(scene))
+    ui_bend_angle_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, attributes, 'bend_angle', ui_bend_angle_spin))
+    ui_bend_angle_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     ui_smooth_tension_slider.sliderMoved.connect(
-        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'smooth_tension', lambda x: x/50.0+0.2, ui_smooth_tension_spin))
+        lambda x: connect_slider_moved_abstract(x, scene, attributes, 'smooth_tension', lambda y: y/50.0+0.2, ui_smooth_tension_spin))
     ui_smooth_tension_slider.sliderReleased.connect(
-        lambda : connect_slider_released_abstract(scene))
+        lambda: connect_slider_released_abstract(scene))
+    ui_smooth_tension_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, attributes, 'smooth_tension', ui_smooth_tension_spin))
+    ui_smooth_tension_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))

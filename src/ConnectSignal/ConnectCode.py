@@ -11,7 +11,7 @@ def __add_new_package(scene):
     """Add new package."""
     selector = scene.ui.packages_listWidget  # alias for the listWidget
     if selector.item(selector.count() - 1).text() != '':
-        item = QtWidgets.QListWidgetItem('')
+        item = QtWidgets.QListWidgetItem('% \\usepackage{new-package}')
         item.setFlags(item.flags() | QtCore.Qt.ItemIsEditable)
         selector.addItem(item)
         selector.editItem(item)

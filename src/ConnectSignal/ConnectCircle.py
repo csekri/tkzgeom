@@ -2,7 +2,9 @@ from ConnectSignal.Lambda import (
     connect_slider_moved_abstract,
     connect_slider_released_abstract,
     connect_def_str_lineedit_abstract,
-    connect_name_change_abstract
+    connect_name_change_abstract,
+    connect_spinbox_value_changed_abstract,
+    connect_spinbox_editing_finished_abstract
 )
 
 from ConnectSignal.ConnectMacros import (
@@ -26,12 +28,20 @@ def connect_circle(scene):
                                                 scene.ui.circle_line_width_spin))
     scene.ui.circle_line_width_slider.sliderReleased.connect(
         lambda: connect_slider_released_abstract(scene))
+    scene.ui.circle_line_width_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, ['line'], 'line_width', scene.ui.circle_line_width_spin))
+    scene.ui.circle_line_width_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     scene.ui.circle_double_distance_slider.sliderMoved.connect(
         lambda x: connect_slider_moved_abstract(x, scene, ['line', 'double'], 'distance', lambda x: x / 10.0,
                                                 scene.ui.circle_double_distance_spin))
     scene.ui.circle_double_distance_slider.sliderReleased.connect(
         lambda: connect_slider_released_abstract(scene))
+    scene.ui.circle_double_distance_spin.valueChanged.connect(
+        lambda x: connect_spinbox_value_changed_abstract(x, scene, ['line', 'double'], 'distance', scene.ui.circle_double_distance_spin))
+    scene.ui.circle_double_distance_spin.editingFinished.connect(
+        lambda: connect_spinbox_editing_finished_abstract(scene))
 
     connect_fill_pattern(scene, ['fill', 'pattern'],
                          scene.ui.circle_pattern_type,
