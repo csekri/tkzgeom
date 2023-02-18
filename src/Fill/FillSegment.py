@@ -21,8 +21,8 @@ def fill_segment_fields(scene):
 
     scene.ui.segment_def_str.setText(scene.project_data.items[ids[0]].definition_string())
     scene.ui.segment_name.setText(segment["id"])
-    scene.ui.segment_line_width_slider.setValue(10.0 * segment["line"]["line_width"])
-    scene.ui.segment_line_width_spin.setValue(segment["line"]["line_width"])
+    scene.ui.segment_line_width_slider.setValue(int(10.0 * segment["line"]["line_width"]))
+    scene.ui.segment_line_width_spin.setValue(int(segment["line"]["line_width"]))
 
     scene.skip_combobox_changes = True
     scene.ui.segment_o_connect_to.setCurrentIndex(c.attribute_values(c.LineConnectTo).index(segment["line"]["o_connect_to"]))
@@ -34,23 +34,23 @@ def fill_segment_fields(scene):
     scene.ui.segment_show.setChecked(segment["show"])
     scene.skip_checkbox_changes = False
 
-    scene.ui.segment_double_distance_slider.setValue(10.0 * segment["line"]["double"]["distance"])
-    scene.ui.segment_double_distance_spin.setValue(segment["line"]["double"]["distance"])
+    scene.ui.segment_double_distance_slider.setValue(int(10.0 * segment["line"]["double"]["distance"]))
+    scene.ui.segment_double_distance_spin.setValue(int(segment["line"]["double"]["distance"]))
 
-    scene.ui.segment_o_extension_slider.setValue(66.6+33.3*segment["line"]["o_extension"])
-    scene.ui.segment_o_extension_spin.setValue(segment["line"]["o_extension"])
+    scene.ui.segment_o_extension_slider.setValue(int(66.6+33.3*segment["line"]["o_extension"]))
+    scene.ui.segment_o_extension_spin.setValue(int(segment["line"]["o_extension"]))
 
-    scene.ui.segment_d_extension_slider.setValue(33.3*segment["line"]["d_extension"])
-    scene.ui.segment_d_extension_spin.setValue(segment["line"]["d_extension"])
+    scene.ui.segment_d_extension_slider.setValue(int(33.3*segment["line"]["d_extension"]))
+    scene.ui.segment_d_extension_spin.setValue(int(segment["line"]["d_extension"]))
 
-    scene.ui.segment_marker_width_slider.setValue(10.0*segment["marker"]["width"])
-    scene.ui.segment_marker_width_spin.setValue(segment["marker"]["width"])
+    scene.ui.segment_marker_width_slider.setValue(int(10.0*segment["marker"]["width"]))
+    scene.ui.segment_marker_width_spin.setValue(int(segment["marker"]["width"]))
 
-    scene.ui.segment_marker_size_slider.setValue(10.0*segment["marker"]["size"])
-    scene.ui.segment_marker_size_spin.setValue(segment["marker"]["size"])
+    scene.ui.segment_marker_size_slider.setValue(int(10.0*segment["marker"]["size"]))
+    scene.ui.segment_marker_size_spin.setValue(int(segment["marker"]["size"]))
 
-    scene.ui.segment_marker_position_slider.setValue(100.0*segment["marker"]["position"])
-    scene.ui.segment_marker_position_spin.setValue(segment["marker"]["position"])
+    scene.ui.segment_marker_position_slider.setValue(int(100.0*segment["marker"]["position"]))
+    scene.ui.segment_marker_position_spin.setValue(int(segment["marker"]["position"]))
 
     fill_o_arrow(scene, segment,
         scene.ui.segment_o_tip,

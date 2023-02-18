@@ -6,14 +6,14 @@ def attribute_values(class_input):
     return [m for v, m in vars(class_input).items() if not (v.startswith('_') or callable(m))]
 
 
-class MouseState:  # TODO check if this is actually used anywhere, if so delete
+class MouseState:
     UP = 0
     DOWN = 1
 
 
-class MouseButton:  # TODO check if this is actually used anywhere, if so delete
-    LEFT = 0
-    RIGHT = 1
+# class MouseButton:  # TODO check if this is actually used anywhere, if so delete
+#     LEFT = 0
+#     RIGHT = 1
 
 
 # The base colours in tikz, 19 colours altogether.
@@ -623,9 +623,20 @@ CIRCLE_PATTERN_LENGTH = {Tool.CIRCLE_WITH_CENTRE: 2,
 # List of types in items as it appears in the tabWidget.
 TYPES = ['point', 'segment', 'circle', 'polygon', 'linestring', 'colour', 'code']
 
-Default_Settings_Dict = {
+Default_Mutable_Settings_Dict = {
     'PDF_LATEX_COMMAND': r'pdflatex -synctex=1 -interaction=batchmode --shell-escape -halt-on-error tmp.tex',
     'PDF2PNG': 'pdftocairo -png -scale-to-x #1 -scale-to-y #2 tmp.pdf',
     'SYNTAX': '$default',
     'ASPECT_RATIO': [16, 9],
+}
+
+Immutable_Settings_Dict = {
+    'SEGMENT_THICKNESS': 4,
+    'CIRCLE_THICKNESS': 4,
+    'LINESTRING_THICKNESS': 4,
+    'LINESTRING_DASH_PATTERN': [4, 4],
+    'POLYGON_THICKNESS': 4,
+    'POINT_RADIUS': 6,
+
+    'MOVABLE_POINT_COLOUR': []
 }

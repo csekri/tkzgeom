@@ -40,7 +40,7 @@ class EuclMainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         """Construct EuclMainWindow."""
         super(EuclMainWindow, self).__init__()
-        self.ui = uic.loadUi('main.ui', self)
+        self.ui = uic.loadUi('layouts/main.ui', self)
         self.scene = GraphicsScene(self.ui, self.setWindowTitle)
         self.ui.graphicsView.setScene(self.scene)
         self.show()  # computes the widget dimensions

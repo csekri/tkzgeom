@@ -7,7 +7,7 @@ class SettingsDialog(QtWidgets.QDialog):
     def __init__(self, scene):
         """Construct SettingsDialog."""
         super(SettingsDialog, self).__init__()
-        self.ui = uic.loadUi('settings_dialog.ui', self)
+        self.ui = uic.loadUi('layouts/settings_dialog.ui', self)
         self.scene = scene
         self.ui.buttonBox.accepted.connect(self.accept)
 

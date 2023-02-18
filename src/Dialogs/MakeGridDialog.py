@@ -10,7 +10,7 @@ class MakeGridDialog(QtWidgets.QDialog):
     def __init__(self, scene, data):
         """Construct MakeGridDialog."""
         super(MakeGridDialog, self).__init__()
-        self.ui = uic.loadUi('makegrid.ui', self)
+        self.ui = uic.loadUi('layouts/makegrid.ui', self)
         self.scene = scene
         self.rows = 1
         self.cols = 1

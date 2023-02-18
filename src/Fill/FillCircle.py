@@ -23,8 +23,8 @@ def fill_circle_fields(scene):
     scene.ui.circle_def_str.setText(scene.project_data.items[ids[0]].definition_string())
     scene.ui.circle_name.setText(circle["id"])
 
-    scene.ui.circle_line_width_slider.setValue(10.0 * circle["line"]["line_width"])
-    scene.ui.circle_line_width_spin.setValue(circle["line"]["line_width"])
+    scene.ui.circle_line_width_slider.setValue(int(10.0 * circle["line"]["line_width"]))
+    scene.ui.circle_line_width_spin.setValue(int(circle["line"]["line_width"]))
 
     fill_fill_pattern(scene, circle["fill"]["pattern"],
         scene.ui.circle_pattern_type,
@@ -83,5 +83,5 @@ def fill_circle_fields(scene):
 
     fill_dash(scene, circle["line"]["dash"], scene.ui.circle_line_stroke, scene.ui.circle_custom_dash)
 
-    scene.ui.circle_double_distance_slider.setValue(10.0 * circle["line"]["double"]["distance"])
-    scene.ui.circle_double_distance_spin.setValue(circle["line"]["double"]["distance"])
+    scene.ui.circle_double_distance_slider.setValue(int(10.0 * circle["line"]["double"]["distance"]))
+    scene.ui.circle_double_distance_spin.setValue(int(circle["line"]["double"]["distance"]))

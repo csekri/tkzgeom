@@ -28,31 +28,31 @@ def fill_point_fields(scene):
     scene.ui.point_show.setChecked(point["show"])
     scene.skip_checkbox_changes = False
 
-    scene.ui.point_size_slider.setValue(point["marker"]["size"])
-    scene.ui.point_size_spin.setValue(point["marker"]["size"])
+    scene.ui.point_size_slider.setValue(int(point["marker"]["size"]))
+    scene.ui.point_size_spin.setValue(int(point["marker"]["size"]))
 
-    scene.ui.point_shape_number_slider.setValue(point["marker"]["shape_number"])
-    scene.ui.point_shape_number_spin.setValue(point["marker"]["shape_number"])
+    scene.ui.point_shape_number_slider.setValue(int(point["marker"]["shape_number"]))
+    scene.ui.point_shape_number_spin.setValue(int(point["marker"]["shape_number"]))
 
-    scene.ui.point_inner_sep_slider.setValue(point["marker"]["inner_sep"])
-    scene.ui.point_inner_sep_spin.setValue(point["marker"]["inner_sep"])
+    scene.ui.point_inner_sep_slider.setValue(int(point["marker"]["inner_sep"]))
+    scene.ui.point_inner_sep_spin.setValue(int(point["marker"]["inner_sep"]))
 
-    scene.ui.point_ratio_slider.setValue(-10 + 20 * point["marker"]["ratio"])
-    scene.ui.point_ratio_spin.setValue(point["marker"]["ratio"])
+    scene.ui.point_ratio_slider.setValue(int(-10 + 20 * point["marker"]["ratio"]))
+    scene.ui.point_ratio_spin.setValue(int(point["marker"]["ratio"]))
 
-    scene.ui.point_text_width_slider.setValue(point["marker"]["text_width"])
-    scene.ui.point_text_width_spin.setValue(point["marker"]["text_width"])
+    scene.ui.point_text_width_slider.setValue(int(point["marker"]["text_width"]))
+    scene.ui.point_text_width_spin.setValue(int(point["marker"]["text_width"]))
 
-    scene.ui.point_line_width_slider.setValue(10.0 * point["line"]["line_width"])
-    scene.ui.point_line_width_spin.setValue(point["line"]["line_width"])
+    scene.ui.point_line_width_slider.setValue(int(10.0 * point["line"]["line_width"]))
+    scene.ui.point_line_width_spin.setValue(int(point["line"]["line_width"]))
 
     scene.ui.point_label_text.setText(point["label"]["text"])
 
-    scene.ui.point_offset_slider.setValue(10 + point["label"]["offset"])
-    scene.ui.point_offset_spin.setValue(point["label"]["offset"])
+    scene.ui.point_offset_slider.setValue(int(10 + point["label"]["offset"]))
+    scene.ui.point_offset_spin.setValue(int(point["label"]["offset"]))
 
-    scene.ui.point_rounded_corners_slider.setValue(4 * point["marker"]["rounded_corners"])
-    scene.ui.point_rounded_corners_spin.setValue(point["marker"]["rounded_corners"])
+    scene.ui.point_rounded_corners_slider.setValue(int(4 * point["marker"]["rounded_corners"]))
+    scene.ui.point_rounded_corners_spin.setValue(int(point["marker"]["rounded_corners"]))
 
     fill_colour(scene, point["fill"]["colour"], colours,
                 scene.ui.point_marker_colour_name,

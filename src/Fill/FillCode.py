@@ -8,8 +8,6 @@ def fill_code_fields(scene):
     # if c.TYPES[scene.current_tab_idx] != 'code':
     #     return
 
-    print("here")
-
     scene.ui.packages_listWidget.clear()
     for i, package in enumerate(scene.project_data.packages):
         item = QtWidgets.QListWidgetItem(package)

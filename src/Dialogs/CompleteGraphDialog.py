@@ -10,7 +10,7 @@ class CompleteGraphDialog(QtWidgets.QDialog):
     def __init__(self, scene, data):
         """Construct CompleteGraphDialog."""
         super(CompleteGraphDialog, self).__init__()
-        self.ui = uic.loadUi('regularpolygon.ui', self)
+        self.ui = uic.loadUi('layouts/regularpolygon.ui', self)
         self.scene = scene
         self.sides = 3
         self.free_point = False

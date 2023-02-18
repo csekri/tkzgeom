@@ -24,8 +24,8 @@ def fill_linestring_fields(scene):
     scene.ui.linestring_def_str.setText(scene.project_data.items[ids[0]].definition_string())
     scene.ui.linestring_name.setText(linestring["id"])
 
-    scene.ui.linestring_line_width_slider.setValue(10.0 * linestring["line"]["line_width"])
-    scene.ui.linestring_line_width_spin.setValue(linestring["line"]["line_width"])
+    scene.ui.linestring_line_width_slider.setValue(int(10.0 * linestring["line"]["line_width"]))
+    scene.ui.linestring_line_width_spin.setValue(int(linestring["line"]["line_width"]))
 
     scene.skip_combobox_changes = True
     scene.ui.linestring_connect_to.setCurrentIndex(c.attribute_values(c.LineConnectTo).index(linestring["line"]["connect_to"]))
@@ -75,8 +75,8 @@ def fill_linestring_fields(scene):
         scene.ui.linestring_bend_angle_spin, scene.ui.linestring_bend_angle_slider,
         scene.ui.linestring_smooth_tension_spin, scene.ui.linestring_smooth_tension_slider)
 
-    scene.ui.linestring_loop_size_slider.setValue(10.0 * linestring["line"]["strategy"]["loop_size"])
-    scene.ui.linestring_loop_size_spin.setValue(linestring["line"]["strategy"]["loop_size"])
+    scene.ui.linestring_loop_size_slider.setValue(int(10.0 * linestring["line"]["strategy"]["loop_size"]))
+    scene.ui.linestring_loop_size_spin.setValue(int(linestring["line"]["strategy"]["loop_size"]))
 
     scene.skip_checkox_changes = True
     scene.ui.linestring_loop.setChecked(linestring["line"]["strategy"]["loop"])
